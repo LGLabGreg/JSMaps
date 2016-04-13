@@ -1,0 +1,16 @@
+{
+  "name": "LGSVGMap",
+  "version": "0.0.1",
+  "description": "",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "~0.4.1",
+    "grunt-contrib-connect": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "dependencies": {
+    "node-static": "^0.7.6"
+  }
+}
