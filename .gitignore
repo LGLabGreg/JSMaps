@@ -2,6 +2,7 @@
 .sass-cache/
 build/
 zip/
+docs/
 .idea/
 
 ### grunt ###

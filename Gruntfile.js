@@ -111,7 +111,8 @@ module.exports = function(grunt) {
           archive: 'zip/' + map + '.zip'
         },
         files: [
-          {expand: true, cwd: 'build/', src: ['**'], dest: map + '/'}, // includes files in path and its subdirs
+          {expand: true, cwd: 'docs/', src: ['**'], dest: ''},
+          {expand: true, cwd: 'build/', src: ['**'], dest: map + '/'},
         ]
       }
     }
