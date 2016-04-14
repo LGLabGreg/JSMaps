@@ -16,6 +16,9 @@ module.exports = function(grunt) {
   if(!map) {
     grunt.fail.fatal('Missing "map" argument.');
   }
+  if(!grunt.file.exists('src/maps/' + map +'.js')) {
+    grunt.fail.fatal('The map for ' + map + ' doesn\'t exist.');
+  }
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
