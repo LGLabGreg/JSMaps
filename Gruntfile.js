@@ -9,6 +9,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
 	var map = grunt.option('map');
 
@@ -103,10 +104,21 @@ module.exports = function(grunt) {
         }
         }
       }
+    },
+    compress: {
+      main: {
+        options: {
+          archive: 'zip/' + map + '.zip'
+        },
+        files: [
+          {expand: true, cwd: 'build/', src: ['**'], dest: map + '/'}, // includes files in path and its subdirs
+        ]
+      }
     }
 	});
 
 	grunt.registerTask('development', ['clean', 'copy', 'clean:maps', 'connect:server', 'watch']);
 	grunt.registerTask('build', ['clean', 'copy', 'clean:maps']);
+  grunt.registerTask('zip', ['clean', 'copy', 'clean:maps', 'compress']);
 
 };
