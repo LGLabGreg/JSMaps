@@ -1,5 +1,9 @@
 # lg-svg-map
-App to build deployable and zipped svg maps - available maps are located in src maps
+App to build deployable and zipped svg maps - available maps are located in src maps, maps currently available include:
+
+* Africa
+* India
+* United-Kingdom Regions
 
 You can also download individual maps from http://freehtml5maps.com/
 
