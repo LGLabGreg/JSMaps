@@ -2,7 +2,15 @@
 App to build deployable and zipped svg maps - available maps are located in src maps, maps currently available include:
 
 * Africa
+* Brazil
+* France
+* Germany
 * India
+* Italy
+* Mexico
+* Palestine-Israel
+* South-america
+* Syria
 * United-Kingdom Regions
 
 You can also download individual maps from http://freehtml5maps.com/
