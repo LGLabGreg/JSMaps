@@ -13,6 +13,7 @@ App to build deployable and zipped svg maps - available maps are located in src 
 * South-america
 * Syria
 * United-Kingdom Regions
+* USA
 
 You can also download individual maps from http://freehtml5maps.com/
 
