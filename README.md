@@ -3,6 +3,7 @@ App to build deployable and zipped svg maps - available maps are located in src 
 
 * Africa
 * Asia
+* Belgium
 * Brazil
 * France
 * Germany
@@ -10,6 +11,7 @@ App to build deployable and zipped svg maps - available maps are located in src 
 * Italy
 * Mexico
 * Palestine-Israel
+* Romania
 * South-america
 * Syria
 * United-Kingdom Regions
