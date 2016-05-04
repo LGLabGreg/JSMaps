@@ -2,6 +2,7 @@
 App to build deployable and zipped svg maps - available maps are located in src maps, maps currently available include:
 
 * Africa
+* Australia
 * Asia
 * Belgium
 * Brazil
