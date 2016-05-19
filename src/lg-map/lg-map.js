@@ -40,6 +40,23 @@ $(function() {
       $('body').css('cursor', 'crosshair');
     }
 
+    //Because I'm lazy, when positioning pins or text abbreviations, click where you want it and the position will be copied to clipboard in the format textX:497,textY: 303, which you can paste in {mapName}.js 
+    var copyToClipboard = function(textToCopy){
+      $("body")
+        .append($('<input type="text" name="fname" class="textToCopyInput"/>' )
+        .val(textToCopy))
+        .find(".textToCopyInput")
+        .select();
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log(textToCopy + 'copied to clipboard!');
+      } catch (err) {
+        window.prompt("To copy the text to clipboard: Ctrl+C, Enter", textToCopy);
+      }
+      $(".textToCopyInput").remove();
+    } 
+
     /////////////////////////////
     //Text area
     /////////////////////////////
@@ -422,6 +439,10 @@ $(function() {
         var relY = Math.round(mouseY - offset.top + scrollTop);
         $('.mouse-position .xPos').text('X: ' + relX);
         $('.mouse-position .yPos').text('Y: ' + relY);
+        win.click(function() {
+          var txt = 'textX:' +  relX + ',\r\ntextY: ' + relY +',';
+          copyToClipboard(txt);
+        });
       }
     }
 
