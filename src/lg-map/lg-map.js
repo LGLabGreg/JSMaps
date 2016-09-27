@@ -193,7 +193,7 @@ $(function() {
 
         });
 
-        hitArea.mouseup(function(e) {
+        hitArea.click(function(e) {
 
           var id = $(this.node).attr('id');
 
