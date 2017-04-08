@@ -30,7 +30,10 @@ Documentation for map use can be found here: http://freehtml5maps.com/documentat
 ### build - builds distributable map in build folder
 * $ grunt build --map={mapName}
 
-### dev - same as build + watches src folder
+### dev - same as build + watches src folder + creates server on http://localhost:8000/
 * $ grunt development --map={mapName}
+
+### zip - builds and zips map in zip folder
+* $ grunt zip --map={mapName}
 
 
