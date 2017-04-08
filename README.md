@@ -15,6 +15,7 @@ App to build deployable and zipped svg maps - available maps are located in src 
 * Palestine-Israel
 * Romania
 * South-america
+* Spain
 * Syria
 * Turkey
 * United-Kingdom Regions
