@@ -14,11 +14,12 @@ App to build deployable and zipped svg maps - available maps are located in src 
 * Mexico
 * Palestine-Israel
 * Romania
-* South-america
+* South Africa
+* South America
 * Spain
 * Syria
 * Turkey
-* United-Kingdom Regions
+* United Kingdom Regions
 * USA
 
 You can also download individual maps from http://freehtml5maps.com/
