@@ -13,6 +13,8 @@ $(function() {
   var useTextAtBottom;
   var win = $(window);
   var winWidth = win.width();
+  var tooltipOffsetY = 0;
+  var isTooltipBelowMouse = false;
   
   window.mobileAndTabletcheck = function() {
     var check = false;
@@ -50,7 +52,6 @@ $(function() {
       try {
         var successful = document.execCommand('copy');
         var msg = successful ? 'successful' : 'unsuccessful';
-        console.log(textToCopy + 'copied to clipboard!');
       } catch (err) {
         window.prompt("To copy the text to clipboard: Ctrl+C, Enter", textToCopy);
       }
@@ -392,10 +393,21 @@ $(function() {
       }
       removeTooltip();
       map.after($('<div />').addClass('tooltip'));
-      $('.tooltip').html(text).css({
+      $('.tooltip').html(text);
+
+      // Check tootip fits at the top
+      calculateTooltipOffset();
+
+      $('.tooltip').css({
         left: mouseX - 50,
-        top: mouseY - 70
+        top: mouseY + tooltipOffsetY
       }).fadeIn();
+    }
+
+    function calculateTooltipOffset(){
+      tooltipOffsetY = -70;
+      isTooltipBelowMouse = (mouseY - $('.tooltip').height() + tooltipOffsetY) < 0;
+      tooltipOffsetY = isTooltipBelowMouse ? +30 : tooltipOffsetY;
     }
 
     function removeTooltip(){
@@ -426,10 +438,11 @@ $(function() {
       if (mouseY < 0) {
         mouseY = 0;
       }
-
+      
+      calculateTooltipOffset();
       map.next('.tooltip').css({
         left: mouseX - 50,
-        top: mouseY - 70
+        top: mouseY + tooltipOffsetY
       });
 
       if(config.displayMousePosition){
