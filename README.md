@@ -13,6 +13,7 @@ App to build deployable and zipped svg maps - available maps are located in src 
 * Italy
 * Libya
 * Mexico
+* Monaco
 * Palestine-Israel
 * Romania
 * Singapore

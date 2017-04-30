@@ -15,6 +15,7 @@ $(function() {
   var winWidth = win.width();
   var tooltipOffsetY = 0;
   var isTooltipBelowMouse = false;
+  var statesHitAreas = [];
   
   window.mobileAndTabletcheck = function() {
     var check = false;
@@ -24,6 +25,21 @@ $(function() {
   var isMobile = window.mobileAndTabletcheck();
   var isTouchDevice = 'ontouchstart' in window || navigator.MaxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
+
+  /////////////////////////////
+  //Extend raphael methods
+  /////////////////////////////
+  Raphael.el.trigger = function(eventName){
+    for(var i = 0, len = this.events.length; i < len; i++) {
+        if (this.events[i].name == eventName) {
+            this.events[i].f.call(this);
+        }
+    }
+  }
+
+  /////////////////////////////
+  //Init map
+  /////////////////////////////
   $.getScript( mapWrapper.data('map'), function() {
 
     /////////////////////////////
@@ -149,8 +165,9 @@ $(function() {
           "opacity": 0,
           'cursor': paths[i].enable ? (config.displayMousePosition ? 'crosshair' : 'pointer') : 'default'
         });
-
         hitArea.node.id = i;
+        hitArea.node.setAttribute('lg-map-name', paths[state].name);
+        statesHitAreas.push(hitArea);
 
         hitArea.mouseover(function(e) {
 
@@ -259,6 +276,8 @@ $(function() {
 
         var pin = r.circle(pins[i].xPos, pins[i].yPos, config.pinSize).attr(pinattrs);
         pin.node.id = i;
+        pin.node.setAttribute('lg-map-name', pins[i].name);
+        statesHitAreas.push(pin);
 
         pin.mouseover(function(e) {
 
@@ -293,7 +312,7 @@ $(function() {
           
         });
 
-        pin.mouseup(function(e) {
+        pin.click(function(e) {
 
           var id = $(this.node).attr('id');
 
@@ -462,13 +481,35 @@ $(function() {
     // Set-up to use getMouseXY function onMouseMove
     document.body.onmousemove = getMouseXY;
 
-    
 
+    /////////////////////////////
+    //Trigger raphel element click from external select
+    /////////////////////////////
+    function selectListener(e) {
+      if ($('.lg-map-select').length) {
+
+        var selectValue;
+        var pathName;
+
+        $('.lg-map-select').on('change', function() {
+          selectValue = this.value;
+          $.each(statesHitAreas, function(index, elem) {
+            pathName = elem.node.getAttribute('lg-map-name');
+            if (selectValue === pathName) {
+              statesHitAreas[index].trigger('click');
+            }
+          });
+        });
+
+      }
+    }
+    
     /////////////////////////////
     //Init map
     /////////////////////////////
     createMap();
     createPins();
+    selectListener();
 
   });
 
