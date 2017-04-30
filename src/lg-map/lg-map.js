@@ -58,25 +58,10 @@ $(function() {
       $('body').css('cursor', 'crosshair');
     }
 
-    //Because I'm lazy, when positioning pins or text abbreviations, click where you want it and the position will be copied to clipboard in the format textX:497,textY: 303, which you can paste in {mapName}.js 
-    var copyToClipboard = function(textToCopy){
-      $("body")
-        .append($('<input type="text" name="fname" class="textToCopyInput"/>' )
-        .val(textToCopy))
-        .find(".textToCopyInput")
-        .select();
-      try {
-        var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-      } catch (err) {
-        window.prompt("To copy the text to clipboard: Ctrl+C, Enter", textToCopy);
-      }
-      $(".textToCopyInput").remove();
-    } 
-
     /////////////////////////////
     //Text area
     /////////////////////////////
+    
     //Set initial default text
     if(config.useText){
       textArea.html(config.defaultText);
