@@ -259,7 +259,21 @@ $(function() {
           'id': i
         };
 
-        var pin = r.circle(pins[i].xPos, pins[i].yPos, config.pinSize).attr(pinattrs);
+        var pin;
+
+        // If image
+        if (pins[i].src && pins[i].src !== '') {
+          var transformRatio = pins[i].pinWidth/pins[i].srcWidth;
+          pin = r.image(pins[i].src, 0, 0, pins[i].srcWidth, pins[i].srcHeight).attr(pinattrs);
+          var transformX = -pins[i].srcWidth/2 + pins[i].xPos;
+          var transformY = -pins[i].srcHeight/2 + pins[i].yPos;
+          pin.animate({transform: 'T' + transformX + ',' + transformY + ' S' + transformRatio}, 0);
+        }
+        // or circle
+        else {
+          pin = r.circle(pins[i].xPos, pins[i].yPos, config.pinSize).attr(pinattrs);
+        }
+        
         pin.node.id = i;
         pin.node.setAttribute('lg-map-name', pins[i].name);
         statesHitAreas.push(pin);

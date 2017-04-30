@@ -211,6 +211,16 @@ var pins = [
 		xPos: 324,
 		//pin y position
 		yPos: 294,
+		//pin source if using an image
+		src: 'http://freehtml5maps.com/images/map-marker-icon.png',
+		//pin source image width
+		srcWidth: 68,
+		//pin source image width
+		srcHeight: 102,
+		//pin source image width
+		pinWidth: 34,
+		//pin source image width
+		pinHeight: 51,
 		//pin fill color
 		color: '#ffc90e',
 		//pin hover color
