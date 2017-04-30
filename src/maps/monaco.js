@@ -215,11 +215,11 @@ var pins = [
 		src: 'http://freehtml5maps.com/images/map-marker-icon.png',
 		//pin source image width
 		srcWidth: 68,
-		//pin source image width
+		//pin source image height
 		srcHeight: 102,
-		//pin source image width
+		//pin width
 		pinWidth: 34,
-		//pin source image width
+		//pin height
 		pinHeight: 51,
 		//pin fill color
 		color: '#ffc90e',

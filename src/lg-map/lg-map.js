@@ -271,7 +271,7 @@ $(function() {
         }
         // or circle
         else {
-          pin = r.circle(pins[i].xPos, pins[i].yPos, config.pinSize).attr(pinattrs);
+          pin = r.circle(pins[i].xPos, pins[i].yPos, pins[i].pinWidth || config.pinSize).attr(pinattrs);
         }
         
         pin.node.id = i;
