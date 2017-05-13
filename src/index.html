@@ -66,7 +66,7 @@
   <!-- End Demo scripts -->
 
   <!-- Jquery is required, embed on your page if not already - don't embed 2 versions -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
   <!-- End Jquery -->
 
   <!-- Map scripts - add the below to your page -->
@@ -83,7 +83,7 @@
   <div class="container">
 
     <!-- Map html - add the below to your page -->
-    <div class="lg-map-wrapper" data-map="<%= map %>">
+    <div class="lg-map-wrapper" data-map="<%= map %>" data-click-event-handler="lgMapClick">
       <div id="lg-map"></div>
       <div class="lg-map-text"></div>
     </div>
@@ -101,9 +101,22 @@
       <option value="Casino de Monte-Carlo">Casino de Monte-Carlo</option>
     </select>
     -->
-    <!-- End Map html -->
+
 
   </div>
+
+  <!-- Example of map state click event listener -->
+  <!--
+  <script type="text/javascript">
+
+    $(function() {
+      $(document).on('lgMapClick', function(e, data){
+        console.log(JSON.stringify(data));
+      });
+    });
+    
+  </script>
+  -->
 
 </body>
 

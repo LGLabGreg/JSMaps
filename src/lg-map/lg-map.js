@@ -38,6 +38,13 @@ $(function() {
   }
 
   /////////////////////////////
+  //Custom events
+  /////////////////////////////
+  function triggerEvent(type, data) {
+    $.event.trigger(type, data);
+  }
+
+  /////////////////////////////
   //Init map
   /////////////////////////////
   $.getScript( mapWrapper.data('map'), function() {
@@ -228,6 +235,10 @@ $(function() {
               window.open(paths[id].url, config.hrefTarget);
             }
           }
+
+          // Trigger click event
+          triggerEvent(mapWrapper.data('click-event-handler'), paths[id]);
+
         });
 
 
@@ -341,6 +352,9 @@ $(function() {
           } else {
             window.open(pins[id].url, config.hrefTarget);
           }
+
+          // Trigger click event
+          triggerEvent(mapWrapper.data('click-event-handler'), pins[id]);
 
         });
 
