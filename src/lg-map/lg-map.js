@@ -237,8 +237,10 @@ $(function() {
           }
 
           // Trigger click event
-          triggerEvent(mapWrapper.data('click-event-handler'), paths[id]);
-
+          if (mapWrapper.data('click-event-handler')) {
+            triggerEvent(mapWrapper.data('click-event-handler'), paths[id]);
+          }
+          
         });
 
 
@@ -354,7 +356,9 @@ $(function() {
           }
 
           // Trigger click event
-          triggerEvent(mapWrapper.data('click-event-handler'), pins[id]);
+          if (mapWrapper.data('click-event-handler')) {
+            triggerEvent(mapWrapper.data('click-event-handler'), pins[id]);
+          }
 
         });
 
