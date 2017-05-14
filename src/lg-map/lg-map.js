@@ -379,6 +379,8 @@ $(function() {
         //Force text to bottom on mobile
         useTextAtBottom = winWidth >= 767 ? config.useTextAtBottom : true;
 
+        console.log(useTextAtBottom)
+
         if (useTextAtBottom) {
           mapWidth = containerWidth;
           mapHeight = mapWidth / ratio;
@@ -388,7 +390,8 @@ $(function() {
           });
           textArea.css({
             'width': mapWidth + 'px',
-            'marginTop': mapHeight + 'px'
+            'marginTop': mapHeight + 'px',
+            'height': auto
           });
         } 
         else {
