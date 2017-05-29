@@ -1,5 +1,5 @@
 # lg-map - v3.0.0
-## [http://jsmaps.io/](http://jsmaps.io/)
+
 App to build deployable and zipped svg maps - available maps are located in src maps, maps currently available include:
 
 * Africa
@@ -34,8 +34,8 @@ App to build deployable and zipped svg maps - available maps are located in src 
 * USA
 * World
 
-/////
-Create all zips
+
+###Create all zips
 
 ["africa","asia","australia","belgium","brazil","canada","caribbean","china","continents","denmark","europe","france","germany","india","iraq","italy","libya","mexico","monaco","palestineIsrael","romania","singapore","southAfrica","southAmerica","spain","syria","turkey","ukraine","uk","usa", "world"]
 
@@ -48,11 +48,10 @@ console.log(tasks);
 
 grunt zip --map=africa && grunt zip --map=asia && grunt zip --map=australia && grunt zip --map=belgium && grunt zip --map=brazil && grunt zip --map=canada && grunt zip --map=caribbean && grunt zip --map=china && grunt zip --map=continents && grunt zip --map=denmark && grunt zip --map=europe && grunt zip --map=france && grunt zip --map=germany && grunt zip --map=india && grunt zip --map=iraq && grunt zip --map=italy && grunt zip --map=libya && grunt zip --map=mexico && grunt zip --map=monaco && grunt zip --map=palestineIsrael && grunt zip --map=romania && grunt zip --map=singapore && grunt zip --map=southAfrica && grunt zip --map=southAmerica && grunt zip --map=spain && grunt zip --map=syria && grunt zip --map=turkey && grunt zip --map=ukraine && grunt zip --map=uk && grunt zip --map=usa && grunt zip --map=world
 
-/////
 
-You can also download individual maps from http://freehtml5maps.com/
+You can also download individual maps from http://jsmaps.io/
 
-Documentation for map use can be found here: http://freehtml5maps.com/documentation/
+Documentation for map use can be found here: http://jsmaps.io/support/documentation/
 
 ### Installation
 * $ npm install
