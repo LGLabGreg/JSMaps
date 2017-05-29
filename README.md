@@ -1,4 +1,5 @@
-# lg-map
+# lg-map - v3.0.0
+## [http://jsmaps.io/](http://jsmaps.io/)
 App to build deployable and zipped svg maps - available maps are located in src maps, maps currently available include:
 
 * Africa
