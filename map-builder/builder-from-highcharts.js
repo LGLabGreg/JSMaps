@@ -9,7 +9,7 @@ $(function() {
   var totalColors = colors.length;
   var newPaths = [];
 
-  $.getJSON("maps/newZealnd.json", function(json) {
+  $.getJSON("maps/european-union.json", function(json) {
 
     var states = json.svg.g.path;
 

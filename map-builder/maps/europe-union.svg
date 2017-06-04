@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:namespace="http://www.highcharts.com/svg/namespace"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   height="700pt"
+   width="700pt"
+   id="svg3026"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="europe-union.svg">
+  <metadata
+     id="metadata3065">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Europe</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3063" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview3061"
+     showgrid="false"
+     inkscape:zoom="0.26971429"
+     inkscape:cx="437.5"
+     inkscape:cy="437.5"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3026" />
+  <desc
+     id="desc3028">
+Map version: 1.1.2
+Copyright (c) 2015 Highsoft AS, Based on data from Natural Earth
+</desc>
+  <title
+     id="title3030">Europe</title>
+  <g
+     id="admin0"
+     transform="translate(0,-36)">
+    <path
+       id="AT"
+       d="m 283.5,490.3 0.4,-1 -1.2,-2.9 1.7,-2.7 -1.2,-1.9 1.4,0.2 0.7,-0.9 2.9,0.5 4.5,4.1 1.8,-2.6 -0.5,-2.5 4.8,1.1 2.4,2.3 3.5,-0.3 4.5,-3.6 6.9,-0.4 0.1,-1.9 4,1.3 3.4,-0.9 0.3,2.1 3.3,1 -0.4,-4.1 -1.6,-0.1 1.1,-2.3 -3.3,-5 3.5,-2.8 4.5,-2.3 1.3,-4 2.4,1.1 1,-4.6 3.4,3 3,0.5 1.7,-1.7 2.9,0.8 1.1,-3.5 1.5,0.1 0.4,-4.6 3.5,0.2 5.3,2 1.6,-0.4 2.8,1.9 4.1,0.2 0.8,-1.3 5.5,0.9 1.1,2 -0.8,4.5 4.4,6.3 -1.5,2.9 1.1,2.7 -3.4,1 -2.5,-1.2 -2.3,1.9 2.8,0.5 0.4,3.1 -2.5,2.1 1.4,6.5 -2.7,0.2 -2.1,2.8 -0.8,3.2 -4.8,0 -2.1,2 -5.2,-0.2 -2.7,1.1 -3.7,4.4 -1.8,-1.1 -9.1,-0.9 -6.1,-0.4 -10.7,-2.1 -4,-5.5 1.2,-1.7 -5.8,2.2 -5.5,-0.2 -2.8,1.5 -1.2,2.6 -7,-1.7 -1.1,-2.4 -3.3,2.8 -3.2,-1.8 0,-1.4 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Austria</namespace:name>
+        <namespace:labelrank>4</namespace:labelrank>
+        <namespace:country-abbrev>Aust.</namespace:country-abbrev>
+        <namespace:subregion>Western Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>AUT</namespace:iso-a3>
+        <namespace:iso-a2>AT</namespace:iso-a2>
+        <namespace:woe-id>23424750</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.68</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.50</namespace:hc-middle-y>
+        <namespace:hc-key>at</namespace:hc-key>
+        <namespace:hc-a2>AT</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="BE"
+       d="m 242.4,432 -1.3,-1.1 -3.7,5.2 1.7,4.6 -1.2,1.9 -3.8,0.5 -6,-6 -1.1,0.1 -0.6,-3.5 1.2,-3 -2.4,0.9 -0.4,1.7 -2.7,0.9 -3.5,-1.1 1.2,-5.1 -2,-1.8 -4.3,0 0,-2.3 -4.3,-1.9 -1,-4.7 -4.3,0.5 -2.1,-2.5 -0.3,-4.6 7.4,-3.8 2.7,-0.6 0.3,2.5 2.8,-0.5 3.3,1.8 3.7,-2.7 0.9,1.7 -0.5,-1.7 1.5,0.4 1.3,-2.2 1.6,1.2 1.6,-1.3 1.6,2 1.3,-1.4 2.1,4.1 3,-0.3 4,2.7 -2.1,7.2 3.6,0.4 2.1,2.6 0.1,2.4 1.6,0.2 0.3,3.1 -2.8,1.8 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Belgium</namespace:name>
+        <namespace:labelrank>2</namespace:labelrank>
+        <namespace:country-abbrev>Belg.</namespace:country-abbrev>
+        <namespace:subregion>Western Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>BEL</namespace:iso-a3>
+        <namespace:iso-a2>BE</namespace:iso-a2>
+        <namespace:woe-id>23424757</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.53</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.37</namespace:hc-middle-y>
+        <namespace:hc-key>be</namespace:hc-key>
+        <namespace:hc-a2>BE</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="BG"
+       d="m 538.8,519.8 1.3,3.6 -0.9,3.6 -4.4,0.3 -1.6,5.3 -0.1,2.9 1.4,5.4 -2,0.4 -2.7,5.6 2.4,-0.5 2.4,2.9 4.2,2.9 0.9,1.8 -3,0.3 -3.1,2.6 -4.6,-2.6 -3.4,1.2 -0.8,1.7 -5,2.5 0.1,2 -2.1,2.6 -3.9,1.4 2.4,2.8 0,3 -3.1,1.8 -4.6,0.8 -3.4,2.2 -6.2,-1.8 -1.4,1.3 -2.8,-1 -1.7,-2.2 -6.3,2 -5.5,4 -4.6,0.4 -2.1,2 -2.9,0.1 -0.6,-4.7 0.6,-2.6 -3.3,-5.1 -4.7,-1.4 -3.1,-3 1.9,-2 -1.7,-3 0.2,-5.7 2.9,-0.8 2.4,-6.4 -7.1,-4 -3.4,-5.7 0.1,-3.6 2.4,-2.1 0.2,-2.6 0.5,-0.3 0,0 5,1.7 -1.6,2.1 1,2.9 5.2,-2 11.6,0.4 4.4,-1.8 6.3,-0.4 5.7,0.6 5.3,-2.6 3.7,-6.3 10.8,-5.7 3.2,0.3 2.2,1.5 3.6,-1 1.2,1.1 2.3,-1.4 1.5,2.4 3.6,0.7 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Bulgaria</namespace:name>
+        <namespace:labelrank>4</namespace:labelrank>
+        <namespace:country-abbrev>Bulg.</namespace:country-abbrev>
+        <namespace:subregion>Eastern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>BGR</namespace:iso-a3>
+        <namespace:iso-a2>BG</namespace:iso-a2>
+        <namespace:woe-id>23424771</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.54</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.49</namespace:hc-middle-y>
+        <namespace:hc-key>bg</namespace:hc-key>
+        <namespace:hc-a2>BG</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="HR"
+       d="m 384.8,565.9 -0.1,0.6 -1.2,0.3 -0.4,-0.8 z m 6.1,-1.1 5,1 0.3,0.4 -5.2,-0.9 z m -8.8,-2.5 3.6,-0.5 2.5,0.9 -4.8,0.9 z m -8,-1.2 0.3,0.8 -1.2,0.5 -1.1,-0.9 z m 4.8,-3.3 2.7,1 6.1,0.1 -6.9,0.6 -4.5,-0.8 z m 3.1,-2.4 0.2,1.3 -5.4,-0.4 -0.1,-1.4 z m -7,-0.6 1.3,1 -0.5,0.2 -2.1,-0.7 z m -12.4,-8.3 -1.2,-0.3 -1.4,-1.6 1.7,0.7 z m -3.2,-2.9 -0.5,0.4 -0.9,-0.8 -0.9,-1.2 z m -4.9,-1 5,3.9 -1.1,0.3 -2,-2.7 z m -0.9,-8.6 0.8,-0.2 5,4.7 -5,-2.5 z m -5.8,0.4 -0.1,0.4 -1,-2.6 0.8,0.6 z m 4.3,-4.9 1,1.3 0.4,1.3 -2.3,-2.6 z m -3.9,-1.8 -0.2,5.6 -2,-5.3 1.1,-0.3 -1.7,-3.1 1.1,-0.6 z m 0.9,-5.6 1.5,3 2.1,1.9 -5.3,-1.7 z m 58,48.1 -10.4,-6.3 -5.1,-0.6 -3.1,-2.5 6,1.8 2.9,1.1 8.6,3.9 0.2,1.5 z m -2.5,-66.1 -0.4,2.3 2.7,4.3 0.3,3.7 5,1.6 0.5,1.4 -4.2,1 0,5.3 -1.6,0.3 -3.2,-3.8 -1.9,0.7 -4.2,-1.4 -2.8,0.5 -2.3,1.8 -2.2,-1.6 -1.4,1 -4.1,-0.9 -1,0.9 -3.7,-2.2 -1.6,2.1 -4.1,0 -1.5,3.8 -1.7,-0.4 -3.2,-3.2 -2.8,1.3 0.4,5.9 5.1,5.7 1.8,5.7 6.9,6.3 0.6,1.3 5.5,4.3 2.1,0.4 0.7,2.3 2.7,3.5 2.2,1.2 0.2,2.6 -7.6,-4.9 -2.9,-2.8 -4.9,-1.3 -7.6,0.6 -0.9,-3.2 -6.6,-4.1 -5.3,-6.1 2.5,-1.8 -5.9,-5.9 0,-5.1 -1.5,-2.8 -3.4,-3 -3.4,-1 -4.3,10.4 -5,-5.5 -1.7,-7.3 1.1,0.4 4,1 1,-1.8 5.3,0.4 2.2,-3.5 1.6,2.2 6.3,1.5 2.9,-1.2 -1.8,-4.1 2.5,-2.2 2.7,-0.5 0.2,-3.8 -1.6,-1.3 0.8,-2 7.8,-3.7 -0.8,-2.1 3.6,-0.5 4.7,2.3 1.7,2.6 3,1.4 2.3,2.8 3.2,0.1 3.9,2.6 4.4,-0.7 2.7,0.5 3.1,-3.6 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Croatia</namespace:name>
+        <namespace:labelrank>6</namespace:labelrank>
+        <namespace:country-abbrev>Cro.</namespace:country-abbrev>
+        <namespace:subregion>Southern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>HRV</namespace:iso-a3>
+        <namespace:iso-a2>HR</namespace:iso-a2>
+        <namespace:woe-id>23424843</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.09</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.39</namespace:hc-middle-y>
+        <namespace:hc-key>hr</namespace:hc-key>
+        <namespace:hc-a2>HR</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="CY"
+       d="m 660,656.7 -0.1,0 0,-0.2 0.1,-0.1 z m 3.8,-2.5 1.8,1.3 -3.1,1.2 -1.9,-1 1.4,-0.9 0.5,0 z m -4.3,3.2 -0.5,3.3 -7.7,6.5 -3.2,-0.3 -0.8,1.2 -5.9,-0.1 -4,-5.8 2.7,0 1.4,-2.8 0.7,0.2 0.3,-0.8 0.5,-0.1 2.6,1.6 4.8,-3.6 3.7,-1.2 1.4,2.7 4,-1 0,0.2 z m 0.8,-0.5 0.2,-0.1 0.4,0.1 -0.2,0.1 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Cyprus</namespace:name>
+        <namespace:labelrank>5</namespace:labelrank>
+        <namespace:country-abbrev>Cyp.</namespace:country-abbrev>
+        <namespace:subregion>Western Asia</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>CYP</namespace:iso-a3>
+        <namespace:iso-a2>CY</namespace:iso-a2>
+        <namespace:woe-id>-90</namespace:woe-id>
+        <namespace:continent>Asia</namespace:continent>
+        <namespace:hc-middle-x>0.19</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.71</namespace:hc-middle-y>
+        <namespace:hc-key>cy</namespace:hc-key>
+        <namespace:hc-a2>CY</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="CZ"
+       d="m 395.5,438 -3.5,1 -3.7,4.3 -0.9,4.4 -2.4,2.6 -3.8,2.4 -4.5,-0.4 -2.3,5 -1.1,-2 -5.5,-0.9 -0.8,1.3 -4.1,-0.2 -2.8,-1.9 -1.6,0.4 -5.3,-2 -3.5,-0.2 -0.4,4.6 -1.5,-0.1 -1.1,3.5 -2.9,-0.8 -1.7,1.7 -3,-0.5 -3.4,-3 -2.7,-3.2 -1.5,0.2 -3.9,-3.2 -2.3,-3.2 -2.5,-0.5 -5.3,-7.5 1.6,-3.1 -3.4,-2.5 -2.2,-4.9 2.6,2.7 2.5,-4.3 5.9,-2.1 2.5,-1.8 2.6,-0.4 1.7,-2.2 8.6,-3.6 -0.9,-2.9 2.4,0.2 1.6,3.1 2.3,-0.4 2,-0.1 -0.4,-2.5 3.7,0.5 1.2,3.1 1,-0.4 7.8,2.2 2.9,-0.2 0.8,2.4 -2.1,1.8 1.8,0.8 4.8,4.8 2.9,-2.8 -1.5,-3.5 3.7,0.4 2.1,1.9 3.3,-0.1 0,1.8 3.3,3.1 2.3,-0.8 6.4,1.1 1.4,3.7 1.7,0.3 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Czech Republic</namespace:name>
+        <namespace:labelrank>5</namespace:labelrank>
+        <namespace:country-abbrev>Cz. Rep.</namespace:country-abbrev>
+        <namespace:subregion>Eastern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>CZE</namespace:iso-a3>
+        <namespace:iso-a2>CZ</namespace:iso-a2>
+        <namespace:woe-id>23424810</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.39</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.51</namespace:hc-middle-y>
+        <namespace:hc-key>cz</namespace:hc-key>
+        <namespace:hc-a2>CZ</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="DK"
+       d="m 302.2,343.3 3.7,2.6 1.4,-1.2 1.5,2.4 -1,1.8 -3.1,0.5 -5.2,-2.9 1,-3 z m -9.7,1.2 1.9,0.8 -1.5,0.4 -1.8,-2 z m 23.4,-2.5 -3.2,2.2 -1.1,-1.1 2.1,-1.6 z m -29.3,-0.9 2.5,2.2 -0.6,1.9 -1.7,-0.8 z m 11.2,2.6 -1.1,3.7 -1,-1.9 3.3,-5.9 z m 42.9,-7.2 2.9,1.6 -0.6,2.7 -4.3,-1.7 0.6,-4 z m -68.7,-2.3 0.5,0.2 -0.1,1.7 -0.8,-1.7 z m 20.4,-3 4.8,4.7 -0.6,5.3 -2,0.8 -3.6,-1.2 -3.4,-2.9 0,-1.8 -2.2,-2.8 z m 23.6,0.6 -0.7,-1.2 0.9,-1.6 0.8,1.8 z m -20.7,-5.6 0,1.6 -1,0.1 0.6,-2 z m -17.6,-20.1 -0.3,2.8 -2.5,2.2 -1,-2 1.1,-1.9 z m 23.1,-6.9 -1.2,0.6 -0.4,1.7 -1.8,-1.2 z m -24.6,45 -1.7,0.2 0.3,-4.4 -2.2,1.1 -0.1,-2 2.3,0.7 -0.6,-5.5 -3.2,-2.4 -2.3,-0.1 1.2,-4.6 2,-1.4 -1,-3.5 -1.8,-0.8 0.4,-8.1 0.6,-2.2 1.3,1.8 2.7,0 1.6,1.8 0.2,-2.8 2.2,-3.1 2.3,1.8 -1.4,1.7 2.4,-0.3 -1.1,-4.8 2.8,-2.4 1.8,0.9 1.7,-2.4 -5.3,1.8 -1.5,-1 -4.4,1.9 -2.1,3.1 0.5,3.6 -3,-3.5 4,-6.4 8,-0.7 1.7,-1.4 4,-6.5 2.3,-0.2 3.9,-2.8 -1.6,3.4 1.2,2.5 0,3.7 -1,1 -1.8,5.1 1,6.5 4.4,0.4 1.8,1.6 -2.1,4.4 -1.3,-0.4 -1,2.6 -0.3,-3.3 -1,-0.4 -1.9,2.8 0.3,4.3 -3.7,1.5 1.7,1.6 -2.8,1.4 0.7,0.9 -3.8,2.5 2.2,4.5 -2.3,1.7 2.6,3.3 0.1,2.7 -1.7,-1.7 -1.6,2.2 0,0 z m 28,-19.3 2,0.6 1.6,4.2 2.2,-4.9 -1.7,-0.6 3.8,-3 4,1.4 -1,2.4 1,3.9 -3.6,3.1 -0.2,2.1 2.4,1.5 -0.5,1.8 -2.2,0.6 -0.2,4.3 -1,0.5 1.3,2.4 -2.2,2.8 -2.3,-3.3 1.3,-1.9 -2.5,-3.8 -4.2,-0.3 -1.9,-3 1.3,-0.5 -0.7,-3.1 -2,-3.1 3.1,-0.1 2.3,-2.1 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Denmark</namespace:name>
+        <namespace:labelrank>4</namespace:labelrank>
+        <namespace:country-abbrev>Den.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>DNK</namespace:iso-a3>
+        <namespace:iso-a2>DK</namespace:iso-a2>
+        <namespace:woe-id>23424796</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.19</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.44</namespace:hc-middle-y>
+        <namespace:hc-key>dk</namespace:hc-key>
+        <namespace:hc-a2>DK</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="EE"
+       d="m 418.2,262.9 -0.9,1.9 -1.8,-0.9 0.7,-1.5 z m -2.8,-7.4 1.3,-0.2 0.5,1.2 -2.1,0.4 z m -4.5,1.4 2.1,0.2 1.5,2.4 -2.8,1.2 -1.3,2.5 -1.6,-2.7 -4,-1.4 3.8,-1 0.9,-2.4 z m 49.9,-17.4 -0.6,0.3 -1,0.5 0.7,0.1 0,0 0.1,0 0.2,-0.1 -0.6,0.4 -1.2,0.9 0.1,2.2 -0.1,1.7 -0.3,1.6 -1.8,0 -4,2.1 -0.4,3.3 2.5,1.9 2,4.4 2,1.8 3.5,4.7 2.2,2.2 -2.3,1.5 -0.5,5.6 -5.2,-0.7 -3.1,2.9 -5.7,-3.6 -0.5,-1.3 -4.2,-0.3 -3.9,-2.3 -6.6,3.9 -1.9,1.8 0.8,-4 -0.5,-5.2 -2,-0.3 -1.6,3.1 -3.9,-1.2 -1.5,-3.4 -1.4,-0.1 -0.5,-3.5 2.6,-0.2 -0.1,-1.3 -3.6,1.3 -0.6,-2.6 1.1,-1.4 -1.6,-0.7 -0.1,-3.6 5.5,-2.9 -0.9,-1.1 9.9,-5.1 2.6,0.3 2.3,-3.8 7.3,0.6 1.9,-0.5 1.8,1 10,-1.1 1,-1.7 1,0.5 z m -55.7,32.6 1.1,-1.9 -1.6,-2.4 2.2,-0.4 4,-3.3 0.7,0.8 2.4,-1.1 4.5,2 -1.5,0.2 -0.9,2.3 -3,3.3 -3.3,0.8 -0.6,4.4 -1.9,0.3 1.5,-3.4 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Estonia</namespace:name>
+        <namespace:labelrank>6</namespace:labelrank>
+        <namespace:country-abbrev>Est.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>EST</namespace:iso-a3>
+        <namespace:iso-a2>EE</namespace:iso-a2>
+        <namespace:woe-id>23424805</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.60</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.53</namespace:hc-middle-y>
+        <namespace:hc-key>ee</namespace:hc-key>
+        <namespace:hc-a2>EE</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="FI"
+       d="m 386.6,242.2 -1.1,0.5 -0.4,0.1 0.4,-0.9 z m -0.1,-0.8 0.8,-0.7 0.8,0.4 -0.3,0.7 z m -3.4,-0.6 1.4,1.5 -0.4,0.7 -1.6,-1.1 z m 1.3,-0.6 0.5,-0.1 -0.2,1.2 -0.6,-0.5 z m -5.6,-0.7 -0.7,1.4 -0.7,-1 0.5,-1.5 z m 1.9,-3.5 3.6,1.2 -0.7,2.1 -1.6,-1.3 0.6,3.1 -2.6,0.6 -1.5,-3.5 z m 24.2,1.9 0.2,1.3 -0.5,0.2 -0.6,-1.5 z m -7.7,0 -0.1,0.7 -0.9,0.2 0.3,-1.4 z m 2.2,-1.3 -1.1,1.5 -0.5,0 0.2,-1.4 z m 1.2,0.9 -0.8,-0.8 0.9,-0.8 -0.1,0.8 z m 33,-8.1 -0.9,-1 0.1,-0.4 1.2,0.8 z m -25.5,5.6 -0.8,3.8 -2,0.4 -0.7,-3.5 z m -5.4,-0.2 -1.8,0 0.3,-1 1.8,0.1 z m 1.2,-1.8 -0.5,0.9 -0.5,-0.5 0.6,-0.7 z m -2.5,-0.1 1,-0.4 0.1,0.3 -0.8,0.5 z m -1.8,1.3 -1.7,-0.9 0.7,-1.6 1.3,2 z m -5.2,-3.5 0,1.3 -0.5,-0.3 -0.7,-1.1 z m -2.3,-6.3 -0.9,-1 0.5,-0.5 0.7,0.7 z m -9.2,-44.4 1.2,0.8 1.5,0.4 -0.9,1.2 z m 8.3,-1.4 0.3,-0.7 1.2,0.3 -0.7,1.1 z m -6,0.5 -0.2,0.6 -0.9,-0.6 0.9,-0.8 z m 10.5,-10.6 0.2,0.7 -0.4,0.4 -0.7,-0.7 z m 12.1,-27.4 -1.5,2.3 -0.8,-1.2 0.5,-1 z m 1.5,95.1 -0.9,-1.1 -0.3,-2.2 -2.9,2.4 -0.8,-0.7 1.2,-2.7 -3.1,0.4 -4.3,-2 -0.6,-1.8 -1.4,2.7 -2.9,-2.4 -0.3,-4.8 -1.6,-2.7 1.4,-0.2 0.5,-2.9 -1.6,-6.7 2,0.5 -2,-2 -2.3,-5.2 -1.3,-0.6 -0.2,-7.1 -1.9,-0.6 -0.1,-3.8 -1.2,-1.3 0.7,-3.5 1.8,-2.1 -0.1,-2.3 1.8,0.6 -2.2,-3.2 3.2,-1.5 0.3,1.6 3.5,-3.4 -1.9,-2.3 1.8,-0.9 0.7,-4.2 2.2,0.7 0.7,-3.4 2.9,-2.2 -0.5,-2.8 3.9,-4.6 -0.1,-2.5 2.3,-3.4 0.1,-2.8 2,-4.2 2.2,-1.4 1.9,1.5 0.5,-1.7 -1.5,-1.5 1.8,0.1 -2.4,-2.5 0.2,-2.6 -0.6,-4.4 -2.5,-1.8 -3.2,0.1 -1.8,-3.1 -1,1 -2,-0.6 -2,-4.1 -2.8,-2.5 -1.5,-4.2 1.4,-2.8 -0.6,-3.5 0.6,-1.3 -4.4,-5.9 0.4,-5.3 -2.7,-0.8 0.5,-2.1 -1.4,-5.5 0.9,-1.2 -4.3,-3.1 -1.3,-3.1 -2.1,-1.5 -3.8,-0.9 -1.6,0.2 -1.4,-1.5 -3.6,-1.8 -4.5,-4.8 -2.4,-1 0.7,-1.5 2.1,1 0.8,-1.1 -1.2,-1.7 1.6,-2.4 2.5,0.2 3.3,4.4 3,3.2 0.8,2.1 4.2,-0.3 1.5,1.1 3.4,-2.5 0.9,-2.2 3.2,1.5 2.5,0.3 1.8,1.7 1.5,-1.8 -0.2,-3.5 2.8,-2 0.5,-2.7 -1.2,-3.3 0.2,-3.6 -0.6,-2.9 0.2,-3.6 1.1,-0.6 1.1,-4.4 2.3,-0.9 1.7,0.3 2.4,-3.1 2,-1.4 2.6,2.9 2,1.4 5.4,1.1 2.5,3.6 -1.9,5.5 0.3,2.2 1.3,1.2 -2.8,3.3 2.7,0.6 -0.9,6.2 3.1,6 5.1,1.1 3.8,4.1 3.3,1.9 0.2,3.4 -1.7,4.8 -1.5,6.5 0.7,2.9 5,5.5 1.3,2.6 3.5,3.7 2.8,4.9 1.1,3 -2.9,1.4 1.7,5.5 -0.6,2 2.1,0 0.5,2.1 -1.3,2.4 2.5,3.1 2.3,-0.4 1.7,2.4 -1.4,1.6 1.5,3.2 5.1,2 0.8,4.3 -1.4,4.3 -1.5,1.5 5.6,3.9 3.2,0.8 4.3,2.2 0.6,1.4 3.8,3 -0.5,8.1 -1.7,4.7 -1.7,2.6 -4.2,12.8 -1.5,2.6 -1.8,5.1 -2.8,3.7 -4.1,7.7 -2.1,4.5 -2.7,2.4 -3,-1.3 -1.3,1.9 -5.6,3.3 -3.1,-0.8 0.1,4.2 -1.8,0.3 -1.1,-2 -1,2.5 -2.8,0.6 0.1,1.2 -5.1,2.1 -0.7,2.7 -1.2,-1.2 -6.6,3.5 -1.6,0.3 -1.3,2.4 -3.1,1.2 2.8,-2.6 -1.4,-0.1 1.1,-2.1 -2.5,0 -0.6,-0.8 -0.2,0.8 -0.1,1.1 -0.6,-1.2 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Finland</namespace:name>
+        <namespace:labelrank>3</namespace:labelrank>
+        <namespace:country-abbrev>Fin.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>FIN</namespace:iso-a3>
+        <namespace:iso-a2>FI</namespace:iso-a2>
+        <namespace:woe-id>23424812</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.58</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.72</namespace:hc-middle-y>
+        <namespace:hc-key>fi</namespace:hc-key>
+        <namespace:hc-a2>FI</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="FR"
+       d="m 142.5,498.5 1.1,2.1 -0.7,1.5 -1.7,-3.4 z m -1.6,-5 1.9,1.1 0.5,0.9 -3.6,-2.2 z m -7,-14.9 -0.7,0.1 -0.4,-1.4 1.2,0.4 z m -10.4,-8.6 0.5,0.7 -2.1,-0.8 0.1,-1.4 z m 116.5,33.2 0.9,-1.4 6.4,-0.4 0.7,5.4 2,3.8 -3,1.7 -0.1,2 2.1,1.6 0.1,2.4 2.3,2 -0.8,2.8 -3.6,2.2 -3.2,0.4 1.5,3.3 2.7,1.4 1.5,3.4 -2.9,2.4 0.1,3.3 2.1,2.5 4.6,2.5 3.8,-0.9 0.4,1.7 -3,4.1 0.3,1.3 -0.4,0.5 -0.6,0.4 -0.4,-0.4 -0.5,0.8 -3,1.1 -0.3,1.9 -5.6,2.5 -2,2.3 1.1,1.6 -11.5,2.3 -2.9,-2.8 -3.9,-0.8 -0.6,-2.7 -3.1,0.3 1.6,-1.8 -3.4,-0.4 -1.6,1.6 -3.4,-0.7 -0.6,-1.6 -4.2,-0.4 -1.2,-1.9 -2.3,0.2 -8,4 -4,3 -1.3,2.9 -0.6,7.3 1.6,2.5 -3.3,-1.1 -6.8,1.8 -2.4,-1.9 -3.3,1.1 -4.5,-3.4 0.5,-2 -4.1,-0.2 -1.3,-2.4 -8.8,-3.4 -0.5,2.8 -5.1,-0.4 -1.4,-1.3 -2.9,0.4 -3.5,-3.5 -3.7,0.4 -2,-3.2 -3,-0.6 -6.5,-3.5 1.6,-2.8 -4.5,-1.6 -0.4,-1.9 1.9,0.1 3,-3 7.1,-19.5 -1.1,0.6 4.1,-15.7 0.9,-1.4 3.5,5.2 0.4,-1.8 -4.9,-6.2 2.1,-3.3 0.6,-6.6 -8.2,-6 -0.2,-2.5 -2.8,-4 2.3,-4 -1.8,-2.5 0.7,-2.6 -1.8,1 -3.1,-3.2 2.2,-0.4 -1,-2.1 -4,-0.2 0.9,-2.3 -3.9,0.3 -4.9,-4.8 -3.9,-1.1 -0.7,-1.8 -5.7,0.4 -0.1,-3.2 -2.7,-2.3 4.9,0.2 0.2,-1.6 -2.5,-2.6 2.6,-1.5 -5.1,0.3 0.4,-2.8 3,-2 3.2,0.4 4.4,-0.8 1.1,2.2 0.8,-1.8 2.8,1.3 1.2,-2.6 5.2,0.4 3.7,7.5 5.1,-2.5 0.9,2.2 4.9,-1.7 -0.2,1.7 5.8,0.2 -2,-1.9 1,-5.2 -0.1,-3.7 -2.1,-3.6 -0.4,-6.2 3.8,2 2.6,-0.7 1.7,1.9 -1.1,1.1 1.1,2.5 4.1,1.9 4.9,1.2 2.2,1.4 4.9,-1.8 3.1,-0.3 -3.6,-1.2 2.2,-4.2 5.6,-2 6.1,-0.8 4.2,-3.7 0.9,-1.6 1.7,-10.9 4.9,-2 6.6,-0.8 0,0 0.3,4.6 2.1,2.5 4.3,-0.5 1,4.7 4.3,1.9 0,2.3 4.3,0 2,1.8 -1.2,5.1 3.5,1.1 2.7,-0.9 0.4,-1.7 2.4,-0.9 -1.2,3 0.6,3.5 1.1,-0.1 6,6 3.8,-0.5 1.9,1.9 2.2,-0.9 2.5,0.9 1.8,0.4 2.3,5 1.6,-0.6 5.2,2.2 1.6,-1.2 3,2.6 3.5,0.2 3.3,1.5 -1.3,2.5 -3.7,3.7 -0.9,4.8 -2.4,4.8 0.5,1.7 -1.3,4.1 0.7,3.7 -2.7,2.8 -4.7,-1.5 -1.9,2.7 2.3,0.3 -6,6.4 -2,0.6 -0.4,3.5 -3.9,2.8 -1.2,3.3 1,1.1 -2.5,4.2 4.2,-1.8 z m -63.1,67.2 0.5,0.1 -0.3,-0.9 -0.4,0.4 z m 94.2,13.7 -2.6,-3.8 2.4,-6 5.5,-3 2.6,1 0.7,-6 1.1,-0.4 0.9,3.4 -0.4,3.5 1,2 0.2,8.1 -2.1,3 -0.1,4.6 -2.6,6.3 -6,-3.6 1.9,-2.5 -3.2,-0.7 0.7,-3.8 -2.2,-0.8 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>France</namespace:name>
+        <namespace:labelrank>2</namespace:labelrank>
+        <namespace:country-abbrev>Fr.</namespace:country-abbrev>
+        <namespace:subregion>Western Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>FRA</namespace:iso-a3>
+        <namespace:iso-a2>FR</namespace:iso-a2>
+        <namespace:woe-id>-90</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.47</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.47</namespace:hc-middle-y>
+        <namespace:hc-key>fr</namespace:hc-key>
+        <namespace:hc-a2>FR</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="DE"
+       d="m 285.3,481.1 -5,-2.5 -3.1,-2.6 1.3,2.8 -3.5,0.3 -3.8,-2.8 -2.6,2.4 0.6,1.5 -10.8,-0.3 -0.7,-3.7 1.3,-4.1 -0.5,-1.7 2.4,-4.8 0.9,-4.8 3.7,-3.7 1.3,-2.5 -3.3,-1.5 -3.5,-0.2 -3,-2.6 -1.6,1.2 -5.2,-2.2 -1.6,0.6 -2.3,-5 -1.8,-0.4 2.2,-6.2 -3.3,-1.9 -1,-4.4 0.5,-1.7 2.8,-1.8 -0.3,-3.1 -1.6,-0.2 -0.1,-2.4 -2.1,-2.6 1,-2.9 -1.6,-2.3 2.8,-2.1 -0.9,-1.6 1.8,-2.8 -1,-4.8 -1.8,-3.1 2.4,-1.6 2.9,1.5 5,-2.3 -1.5,-1.4 4.2,-3.5 -0.4,-4.1 -3.2,-0.6 1,-3 3,0 0.7,-3.8 1.2,-2.1 0.3,-5.1 1.3,-1.6 -3.1,-0.9 0.9,-3.9 1.6,-1.4 8,-0.8 2.3,3.2 -1.2,0.9 1.6,1.8 1.3,-1.8 -0.7,-1.8 3.4,1.1 -0.8,-2.5 1,-3.3 3.2,0.6 3.9,-0.5 -2.3,-0.6 -1.9,-2.7 0.2,-4.1 -2.1,-0.4 -0.2,-2.1 2.6,-0.4 1.6,-1.7 -3.4,-4.3 -0.2,-3 1.7,-0.2 6.6,1.9 0,0 1.5,-1.1 4.9,3.6 -0.2,2.4 8.2,4.3 3.3,-0.6 -0.1,3 -3.4,2.6 1.5,1.5 3.2,-1.1 3.1,2 0.3,-1.8 2.6,-2.9 4,-0.4 2.6,-2.5 1.6,-3.2 4.1,1.8 1.7,-1.3 1,2.8 3.9,3.2 2.5,-1.1 1.1,1.6 0.2,-2.1 4.5,4.1 -0.3,0.7 0.3,0.5 -3.5,0.8 0.5,-4.2 -1.4,0.7 1.1,1.7 -0.9,1.2 1.9,1.8 3.2,1.2 2.1,7.9 -0.5,4.2 -2.1,1.7 -0.1,2.1 6.1,4.7 -1,3 2,3 1,3.2 -1.7,5.2 1.7,2.3 0.3,2.9 2.6,1.1 1.1,3.8 -2,7.2 -2.3,0.4 -1.6,-3.1 -2.4,-0.2 0.9,2.9 -8.6,3.6 -1.7,2.2 -2.6,0.4 -2.5,1.8 -5.9,2.1 -2.5,4.3 -2.6,-2.7 2.2,4.9 3.4,2.5 -1.6,3.1 5.3,7.5 2.5,0.5 2.3,3.2 3.9,3.2 1.5,-0.2 2.7,3.2 -1,4.6 -2.4,-1.1 -1.3,4 -4.5,2.3 -3.5,2.8 3.3,5 -1.1,2.3 1.6,0.1 0.4,4.1 -3.3,-1 -0.3,-2.1 -3.4,0.9 -4,-1.3 -0.1,1.9 -6.9,0.4 -4.5,3.6 -3.5,0.3 -2.4,-2.3 -4.8,-1.1 0.5,2.5 -1.8,2.6 -4.5,-4.1 z m -5.1,-117.4 0.9,0.3 0,0 0,0 0,0 2.9,4.6 -1.8,-4.3 -1.1,-0.3 0,0 0,0 0,0 -0.3,-0.4 z m 25,-3.1 -0.3,0.9 -1,-0.1 1,-1 z m -28.4,-8.2 -0.8,-0.7 0.3,-0.3 1.3,-0.1 z m 25.6,-0.3 0.7,1.2 -3.4,-0.9 1.2,-1.3 z m 22.9,-3.9 2.8,1.1 -0.6,2.1 2.2,2.3 -2.9,0.1 -2.4,1.8 -1.8,-1.5 1.5,-0.9 -1.1,-3 z m -51.9,-0.1 -1.9,-0.4 0.8,-0.7 0.9,0 z m -1.9,-3.8 -1,0.1 0.9,-2.7 -0.2,1.3 z m 7.1,134.6 0.1,0.1 0,0 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Germany</namespace:name>
+        <namespace:labelrank>2</namespace:labelrank>
+        <namespace:country-abbrev>Ger.</namespace:country-abbrev>
+        <namespace:subregion>Western Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>DEU</namespace:iso-a3>
+        <namespace:iso-a2>DE</namespace:iso-a2>
+        <namespace:woe-id>23424829</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.47</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.53</namespace:hc-middle-y>
+        <namespace:hc-key>de</namespace:hc-key>
+        <namespace:hc-a2>DE</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="GR"
+       d="m 555,678.8 0.3,0.4 -1.7,1.3 -0.1,-1.4 z m 1.8,-8.1 -0.2,4 0.9,3.6 -2.2,-2.9 z m -65.5,6.2 -2.2,0.4 0.1,-3.5 2.8,2.4 z m 77.9,-21.7 -1.2,6.6 -3.2,5.3 -2.7,-4.6 2.4,-4.3 z m -41.4,11 -0.4,0.9 -1.4,-0.1 1,-0.9 z m 28.1,-8.4 0.5,0.9 0,0.7 -1.3,-1.1 z m -14.3,1 -2,2.1 -0.9,-1.5 1.2,0.3 z m 20.4,-5.5 0.7,-0.2 0.5,1.5 -1.9,-0.2 z m -50.2,8.3 0.5,1.8 -3.2,1.4 0,-2.1 z m 13.2,-1.7 -0.1,1.5 -2.1,-1 0.6,-1.5 z m 26.6,-7.8 -3.6,2.8 1.6,-2.8 3,-2.1 z m -17.1,2.3 -2.5,2.6 -0.6,-0.9 1.9,-2.2 z m -21.9,1.9 1.9,1.3 -0.6,1.2 -1.5,-2.1 z m 34.7,-7.7 1.2,0.4 0,1.2 -1.6,0.4 z m -28.3,7.5 0.7,-2.6 1.6,-0.6 -0.3,2.7 z m 25.3,-9.8 1.5,1.4 -0.8,0.2 -1.3,-1.2 z m -17.8,6 -1.5,3.9 -2.2,-2.7 2.3,-2.9 z m -17.1,1.5 0.6,0 0.4,1.3 -1.5,0.2 z m -14.6,0.1 -0.7,0.7 -1.8,0.6 1.2,-1.2 z m 13.5,-4.2 -1.1,2.5 -0.4,-2.4 0.8,-1.1 z m 12.8,-4.3 1.9,0.4 -0.7,1.2 -1.4,0.4 z m -5.3,3.3 -1.1,0.9 -0.4,-0.5 0.6,-2.3 z m 0.8,-5.1 2.5,0 -0.1,1.8 -3.6,-1.3 z m -10.7,1.6 0.5,1 -1.4,2.2 -0.3,-1.8 z m 29.1,-5.3 -3.4,3 -1.3,-0.3 1.1,-2 z m -42.2,7.9 -0.6,-0.1 -0.8,-1.3 2.1,-0.4 z m 51.1,-12.4 1.8,0.5 -3.8,2.1 -3.5,-1 3.6,-2.2 z m -92.7,16.1 3.9,1.9 -2.4,1.8 -3.4,-2.8 z m 60.8,-12.1 1.6,-0.1 0.2,3.6 -4.3,-3.3 z m -19.7,2.7 0.3,0.9 -1,1.1 -1,-0.4 z m -45.6,-1.8 4.5,7.2 -4.4,-0.3 -2.3,-4.5 1.5,0.8 z m 80.5,-17.3 1.6,0.5 1,4.4 -1.6,3.3 -2.5,-1.5 1.5,-2 -3.1,-3.9 z m -78.5,13.5 -2.2,1 -0.5,-1.3 1.4,-3.3 z m 55.5,-14.4 1.9,1.2 -2.1,0.6 -1.3,-3.3 z m -16.5,-2.4 -0.6,1 -1,-0.1 0.9,-1.4 z m 1.2,-0.8 3.1,1.2 -0.6,0.8 -1.2,0 z m 4.4,0.1 -0.4,-0.3 0.6,-2.1 0.5,0.1 z m 35.8,-10.8 4,5.1 -2.3,1.4 -4,-0.1 -5.4,-1.9 0,-1.5 6.4,-3.9 z m -95.4,8.6 -0.8,2.8 1.7,3.1 -5.1,-4.5 z m 78.5,-18.4 -0.3,4.6 -2.6,-1.5 -1.9,1.5 -0.8,-2.9 3.7,-0.1 z m 1.4,-9.4 0.5,1.2 -1.3,0.7 -2.1,-1.1 z m -13,0.3 -3.9,0.4 1.2,-3.4 2.1,0.6 z m -65.6,29.2 2.5,0.6 2.9,-4.1 -1.7,-2.7 4.5,-2.6 1.6,-7.4 2.5,-2 -0.3,-2.6 1.3,-1.7 -1.4,1.6 -1.2,-1.2 0.2,-0.6 0.7,-1.1 1.3,-0.4 3.6,-1.4 2.9,0.2 3.9,-5.1 3.7,-1.8 3.5,0.2 4.1,-1.7 -0.1,-2.8 2.2,-0.8 2.9,-0.1 2.1,-2 4.6,-0.4 5.5,-4 6.3,-2 1.7,2.2 2.8,1 1.4,-1.3 6.2,1.8 3.4,-2.2 4.6,-0.8 3.1,-1.8 0,-3 -2.4,-2.8 3.9,-1.4 4,1 1.6,4.2 -3.7,3.3 1.6,5.2 -3.5,5.2 -1.7,-1.7 -5.9,0.8 -7.5,-0.9 -2.8,3.5 -3.6,-1.2 -2.4,0.8 -0.4,2.1 -2.8,2.6 -4.5,-0.1 -1.3,1.9 11.7,7.6 -1,1.2 -2.4,-2.4 -3.9,-1 -3,1.4 1.6,2.1 3.3,0.9 0.6,3.1 -3.3,-1.5 -2.2,-2.5 -4.1,-0.4 -0.6,1.5 6.2,4.5 -5.1,0 -1.8,-4.9 -4.2,-1 -3.5,-2.7 2.1,-1.4 -1.3,-1.5 -4.1,4.1 1.4,1.6 -0.8,4.1 0.6,2 5.1,4.6 1.5,3 2.9,1.5 4.6,5.3 -6.5,-2.3 -0.5,4 3.6,1.6 -3.6,3.8 -2.6,-0.3 2.6,2.1 4.5,0.3 0.7,1.4 3.4,-0.5 0.9,2.5 2.6,-0.2 2.7,2 4.3,0.5 2.4,1.9 -1.2,1.1 2.8,6.7 -0.4,2 -4.6,-2.3 -3.5,-3.8 -5,2.4 -2.8,2.9 2.7,0.3 0.4,3.7 2.2,-0.5 3.7,2.4 -6.4,3.2 0.6,-1.9 -6.5,-0.6 1,2.6 3.9,4.6 3.6,6.1 -1.1,1.4 3.6,4.9 -6.6,-3.3 -1.3,-2.5 -2.7,0.9 -0.9,3.6 0.9,2.6 -2.5,-0.5 -0.6,-3.6 -4.2,-5.5 -3.1,1.3 -0.2,5 -2.7,-1 -0.6,-2.9 -2.7,-3.5 1.4,-2.7 -2.9,-4.9 -7.2,-4.2 2.8,-5.9 -0.2,-1.9 3.6,0.7 2,-3.1 2.7,-1.2 4.5,2.1 7.1,1.1 3.2,1.9 -0.5,-1.8 5.1,-2.2 -1.5,-1.1 -7,-1.6 -2.1,0.7 -2.6,-2.4 0.1,2.1 -6.1,-0.3 -6.5,3.3 -2.6,-1.7 -2.9,2.4 -1.7,-4.2 -5.1,-6.6 4.8,-2.2 -5.1,-1.4 -1,3.2 -1,-2.2 -5.3,-3.3 -4.1,-4.1 0.5,-1.9 z m 13.5,23.3 0.9,1.1 -0.9,-1.1 0,0 z m 43.8,-8.2 -0.5,-2.1 -7.4,-4.4 -3.6,-0.5 4.3,-3.8 2.6,2.3 2.6,2 4.2,0.9 3.2,-0.5 2.9,2.4 -0.2,2.3 3.2,4.2 3.6,-0.7 0.2,3.4 -2.6,0.7 -6.5,-5.7 0,-1.2 z m 39.9,52.9 4.2,-1.6 -0.2,3 1.9,0.9 6.2,-4.7 0.7,4.7 -9.8,2.7 -7.5,3.1 -5.6,1.3 -1.1,-3 -5.2,-0.8 -9.8,1.1 -4.3,-0.4 0.2,-6.3 2.1,1.6 -0.3,-3.4 1.8,2.7 5.4,-2.1 2.3,3.9 6.7,-2.6 3.9,-0.8 1.5,1.1 z m -83.7,-44.7 -1.1,-1.5 0.8,-0.5 0.3,2 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Greece</namespace:name>
+        <namespace:labelrank>3</namespace:labelrank>
+        <namespace:country-abbrev>Greece</namespace:country-abbrev>
+        <namespace:subregion>Southern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>GRC</namespace:iso-a3>
+        <namespace:iso-a2>GR</namespace:iso-a2>
+        <namespace:woe-id>23424833</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.21</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.40</namespace:hc-middle-y>
+        <namespace:hc-key>gr</namespace:hc-key>
+        <namespace:hc-a2>GR</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="HU"
+       d="m 372.7,496.8 -3.7,-6.4 -2.3,0.2 2.1,-2.8 2.7,-0.2 -1.4,-6.5 2.5,-2.1 -0.4,-3.1 -2.8,-0.5 2.3,-1.9 2.5,1.2 3.4,-1 -1.1,-2.7 1.5,-2.9 2.4,-0.1 3.2,2.9 3.3,1.1 5.2,-0.6 7,-2.4 -1.2,-2.4 1,-1.4 7.8,-2.4 1.5,-2.3 3.4,1.3 5.1,-3.5 1.2,-4.8 3.6,-1.4 4.2,0.9 3.7,-2 4.3,3.5 4.8,-2 1.7,-0.3 1.5,2.8 1.6,-0.3 1.9,2.4 1.7,-0.6 2.2,2.8 -1.2,2.5 -5.7,3.1 -2.7,4.6 -1.5,7.5 -1.5,1.9 -0.7,5.8 -2.1,2.3 -1.3,6.6 -3.8,0.8 -2.5,3 -2,-0.5 -2.7,1.6 -4.2,-0.4 -4.8,0.6 -3.3,3.9 -2.6,-0.3 -1.9,1.8 -2.9,0.7 -3.1,3.6 -2.7,-0.5 -4.4,0.7 -3.9,-2.6 -3.2,-0.1 -2.3,-2.8 -3,-1.4 -1.7,-2.6 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Hungary</namespace:name>
+        <namespace:labelrank>5</namespace:labelrank>
+        <namespace:country-abbrev>Hun.</namespace:country-abbrev>
+        <namespace:subregion>Eastern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>HUN</namespace:iso-a3>
+        <namespace:iso-a2>HU</namespace:iso-a2>
+        <namespace:woe-id>23424844</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.45</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.54</namespace:hc-middle-y>
+        <namespace:hc-key>hu</namespace:hc-key>
+        <namespace:hc-a2>HU</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="IE"
+       d="m 73.2,330.7 -0.7,2.4 -0.7,-1.6 -2.1,-1.1 z m 39.4,8.6 1.3,2.1 -2.5,-0.6 0.5,2.8 -0.7,4 1.1,1.6 -1.1,3.2 -0.3,8.1 -3.7,4.9 -0.4,2.2 -2.8,2.9 -0.5,3.3 -4.9,-2.3 -1.1,1.4 -6.1,-1 -2.3,2 -2.9,0 -2.5,1.8 -2.8,-0.2 -6.1,2.7 -1.7,-0.8 -5.1,0.3 -1.2,-1.1 -5.2,0.5 3.9,-2.1 0.8,-2 -6.2,0.7 -0.3,-1.5 4.7,-1.8 -4.3,0.3 -3.1,-3.3 2.3,-1.4 4.2,-0.4 0.5,-1 -6.2,-1.3 0.4,-1.4 3.7,-0.9 3,1.9 1.2,-2.5 -1.1,-1 3.3,-0.4 1.1,-1.5 3.8,1 3.8,-0.4 0.1,-2 -2.3,2 -4.3,-1.5 -3.2,-0.1 4.3,-1.8 2.5,-2.8 -1.3,-0.5 3.2,-3.1 3.6,1 0.6,-2.2 -7.5,-1.8 0.9,-1.9 -3.3,0 1.4,-1 -2.6,-0.6 -0.8,-3.5 3.8,-0.1 0.2,-2.8 3.8,0.4 0.5,-1.8 -3.8,-0.3 1.4,-1.2 -0.7,-5.5 2.3,-1.5 6.3,2.7 0.3,2.6 1.6,-2.3 6,1.8 -1.6,-2 4.8,-1.9 2.2,-1.8 -5.9,-1 -0.9,-1.7 3.1,-1.7 2.4,0.4 -0.9,-2.2 2.9,-3.4 5.3,0.4 1.8,-0.8 0.8,4.6 0.5,-4.6 2.1,0.2 -0.2,-1.6 3.8,4.2 -3.8,1.9 -1.9,0.8 -2.6,4.4 -3.3,-0.6 0.5,2.3 -5.1,1.6 2.3,5.6 5.2,3 4.1,-4.7 1.5,1.7 0.3,2.7 1.4,1 -0.3,2.4 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Ireland</namespace:name>
+        <namespace:labelrank>3</namespace:labelrank>
+        <namespace:country-abbrev>Ire.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>IRL</namespace:iso-a3>
+        <namespace:iso-a2>IE</namespace:iso-a2>
+        <namespace:woe-id>23424803</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.61</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.60</namespace:hc-middle-y>
+        <namespace:hc-key>ie</namespace:hc-key>
+        <namespace:hc-a2>IE</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="IT"
+       d="m 319.4,683 1.1,0.7 -0.3,0.9 -1.5,-0.9 z m 43.9,-32.9 -0.3,-0.3 -0.8,-0.6 0.8,-0.8 z m -98.8,-10.8 1.5,1.2 -0.8,1.8 -0.9,-1.9 z m -0.8,0.3 -0.8,-0.1 -0.4,-1 1.2,-0.6 z m 82.1,-31.8 -1.6,0 0.2,-0.9 1.5,0.5 z m -80.8,-6.2 -0.1,0.8 -1.1,0.4 0.4,-1.2 z m 29.8,-31.9 -0.7,1.7 -3.8,-0.6 0.7,-1.2 z m 42.7,-53.4 0.1,-2 -2.4,-1.6 -1.6,1.4 -2.7,-0.9 -1.7,2.6 -8.7,4.2 1.2,-2.6 -3,2.1 -0.7,3 1.7,3.8 2.8,2.4 -1.1,2.8 -2.1,-0.4 0.1,6.7 1.3,4.4 4.8,4.9 3.3,1.4 4.3,3.5 5.1,3 3.4,7.4 1.8,6.1 2,3.7 9.9,9 5.6,2.5 4.6,0.2 8.1,-1.4 2.5,2.7 -3.5,3.2 0,2.6 1.7,1.3 8.5,3.4 6.8,1.7 6.4,4.2 8,2.5 3.7,3.3 4.8,6 -1.4,6.2 -4.6,-1.7 -1.5,-3.8 -2.5,-3 -4.9,0.3 -4.5,-1.5 -2.6,-1.9 -1.8,1.6 -3.8,7.2 0.6,2.2 -1.8,3.3 0.6,2.1 3.5,1 6.4,3.5 0,5.4 1.4,1.6 -1.3,2.7 -3.9,0 -4.1,4.1 0.9,5.5 -5.5,6 -0.8,3.8 -6.5,0.2 -0.6,-5.2 2,-0.9 1.4,-3.8 -1.2,-3.5 4.9,-2.1 0.3,-2.9 -2.3,-3.2 -1.8,-6.8 -2.1,-2.2 -1.7,-5.6 -2.8,-3.7 -3.8,1.6 -3.4,-2.9 -3.2,-1.2 1,-3 -3.9,-5 -5.9,2.1 1.9,-2.9 -2.7,-1.9 -2.9,0.3 -5.7,-7.6 -2.1,0.9 -3.6,-1.4 -4,1.4 -2.3,-3.2 -3.7,-0.7 -2.7,-3.4 -3.1,-1.9 -1.3,-3.1 -4.6,-2.3 -2.5,-4.6 -3.7,-2.2 -4.2,0 1.2,-2.2 -2.8,-3.5 -3.6,-1.8 0.7,-1.7 -3.6,-0.5 0.3,-4.2 -1.5,-4.5 -1.5,-1.7 -0.9,-6.2 -2.2,-3.9 -3.8,-0.9 -7.9,-5.5 -6.8,-1.4 -3.5,2.2 -3.3,3.7 -0.9,2.7 -2.9,1.9 -6.2,0.9 -0.3,-1.3 3,-4.1 -0.4,-1.7 -3.8,0.9 -4.6,-2.5 -2.1,-2.5 -0.1,-3.3 2.9,-2.4 -1.5,-3.4 -2.7,-1.4 -1.5,-3.3 3.2,-0.4 3.6,-2.2 0.8,-2.8 -2.3,-2 -0.1,-2.4 -2.1,-1.6 0.1,-2 3,-1.7 2.1,0.9 4.7,-1.8 3.7,1.5 3.8,-3.9 -0.5,-2.4 4.9,-3.2 -0.3,3.4 2.2,2.4 3,1.1 0.8,4.5 2.1,-1 -0.9,-1.7 3.7,-6.2 0,-3.3 2.3,-0.1 1.5,3.7 5.2,-1.2 1.1,2.6 1.5,-0.8 -1.6,-3.2 0.6,-3.2 4.4,1.3 -0.8,-2.6 1.1,-3.6 7,1.7 1.2,-2.6 2.8,-1.5 5.5,0.2 5.8,-2.2 -1.2,1.7 4,5.5 10.7,2.1 6.1,0.4 -4.2,4.5 3.7,1.8 -2.1,3.4 2.1,0.6 -0.4,3 4.3,3.1 z m -15.3,32.5 0.2,-1.6 -0.8,0.3 -0.5,0.8 z m 1.2,37.5 0,0 0,0 0,0 z m 30,72.4 5.3,-1.6 4,-2.3 2.8,1 6.1,-3.7 0.2,4 -4,6.8 -1.3,4.9 0.4,3.3 3.9,5.7 -2.4,1.5 -1.1,5.6 -9.3,-2 -3.5,-4.6 -3,-1.3 -2.9,0.5 -7,-3.4 -4.4,-3.4 -4.8,-1.5 -3.1,0.3 -3.7,-4.5 1,-3.9 3.8,-3.4 2.2,2.8 2.9,-3.2 3.3,-0.7 1.2,2.2 6.1,2.1 3.4,-1.6 z m -78.2,-21 -1,4.3 -2.5,2.1 -3.7,-0.5 -0.6,-3 -2.7,-3.4 0.1,-2.8 2.7,-9.5 -2.1,-0.5 1.4,-3.8 -0.3,-3.9 -2.1,-5.1 -2.1,0.2 -0.4,-3.1 1.6,-3.4 4,1.7 3.6,-1.6 6.7,-6.5 3,1.5 1.8,1.2 -0.8,2 4.5,9.4 -2.9,4.9 1.5,3.4 -1.3,11.3 -1.3,6.6 -4,-1.6 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Italy</namespace:name>
+        <namespace:labelrank>2</namespace:labelrank>
+        <namespace:country-abbrev>Italy</namespace:country-abbrev>
+        <namespace:subregion>Southern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>ITA</namespace:iso-a3>
+        <namespace:iso-a2>IT</namespace:iso-a2>
+        <namespace:woe-id>23424853</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.44</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.38</namespace:hc-middle-y>
+        <namespace:hc-key>it</namespace:hc-key>
+        <namespace:hc-a2>IT</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="LV"
+       d="m 475.5,297.6 -2.2,1.4 -1.9,3.9 0,2.4 -6.3,1 -1.1,2.5 -2.2,1.3 -3.5,-0.6 -1.5,-1.7 -5.8,-3.1 -0.7,-1 -5.8,0.4 -3.1,-4.2 -3.9,4.2 -3.4,0.7 -4.4,-0.9 -4.3,0.5 -1.6,1.4 -2.6,-1.3 -1.9,1.4 -6.2,-0.2 -7.3,4.8 -1,2.8 -1.4,0.5 -1.3,-3.2 -0.7,-11.1 2.8,-4 -0.6,-4.7 2,-5.3 2.8,-1.4 5.3,-3.9 1.3,3.1 5.4,3.1 2,4.4 5,1.9 2.4,-1.3 3.4,-4.9 -0.1,-2.1 -2.9,-9.4 1.9,-1.8 6.6,-3.9 3.9,2.3 4.2,0.3 0.5,1.3 5.7,3.6 3.1,-2.9 5.2,0.7 1.7,-0.5 0.2,1.9 3.9,1.7 0.4,2.4 -0.5,6.2 1.5,-0.9 1.4,2.1 3.6,3.1 2,4.3 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Latvia</namespace:name>
+        <namespace:labelrank>5</namespace:labelrank>
+        <namespace:country-abbrev>Lat.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>LVA</namespace:iso-a3>
+        <namespace:iso-a2>LV</namespace:iso-a2>
+        <namespace:woe-id>23424874</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.68</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.47</namespace:hc-middle-y>
+        <namespace:hc-key>lv</namespace:hc-key>
+        <namespace:hc-a2>LV</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="LT"
+       d="m 408,328.6 -1.2,-4.9 -2.2,-3.9 -1.2,-6 1.4,-0.5 1,-2.8 7.3,-4.8 6.2,0.2 1.9,-1.4 2.6,1.3 1.6,-1.4 4.3,-0.5 4.4,0.9 3.4,-0.7 3.9,-4.2 3.1,4.2 5.8,-0.4 0.7,1 5.8,3.1 1.5,1.7 3.5,0.6 -0.1,6.3 3.9,0.3 -1.6,3.4 -2.9,0.2 -1.1,3.5 -3.3,2.7 0.8,5.5 -1.4,4.6 1.9,0 1.2,3.1 -2.1,0.6 -1.4,-2.7 -2.5,1.3 -1.1,2.6 -2.4,0.2 0,3.4 -1.3,-0.2 -2.8,2.6 -2.1,-0.8 -5.9,2.2 -1.8,-0.4 -1.4,-4.1 -6.9,-3.1 -0.8,1 -1.3,-1.7 0,-8.3 -3,-2.5 -4.9,1.4 z m -3.7,-0.1 1.1,-4.2 -0.3,4.3 0,0 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Lithuania</namespace:name>
+        <namespace:labelrank>5</namespace:labelrank>
+        <namespace:country-abbrev>Lith.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>LTU</namespace:iso-a3>
+        <namespace:iso-a2>LT</namespace:iso-a2>
+        <namespace:woe-id>23424875</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.60</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.49</namespace:hc-middle-y>
+        <namespace:hc-key>lt</namespace:hc-key>
+        <namespace:hc-a2>LT</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="LU"
+       d="m 244.5,444.5 -2.5,-0.9 -2.2,0.9 -1.9,-1.9 1.2,-1.9 -1.7,-4.6 3.7,-5.2 1.3,1.1 1,4.4 3.3,1.9 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Luxembourg</namespace:name>
+        <namespace:labelrank>6</namespace:labelrank>
+        <namespace:country-abbrev>Lux.</namespace:country-abbrev>
+        <namespace:subregion>Western Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>LUX</namespace:iso-a3>
+        <namespace:iso-a2>LU</namespace:iso-a2>
+        <namespace:woe-id>23424881</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.50</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.58</namespace:hc-middle-y>
+        <namespace:hc-key>lu</namespace:hc-key>
+        <namespace:hc-a2>LU</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="MT"
+       d="m 360.4,700 -3.5,-0.5 -0.5,-1.7 3,0.7 z m -4.7,-3 -1.5,-0.3 1.1,-0.8 1.3,0.7 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Malta</namespace:name>
+        <namespace:labelrank>5</namespace:labelrank>
+        <namespace:country-abbrev>Malta</namespace:country-abbrev>
+        <namespace:subregion>Southern Europe</namespace:subregion>
+        <namespace:region-wb>Middle East &amp; North Africa</namespace:region-wb>
+        <namespace:iso-a3>MLT</namespace:iso-a3>
+        <namespace:iso-a2>MT</namespace:iso-a2>
+        <namespace:woe-id>23424897</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.67</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.77</namespace:hc-middle-y>
+        <namespace:hc-key>mt</namespace:hc-key>
+        <namespace:hc-a2>MT</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="NL"
+       d="m 219.8,401 -0.6,1.4 -3.1,-2.2 2.9,0 z m 12,-25.4 -1.3,2 -0.8,-1.1 1.7,-2.3 z m 0.6,-2 -0.7,0 1.3,-1.2 0.8,-0.4 z m 5.7,-3 -2.5,0.8 -0.3,-0.6 4.6,-1 z m 5.4,-1 0.5,0.3 -3.1,0.4 0,-0.7 z m 2.7,0.3 -0.3,-0.3 1,-0.4 1.2,0.2 z m -34.6,36.4 2.3,-0.5 3.5,1.6 1.6,-1.1 2.7,1.1 -3.7,2.7 -3.3,-1.8 -2.8,0.5 z m 10.5,1.1 -3.5,-1.8 -1.5,0.9 -3.2,-1.5 -0.8,-1.9 4.4,-0.7 3.2,3.5 1.4,-1.3 -2.8,-1.6 2.3,-1.6 -2.2,-3.2 0.8,-2.4 1.5,-0.3 4.7,-5.8 3.5,-11.5 1.8,1.3 5.5,-3.2 2.6,-3.7 4.4,-1.7 8.4,-0.5 4.9,4.2 -0.3,5.1 -1.2,2.1 -0.7,3.8 -3,0 -1,3 3.2,0.6 0.4,4.1 -4.2,3.5 1.5,1.4 -5,2.3 -2.9,-1.5 -2.4,1.6 1.8,3.1 1,4.8 -1.8,2.8 0.9,1.6 -2.8,2.1 1.6,2.3 -1,2.9 -3.6,-0.4 2.1,-7.2 -4,-2.7 -3,0.3 -2.1,-4.1 -1.3,1.4 -1.6,-2 -1.6,1.3 -1.6,-1.2 -1.3,2.2 z m 17.9,-17.8 0.9,-0.6 0.1,-0.2 0,0 0,0 0.9,-0.7 0,-2.2 -2.1,-0.4 1.9,0.9 -0.7,2.4 0,0 0,0 -1,0.8 0,0 0,0 0,0 -3.3,2 -3.2,-2.3 6.2,-3.9 -0.3,-3 1.3,-1.1 -3.5,-0.6 -0.1,-4.1 -3.9,2.5 0.7,2.9 2,1.5 -3.2,1.3 0.4,3.5 -1.5,1.1 5.3,2.5 3.1,-2.3 0,0 0,0 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Netherlands</namespace:name>
+        <namespace:labelrank>5</namespace:labelrank>
+        <namespace:country-abbrev>Neth.</namespace:country-abbrev>
+        <namespace:subregion>Western Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>NLD</namespace:iso-a3>
+        <namespace:iso-a2>NL</namespace:iso-a2>
+        <namespace:woe-id>-90</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.34</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.59</namespace:hc-middle-y>
+        <namespace:hc-key>nl</namespace:hc-key>
+        <namespace:hc-a2>NL</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="PL"
+       d="m 426.7,342.3 0.8,-1 6.9,3.1 1.4,4.1 2.3,5.7 4.9,7.8 1.8,7.4 -0.3,1.4 -4.8,3.9 -1.8,4.5 6,2.8 0.8,1.5 -0.5,4.7 1.4,4.2 0.9,3.2 3.5,3.2 0.9,2.2 3.1,2.6 -1.8,0.6 2.6,4.9 -1,2.8 -2.6,0.8 -6.1,9.3 -4.1,8.8 1.6,2.8 0.4,3.7 2.4,2.8 -4.1,-0.7 -6.8,-1.5 -2.8,-2.6 -6.9,-0.3 -2.6,1.4 -0.8,2.1 -3.3,-1.5 -4.6,0.9 -1.9,1.9 -0.6,2.5 -3.8,-0.1 -0.2,-3.5 -1.7,0.1 -2.7,-3.4 -2.8,4.1 -2.5,0.6 -1.8,-2.1 -1.1,-2.9 -1.7,-0.3 -1.4,-3.7 -6.4,-1.1 -2.3,0.8 -3.3,-3.1 0,-1.8 -3.3,0.1 -2.1,-1.9 -3.7,-0.4 1.5,3.5 -2.9,2.8 -4.8,-4.8 -1.8,-0.8 2.1,-1.8 -0.8,-2.4 -2.9,0.2 -7.8,-2.2 -1,0.4 -1.2,-3.1 -3.7,-0.5 0.4,2.5 -2,0.1 2,-7.2 -1.1,-3.8 -2.6,-1.1 -0.3,-2.9 -1.7,-2.3 1.7,-5.2 -1,-3.2 -2,-3 1,-3 -6.1,-4.7 0.1,-2.1 2.1,-1.7 0.5,-4.2 -2.1,-7.9 2.8,0.5 1,-3.5 -4.7,-0.2 -0.3,-0.5 0.3,-0.7 1.8,0.3 4.4,-2.4 14.4,-5.9 4.2,-5.3 3.9,-1.3 4,-3.1 5.7,-2 4.6,-0.8 3.3,5 0.5,2.1 4.6,1.1 3.8,-1 0,0 -1.3,0.8 1.8,1 3.6,-3.5 31.8,-3.3 z m -34.1,3.4 0.1,0.1 -1.8,1.2 0,0 z m -2.5,1.9 0.8,-0.6 0,0 -0.6,0.5 -0.2,0.1 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Poland</namespace:name>
+        <namespace:labelrank>3</namespace:labelrank>
+        <namespace:country-abbrev>Pol.</namespace:country-abbrev>
+        <namespace:subregion>Eastern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>POL</namespace:iso-a3>
+        <namespace:iso-a2>PL</namespace:iso-a2>
+        <namespace:woe-id>23424923</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.56</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.50</namespace:hc-middle-y>
+        <namespace:hc-key>pl</namespace:hc-key>
+        <namespace:hc-a2>PL</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="PT"
+       d="m 6.6,609.6 -5.3,-1.4 2.4,-5.7 2.6,-3.9 -0.2,-2.3 2.4,-0.2 3.7,-4.1 5.1,-7.3 0.8,-2.8 6.4,-12.4 0.7,-9.1 -0.2,-5.2 2.9,-3.8 2.1,-1 6,-0.5 1.2,2.5 -2.6,2.4 0.4,1.5 6.6,0 1.1,1.6 5.2,0.7 2,-2 7.6,3.1 -0.9,3.4 4.4,4.3 -5.2,4.1 -2.2,0 -3.3,3.4 -1.9,0.3 0.7,3.5 -2,7.3 0.5,1.8 -4.3,2.4 1.5,3.7 -3.6,5.4 -7.5,-1.7 2.5,5 -0.7,2.1 1.2,4.8 2.4,2.5 -1.9,2.6 -3.7,1.4 -2.6,5.1 2.5,6 2.4,0.1 -1.9,3 -3.9,-0.1 -1.6,2.9 -4,3.8 0,7.4 -6.4,1.8 -2.6,-0.3 -2.9,-2.4 -6.5,-2.4 -6,0.4 5.3,-7.9 1.8,-8.2 -0.9,-0.7 2.9,-3.9 0.5,-3.2 -1.6,-3.3 -4,0.7 0.5,-4.9 z m 0,0 0.2,0 0.1,-0.1 0,0 0,0 2.7,-0.5 -0.4,-2.7 -2.3,3.2 0,0 0,0 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Portugal</namespace:name>
+        <namespace:labelrank>2</namespace:labelrank>
+        <namespace:country-abbrev>Port.</namespace:country-abbrev>
+        <namespace:subregion>Southern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>PRT</namespace:iso-a3>
+        <namespace:iso-a2>PT</namespace:iso-a2>
+        <namespace:woe-id>23424925</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.48</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.36</namespace:hc-middle-y>
+        <namespace:hc-key>pt</namespace:hc-key>
+        <namespace:hc-a2>PT</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="RO"
+       d="m 455.4,523.6 3.4,-2.2 -4.9,-2 -2.5,4.6 -2.8,-2.2 -4.7,0.1 -4.4,-2.6 1.8,-1.6 -2.3,-0.7 1.4,-3.2 -7.3,-2.4 -3.3,-2.5 -0.4,-4.9 -6.4,-3.5 -1.6,-2 2.7,-1.6 2,0.5 2.5,-3 3.8,-0.8 1.3,-6.6 2.1,-2.3 0.7,-5.8 1.5,-1.9 1.5,-7.5 2.7,-4.6 5.7,-3.1 1.2,-2.5 2.5,-3.2 3.3,1.2 5.2,-0.8 5.8,0.5 3.9,-1.6 5,3.3 2.5,-1.6 1.3,-2.7 10.7,-4.2 0.7,-4.4 3.6,-1.7 2.3,-0.5 2.7,1.1 2.9,3 3,5.1 4.1,2.8 4.4,5.1 3.3,1.3 4.3,6.1 1.2,4.2 0,8.2 2.8,6.4 -1.2,1.1 2.4,1.9 2.3,2.1 6.1,0.1 5.9,-5.7 4.7,0.6 0.7,2.3 1.3,6.6 -0.5,0.9 -5.7,2.5 -2.8,-3.9 -0.8,2.6 1.8,3.5 -2,2.8 2.3,-0.9 -2.3,5.5 2,5.8 0,5.1 -4.8,0.8 -3.6,-0.7 -1.5,-2.4 -2.3,1.4 -1.2,-1.1 -3.6,1 -2.2,-1.5 -3.2,-0.3 -10.8,5.7 -3.7,6.3 -5.3,2.6 -5.7,-0.6 -6.3,0.4 -4.4,1.8 -11.6,-0.4 -5.2,2 -1,-2.9 1.6,-2.1 -5,-1.7 0,0 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Romania</namespace:name>
+        <namespace:labelrank>3</namespace:labelrank>
+        <namespace:country-abbrev>Rom.</namespace:country-abbrev>
+        <namespace:subregion>Eastern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>ROU</namespace:iso-a3>
+        <namespace:iso-a2>RO</namespace:iso-a2>
+        <namespace:woe-id>23424933</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.45</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.54</namespace:hc-middle-y>
+        <namespace:hc-key>ro</namespace:hc-key>
+        <namespace:hc-a2>RO</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="SK"
+       d="m 378,468.1 -4.4,-6.3 0.8,-4.5 2.3,-5 4.5,0.4 3.8,-2.4 2.4,-2.6 0.9,-4.4 3.7,-4.3 3.5,-1 1.8,2.1 2.5,-0.6 2.8,-4.1 2.7,3.4 1.7,-0.1 0.2,3.5 3.8,0.1 0.6,-2.5 1.9,-1.9 4.6,-0.9 3.3,1.5 0.8,-2.1 2.6,-1.4 6.9,0.3 2.8,2.6 6.8,1.5 -1.4,4.5 0,2.8 -1.7,2.4 0.3,3.4 -4.8,2 -4.3,-3.5 -3.7,2 -4.2,-0.9 -3.6,1.4 -1.2,4.8 -5.1,3.5 -3.4,-1.3 -1.5,2.3 -7.8,2.4 -1,1.4 1.2,2.4 -7,2.4 -5.2,0.6 -3.3,-1.1 -3.2,-2.9 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Slovakia</namespace:name>
+        <namespace:labelrank>6</namespace:labelrank>
+        <namespace:country-abbrev>Svk.</namespace:country-abbrev>
+        <namespace:subregion>Eastern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>SVK</namespace:iso-a3>
+        <namespace:iso-a2>SK</namespace:iso-a2>
+        <namespace:woe-id>23424877</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.40</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.46</namespace:hc-middle-y>
+        <namespace:hc-key>sk</namespace:hc-key>
+        <namespace:hc-a2>SK</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="SI"
+       d="m 336,518.4 0,-0.9 1.5,-1.2 2.4,-0.8 -4.3,-3.1 0.4,-3 -2.1,-0.6 2.1,-3.4 -3.7,-1.8 4.2,-4.5 9.1,0.9 1.8,1.1 3.7,-4.4 2.7,-1.1 5.2,0.2 2.1,-2 4.8,0 0.8,-3.2 2.3,-0.2 3.7,6.4 -3.6,0.5 0.8,2.1 -7.8,3.7 -0.8,2 1.6,1.3 -0.2,3.8 -2.7,0.5 -2.5,2.2 1.8,4.1 -2.9,1.2 -6.3,-1.5 -1.6,-2.2 -2.2,3.5 -5.3,-0.4 -1,1.8 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Slovenia</namespace:name>
+        <namespace:labelrank>6</namespace:labelrank>
+        <namespace:country-abbrev>Slo.</namespace:country-abbrev>
+        <namespace:subregion>Southern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>SVN</namespace:iso-a3>
+        <namespace:iso-a2>SI</namespace:iso-a2>
+        <namespace:woe-id>23424945</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.38</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.62</namespace:hc-middle-y>
+        <namespace:hc-key>si</namespace:hc-key>
+        <namespace:hc-a2>SI</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="ES"
+       d="m 161.3,639 0.6,1.2 -1.6,0.8 0.1,-1.3 z m 2.9,-6.4 0.5,1.5 -3.7,3.3 -2.6,-1.7 2.5,-3 z m 25.2,-13.9 -0.6,3.8 4.5,0.8 -4.4,7 -2.5,1.5 -4.2,-2.9 -1.2,-3.3 -2.6,1.5 -1.7,-2.8 9,-4.9 z m 13.8,-0.5 2.1,1.9 0.2,2.8 -4,-2.3 -2.7,-0.4 0.1,-2.1 z m -154.3,57 0.9,-0.1 1,0.9 -0.9,0.6 z m 128,-104.8 -0.2,-0.4 0.4,-0.4 0.3,0.9 z m -126.1,100.7 -4.4,1.6 -7.1,-7.4 0,-5.4 -2.1,-1.7 0.8,-3.2 -1,-3.2 -5,-5.2 -7.6,-2.4 0,-7.4 4,-3.8 1.6,-2.9 3.9,0.1 1.9,-3 -2.4,-0.1 -2.5,-6 2.6,-5.1 3.7,-1.4 1.9,-2.6 -2.4,-2.5 -1.2,-4.8 0.7,-2.1 -2.5,-5 7.5,1.7 3.6,-5.4 -1.5,-3.7 4.3,-2.4 -0.5,-1.8 2,-7.3 -0.7,-3.5 1.9,-0.3 3.3,-3.4 2.2,0 5.2,-4.1 -4.4,-4.3 0.9,-3.4 -7.6,-3.1 -2,2 -5.2,-0.7 -1.1,-1.6 -6.6,0 -0.4,-1.5 2.6,-2.4 -1.2,-2.5 -6,0.5 -2.1,1 -1.9,1 0.6,-4 4.6,-2.6 -3.5,-0.1 3.6,-2.3 -2.8,-0.5 2.2,-3.8 -3.6,1.1 -0.4,-1.4 2.9,-2.9 -2.7,-1.2 0.5,-1.9 -2.1,-0.7 0.9,-2.4 2.6,-2.1 2.5,0.2 2.1,-1.6 1.7,1.3 5.4,-0.8 1,-2.8 6.6,-2.1 6.4,3.2 1.3,2.5 13.5,2.6 10.5,3.1 3,2 10.2,4.1 11.7,-0.2 0.4,1.7 5.3,2.2 4.8,-0.7 4.8,3.4 3.1,1.1 4.8,-1.1 0.4,1.9 4.5,1.6 -1.6,2.8 6.5,3.5 3,0.6 2,3.2 3.7,-0.4 3.5,3.5 2.9,-0.4 1.4,1.3 5.1,0.4 0.5,-2.8 8.8,3.4 1.3,2.4 0.7,3.3 2.9,-1.1 4.5,3.4 3.3,-1.1 2.4,1.9 6.8,-1.8 3.3,1.1 1.7,2.2 -2.4,1 -0.6,2.2 1.3,3.4 -4.8,4.4 -9.4,3.7 -3.7,3.2 -7.6,0.8 -8.1,1.8 -4.5,3.7 1.6,2.9 -3.7,0.7 -4.4,5.7 -4.8,4.2 -7,8.9 0.5,8.4 2.3,4.4 3.2,3 -5.2,3.1 -4,0.9 -2.8,1.9 -5,8.5 0.1,4.7 -6.3,0.7 -1.9,-1.2 -7.2,3.1 -2.6,2.6 -2.1,4.6 -4.1,3.5 -3.3,-2.5 -3.4,-0.1 -1.6,1.9 -8.4,-2.7 -3.1,0.6 -2.6,-1.4 -6.9,-1.5 -5.9,-0.4 -1.9,2.2 -3.3,1 -2.7,-0.8 -4.7,0.8 -3.4,4.6 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Spain</namespace:name>
+        <namespace:labelrank>2</namespace:labelrank>
+        <namespace:country-abbrev>Sp.</namespace:country-abbrev>
+        <namespace:subregion>Southern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>ESP</namespace:iso-a3>
+        <namespace:iso-a2>ES</namespace:iso-a2>
+        <namespace:woe-id>23424950</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.38</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.53</namespace:hc-middle-y>
+        <namespace:hc-key>es</namespace:hc-key>
+        <namespace:hc-a2>ES</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="SE"
+       d="m 360,295.4 0.2,2.2 -3.2,12.6 -0.4,4.2 -1.4,2.3 -0.6,-5.8 1.7,-6.3 0.9,-0.4 1.8,-7.9 z m 20,-14.4 1.2,0.3 -2.8,1.5 0.3,-1.2 z m -74,4.4 -0.7,1.8 -1.3,0.2 -0.3,-1.7 z m 0.4,-3.5 0.2,2.2 -2.8,0.8 -0.9,-1.4 2.3,-2.3 z m 49.8,-4.1 -0.1,0.5 -0.8,-1.9 1.3,0.8 z m 13.1,-13.9 -0.2,0.8 -1,0.5 0.1,-0.7 z m -1.4,-0.9 -0.7,1.2 -0.7,-0.3 0.3,-0.7 z m -4.9,2.4 -0.5,0 -0.2,-2.5 0.8,1.2 z m 7.1,-3.3 -0.4,1 -0.6,-0.4 1,-1.7 z m 0.1,-4.3 0.3,0.5 -0.1,0.6 -1.9,-1.1 z m 1,-4.8 -0.9,2.2 -0.6,-1 0.6,-1.2 z m 1.6,-1.5 0.5,-0.9 -0.1,1.2 -0.5,-0.2 z m 0.7,-4 0.1,0.3 -1,0.3 0.5,-1.5 z m -6.6,-11.4 1.4,2.7 -1.6,-1 -0.2,-2.6 z m -8.1,-42.5 0.6,-0.1 -0.2,1.2 -0.8,0.1 z m 21.1,-22 0.5,-0.5 0,1.3 -0.4,0.6 z m 6.1,-35.2 -0.2,0.3 0.2,0.6 -1,-1 z m 1.9,-1.5 0.5,0 -0.3,0.9 -0.5,-0.7 z m -17.8,156.3 2.8,-5.8 2.5,-2.5 0.6,1.4 2,-1.4 1,1.3 -2.5,2.1 0.5,5.3 1.5,0.6 -2.4,2.3 0.6,1 -3.1,2.5 -0.4,3.5 -1.6,0.6 1,-2.4 -2.1,-3.8 0.5,-2.3 z m -7.3,-219.8 2.4,1 4.5,4.8 3.6,1.8 1.4,1.5 1.6,-0.2 3.8,0.9 2.1,1.5 1.3,3.1 4.3,3.1 -0.9,1.2 1.4,5.5 -0.5,2.1 2.7,0.8 -0.4,5.3 4.4,5.9 -0.6,1.3 0.6,3.5 -1.4,2.8 1.5,4.2 2.8,2.5 2,4.1 -1.6,1.5 -2.1,-1 -2.4,0.7 -1.5,2.3 -4,-2.1 0.3,1.8 -1.8,-1.4 -1.2,3.4 1.6,2.6 -5.3,-1.9 3.6,2.3 -2.6,0.5 1.1,2.2 -3.5,0.9 2,1.8 -0.2,2.7 -2.6,6.4 -1,0.5 4.7,6.3 -3.5,6.8 -0.7,5.1 -2.1,1.2 -1.2,3.4 -1.9,0.1 -2.4,3 -0.3,1.8 -2.1,-2.2 0.7,2.8 -2.1,-0.6 0.2,2.2 -1.6,3.3 -1.1,-0.5 -2.1,1.5 -1.7,4.1 0.8,1.3 -3.1,2.2 -1.4,-0.8 1.4,3.6 -2.6,3.9 -2.5,-1.6 -0.6,2.5 1.8,3.4 -0.8,5.1 0.8,4.3 -2.7,2.9 1.2,1.7 0.9,9.3 1.7,4.5 -1,0.9 3.6,0.6 0.9,2.4 2.4,-1.8 0.6,1.6 6.1,4.6 -2.2,-0.8 1.9,2.2 3,0.5 1.7,3.8 -1.2,2.4 2.3,-0.4 -3.2,3.2 -2,3 -3.7,2 4.6,0.6 -0.7,-1.6 3.2,1.2 -0.5,1.1 -3.9,0.2 1.7,3 -3.3,1.9 -1.1,2.9 -1.5,0 -0.3,-3.8 -1.4,0.8 0.3,4.2 -6,5.1 -6.8,-0.2 1.9,1.2 3.6,-0.5 1.7,2 -2,1.2 0.9,2.1 0.2,3.6 -1.6,3.8 -1.6,0.9 3.2,3.6 -1.3,-0.3 1.5,4.3 -1.2,1.8 -0.5,3.9 1.4,2.3 -4,12.1 -0.3,3.1 -1.7,3.3 -0.3,-1.4 -2.7,-0.6 -2.5,1.4 -3.9,-0.3 -2.7,0.6 1,2.1 -3,0.2 -2.6,4.1 -0.1,1.8 2,3.6 -1.7,2.6 -3.2,-0.6 -6.3,1.9 -3.6,-1.3 -0.3,-2.8 1.3,-1.9 -1.5,-1.3 -4.8,-9.6 3.1,0.8 -1.9,-3.5 2.7,-0.8 -0.3,-3.6 -1.5,0.1 -1.5,-3.2 -2.3,-1.6 -3.5,-10.1 -1.2,1.8 -0.3,-4.8 -2.2,-1.8 -0.2,-2.2 1.5,-7.1 -0.3,-1.9 -3.2,0.8 -0.9,-2.8 -1.8,1.7 0.5,-4.5 -1.8,-7.2 1,-2.3 2.1,1.8 0.2,1.8 2,-0.5 1.3,-6.2 -1.5,-5.8 2.1,-4 -0.6,-1.9 2.8,-0.5 3.3,-4.3 -0.3,-3.3 0.8,-4.1 -2.1,-4.5 -1.3,-4.2 3.9,-1.2 1.5,-6.3 -2.5,-3.2 -1.8,-0.6 -2.4,-2.7 1.1,-9.6 -2.2,-6.6 0.5,-2.8 -0.5,-3.6 0.9,-1.5 -2.1,-5.4 1.7,-3.1 -0.4,-2.8 4.1,-6.9 4.5,-2.7 5.9,1.2 1.7,-3.8 -0.7,-4.5 -4,-2.5 4.9,-9.8 1.4,-4.6 -0.1,-7.3 0.5,-2.8 -1.2,-5.3 3.9,-0.8 3.2,-2.6 -0.8,-4.1 1.7,-2.2 2.4,-5.8 2.5,-3.4 0,-2.9 -2.7,-4 0.4,-1.7 2,-1.2 1.7,-7 3.4,-4.1 4.4,2.2 1.5,-3.9 -0.8,-7.3 1.8,-0.9 1.7,1.2 2.7,-0.4 6.8,2.1 1.9,-2.8 -2.2,-0.9 1.6,-2.6 0,-4.9 -1.9,-1.9 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>Sweden</namespace:name>
+        <namespace:labelrank>3</namespace:labelrank>
+        <namespace:country-abbrev>Swe.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>SWE</namespace:iso-a3>
+        <namespace:iso-a2>SE</namespace:iso-a2>
+        <namespace:woe-id>23424954</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.52</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.34</namespace:hc-middle-y>
+        <namespace:hc-key>se</namespace:hc-key>
+        <namespace:hc-a2>SE</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+    <path
+       id="GB"
+       d="m 141.9,436.9 0.9,1.7 -2.5,-0.6 0.1,-1.2 z m 14.4,-26.2 2.4,1.9 -3.2,1.4 -1.9,-1.9 z m -29.4,-53.5 0.3,0.1 0.5,1.4 -1.2,-0.9 z m 4.8,1.4 1.8,0.3 -3.9,2.4 -2,-3.1 0.5,-2.1 3.2,0.5 z m -1.6,-41 -2.2,-1.3 0.7,-3.7 2,0.6 z m 2.2,-5 -0.9,-1.2 -0.3,-2.5 1.1,0.8 z m -10.8,-4.3 0.2,2.9 -2.3,-0.1 -0.6,-2.3 -2,1.3 1.2,-2.8 3.6,-1.1 z m 0.9,-5.2 -0.7,1.2 -0.8,0 1,-1.4 z m 4.1,0 -0.3,1.6 -3.3,4.4 -0.7,-2.3 z m -10.3,-7.8 -0.8,-1.3 2.7,-0.2 -1.6,0.9 z m 9.3,-1.2 0.4,2 2.2,1.1 0.3,1.8 -7.3,0.7 2.8,-3.1 -1.8,-1.9 2.7,-1.4 z m -5.4,-0.8 -1.5,-0.1 1.4,-0.9 1.6,-0.4 z m -6.5,-9 -1.1,0.6 -0.7,-0.4 1.3,-1.2 z m 11.2,2.1 -0.7,1.2 -1.2,-1.4 1.5,-0.7 z m -9,-9.7 1,2.5 -2.4,3.1 -0.4,-2.7 z m 0.9,-1.2 0.6,1.4 -0.9,0 -1,-1 z m 1.8,-2.8 -0.3,2.6 -3.4,-2.4 0.9,-1.1 z m 46,-12.5 -0.8,1.5 -0.6,-1.9 0.8,-0.1 z m -3.2,-2 0.4,1.5 -1.3,0.5 -0.9,-2 z m 1.7,-4.4 3.6,4.6 -1.5,0.7 -1.1,-1.7 -2.2,0.5 -1.2,-2.2 0.8,-1.9 z m 5.2,0.7 0.7,1.3 -0.8,0.2 -0.4,-1.6 z m -3.9,-1.2 0.4,1 -0.9,-0.2 -0.1,-1.1 z m 2.7,-0.7 0,1.8 -0.5,0 -0.2,-1.1 z m 3.7,-0.3 -1.3,1 -0.8,-0.5 0.3,-0.4 z m -5,-2 0.4,1.8 -1.1,-0.3 -0.6,-1.4 z m 23.7,-19.9 0.1,0.6 -0.9,0 -0.4,-1.2 z m -4.2,7.5 -2.2,5.3 -0.9,-0.7 2,-6.1 -2,1.4 -1.4,-3.1 2.8,0.2 -0.3,-3.3 -1.5,-0.1 3,-1.9 -1.1,3.8 2.9,-0.4 z m 2.1,-10.3 0.7,0.2 -1,4.2 -1.1,-0.3 z m 2.9,-0.6 -0.7,1.9 -1.3,-0.3 1.2,-2.7 z m -52.8,205.8 -1.5,-0.2 0.3,-0.5 1.8,-0.8 z m -6.9,-89.5 -2.3,0.1 1.5,-2.7 2.4,-2.2 2.1,-0.5 0,2.4 z m -79.4,327.8 -0.2,0.6 -0.1,-0.6 z m 600.2,-3.9 -1.7,0.1 -2.3,0.8 0.8,-1.2 z m 11.2,-10.5 -0.6,0.5 -1.2,-0.2 -0.4,-0.1 0.4,0.1 -0.3,0 -0.9,0.4 0,0 0,-0.2 -0.3,-0.7 -0.4,-0.1 0,0 1.4,-0.4 1.8,-1.4 0,0 0,0.2 -1.4,0.9 z m -2.5,0 0,-0.3 -0.1,0.1 0,0.2 z m -477.5,-253.5 1.6,0.6 5.3,-0.1 -1.4,4.7 -4,1.2 -0.9,2.2 -2,-0.7 -5.4,1.6 -1.3,1.1 -4.9,-2.2 -4.7,-0.2 -3,0.8 -0.8,-1.9 -4.9,-0.2 -7.6,0.9 -0.8,1.6 -5.1,-1.7 -0.5,0.9 -4.2,-3.5 -4.8,0.2 -3.2,1.8 -0.3,2.5 -2.5,3.1 -1.8,-0.1 -3.8,-3.9 -7,-0.5 -0.9,1.7 -3.1,0 -0.6,2.4 -1.9,1.6 -2.7,-3.9 -3,0.8 0.7,-1.9 3,0.1 5.4,-3.3 0.7,-1.7 3,-0.7 3.6,-3.3 1,-3.7 2.1,0.7 2.9,-3.4 4.5,0.2 4.2,1.9 4.2,0.7 0.5,-2.2 4,-2.8 3.5,-4 -2.9,2.3 -3.3,0 -3,2.6 -4,-0.8 -2.8,-4.8 -1.6,0.9 -3.6,-0.6 -0.4,-4.1 -3.4,0.2 -3.4,1.6 -0.4,-2.2 -2.3,-4.5 2.7,-1.3 2.8,0.6 8.1,-3.3 2.6,-4.5 0.8,-6.8 -3.5,-0.3 -1.6,1.6 -2.7,-0.6 2.4,-2.1 3,-1.3 2.9,-3.2 9.5,-0.5 1.9,2.1 -0.3,-2.3 1.6,-0.8 0,-2 2.7,-3.1 -1.5,-1 0.9,-2.9 3,-3.1 -2.1,-2.2 -2.7,1.6 -1.5,-5.6 -1.3,-2.5 3.9,-6.3 2.1,-0.9 -3.6,-1.5 -0.7,2.1 -2.7,-0.3 -1.6,1.5 -2.1,-0.8 -2,-2.6 -0.5,4.1 -4.4,-4.4 -1.2,0.9 0.3,3.4 -2,-4.5 2.4,-5.1 5.4,-5.6 -2.3,-4.5 0.9,-3.3 1.4,-1 -0.1,-2.9 -2.3,4.1 -1.6,-1.6 -1.9,0.3 -0.2,2.1 -2.4,2.2 -1.3,4.8 -3,0.5 3.6,-7.8 0,-4.1 2.7,-3.4 -1.4,-0.9 2.2,-3 3.6,-0.3 -2.8,-0.9 2.9,-3.9 -4.8,3.1 -2.9,-3 1.3,-0.8 -3.2,-1.1 0.7,-1 3.2,0.9 0.4,-2.6 4.3,-6.5 -1.8,-1.8 0.6,-4.2 1.7,1.3 -0.7,-3.3 0.4,-2.7 2.3,-1.2 1.2,1.7 1.2,-1.4 2.3,1.9 -2.5,-4.7 1.3,0.6 -0.2,-3.4 3,0.1 -0.4,-1.6 2.8,-4.6 2.9,1.9 8.2,1.4 4.1,-0.8 3.7,1 -1.5,2.1 0.1,1.9 -1.7,1.8 -9.6,5 0,2.4 2.4,0.2 -5.7,5.2 7,-1.3 1.2,-1.2 4,1.6 1.7,-0.3 3.7,1.3 5.9,0.7 1.1,4.2 -2.7,2.4 -1.3,3.6 -2.5,4.2 -2.7,2.2 -1.4,2.6 -4,1.7 0.2,1.7 2.4,2 -2.4,1.3 -1.8,-0.6 -2.7,2.3 -4.2,0 4.7,2.2 3.4,-1.6 1.7,0.4 4.5,3.5 2.6,5.8 1.8,1.2 -0.2,7.8 1.3,7.5 1.6,3.2 5.4,3.6 1.2,4.1 3,3.4 -1.8,1.4 0.5,2.4 2.4,5.1 -2,0.1 -2.5,-2.5 0.9,2.3 3.4,3.2 1.4,4.9 -0.4,2.6 -4.1,3.2 3.9,2.3 2.5,-3 4.5,0.5 3.3,1.2 3.8,3.3 0.8,5.6 -2.1,3.7 -0.9,3.5 -4.8,3.2 -1,1.7 -1.7,-1 -1.8,4.7 -4.9,0.4 2.7,0.9 -1.8,0.9 2.6,1 -0.1,-1.3 1.4,0.7 0.4,1 z m -54.2,-122.1 0.4,0.9 3.2,1.3 -0.7,1.2 -3.8,2.3 0.6,-3.1 -3.1,-0.1 -1,-3.1 -2.3,-3.3 2.3,-0.3 -0.3,-2.1 2.1,2.2 1.5,-3.2 1.1,2.4 -0.8,3.3 0.7,1.5 0.4,-2.1 1.1,-1.1 -0.8,1.8 z m -5.7,-18.8 2.2,1.2 0,-1.4 6.3,-2.9 0.2,3.2 -2.8,2 -0.2,3.2 -2.3,1.7 -5.1,2.4 -0.9,-1.7 3.1,-1.6 -2.4,-1.6 z m -16.1,57 1.8,0.9 1.7,-2.4 2.1,0.8 3.2,-0.6 3.7,1.5 1.9,9.7 1.7,1.7 0.4,3.7 -1.3,2.2 0,-3.6 -2.1,2.9 1.4,1.3 -3.5,0.5 -2.7,3.1 -2.2,-1.7 -4,0.2 0.3,-2.4 -1.4,-1 -0.3,-2.7 -1.5,-1.7 -4.1,4.7 -5.2,-3 -2.3,-5.6 5.1,-1.6 -0.5,-2.3 3.3,0.6 2.6,-4.4 z"
+       inkscape:connector-curvature="0"
+       style="fill:#cee3f5;stroke:#6e6e6e;stroke-width:0.40000001">
+      <namespace:desc>
+        <namespace:name>United Kingdom</namespace:name>
+        <namespace:labelrank>2</namespace:labelrank>
+        <namespace:country-abbrev>U.K.</namespace:country-abbrev>
+        <namespace:subregion>Northern Europe</namespace:subregion>
+        <namespace:region-wb>Europe &amp; Central Asia</namespace:region-wb>
+        <namespace:iso-a3>GBR</namespace:iso-a3>
+        <namespace:iso-a2>GB</namespace:iso-a2>
+        <namespace:woe-id>-90</namespace:woe-id>
+        <namespace:continent>Europe</namespace:continent>
+        <namespace:hc-middle-x>0.18</namespace:hc-middle-x>
+        <namespace:hc-middle-y>0.36</namespace:hc-middle-y>
+        <namespace:hc-key>gb</namespace:hc-key>
+        <namespace:hc-a2>GB</namespace:hc-a2>
+      </namespace:desc>
+    </path>
+  </g>
+</svg>
