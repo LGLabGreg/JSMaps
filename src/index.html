@@ -87,31 +87,7 @@
   <div class="container">
 
     <!-- Map html - add the below to your page -->
-    <div class="lg-map-wrapper">
-
-      <!-- map div - required -->
-      <div class="lg-map"></div>
-      <!-- End map div - required -->
-
-      <!-- map console - optional - include these files if using enablePanZoom option -->
-      <div class="lg-map-console">
-        <ul>
-          <li class="lg-map-zoom-in"><img src="images/in.png"/></li>
-          <li class="lg-map-zoom-out"><img src="images/out.png"/></li>
-          <li class="lg-map-move-up"><img src="images/up.png"/></li>
-          <li class="lg-map-move-down"><img src="images/down.png"/></li>
-          <li class="lg-map-move-left"><img src="images/left.png"/></li>
-          <li class="lg-map-move-right"><img src="images/right.png"/></li>
-          <li class="lg-map-zoom-reset"><img src="images/reset.png"/></li>
-        </ul>
-      </div>
-      <!-- End map console -->
-
-      <!-- map text - optional - include if using useText option-->
-      <div class="lg-map-text"></div>
-      <!-- End map text -->
-      
-    </div>
+    <div class="lg-map-wrapper"></div>
     <!-- End Map html -->
 
     <!-- Example of an external select element that would trigger click events on the map -->
@@ -131,6 +107,7 @@
 
       $('.lg-map-wrapper').LGMap({
         map: '<%= map %>',
+        enablePanZoom: true,
         onReady: function() {
           console.log('LGMap ready');
           $('.lg-map-select').on('change', function() {

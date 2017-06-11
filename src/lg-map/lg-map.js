@@ -88,6 +88,9 @@
       throw new Error('LGMap plugin was called without a map property');
     }
 
+    // Map element
+    var mapWrapper = $(this);
+
     var r;
     var mouseX = 0;
     var mouseY = 0;
@@ -99,13 +102,12 @@
     var tooltipOffsetY = 0;
     var isTooltipBelowMouse = false;
     var statesHitAreas = [];
-
-    var mapWrapper = $(this);
     var containerWidth = mapWrapper.parent().width();
-    var textArea = mapWrapper.find('.lg-map-text');
-    var map = mapWrapper.find('.lg-map');
+    var map = $('<div class="lg-map"></div>').appendTo(mapWrapper);
     var mapId = 'lg-map-' + generateUUID();
     map.attr('id', mapId);
+    var textArea;
+
 
     /////////////////////////////
     //Init map
@@ -127,7 +129,10 @@
       var oMapWidth = mapWidth;
 
       // Pan/zoom
-      var mapConsole = mapWrapper.find('.lg-map-console');
+      if (config.enablePanZoom) {
+        var mapConsole = $('<div class="lg-map-console"> <ul> <li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul> </div>').appendTo(mapWrapper);
+      }
+      
       var mapZoom = 1;
       var originW = mapWidth;
       var originH = mapHeight;
@@ -167,9 +172,8 @@
 
       //Set initial default text
       if (config.useText) {
+        textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
         textArea.html(config.defaultText);
-      } else {
-        textArea.hide();
       }
 
       /////////////////////////////
