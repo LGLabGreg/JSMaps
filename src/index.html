@@ -87,8 +87,7 @@
   <div class="container">
 
     <!-- Map html - add the below to your page -->
-    <!-- Change data-map to any map in maps folder without the file extension e.g. monaco.js -> data-map="monaco" -->
-    <div class="lg-map-wrapper" data-map="<%= map %>" data-click-event-handler="lgMapClick">
+    <div class="lg-map-wrapper">
 
       <!-- map div - required -->
       <div class="lg-map"></div>
@@ -117,32 +116,36 @@
 
     <!-- Example of an external select element that would trigger click events on the map -->
     <!-- Note: the option value must equal the state name in the config -->
-    <!--
-    <select class="lg-map-select" data-target-map="<%= map %>">
+    <select class="lg-map-select">
       <option selected>Choose an option</option>
-      <option value="Europe">Europe</option>
-      <option value="Asia">Asia</option>
-      <option value="North America">North America</option>
-      <option value="Africa">Africa</option>
-      <option value="South America">South America</option>
-      <option value="Australia and Oceania">Australia and Oceania</option>
+      <option value="Libya">Libya</option>
+      <option value="Madagascar">Madagascar</option>
     </select>
-    -->
     
   </div>
 
-  <!-- Example of map state click event listener -->
-  <!--
+
   <script type="text/javascript">
 
     $(function() {
-      $(document).on('lgMapClick', function(e, data){
-        console.log(JSON.stringify(data));
+
+      $('.lg-map-wrapper').LGMap({
+        map: '<%= map %>',
+        onReady: function() {
+          console.log('LGMap ready');
+          $('.lg-map-select').on('change', function() {
+            $('.lg-map-wrapper').trigger('stateClick', this.value);
+          });
+        },
+        onStateClick: function(data) {
+          $('.lg-map-select').val(data.name);
+          console.log('onStateClick: ' + JSON.stringify(data))
+        }
       });
+
     });
     
   </script>
-  -->
   
 </body>
 
