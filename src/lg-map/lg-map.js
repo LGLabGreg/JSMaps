@@ -130,7 +130,7 @@
 
       // Pan/zoom
       if (config.enablePanZoom) {
-        var mapConsole = $('<div class="lg-map-console"> <ul> <li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul> </div>').appendTo(mapWrapper);
+        var mapConsole = $('<div class="lg-map-console"><ul><li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
       }
       
       var mapZoom = 1;
