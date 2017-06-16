@@ -12,6 +12,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-obfuscator');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
 	var map = grunt.option('map');
   var task = grunt.cli.tasks[0];
@@ -62,14 +63,6 @@ module.exports = function(grunt) {
           flatten: true
         }]
       },
-      js: {
-        files: [{
-          expand: true,
-          cwd: 'src',
-          src: ['**/*.js'],
-          dest: 'build'
-        }]
-      },
       css: {
         files: [{
           expand: true,
@@ -105,6 +98,14 @@ module.exports = function(grunt) {
         }]
       }
     },
+    concat: {
+      js: {
+        files: {
+          'build/lg-map/lg-map-libs.js': ['src/lg-map/raphael.js', 'src/lg-map/scale.raphael.js'],
+          'build/lg-map/lg-map-panzoom.js': ['src/lg-map/RequestAnimationFrame.js', 'src/lg-map/jquery.mousewheel.js', 'src/lg-map/raphaelAnimateViewBox.js']
+        },
+      },
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> v<%= pkg.version %>, <%= grunt.template.today("yyyy-mm-dd") %> */\n',
@@ -126,9 +127,7 @@ module.exports = function(grunt) {
               // options for each sub task
           },
           files: {
-              'build/lg-map/lg-map.min.js': [
-                  'build/lg-map/lg-map.min.js'
-              ]
+              'build/lg-map/lg-map.min.js': ['build/lg-map/lg-map.min.js']
           }
       }
     },
@@ -168,9 +167,9 @@ module.exports = function(grunt) {
     }
 	});
 
-	grunt.registerTask('development', ['clean', 'copy', 'clean:map', 'uglify', 'connect:server', 'watch']);
-	grunt.registerTask('build', ['clean', 'copy', 'clean:map', 'uglify']);
-  grunt.registerTask('zip', ['clean', 'copy', 'clean:map', 'uglify', 'compress']);
-  grunt.registerTask('zipall', ['clean', 'copy', 'uglify', 'compress:all']);
+	grunt.registerTask('development', ['clean', 'copy', 'clean:map', 'concat', 'uglify', 'connect:server', 'watch']);
+	grunt.registerTask('build', ['clean', 'copy', 'clean:map', 'concat', 'uglify']);
+  grunt.registerTask('zip', ['clean', 'copy', 'clean:map', 'concat', 'uglify', 'compress']);
+  grunt.registerTask('zipall', ['clean', 'copy', 'concat', 'uglify', 'compress:all']);
 
 };
