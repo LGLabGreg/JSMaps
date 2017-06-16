@@ -84,36 +84,17 @@
   <div class="container">
 
     <!-- Map html - add the below to your page -->
-    <div class="lg-map-wrapper"></div>
+    <div class="lg-map-wrapper" id="<%= map %>-map"></div>
     <!-- End Map html -->
 
-    <!-- Example of an external select element that would trigger click events on the map -->
-    <!-- Note: the option value must equal the state name in the config -->
-    <select class="lg-map-select">
-      <option selected>Choose an option</option>
-      <option value="Libya">Libya</option>
-      <option value="Madagascar">Madagascar</option>
-    </select>
-    
   </div>
 
   <script type="text/javascript">
 
     $(function() {
 
-      $('.lg-map-wrapper').LGMap({
-        map: '<%= map %>',
-        enablePanZoom: true,
-        onReady: function() {
-          console.log('LGMap ready');
-          $('.lg-map-select').on('change', function() {
-            $('.lg-map-wrapper').trigger('stateClick', this.value);
-          });
-        },
-        onStateClick: function(data) {
-          $('.lg-map-select').val(data.name);
-          console.log('onStateClick: ' + JSON.stringify(data))
-        }
+      $('#<%= map %>-map').LGMap({
+        map: '<%= map %>'
       });
 
     });
