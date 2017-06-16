@@ -2,23 +2,7 @@ window.LGMaps.maps.germany = {
 	"config": {
 		"mapWidth": 585.5141,
 		"mapHeight": 792.66785,
-		"responsive": true,
-		"offColor": "#222222",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#000000",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 12,
-		"displayAbbreviations": true,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Germany</h1><br /><p>Germany is a Western European country with a terrain of vast forests, rivers and mountain ranges, and 2 millennia of history. Berlin, its capital, is home to thriving art and nightlife scenes, iconic Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and cavernous beer halls, including 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.</p><p>The English word Germany derives from the Latin Germania, which came into use after Julius Caesar adopted it for the peoples east of the Rhine. The German term Deutschland, originally diutisciu land (the German lands) is derived from deutsch (cf. dutch), descended from Old High German diutisc popular (i.e. belonging to the diot or diota people), originally used to distinguish the language of the common people from Latin and its Romance descendants. This in turn descends from Proto-Germanic *þiudiskaz popular (see also the Latinised form Theodiscus), derived from *þeudō, descended from Proto-Indo-European *tewtéh₂- people.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Germany</h1><br /><p>Germany is a Western European country with a terrain of vast forests, rivers and mountain ranges, and 2 millennia of history. Berlin, its capital, is home to thriving art and nightlife scenes, iconic Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and cavernous beer halls, including 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.</p><p>The English word Germany derives from the Latin Germania, which came into use after Julius Caesar adopted it for the peoples east of the Rhine. The German term Deutschland, originally diutisciu land (the German lands) is derived from deutsch (cf. dutch), descended from Old High German diutisc popular (i.e. belonging to the diot or diota people), originally used to distinguish the language of the common people from Latin and its Romance descendants. This in turn descends from Proto-Germanic *þiudiskaz popular (see also the Latinised form Theodiscus), derived from *þeudō, descended from Proto-Indo-European *tewtéh₂- people.</p>"
 	},
 	"paths": [
 		{

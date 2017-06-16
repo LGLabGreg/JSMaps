@@ -2,24 +2,7 @@ window.LGMaps.maps.palestineIsrael = {
 	"config": {
 		"mapWidth": 294.58,
 		"mapHeight": 792.5,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 8,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 650,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Palestine and Israel</h1><br /><p>Palestine (Arabic: فلسطين‎ Filasṭīn, Falasṭīn, Filisṭīn; Greek: Παλαιστίνη, Palaistinē; Latin: Palaestina; Hebrew: פלשתינה Palestina) is a geographic region in Western Asia between the Mediterranean Sea and the Jordan River. It is sometimes considered to include adjoining territories. The name was used by Ancient Greek writers, and was later used for the Roman province Syria Palaestina, the Byzantine Palaestina Prima, and the Islamic provincial district of Jund Filastin. The region is also known as the Land of Israel (Hebrew: ארץ־ישראל Eretz-Yisra'el), the Holy Land or Promised Land, and historically has been known as the southern portion of wider regional designations such as Canaan, Syria, ash-Sham, and the Levant.</p><p>Israel, a Middle Eastern country on the Mediterranean Sea, is regarded by Jews, Christians and Muslims as the biblical Holy Land. Its most sacred sites are in Jerusalem. Within its Old City, the Temple Mount complex includes the Dome of the Rock shrine, the historic Western Wall, Al-Aqsa Mosque and Church of the Holy Sepulchre. Its financial hub, Tel Aviv, is known for Bauhaus architecture, beaches and nightlife.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Palestine and Israel</h1><br /><p>Palestine (Arabic: فلسطين‎ Filasṭīn, Falasṭīn, Filisṭīn; Greek: Παλαιστίνη, Palaistinē; Latin: Palaestina; Hebrew: פלשתינה Palestina) is a geographic region in Western Asia between the Mediterranean Sea and the Jordan River. It is sometimes considered to include adjoining territories. The name was used by Ancient Greek writers, and was later used for the Roman province Syria Palaestina, the Byzantine Palaestina Prima, and the Islamic provincial district of Jund Filastin. The region is also known as the Land of Israel (Hebrew: ארץ־ישראל Eretz-Yisra'el), the Holy Land or Promised Land, and historically has been known as the southern portion of wider regional designations such as Canaan, Syria, ash-Sham, and the Levant.</p><p>Israel, a Middle Eastern country on the Mediterranean Sea, is regarded by Jews, Christians and Muslims as the biblical Holy Land. Its most sacred sites are in Jerusalem. Within its Old City, the Temple Mount complex includes the Dome of the Rock shrine, the historic Western Wall, Al-Aqsa Mosque and Church of the Holy Sepulchre. Its financial hub, Tel Aviv, is known for Bauhaus architecture, beaches and nightlife.</p>"
 	},
 	"paths": [
 		{

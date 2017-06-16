@@ -2,24 +2,7 @@ window.LGMaps.maps.middleEast = {
 	"config": {
 		"mapWidth": 998.673,
 		"mapHeight": 833.581,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Middle East</h1><br /><p>The Middle East is a transcontinental region centered on Western Asia and Egypt. The corresponding adjective is Middle-Eastern and the derived noun is Middle-Easterner.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Middle East</h1><br /><p>The Middle East is a transcontinental region centered on Western Asia and Egypt. The corresponding adjective is Middle-Eastern and the derived noun is Middle-Easterner.</p>"
 	},
 	"paths": [
 		{

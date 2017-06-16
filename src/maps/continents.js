@@ -2,24 +2,8 @@ window.LGMaps.maps.continents = {
 	"config": {
 		"mapWidth": 1009.255,
 		"mapHeight": 651.915,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
 		"displayAbbreviations": false,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Continents</h1><br /><p>A continent is one of several very large landmasses on Earth. Generally identified by convention rather than any strict criteria, up to seven regions are commonly regarded as continents. Ordered from largest in size to smallest, they are: Asia, Africa, North America, South America, Antarctica, Europe, and Australia. In geology, areas of continental crust include regions covered with water.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Continents</h1><br /><p>A continent is one of several very large landmasses on Earth. Generally identified by convention rather than any strict criteria, up to seven regions are commonly regarded as continents. Ordered from largest in size to smallest, they are: Asia, Africa, North America, South America, Antarctica, Europe, and Australia. In geology, areas of continental crust include regions covered with water.</p>"
 	},
 	"paths": [
 		{

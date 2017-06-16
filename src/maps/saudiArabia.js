@@ -2,24 +2,7 @@ window.LGMaps.maps.saudiArabia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 578.400,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Saudi Arabia</h1><br /><p>Saudi Arabia is a desert country encompassing most of the Arabian Peninsula, with Red Sea and Persian (Arabian) Gulf coastlines. Known as the birthplace of Islam, it’s home to the religion’s 2 most sacred mosques: Masjid al-Haram, in Mecca, destination of the annual Hajj pilgrimage, and Medina’s Masjid an-Nabawi, burial site of the prophet Muhammad. Riyadh, the capital, is a skyscraper-filled metropolis.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Saudi Arabia</h1><br /><p>Saudi Arabia is a desert country encompassing most of the Arabian Peninsula, with Red Sea and Persian (Arabian) Gulf coastlines. Known as the birthplace of Islam, it’s home to the religion’s 2 most sacred mosques: Masjid al-Haram, in Mecca, destination of the annual Hajj pilgrimage, and Medina’s Masjid an-Nabawi, burial site of the prophet Muhammad. Riyadh, the capital, is a skyscraper-filled metropolis.</p>"
 	},
 	"paths": [
 		{

@@ -2,24 +2,8 @@ window.LGMaps.maps.yemen = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 403.900,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
 		"displayAbbreviations": false,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Yemen</h1><br /><p>Yemen, officially known as the Republic of Yemen, is an Arab country in Western Asia, occupying South Arabia, the southern end of the Arabian Peninsula. Yemen is the second-largest country in the peninsula, occupying 527,970 km².</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Yemen</h1><br /><p>Yemen, officially known as the Republic of Yemen, is an Arab country in Western Asia, occupying South Arabia, the southern end of the Arabian Peninsula. Yemen is the second-largest country in the peninsula, occupying 527,970 km².</p>"
 	},
 	"paths": [
 		{

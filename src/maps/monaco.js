@@ -2,24 +2,7 @@ window.LGMaps.maps.monaco = {
 	"config": {
 		"mapWidth": 510,
 		"mapHeight": 600,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 500,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Monaco</h1><br /><p>Monaco is a tiny independent city-state on France’s Mediterranean coastline known for its upscale casinos, yacht-lined harbor and prestigious Grand Prix motor race, which runs through Monaco’s streets once a year. Monte-Carlo, its major district, is home to an elegant belle-époque casino complex and ornate Salle Garnier opera house. It also has many luxe hotels, boutiques, nightclubs and restaurants.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Monaco</h1><br /><p>Monaco is a tiny independent city-state on France’s Mediterranean coastline known for its upscale casinos, yacht-lined harbor and prestigious Grand Prix motor race, which runs through Monaco’s streets once a year. Monte-Carlo, its major district, is home to an elegant belle-époque casino complex and ornate Salle Garnier opera house. It also has many luxe hotels, boutiques, nightclubs and restaurants.</p>"
 	},
 	"paths": [
 		{

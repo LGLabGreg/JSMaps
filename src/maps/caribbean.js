@@ -2,24 +2,7 @@ window.LGMaps.maps.caribbean = {
 	"config": {
 		"mapWidth": 895.92969,
 		"mapHeight": 632.93359,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 10,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": true,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Caribbean</h1><br /><p>The Caribbean is a region that consists of the Caribbean Sea, its islands, and the surrounding coasts. The region is southeast of the Gulf of Mexico and the North American mainland, east of Central America, and north of South America.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Caribbean</h1><br /><p>The Caribbean is a region that consists of the Caribbean Sea, its islands, and the surrounding coasts. The region is southeast of the Gulf of Mexico and the North American mainland, east of Central America, and north of South America.</p>"
 	},
 	"paths": [
 		{

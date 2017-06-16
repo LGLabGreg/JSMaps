@@ -2,24 +2,7 @@
     "config": {
         "mapWidth": 612,
         "mapHeight": 431.53,
-        "responsive": true,
-        "offColor": "#ccc",
-        "strokeColor": "#24221f",
-        "offStrokeColor": "#444",
-        "strokeWidth": 1,
-        "abbreviationColor": "#f2f2f2",
-        "abbreviationFontSize": 10,
-        "displayAbbreviations": true,
-        "displayAbbreviationOnDisabledStates": false,
-        "useText": true,
-        "useTextAtBottom": false,
-        "hrefTarget": "_blank",
-        "textAreaWidth": 350,
-        "textAreaHeight": 300,
-        "pinSize": 10,
-        "defaultText": "<h1>Romania</h1><br /><p>Romania is a central European country known for the forested region of Transylvania, preserved medieval towns such as Sighişoara and many fortified churches and castles, notably clifftop Bran Castle, long associated with the Dracula legend. The area is ringed by the Carpathian Mountains, which are popular for trekking, climbing, skiing and bathing in natural thermal spas.</p>",
-        "displayMousePosition": false,
-        "enablePanZoom": false
+        "defaultText": "<h1>Romania</h1><br /><p>Romania is a central European country known for the forested region of Transylvania, preserved medieval towns such as Sighişoara and many fortified churches and castles, notably clifftop Bran Castle, long associated with the Dracula legend. The area is ringed by the Carpathian Mountains, which are popular for trekking, climbing, skiing and bathing in natural thermal spas.</p>"
     },
     "paths": [
         {

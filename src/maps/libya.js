@@ -2,24 +2,7 @@ window.LGMaps.maps.libya = {
 	"config": {
 		"mapWidth": 799.46,
 		"mapHeight": 772.03,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 15,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Libya</h1><br /><p>Libya is a country in the Maghreb region of North Africa, bordered by the Mediterranean Sea to the north, Egypt to the east, Sudan to the southeast, Chad and Niger to the south, and Algeria and Tunisia to the west.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Libya</h1><br /><p>Libya is a country in the Maghreb region of North Africa, bordered by the Mediterranean Sea to the north, Egypt to the east, Sudan to the southeast, Chad and Niger to the south, and Algeria and Tunisia to the west.</p>"
 	},
 	"paths": [
 		{

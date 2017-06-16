@@ -2,23 +2,8 @@ window.LGMaps.maps.asia = {
 	"config": {
 		"mapWidth": 700.4,
 		"mapHeight": 540.6,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 8,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
 		"useTextAtBottom": true,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
 		"defaultText": "<h1>Asia</h1><br /><p>Asia is the Earth's largest and most populous continent, located primarily in the eastern and northern hemispheres. Asia covers an area of 44,579,000 square kilometers, about 30% of Earth's total land area and 8.7% of the Earth's total surface area.</p>",
-		"displayMousePosition": false,
 		"enablePanZoom": true
 	},
 	"paths": [

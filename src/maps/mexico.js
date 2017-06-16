@@ -2,23 +2,7 @@ window.LGMaps.maps.mexico = {
 	"config": {
 		"mapWidth": 792.41846,
 		"mapHeight": 497.54324,
-		"responsive": true,
-		"offColor": "#222222",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#000000",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 9,
-		"displayAbbreviations": true,
-		"useText": true,
-		"useTextAtBottom": true,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Mexico</h1><br /><p>Mexico is a country between the U.S. and Central America that's known for its Pacific and Gulf of Mexico beaches and its diverse landscape of mountains, deserts and jungles. Ancient ruins such as Teotihuacan (Aztec) and Chichen Itza (Mayan) are scattered throughout the country, as are Spanish colonial-era towns. In capital Mexico City, upscale shops, renowned museums and gourmet restaurants cater to modern life.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Mexico</h1><br /><p>Mexico is a country between the U.S. and Central America that's known for its Pacific and Gulf of Mexico beaches and its diverse landscape of mountains, deserts and jungles. Ancient ruins such as Teotihuacan (Aztec) and Chichen Itza (Mayan) are scattered throughout the country, as are Spanish colonial-era towns. In capital Mexico City, upscale shops, renowned museums and gourmet restaurants cater to modern life.</p>"
 	},
 	"paths": [
 		{

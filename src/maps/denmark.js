@@ -2,24 +2,8 @@ window.LGMaps.maps.denmark = {
 	"config": {
 		"mapWidth": 540,
 		"mapHeight": 660,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
 		"displayAbbreviations": false,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Denmark</h1><br /><p>Denmark, officially the Kingdom of Denmark, is a Scandinavian country in Europe and a sovereign state. The southernmost of the Nordic countries, it is south-west of Sweden and south of Norway, and bordered to the south by Germany. </p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Denmark</h1><br /><p>Denmark, officially the Kingdom of Denmark, is a Scandinavian country in Europe and a sovereign state. The southernmost of the Nordic countries, it is south-west of Sweden and south of Norway, and bordered to the south by Germany. </p>"
 	},
 	"paths": [
 		{

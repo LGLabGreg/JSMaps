@@ -2,23 +2,7 @@ window.LGMaps.maps.italy = {
 	"config": {
 		"mapWidth": 610.30981,
 		"mapHeight": 792.58575,
-		"responsive": true,
-		"offColor": "#222222",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#000000",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 10,
-		"displayAbbreviations": true,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Italy</h1><br /><p>Italy, commanding a long Mediterranean coastline, has left a powerful mark on Western culture and cuisine. Its capital, Rome, is home to the Vatican as well as landmark art and ancient ruins. Other major cities include Florence, with Renaissance treasures such as Michelangelo’s David and its leather and paper artisans; Venice, the sinking city of canals; and Milan, Italy’s fashion capital.</p><p>Since classical times, Greeks, Etruscans and Celts have inhabited the south, centre and north of the Italian Peninsula respectively. The Italic tribe known as the Latins formed the Roman Kingdom, which eventually spread throughout Italy, assimilating and conquering other nearby civilizations and forming the Roman Republic. Rome ultimately emerged as the dominant power, conquering much of the ancient world and becoming the leading cultural, political, and religious centre of Western civilisation. The legacy of the Roman Empire is widespread and can be observed in the global distribution of civilian law, Republican governments, Christianity and the latin script.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Italy</h1><br /><p>Italy, commanding a long Mediterranean coastline, has left a powerful mark on Western culture and cuisine. Its capital, Rome, is home to the Vatican as well as landmark art and ancient ruins. Other major cities include Florence, with Renaissance treasures such as Michelangelo’s David and its leather and paper artisans; Venice, the sinking city of canals; and Milan, Italy’s fashion capital.</p><p>Since classical times, Greeks, Etruscans and Celts have inhabited the south, centre and north of the Italian Peninsula respectively. The Italic tribe known as the Latins formed the Roman Kingdom, which eventually spread throughout Italy, assimilating and conquering other nearby civilizations and forming the Roman Republic. Rome ultimately emerged as the dominant power, conquering much of the ancient world and becoming the leading cultural, political, and religious centre of Western civilisation. The legacy of the Roman Empire is widespread and can be observed in the global distribution of civilian law, Republican governments, Christianity and the latin script.</p>"
 	},
 	"paths": [
 		{

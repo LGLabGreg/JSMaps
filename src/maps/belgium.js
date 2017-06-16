@@ -2,23 +2,7 @@
     "config": {
         "mapWidth": 752.12,
         "mapHeight": 611.19,
-        "responsive": true,
-        "offColor": "#222222",
-        "strokeColor": "#24221f",
-        "offStrokeColor": "#000000",
-        "strokeWidth": 1,
-        "abbreviationColor": "#f2f2f2",
-        "abbreviationFontSize": 12,
-        "displayAbbreviations": true,
-        "useText": true,
-        "useTextAtBottom": false,
-        "hrefTarget": "_blank",
-        "textAreaWidth": 400,
-        "textAreaHeight": 300,
-        "pinSize": 10,
-        "defaultText": "<h1>Belgium</h1><br /><p>Belgium, a country in Western Europe, is known for its medieval old towns, Flemish Renaissance architecture and international headquarters of the European Union and NATO. The country is divided into 2 distinctive multilingual regions: Dutch-speaking Flanders to the north and French-speaking Wallonia to the south. The bilingual capital, Brussels, is home to ornate guildhalls at Grand-Place and an art nouveau-influenced European Quarter.</p>",
-        "displayMousePosition": false,
-        "enablePanZoom": false
+        "defaultText": "<h1>Belgium</h1><br /><p>Belgium, a country in Western Europe, is known for its medieval old towns, Flemish Renaissance architecture and international headquarters of the European Union and NATO. The country is divided into 2 distinctive multilingual regions: Dutch-speaking Flanders to the north and French-speaking Wallonia to the south. The bilingual capital, Brussels, is home to ornate guildhalls at Grand-Place and an art nouveau-influenced European Quarter.</p>"
     },
     "paths": [
         {
