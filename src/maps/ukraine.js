@@ -2,24 +2,8 @@ window.LGMaps.maps.ukraine = {
 	"config": {
 		"mapWidth": 612.34,
 		"mapHeight": 407.45,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 12,
 		"displayAbbreviations": false,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Ukraine</h1><br /><p>Ukraine is a large country in Eastern Europe known for its Orthodox churches, Black Sea coastline and forested mountains. Its capital, Kiev, features the gold-domed St. Sophia's Cathedral, with 11th-century mosaics and frescoes. Overlooking the Dnieper River is the Kiev Pechersk Lavra monastery complex, a Christian pilgrimage site housing Scythian tomb relics and catacombs containing mummified Orthodox monks.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Ukraine</h1><br /><p>Ukraine is a large country in Eastern Europe known for its Orthodox churches, Black Sea coastline and forested mountains. Its capital, Kiev, features the gold-domed St. Sophia's Cathedral, with 11th-century mosaics and frescoes. Overlooking the Dnieper River is the Kiev Pechersk Lavra monastery complex, a Christian pilgrimage site housing Scythian tomb relics and catacombs containing mummified Orthodox monks.</p>"
 	},
 	"paths": [
 		{

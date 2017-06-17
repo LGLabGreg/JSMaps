@@ -2,24 +2,7 @@ window.LGMaps.maps.france = {
 	"config": {
 		"mapWidth": 598.939,
 		"mapHeight": 583.946,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>France</h1><br /><p>France, in Western Europe, encompasses medieval and port cities, tranquil villages, mountains and Mediterranean beaches. Paris, its capital, is known worldwide for its couture fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower. The country is also renowned for its sophisticated cuisine and its wines. Lascaux’s ancient cave drawings, Lyon’s Roman theater and the immense Palace of Versailles are testaments to its long history.</p><p>During the Iron Age, what is now Metropolitan France was inhabited by the Gauls, a Celtic people. The Gauls were conquered in 51 BC by the Roman Empire, which held Gaul until 486. The Gallo-Romans faced raids and migration from the Germanic Franks, who dominated the region for hundreds of years, eventually creating the medieval Kingdom of France. France emerged as a major European power in the Late Middle Ages, with its victory in the Hundred Years War (1337 to 1453) strengthening French state-building and paving the way for a future centralized absolute monarchy. During the Renaissance, France experienced a vast cultural development and established the beginning of a global colonial empire. The 16th century was dominated by religious civil wars between Catholics and Protestants (Huguenots).</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>France</h1><br /><p>France, in Western Europe, encompasses medieval and port cities, tranquil villages, mountains and Mediterranean beaches. Paris, its capital, is known worldwide for its couture fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower. The country is also renowned for its sophisticated cuisine and its wines. Lascaux’s ancient cave drawings, Lyon’s Roman theater and the immense Palace of Versailles are testaments to its long history.</p><p>During the Iron Age, what is now Metropolitan France was inhabited by the Gauls, a Celtic people. The Gauls were conquered in 51 BC by the Roman Empire, which held Gaul until 486. The Gallo-Romans faced raids and migration from the Germanic Franks, who dominated the region for hundreds of years, eventually creating the medieval Kingdom of France. France emerged as a major European power in the Late Middle Ages, with its victory in the Hundred Years War (1337 to 1453) strengthening French state-building and paving the way for a future centralized absolute monarchy. During the Renaissance, France experienced a vast cultural development and established the beginning of a global colonial empire. The 16th century was dominated by religious civil wars between Catholics and Protestants (Huguenots).</p>"
 	},
 	"paths": [
 		{

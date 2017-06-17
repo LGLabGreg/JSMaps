@@ -2,24 +2,7 @@ window.LGMaps.maps.uk = {
 	"config": {
 		"mapWidth": 627.98,
 		"mapHeight": 844.91,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 10,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>United Kingdom</h1><br /><p>The U.K., made up of England, Scotland, Wales and Northern Ireland, is an island nation in northwestern Europe. England – birthplace of Shakespeare and The Beatles – is home to the capital, London, a globally influential centre of finance and culture. England is also site of neolithic Stonehenge, Bath’s Roman spa and centuries-old universities at Oxford and Cambridge.</p><p>The United Kingdom is a constitutional monarchy with a parliamentary system of governance. Its capital city is London, an important global city and financial centre with an urban population of 10,310,000, the fourth-largest in Europe and second-largest in the European Union. The current monarch—since 6 February 1952—is Queen Elizabeth II. The UK consists of four countries: England, Scotland, Wales, and Northern Ireland. The latter three have devolved administrations, each with varying powers, based in their capitals, Edinburgh, Cardiff, and Belfast, respectively. The nearby Isle of Man, Bailiwick of Guernsey and Bailiwick of Jersey are not part of the United Kingdom, being Crown dependencies with the British Government responsible for defence and international representation.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>United Kingdom</h1><br /><p>The U.K., made up of England, Scotland, Wales and Northern Ireland, is an island nation in northwestern Europe. England – birthplace of Shakespeare and The Beatles – is home to the capital, London, a globally influential centre of finance and culture. England is also site of neolithic Stonehenge, Bath’s Roman spa and centuries-old universities at Oxford and Cambridge.</p><p>The United Kingdom is a constitutional monarchy with a parliamentary system of governance. Its capital city is London, an important global city and financial centre with an urban population of 10,310,000, the fourth-largest in Europe and second-largest in the European Union. The current monarch—since 6 February 1952—is Queen Elizabeth II. The UK consists of four countries: England, Scotland, Wales, and Northern Ireland. The latter three have devolved administrations, each with varying powers, based in their capitals, Edinburgh, Cardiff, and Belfast, respectively. The nearby Isle of Man, Bailiwick of Guernsey and Bailiwick of Jersey are not part of the United Kingdom, being Crown dependencies with the British Government responsible for defence and international representation.</p>"
 	},
 	"paths": [
 		{

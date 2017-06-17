@@ -71,3 +71,39 @@
     float: left;
     cursor: pointer;
 }
+
+.lg-map-console li.lg-map-zoom-in {
+    width: 28px;
+    height: 29px;
+    background: url('../images/in.png');
+}
+.lg-map-console li.lg-map-zoom-out {
+    width: 28px;
+    height: 29px;
+    background: url('../images/out.png');
+}
+.lg-map-console li.lg-map-move-up {
+    width: 25px;
+    height: 29px;
+    background: url('../images/up.png');
+}
+.lg-map-console li.lg-map-move-down {
+    width: 20px;
+    height: 29px;
+    background: url('../images/down.png');
+}
+.lg-map-console li.lg-map-move-left {
+    width: 18px;
+    height: 29px;
+    background: url('../images/left.png');
+}
+.lg-map-console li.lg-map-move-right {
+    width: 21px;
+    height: 29px;
+    background: url('../images/right.png');
+}
+.lg-map-console li.lg-map-zoom-reset {
+    width: 62px;
+    height: 29px;
+    background: url('../images/reset.png');
+}

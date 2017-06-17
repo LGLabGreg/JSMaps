@@ -2,24 +2,7 @@ window.LGMaps.maps.africa = {
 	"config": {
 		"mapWidth": 998.749,
 		"mapHeight": 995.433,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 12,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Africa</h1><br /><p>Africa is the world's second-largest and second-most-populous continent. At about 30.2 million km2 (11.7 million square miles) including adjacent islands, it covers six percent of Earth's total surface area and 20.4 percent of its total land area. With 1.1 billion people as of 2013, it accounts for about 15% of the world's human population. The continent is surrounded by the Mediterranean Sea to the north, both the Suez Canal and the Red Sea along the Sinai Peninsula to the northeast, the Indian Ocean to the southeast, and the Atlantic Ocean to the west. The continent includes Madagascar and various archipelagos. It contains 54 fully recognized sovereign states (countries), nine territories and two de facto independent states with limited or no recognition.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Africa</h1><br /><p>Africa is the world's second-largest and second-most-populous continent. At about 30.2 million km2 (11.7 million square miles) including adjacent islands, it covers six percent of Earth's total surface area and 20.4 percent of its total land area. With 1.1 billion people as of 2013, it accounts for about 15% of the world's human population. The continent is surrounded by the Mediterranean Sea to the north, both the Suez Canal and the Red Sea along the Sinai Peninsula to the northeast, the Indian Ocean to the southeast, and the Atlantic Ocean to the west. The continent includes Madagascar and various archipelagos. It contains 54 fully recognized sovereign states (countries), nine territories and two de facto independent states with limited or no recognition.</p>"
 	},
 	"paths": [
 		{

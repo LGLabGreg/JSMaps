@@ -2,24 +2,8 @@
     "config": {
         "mapWidth": 792.5,
         "mapHeight": 334.4,
-        "responsive": true,
-        "offColor": "#ccc",
-        "strokeColor": "#24221f",
-        "offStrokeColor": "#444",
-        "strokeWidth": 1,
-        "abbreviationColor": "#f2f2f2",
-        "abbreviationFontSize": 10,
         "displayAbbreviations": false,
-        "displayAbbreviationOnDisabledStates": false,
-        "useText": true,
-        "useTextAtBottom": true,
-        "hrefTarget": "_blank",
-        "textAreaWidth": 350,
-        "textAreaHeight": 300,
-        "pinSize": 10,
-        "defaultText": "<h1>Turkey</h1><br /><p>Turkey is a nation straddling eastern Europe and western Asia with cultural connections to ancient Greek, Persian, Roman, Byzantine and Ottoman empires. Cosmopolitan Istanbul, on the Bosphorus Strait, is home to the iconic Hagia Sophia, with its soaring dome and Christian mosaics, the massive 17th-century Blue Mosque and the circa-1460 Topkapı Palace, former home of sultans. Ankara is Turkey’s modern capital.</p>",
-        "displayMousePosition": false,
-        "enablePanZoom": false
+        "defaultText": "<h1>Turkey</h1><br /><p>Turkey is a nation straddling eastern Europe and western Asia with cultural connections to ancient Greek, Persian, Roman, Byzantine and Ottoman empires. Cosmopolitan Istanbul, on the Bosphorus Strait, is home to the iconic Hagia Sophia, with its soaring dome and Christian mosaics, the massive 17th-century Blue Mosque and the circa-1460 Topkapı Palace, former home of sultans. Ankara is Turkey’s modern capital.</p>"
     },
     "paths": [
         {

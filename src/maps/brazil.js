@@ -3,23 +3,7 @@ window.LGMaps.maps.brazil = {
 		"mapWidth": 612.5,
 		"mapHeight": 639.03,
 		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 10,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Brazil</h1><br /><p>Brazil, a vast South American country, stretches from the Amazon Basin in the north to vineyards and massive Iguaçu Falls in the south. Rio de Janeiro, symbolized by its 38m Christ the Redeemer statue atop Mt. Corcovado, is famed for its busy Copacabana and Ipanema beaches as well as its enormous, raucous Carnival festival, featuring parade floats, flamboyant costumes and samba.</p><p>Bounded by the Atlantic Ocean on the east, Brazil has a coastline of 7,491 km (4,655 mi). It borders all other South American countries except Ecuador and Chile and occupies 47.3 percent of the continent of South America. Its Amazon River basin includes a vast tropical forest, home to diverse wildlife, a variety of ecological systems, and extensive natural resources spanning numerous protected habitats. This unique environmental heritage makes Brazil one of 17 megadiverse countries, and is the subject of significant global interest and debate regarding deforestation and environmental protection..</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Brazil</h1><br /><p>Brazil, a vast South American country, stretches from the Amazon Basin in the north to vineyards and massive Iguaçu Falls in the south. Rio de Janeiro, symbolized by its 38m Christ the Redeemer statue atop Mt. Corcovado, is famed for its busy Copacabana and Ipanema beaches as well as its enormous, raucous Carnival festival, featuring parade floats, flamboyant costumes and samba.</p><p>Bounded by the Atlantic Ocean on the east, Brazil has a coastline of 7,491 km (4,655 mi). It borders all other South American countries except Ecuador and Chile and occupies 47.3 percent of the continent of South America. Its Amazon River basin includes a vast tropical forest, home to diverse wildlife, a variety of ecological systems, and extensive natural resources spanning numerous protected habitats. This unique environmental heritage makes Brazil one of 17 megadiverse countries, and is the subject of significant global interest and debate regarding deforestation and environmental protection..</p>"
 	},
 	"paths": [
 		{

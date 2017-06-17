@@ -70,13 +70,10 @@
   <!-- End Jquery -->
 
   <!-- Map scripts - add the below to your page -->
-  <!-- RequestAnimationFrame, mousewheel and raphaelAnimateViewBox ar optional if you are using enablePanZoom -->
+  <!-- lg-map-panzoom.js is optional if you are using enablePanZoom -->
   <link href="lg-map/lg-map.css" rel="stylesheet" type="text/css" />
-  <script src="lg-map/raphael.js" type="text/javascript"></script>
-  <script src="lg-map/RequestAnimationFrame.js"></script>
-  <script src="lg-map/jquery.mousewheel.js" type="text/javascript"></script>
-  <script src="lg-map/raphaelAnimateViewBox.js" type="text/javascript"></script>
-  <script src="lg-map/scale.raphael.js" type="text/javascript"></script>
+  <script src="lg-map/lg-map-libs.js" type="text/javascript"></script>
+  <script src="lg-map/lg-map-panzoom.js"></script>
   <script src="lg-map/lg-map.min.js" type="text/javascript"></script>
   <!-- End Map scripts -->
 
@@ -87,62 +84,22 @@
   <div class="container">
 
     <!-- Map html - add the below to your page -->
-    <!-- Change data-map to any map in maps folder without the file extension e.g. monaco.js -> data-map="monaco" -->
-    <div class="lg-map-wrapper" data-map="<%= map %>" data-click-event-handler="lgMapClick">
-
-      <!-- map div - required -->
-      <div class="lg-map"></div>
-      <!-- End map div - required -->
-
-      <!-- map console - optional - include these files if using enablePanZoom option -->
-      <div class="lg-map-console">
-        <ul>
-          <li class="lg-map-zoom-in"><img src="images/in.png"/></li>
-          <li class="lg-map-zoom-out"><img src="images/out.png"/></li>
-          <li class="lg-map-move-up"><img src="images/up.png"/></li>
-          <li class="lg-map-move-down"><img src="images/down.png"/></li>
-          <li class="lg-map-move-left"><img src="images/left.png"/></li>
-          <li class="lg-map-move-right"><img src="images/right.png"/></li>
-          <li class="lg-map-zoom-reset"><img src="images/reset.png"/></li>
-        </ul>
-      </div>
-      <!-- End map console -->
-
-      <!-- map text - optional - include if using useText option-->
-      <div class="lg-map-text"></div>
-      <!-- End map text -->
-      
-    </div>
+    <div class="lg-map-wrapper" id="<%= map %>-map"></div>
     <!-- End Map html -->
 
-    <!-- Example of an external select element that would trigger click events on the map -->
-    <!-- Note: the option value must equal the state name in the config -->
-    <!--
-    <select class="lg-map-select" data-target-map="<%= map %>">
-      <option selected>Choose an option</option>
-      <option value="Europe">Europe</option>
-      <option value="Asia">Asia</option>
-      <option value="North America">North America</option>
-      <option value="Africa">Africa</option>
-      <option value="South America">South America</option>
-      <option value="Australia and Oceania">Australia and Oceania</option>
-    </select>
-    -->
-    
   </div>
 
-  <!-- Example of map state click event listener -->
-  <!--
   <script type="text/javascript">
 
     $(function() {
-      $(document).on('lgMapClick', function(e, data){
-        console.log(JSON.stringify(data));
+
+      $('#<%= map %>-map').LGMap({
+        map: '<%= map %>'
       });
+
     });
     
   </script>
-  -->
   
 </body>
 

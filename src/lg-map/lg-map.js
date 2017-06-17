@@ -1,8 +1,8 @@
 // Copyright 2010-2017 - http://jsmaps.io
 // License: http://jsmaps.io/support/license/
-// Version 3.0.0 - Last updated on 29/05/2017
-$(function() {
-
+// Version 3.1.0 - Refactored as jQuery plugin
+// Last updated on 11/06/2017
+(function($) {
 
   /////////////////////////////
   //Create global LGMaps object
@@ -51,17 +51,45 @@ $(function() {
     });
   }
 
-  /////////////////////////////
-  //Custom events
-  /////////////////////////////
-  function triggerEvent(type, data) {
-    $.event.trigger(type, data);
-  }
 
   /////////////////////////////
-  //Create maps
+  //Plugin definition
   /////////////////////////////
-  $('.lg-map-wrapper').each(function() {
+  $.fn.LGMap = function(options) {
+
+
+    /////////////////////////////
+    //Settings
+    /////////////////////////////
+    var settings = $.extend({
+      'responsive': true,
+      'offColor': '#ccc',
+      'strokeColor': '#24221f',
+      'offStrokeColor': '#444',
+      'strokeWidth': 1,
+      'abbreviationColor': '#f2f2f2',
+      'abbreviationFontSize': 12,
+      'displayAbbreviations': true,
+      'displayAbbreviationOnDisabledStates': false,
+      'useText': true,
+      'useTextAtBottom': false,
+      'hrefTarget': '_blank',
+      'textAreaWidth': 300,
+      'textAreaHeight': 300,
+      'pinSize': 10,
+      'displayMousePosition': false,
+      'enablePanZoom': false,
+      onReady: function() {},
+      onStateClick: function() {}
+    }, options);
+
+    // Catch missing map data
+    if (!settings.map) {
+      throw new Error('LGMap plugin was called without a map property');
+    }
+
+    // Map element
+    var mapWrapper = $(this);
 
     var r;
     var mouseX = 0;
@@ -74,25 +102,21 @@ $(function() {
     var tooltipOffsetY = 0;
     var isTooltipBelowMouse = false;
     var statesHitAreas = [];
-
-    var mapWrapper = $(this);
     var containerWidth = mapWrapper.parent().width();
-    var textArea = mapWrapper.find('.lg-map-text');
-    var map = mapWrapper.find('.lg-map');
+    var map = $('<div class="lg-map"></div>').appendTo(mapWrapper);
     var mapId = 'lg-map-' + generateUUID();
     map.attr('id', mapId);
-
-
+    var textArea;
 
 
     /////////////////////////////
     //Init map
     /////////////////////////////
-    var mapFile = 'maps/' + mapWrapper.data('map') + '.js';
+    var mapFile = 'maps/' + settings.map + '.js';
     $.getScript(mapFile, function(data) {
 
-      var mapData = window.LGMaps.maps[mapWrapper.data('map')];
-      var config = mapData.config;
+      var mapData = window.LGMaps.maps[settings.map];
+      var config = $.extend(settings, mapData.config);
       var paths = mapData.paths;
       var pins = mapData.pins;
 
@@ -105,7 +129,10 @@ $(function() {
       var oMapWidth = mapWidth;
 
       // Pan/zoom
-      var mapConsole = mapWrapper.find('.lg-map-console');
+      if (config.enablePanZoom) {
+        var mapConsole = $('<div class="lg-map-console"><ul><li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
+      }
+      
       var mapZoom = 1;
       var originW = mapWidth;
       var originH = mapHeight;
@@ -145,9 +172,8 @@ $(function() {
 
       //Set initial default text
       if (config.useText) {
+        textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
         textArea.html(config.defaultText);
-      } else {
-        textArea.hide();
       }
 
       /////////////////////////////
@@ -296,9 +322,9 @@ $(function() {
               }
             }
 
-            // Trigger click event
-            if (mapWrapper.data('click-event-handler')) {
-              triggerEvent(mapWrapper.data('click-event-handler'), paths[id]);
+            // Trigger state click callback
+            if ($.isFunction(settings.onStateClick)) {
+              settings.onStateClick.call(this, paths[id]);
             }
 
           });
@@ -417,9 +443,9 @@ $(function() {
               window.open(pins[id].url, config.hrefTarget);
             }
 
-            // Trigger click event
-            if (mapWrapper.data('click-event-handler')) {
-              triggerEvent(mapWrapper.data('click-event-handler'), pins[id]);
+            // Trigger state click callback
+            if ($.isFunction(settings.onStateClick)) {
+              settings.onStateClick.call(this, pins[id]);
             }
 
           });
@@ -561,30 +587,6 @@ $(function() {
 
 
       /////////////////////////////
-      //Trigger raphel element click from external select
-      /////////////////////////////
-      function selectListener(e) {
-        var lgMapSelect = $('.lg-map-select[data-target-map="' + mapWrapper.data('map') + '"]');
-
-        if (lgMapSelect.length) {
-
-          var selectValue;
-          var pathName;
-
-          lgMapSelect.on('change', function() {
-            selectValue = this.value;
-            $.each(statesHitAreas, function(index, elem) {
-              pathName = elem.node.getAttribute('lg-map-name');
-              if (selectValue === pathName) {
-                statesHitAreas[index].trigger('click');
-              }
-            });
-          });
-
-        }
-      }
-
-      /////////////////////////////
       //Pan/Zoom
       /////////////////////////////
       function getViewBox() {
@@ -692,16 +694,12 @@ $(function() {
             if (mapZoom == 1 && delta < 0) return;
 
             getViewBox();
-
             var vWidth = viewBoxCoords[2];
             var vHeight = viewBoxCoords[3];
-
             viewBoxCoords[2] = originW / mapZoom;
             viewBoxCoords[3] = originH / mapZoom;
-
             viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
             viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
-
             r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
 
             scale = originW / viewBoxCoords[2];
@@ -736,14 +734,11 @@ $(function() {
 
             var vWidth = viewBoxCoords[2];
             var vHeight = viewBoxCoords[3];
-
             viewBoxCoords[2] = originW / mapZoom;
             viewBoxCoords[3] = originH / mapZoom;
-
             viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
             viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
 
-            //r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
             r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
 
             scale = originW / viewBoxCoords[2];
@@ -761,121 +756,105 @@ $(function() {
           if (readyToAnimate) {
 
             readyToAnimate = false;
-
             if (mapZoom == 1) {
               resetMap(r);
               return;
             }
-
             mapZoom -= .5;
 
             getViewBox();
 
             var vWidth = viewBoxCoords[2];
             var vHeight = viewBoxCoords[3];
-
             viewBoxCoords[2] = originW / mapZoom;
             viewBoxCoords[3] = originH / mapZoom;
-
             viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
             viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
-
-
             //r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
             r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-
             scale = originW / viewBoxCoords[2];
             scale = scale.toFixed(1);
-
             e.stopPropagation();
             e.preventDefault();
-
           }
 
         });
 
         //Reset zoom and pan
         mapConsole.find('.lg-map-zoom-reset').click(function(e) {
-
           resetMap(r);
           e.stopPropagation();
           e.preventDefault();
-
         });
 
         //Manual panning not needed anymore
-
         mapConsole.find('.lg-map-move-up').click(function(e) {
-
-
           viewBoxCoords[1] -= 20;
           if (viewBoxCoords[1] <= 0) viewBoxCoords[1] = 0;
-
           r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-
           e.stopPropagation();
           e.preventDefault();
-
         });
 
         //move down
         mapConsole.find('.lg-map-move-down').click(function(e) {
-
           viewBoxCoords[1] += 20;
-
           var limitY = originH - viewBoxCoords[3];
           if (viewBoxCoords[1] >= limitY) viewBoxCoords[1] = limitY;
-
           r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-
           e.stopPropagation();
           e.preventDefault();
         });
 
         //move left
         mapConsole.find('.lg-map-move-left').click(function(e) {
-
           viewBoxCoords[0] -= 20;
-
           if (viewBoxCoords[0] <= 0) viewBoxCoords[0] = 0;
           r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-
           e.stopPropagation();
           e.preventDefault();
         });
 
         //move right
         mapConsole.find('.lg-map-move-right').click(function(e) {
-
           viewBoxCoords[0] += 20;
-
           var limitX = originW - viewBoxCoords[2];
           if (viewBoxCoords[0] >= limitX) viewBoxCoords[0] = limitX;
           r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-
           e.stopPropagation();
           e.preventDefault();
         });
 
-
         // Display console
         mapConsole.fadeIn();
-
 
       }
 
       createMap();
       createPins();
-      selectListener();
       if (config.enablePanZoom) {
         enablePanZoom();
       }
 
-    });
+      /////////////////////////////
+      // External stateClick event listener
+      /////////////////////////////
+      mapWrapper.on('stateClick', function(_, name) {
+        $.each(statesHitAreas, function(index, elem) {
+          pathName = elem.node.getAttribute('lg-map-name');
+          if (name === pathName) {
+            statesHitAreas[index].trigger('click');
+          }
+        });
+      });
 
-  });
+      /////////////////////////////
+      // Map is ready
+      /////////////////////////////
+      settings.onReady.call(this);
 
+    });// End getScript
 
+  };// End plugin
 
-
-});
+})(jQuery);

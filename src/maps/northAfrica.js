@@ -2,24 +2,8 @@ window.LGMaps.maps.northAfrica = {
 	"config": {
 		"mapWidth": 810.835,
 		"mapHeight": 315.619,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
 		"displayAbbreviations": false,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>North Africa</h1><br /><p>The most commonly accepted definition includes Morocco, Algeria, and Tunisia, as well as Libya and Egypt, It should be noted however that the term “North Africa”, when commonly used in North Africa and the Middle East, often refers only to the countries of the Maghreb and Libya.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>North Africa</h1><br /><p>The most commonly accepted definition includes Morocco, Algeria, and Tunisia, as well as Libya and Egypt, It should be noted however that the term “North Africa”, when commonly used in North Africa and the Middle East, often refers only to the countries of the Maghreb and Libya.</p>"
 	},
 	"paths": [
 		{

@@ -2,24 +2,7 @@ window.LGMaps.maps.australia = {
 	"config": {
 		"mapWidth": 442.48,
 		"mapHeight": 415.45,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 10,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Australia</h1><br /><p>Australia is a country, and continent, surrounded by the Indian and Pacific oceans. Its major cities – Sydney, Brisbane, Melbourne, Perth, Adelaide – are coastal, but its capital, Canberra, is inland and nicknamed the Bush Capital. The country is known for its Sydney Opera House, Great Barrier Reef, the vast Outback (interior desert wilderness) and unique animal species including kangaroos and duck-billed platypuses.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Australia</h1><br /><p>Australia is a country, and continent, surrounded by the Indian and Pacific oceans. Its major cities – Sydney, Brisbane, Melbourne, Perth, Adelaide – are coastal, but its capital, Canberra, is inland and nicknamed the Bush Capital. The country is known for its Sydney Opera House, Great Barrier Reef, the vast Outback (interior desert wilderness) and unique animal species including kangaroos and duck-billed platypuses.</p>"
 	},
 	"paths": [
 		{

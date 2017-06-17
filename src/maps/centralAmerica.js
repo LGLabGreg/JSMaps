@@ -2,24 +2,7 @@ window.LGMaps.maps.centralAmerica = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 526.100,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Central America</h1><br /><p>Central America is the southernmost, isthmian portion of the North American continent, which connects with South America on the southeast.</p><p>Central America is bordered by Mexico to the north, Colombia to the southeast, the Caribbean Sea to the east, and the Pacific Ocean to the west. Central America consists of seven countries: Belize, Costa Rica, El Salvador, Guatemala, Honduras, Nicaragua, and Panama.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Central America</h1><br /><p>Central America is the southernmost, isthmian portion of the North American continent, which connects with South America on the southeast.</p><p>Central America is bordered by Mexico to the north, Colombia to the southeast, the Caribbean Sea to the east, and the Pacific Ocean to the west. Central America consists of seven countries: Belize, Costa Rica, El Salvador, Guatemala, Honduras, Nicaragua, and Panama.</p>"
 	},
 	"paths": [
 		{

@@ -2,24 +2,8 @@ window.LGMaps.maps.europeanUnion = {
 	"config": {
 		"mapWidth": 666.000,
 		"mapHeight": 658.700,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 14,
 		"displayAbbreviations": false,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 300,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>European Union</h1><br /><p>The European Union is a political and economic union of 28 member states that are located primarily in Europe. It has an area of 4,475,757 km², and an estimated population of over 510 million.</p><p>The EU has developed an internal single market through a standardised system of laws that apply in all member states. EU policies aim to ensure the free movement of people, goods, services, and capital within the internal market, enact legislation in justice and home affairs, and maintain common policies on trade,[ agriculture, fisheries, and regional development.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>European Union</h1><br /><p>The European Union is a political and economic union of 28 member states that are located primarily in Europe. It has an area of 4,475,757 km², and an estimated population of over 510 million.</p><p>The EU has developed an internal single market through a standardised system of laws that apply in all member states. EU policies aim to ensure the free movement of people, goods, services, and capital within the internal market, enact legislation in justice and home affairs, and maintain common policies on trade,[ agriculture, fisheries, and regional development.</p>"
 	},
 	"paths": [
 		{

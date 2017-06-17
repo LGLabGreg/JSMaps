@@ -2,24 +2,7 @@ window.LGMaps.maps.syria = {
 	"config": {
 		"mapWidth": 658.93,
 		"mapHeight": 600.5,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#fff",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#333",
-		"abbreviationFontSize": 10,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 400,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>Syria</h1><br /><p>Syria (Listeni/ˈsɪ.rɪə/; Arabic: سوريا‎ or سورية, Sūriyā or Sūrīyah), officially the Syrian Arab Republic, is a country in Western Asia. De jure Syrian territory borders Lebanon and the Mediterranean Sea to the west, Turkey to the north, Iraq to the east, Jordan to the south, and Israel to the southwest, but the government's control now extends to approximately 30–40% of the de jure state area and less than 60% of the population.</p><p>A country of fertile plains, high mountains, and deserts, Syria is home to diverse ethnic and religious groups, including Syrian Arabs, Greeks, Armenians, Assyrians, Kurds, Circassians, Mandeans and Turks. Religious groups include Sunnis, Christians, Alawites, Druze, Mandeans, Shiites, Salafis, and Yazidis. Sunni Arabs make up the largest population group in Syria.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>Syria</h1><br /><p>Syria (Listeni/ˈsɪ.rɪə/; Arabic: سوريا‎ or سورية, Sūriyā or Sūrīyah), officially the Syrian Arab Republic, is a country in Western Asia. De jure Syrian territory borders Lebanon and the Mediterranean Sea to the west, Turkey to the north, Iraq to the east, Jordan to the south, and Israel to the southwest, but the government's control now extends to approximately 30–40% of the de jure state area and less than 60% of the population.</p><p>A country of fertile plains, high mountains, and deserts, Syria is home to diverse ethnic and religious groups, including Syrian Arabs, Greeks, Armenians, Assyrians, Kurds, Circassians, Mandeans and Turks. Religious groups include Sunnis, Christians, Alawites, Druze, Mandeans, Shiites, Salafis, and Yazidis. Sunni Arabs make up the largest population group in Syria.</p>"
 	},
 	"paths": [
 		{

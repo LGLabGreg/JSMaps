@@ -2,24 +2,7 @@ window.LGMaps.maps.southAmerica = {
 	"config": {
 		"mapWidth": 471.3,
 		"mapHeight": 700.4,
-		"responsive": true,
-		"offColor": "#ccc",
-		"strokeColor": "#24221f",
-		"offStrokeColor": "#444",
-		"strokeWidth": 1,
-		"abbreviationColor": "#f2f2f2",
-		"abbreviationFontSize": 10,
-		"displayAbbreviations": true,
-		"displayAbbreviationOnDisabledStates": false,
-		"useText": true,
-		"useTextAtBottom": false,
-		"hrefTarget": "_blank",
-		"textAreaWidth": 450,
-		"textAreaHeight": 300,
-		"pinSize": 10,
-		"defaultText": "<h1>South America</h1><br /><p>South America is a continent situated in the Western Hemisphere, mostly in the Southern Hemisphere, with a relatively small portion in the Northern Hemisphere. It is also considered as a subcontinent of the Americas, which is the model used in Spanish-speaking nations and most of South America.</p><p>It is bordered on the west by the Pacific Ocean and on the north and east by the Atlantic Ocean; North America and the Caribbean Sea lie to the northwest. It includes twelve sovereign states – Argentina, Bolivia, Brazil, Chile, Colombia, Ecuador, Guyana, Paraguay, Peru, Suriname, Uruguay, and Venezuela – and two non-sovereign areas – French Guiana, an overseas department of France, and the Falkland Islands, a British Overseas Territory (though disputed by Argentina). In addition to this, the ABC islands of the Netherlands and Trinidad and Tobago may also be considered part of South America.</p>",
-		"displayMousePosition": false,
-		"enablePanZoom": false
+		"defaultText": "<h1>South America</h1><br /><p>South America is a continent situated in the Western Hemisphere, mostly in the Southern Hemisphere, with a relatively small portion in the Northern Hemisphere. It is also considered as a subcontinent of the Americas, which is the model used in Spanish-speaking nations and most of South America.</p><p>It is bordered on the west by the Pacific Ocean and on the north and east by the Atlantic Ocean; North America and the Caribbean Sea lie to the northwest. It includes twelve sovereign states – Argentina, Bolivia, Brazil, Chile, Colombia, Ecuador, Guyana, Paraguay, Peru, Suriname, Uruguay, and Venezuela – and two non-sovereign areas – French Guiana, an overseas department of France, and the Falkland Islands, a British Overseas Territory (though disputed by Argentina). In addition to this, the ABC islands of the Netherlands and Trinidad and Tobago may also be considered part of South America.</p>"
 	},
 	"paths": [
 		{
