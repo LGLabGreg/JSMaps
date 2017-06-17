@@ -60,9 +60,6 @@ Documentation for map use can be found here: http://jsmaps.io/support/documentat
 ### zip - builds and zips map in zip folder
 * $ grunt zip --map={mapName}
 
-### zipall - builds and zips lg-map package with all maps in zip folder
-* $ grunt zip --map={mapName}
-
 
 ### Create all zips
 
