@@ -114,6 +114,14 @@ module.exports = function(grunt) {
       build: {
         src: 'src/lg-map/lg-map.js',
         dest: 'build/lg-map/lg-map.min.js'
+      },
+      libs: {
+        src: 'build/lg-map/lg-map-libs.js',
+        dest: 'build/lg-map/lg-map-libs.js'
+      },
+      panzoom: {
+        src: 'build/lg-map/lg-map-panzoom.js',
+        dest: 'build/lg-map/lg-map-panzoom.js'
       }
     },
     obfuscator: {

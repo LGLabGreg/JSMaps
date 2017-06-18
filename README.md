@@ -77,5 +77,3 @@ grunt zip --map=africa && grunt zip --map=asia && grunt zip --map=australia && g
 #### To do
 
 * html tooltip
-* demo on site
-* uglify libs and pan zoom
