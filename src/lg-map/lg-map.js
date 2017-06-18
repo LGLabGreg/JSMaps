@@ -79,6 +79,7 @@
       'pinSize': 10,
       'displayMousePosition': false,
       'enablePanZoom': false,
+      'mapFolder': 'maps/',
       onReady: function() {},
       onStateClick: function() {}
     }, options);
@@ -112,7 +113,7 @@
     /////////////////////////////
     //Init map
     /////////////////////////////
-    var mapFile = 'maps/' + settings.map + '.js';
+    var mapFile = settings.mapFolder + settings.map + '.js';
     $.getScript(mapFile, function(data) {
 
       var mapData = window.LGMaps.maps[settings.map];

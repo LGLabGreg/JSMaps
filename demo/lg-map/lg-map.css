@@ -66,12 +66,10 @@
     top: 10px;
     left: 10px;
 }
-
 .lg-map-console ul {
     padding: 0;
     margin: 0;
 }
-
 .lg-map-console li {
     list-style-type: none;
     float: left;
@@ -81,35 +79,35 @@
 .lg-map-console li.lg-map-zoom-in {
     width: 28px;
     height: 29px;
-    background: url('../images/in.png');
+    background: url('http://jsmaps.io/map-demo/images/in.png');
 }
 .lg-map-console li.lg-map-zoom-out {
     width: 28px;
     height: 29px;
-    background: url('../images/out.png');
+    background: url('http://jsmaps.io/map-demo/images/out.png');
 }
 .lg-map-console li.lg-map-move-up {
     width: 25px;
     height: 29px;
-    background: url('../images/up.png');
+    background: url('http://jsmaps.io/map-demo/images/up.png');
 }
 .lg-map-console li.lg-map-move-down {
     width: 20px;
     height: 29px;
-    background: url('../images/down.png');
+    background: url('http://jsmaps.io/map-demo/images/down.png');
 }
 .lg-map-console li.lg-map-move-left {
     width: 18px;
     height: 29px;
-    background: url('../images/left.png');
+    background: url('http://jsmaps.io/map-demo/images/left.png');
 }
 .lg-map-console li.lg-map-move-right {
     width: 21px;
     height: 29px;
-    background: url('../images/right.png');
+    background: url('http://jsmaps.io/map-demo/images/right.png');
 }
 .lg-map-console li.lg-map-zoom-reset {
     width: 62px;
     height: 29px;
-    background: url('../images/reset.png');
+    background: url('http://jsmaps.io/map-demo/images/reset.png');
 }

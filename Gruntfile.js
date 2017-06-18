@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 		  },
 		  js: {
 		    files: ['Gruntfile.js','src/lg-map/*.js','!src/maps/' + map +'.js'],
-		    tasks: ['clean:js', 'copy:js', 'uglify']
+		    tasks: ['clean:js', 'copy', 'concat', 'uglify']
 		  },
 		  css: {
 		    files: 'src/**/*.css',
