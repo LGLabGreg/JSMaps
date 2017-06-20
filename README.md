@@ -78,3 +78,4 @@ grunt zip --map=africa && grunt zip --map=asia && grunt zip --map=australia && g
 
 * html tooltip
 * change pan/zoom icons
+* specify tooltip css so avoid conflicts i.e. .tooltip is too generic

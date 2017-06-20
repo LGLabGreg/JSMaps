@@ -25,7 +25,7 @@
 .lg-map-wrapper .lg-map-text ul {
     margin-left: 30px;
 }
-.tooltip {
+.lg-map-wrapper .lg-map-tooltip {
     position: fixed;
     display: none;
     padding: 10px 15px;
@@ -34,6 +34,9 @@
     font-weight: bold;
     border: 1px solid #262626;
     -moz-border-radius: 4px;
+    opacity: 1!important;
+    color: #333;
+    z-index: 9999;
     /* FF1-3.6 */
     
     -webkit-border-radius: 4px;
