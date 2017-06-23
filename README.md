@@ -25,6 +25,7 @@ App to build deployable and zipped svg maps - available maps are located in src 
 * Mexico
 * Middle East
 * Monaco
+* New York City Boroughs
 * New Zealand
 * North Africa
 * Palestine-Israel
@@ -63,7 +64,7 @@ Documentation for map use can be found here: http://jsmaps.io/support/documentat
 
 ### Create all zips
 
-["africa","asia","australia","belgium","brazil","canada","caribbean","china","continents","denmark","europe","france","germany","india","iraq","italy","libya","mexico","monaco","palestineIsrael","romania","singapore","southAfrica","southAmerica","spain","syria","turkey","ukraine","uk","usa", "world", "yemen", "middleEast", "centralAmerica", "newZealand", "europeanUnion", "saudiArabia", "japan", "egypt", "northAfrica", "russia"]
+["africa","asia","australia","belgium","brazil","canada","caribbean","china","continents","denmark","europe","france","germany","india","iraq","italy","libya","mexico","monaco","palestineIsrael","romania","singapore","southAfrica","southAmerica","spain","syria","turkey","ukraine","uk","usa", "world", "yemen", "middleEast", "centralAmerica", "newZealand", "europeanUnion", "saudiArabia", "japan", "egypt", "northAfrica", "russia", "newYorkCityBoroughs"]
 
 var tasks = '';
 for (map in mymaps) {
@@ -72,7 +73,7 @@ tasks += task;
 }
 console.log(tasks);
 
-grunt zip --map=africa && grunt zip --map=asia && grunt zip --map=australia && grunt zip --map=belgium && grunt zip --map=brazil && grunt zip --map=canada && grunt zip --map=caribbean && grunt zip --map=china && grunt zip --map=continents && grunt zip --map=denmark && grunt zip --map=europe && grunt zip --map=france && grunt zip --map=germany && grunt zip --map=india && grunt zip --map=iraq && grunt zip --map=italy && grunt zip --map=libya && grunt zip --map=mexico && grunt zip --map=monaco && grunt zip --map=palestineIsrael && grunt zip --map=romania && grunt zip --map=singapore && grunt zip --map=southAfrica && grunt zip --map=southAmerica && grunt zip --map=spain && grunt zip --map=syria && grunt zip --map=turkey && grunt zip --map=ukraine && grunt zip --map=uk && grunt zip --map=usa && grunt zip --map=world && grunt zip --map=yemen && grunt zip --map=middleEast && grunt zip --map=centralAmerica && grunt zip --map=newZealand && grunt zip --map=europeanUnion && grunt zip --map=saudiArabia && grunt zip --map=japan && grunt zip --map=egypt && grunt zip --map=northAfrica && grunt zip --map=russia
+grunt zip --map=africa && grunt zip --map=asia && grunt zip --map=australia && grunt zip --map=belgium && grunt zip --map=brazil && grunt zip --map=canada && grunt zip --map=caribbean && grunt zip --map=china && grunt zip --map=continents && grunt zip --map=denmark && grunt zip --map=europe && grunt zip --map=france && grunt zip --map=germany && grunt zip --map=india && grunt zip --map=iraq && grunt zip --map=italy && grunt zip --map=libya && grunt zip --map=mexico && grunt zip --map=monaco && grunt zip --map=palestineIsrael && grunt zip --map=romania && grunt zip --map=singapore && grunt zip --map=southAfrica && grunt zip --map=southAmerica && grunt zip --map=spain && grunt zip --map=syria && grunt zip --map=turkey && grunt zip --map=ukraine && grunt zip --map=uk && grunt zip --map=usa && grunt zip --map=world && grunt zip --map=yemen && grunt zip --map=middleEast && grunt zip --map=centralAmerica && grunt zip --map=newZealand && grunt zip --map=europeanUnion && grunt zip --map=saudiArabia && grunt zip --map=japan && grunt zip --map=egypt && grunt zip --map=northAfrica && grunt zip --map=russia && grunt zip --map=newYorkCityBoroughs
 
 #### To do
 
