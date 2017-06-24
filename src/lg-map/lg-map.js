@@ -522,16 +522,18 @@
         // Check tootip fits at the top
         calculateTooltipOffset();
 
-        $('.tooltip').css({
-          left: mouseX - 50,
-          top: mouseY + tooltipOffsetY
-        }).fadeIn();
+        $('.tooltip').fadeIn();
       }
 
       function calculateTooltipOffset() {
-        tooltipOffsetY = -70;
+        tooltipOffsetY = -40;
         isTooltipBelowMouse = (mouseY - $('.tooltip').height() + tooltipOffsetY) < 0;
-        tooltipOffsetY = isTooltipBelowMouse ? +30 : tooltipOffsetY;
+        tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.tooltip').height();
+
+        $('.tooltip').css({
+          left: mouseX - $('.tooltip').width()/2,
+          top: mouseY + tooltipOffsetY
+        });
       }
 
       function removeTooltip() {
@@ -565,10 +567,6 @@
         }
 
         calculateTooltipOffset();
-        map.next('.tooltip').css({
-          left: mouseX - 50,
-          top: mouseY + tooltipOffsetY
-        });
 
         if (config.displayMousePosition) {
           var scrollTop = win.scrollTop();
