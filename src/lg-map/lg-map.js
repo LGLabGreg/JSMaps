@@ -295,10 +295,13 @@
             var id = $(this.node).attr('id');
 
             if (paths[id].enable) {
+
               //Reset scrollbar
-              var t = textArea[0];
-              t.scrollLeft = 0;
-              t.scrollTop = 0;
+              if (config.useText) {
+                var t = textArea[0];
+                t.scrollLeft = 0;
+                t.scrollTop = 0;
+              }
 
               //Animate previous state out
               if (current) {
@@ -418,9 +421,11 @@
             var id = $(this.node).attr('id');
 
             //Reset scrollbar
-            var t = textArea[0];
-            t.scrollLeft = 0;
-            t.scrollTop = 0;
+            if (config.useText) {
+              var t = textArea[0];
+              t.scrollLeft = 0;
+              t.scrollTop = 0;
+            }
 
             //Animate previous state out
             if (current) {
