@@ -25,7 +25,7 @@
 .lg-map-wrapper .lg-map-text ul {
     margin-left: 30px;
 }
-.tooltip {
+.lg-map-tooltip {
     position: fixed;
     display: none;
     padding: 10px 15px;

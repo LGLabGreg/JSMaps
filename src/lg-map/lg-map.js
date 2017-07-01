@@ -443,7 +443,7 @@
 
             current = this;
 
-            if (config.useText == true) {
+            if (config.useText) {
               textArea.html(pins[id].text);
             } else {
               window.open(pins[id].url, config.hrefTarget);
@@ -521,28 +521,28 @@
           return;
         }
         removeTooltip();
-        map.after($('<div />').addClass('tooltip'));
-        $('.tooltip').html(text);
+        map.after($('<div />').addClass('lg-map-tooltip'));
+        $('.lg-map-tooltip').html(text);
 
         // Check tootip fits at the top
         calculateTooltipOffset();
 
-        $('.tooltip').fadeIn();
+        $('.lg-map-tooltip').fadeIn();
       }
 
       function calculateTooltipOffset() {
         tooltipOffsetY = -40;
-        isTooltipBelowMouse = (mouseY - $('.tooltip').height() + tooltipOffsetY) < 0;
-        tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.tooltip').height();
+        isTooltipBelowMouse = (mouseY - $('.lg-map-tooltip').height() + tooltipOffsetY) < 0;
+        tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.lg-map-tooltip').height();
 
-        $('.tooltip').css({
-          left: mouseX - $('.tooltip').width()/2,
+        $('.lg-map-tooltip').css({
+          left: mouseX - $('.lg-map-tooltip').width()/2,
           top: mouseY + tooltipOffsetY
         });
       }
 
       function removeTooltip() {
-        map.next('.tooltip').remove();
+        map.next('.lg-map-tooltip').remove();
       }
 
 
