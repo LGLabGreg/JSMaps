@@ -58,7 +58,11 @@ App to build deployable and zipped svg maps - available maps are located in src 
 
 You can also download individual maps from http://jsmaps.io/
 
-Documentation for map use can be found here: http://jsmaps.io/support/documentation/
+Documentation: http://jsmaps.io/support/documentation
+
+License: http://jsmaps.io/support/license
+
+Demo: http://jsmaps.io/demo
 
 ### Installation
 * $ npm install
