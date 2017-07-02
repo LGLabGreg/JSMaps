@@ -1,4 +1,4 @@
-# lg-map - v3.0.0
+# LGMap - v3.1.0
 
 jQuery plugin to build deployable and zipped svg maps - available maps are located in src maps, maps currently available include:
 
