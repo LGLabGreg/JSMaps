@@ -80,6 +80,7 @@
       'displayMousePosition': false,
       'enablePanZoom': false,
       'mapFolder': 'maps/',
+      'initialZoom': 1,
       onReady: function() {},
       onStateClick: function() {}
     }, options);
@@ -656,7 +657,6 @@
 
       //Pan move handler
       function panMove(dx, dy) {
-
         pan.dx = viewBoxCoords[0] - dx / scale;
         pan.dy = viewBoxCoords[1] - dy / scale;
         var limitY = originH - viewBoxCoords[3];
@@ -666,16 +666,13 @@
         if (pan.dy >= limitY) pan.dy = limitY;
         if (pan.dy <= 0) pan.dy = 0;
         r.setViewBox(pan.dx, pan.dy, viewBoxCoords[2], viewBoxCoords[3], false);
-
       };
 
       //Pan end handler
       function panEnd() {
-
         isPanning = false;
         viewBoxCoords[0] = pan.dx;
         viewBoxCoords[1] = pan.dy;
-
       };
 
 
@@ -766,62 +763,46 @@
         });
 
 
-        //zoom in
-        mapConsole.find('.lg-map-zoom-in').click(function(e) {
+        //zoom in/out buttons
+        function zoomMap() {
+          getViewBox();
+
+          var vWidth = viewBoxCoords[2];
+          var vHeight = viewBoxCoords[3];
+          viewBoxCoords[2] = originW / mapZoom;
+          viewBoxCoords[3] = originH / mapZoom;
+          viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
+          viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
+
+          r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
+
+          scale = originW / viewBoxCoords[2];
+          scale = scale.toFixed(1);
+        }
+
+
+        mapConsole.find('.lg-map-zoom-in').add(mapConsole.find('.lg-map-zoom-out')).click(function(e) {
 
           if (readyToAnimate) {
 
-            readyToAnimate = false;
-            mapZoom += .5;
-            getViewBox();
-
-            var vWidth = viewBoxCoords[2];
-            var vHeight = viewBoxCoords[3];
-            viewBoxCoords[2] = originW / mapZoom;
-            viewBoxCoords[3] = originH / mapZoom;
-            viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
-            viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
-
-            r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-
-            scale = originW / viewBoxCoords[2];
-            scale = scale.toFixed(1);
-
-            e.stopPropagation();
-            e.preventDefault();
-
-          }
-        });
-
-        //zoom out
-        mapConsole.find('.lg-map-zoom-out').click(function(e) {
-
-          if (readyToAnimate) {
+            var zoomingOut = $(this).hasClass('lg-map-zoom-out');
 
             readyToAnimate = false;
-            if (mapZoom == 1) {
+            if (zoomingOut && mapZoom === 1) {
               resetMap(r);
               return;
             }
-            mapZoom -= .5;
-
-            getViewBox();
-
-            var vWidth = viewBoxCoords[2];
-            var vHeight = viewBoxCoords[3];
-            viewBoxCoords[2] = originW / mapZoom;
-            viewBoxCoords[3] = originH / mapZoom;
-            viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
-            viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
-            //r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-            r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-            scale = originW / viewBoxCoords[2];
-            scale = scale.toFixed(1);
+            mapZoom = zoomingOut ? mapZoom - .5 : mapZoom + .5;
+            if (mapZoom <= 1) mapZoom = 1;
+            zoomMap();
+            
             e.stopPropagation();
             e.preventDefault();
+
           }
 
         });
+
 
         //Reset zoom and pan
         mapConsole.find('.lg-map-zoom-reset').click(function(e) {
@@ -870,7 +851,11 @@
 
         // Display console
         mapConsole.fadeIn();
-
+        if (config.initialZoom > 1) {
+          mapZoom = config.initialZoom;
+          zoomMap();
+        }
+        
       }
 
       createMap();
@@ -878,6 +863,7 @@
       if (config.enablePanZoom) {
         enablePanZoom();
       }
+
 
       /////////////////////////////
       // External stateClick event listener

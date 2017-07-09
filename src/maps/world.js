@@ -5,7 +5,6 @@ window.LGMaps.maps.world = {
 		"displayAbbreviations": false,
 		'useTextAtBottom': true,
 		"defaultText": "<h1>World</h1><br /><p>The world is the planet Earth and all life upon it, including human civilization. In a philosophical context, the world is the whole of the physical Universe, or an ontological world.</p>",
-		"displayMousePosition": false,
 		"enablePanZoom": true
 	},
 	"paths": [
