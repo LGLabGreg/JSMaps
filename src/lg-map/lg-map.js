@@ -178,6 +178,45 @@
       }
 
       /////////////////////////////
+      //Groups
+      /////////////////////////////
+
+      if (config.groups && config.groups.length) {
+
+        function mergeGroupPaths(members) {
+          var merged = '';
+          var separator = ' ';
+          $.each(members, function(memberIndex, member) {
+            $.each(paths, function(stateIndex, state) {
+              if (state.name === member) {
+                merged += state.path + separator;
+              }
+            });
+          });
+          return merged;
+        }
+        function removeGroupMembers(paths, members) {
+          var i;
+          $.each(members, function(memberIndex, member) {
+            i = paths.length;
+            while (i--) {
+              if (paths[i].name === member) {
+                paths.splice(i, 1);
+              }
+            }
+          });
+          return paths;
+        }
+        $.each(config.groups, function(index, group) {
+          if (group.members && group.members.length) {
+            group.path = mergeGroupPaths(group.members);
+            paths.push(group);
+            paths = removeGroupMembers(paths, group.members);
+          }
+        });
+      }
+
+      /////////////////////////////
       //Main map function
       /////////////////////////////
       function createMap() {
