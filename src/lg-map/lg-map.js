@@ -81,6 +81,8 @@
       'enablePanZoom': false,
       'mapFolder': 'maps/',
       'initialZoom': 1,
+      'initialMapX': 0,
+      'initialMapY': 0,
       onReady: function() {},
       onStateClick: function() {}
     }, options);
@@ -134,12 +136,21 @@
       if (config.enablePanZoom) {
         var mapConsole = $('<div class="lg-map-console"><ul><li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
       }
+
+      // Check values are not outside of bounds
+      config.initialZoom = config.initialZoom >= 1 ? config.initialZoom : 1;
+      var minMapX = -(config.mapWidth/2);
+      var maxMapX = config.mapWidth/2;
+      var minMapY = -(config.mapHeight/2);
+      var maxMapY = config.mapHeight/2;
+      config.initialMapX = config.initialMapX >= minMapX && config.initialMapX <= maxMapX ? config.initialMapX : 0;
+      config.initialMapY = config.initialMapY >= minMapY && config.initialMapY <= maxMapY ? config.initialMapY : 0;
       
-      var mapZoom = 1;
+      var mapZoom = config.initialZoom;
       var originW = mapWidth;
       var originH = mapHeight;
-      var curMapX = 0;
-      var curMapY = 0;
+      var curMapX = config.initialMapX;
+      var curMapY = config.initialMapY;
       var viewBoxCoords = [curMapX, curMapY, originW, originH];
       var maxTransX, maxTransY, minTransX, maxTransY;
 
@@ -164,7 +175,7 @@
       //Mouse position
       /////////////////////////////
       if (config.displayMousePosition) {
-        $('<div class="mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div></div>').appendTo(mapWrapper);
+        $('<div class="mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div><div class="mapXPos">Map X: 0</div><div class="mapYPos">Map Y: 0</div></div>').appendTo(mapWrapper);
         $('body').css('cursor', 'crosshair');
       }
 
@@ -618,8 +629,12 @@
           var offset = mapWrapper.offset();
           var relX = Math.round(mouseX - offset.left);
           var relY = Math.round(mouseY - offset.top + scrollTop);
+          var mapXPos = Math.round(relX - config.mapWidth / 2);
+          var mapYPos = Math.round(relY - config.mapHeight / 2);
           $('.mouse-position .xPos').text('X: ' + relX);
           $('.mouse-position .yPos').text('Y: ' + relY);
+          $('.mouse-position .mapXPos').text('Map X: ' + mapXPos);
+          $('.mouse-position .mapYPos').text('Map Y: ' + mapYPos);
         }
       }
 
@@ -852,7 +867,6 @@
         // Display console
         mapConsole.fadeIn();
         if (config.initialZoom > 1) {
-          mapZoom = config.initialZoom;
           zoomMap();
         }
         
@@ -860,7 +874,7 @@
 
       createMap();
       createPins();
-      if (config.enablePanZoom) {
+      if (config.enablePanZoom && !config.displayMousePosition) {
         enablePanZoom();
       }
 
