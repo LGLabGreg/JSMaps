@@ -1,5 +1,5 @@
-// Copyright 2010-2017 - freehtml5maps.com
-// License: http://freehtml5maps.com/license/
+// Copyright 2010-2017 - jsmaps.io
+// License: http://jsmaps.io/support/license/
 
 // First convert the svg to json: http://www.utilities-online.info/xmltojson/
 $(function() {
@@ -9,7 +9,7 @@ $(function() {
   var totalColors = colors.length;
   var newPaths = [];
 
-  $.getJSON("maps/croatia.json", function(json) {
+  $.getJSON("maps/slovenia.json", function(json) {
 
     var states = json.svg.g.path;
 
