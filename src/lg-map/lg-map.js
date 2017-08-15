@@ -873,7 +873,9 @@
       }
 
       createMap();
-      createPins();
+      if (pins && pins.length) {
+        createPins();
+      }
       if (config.enablePanZoom && !config.displayMousePosition) {
         enablePanZoom();
       }
