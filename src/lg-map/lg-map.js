@@ -83,7 +83,9 @@
       'initialMapX': 0,
       'initialMapY': 0,
       onReady: function() {},
-      onStateClick: function() {}
+      onStateClick: function() {},
+      onStateOver: function() {},
+      onStateOut: function() {}
     }, options);
 
     // Catch missing map data
@@ -316,6 +318,11 @@
               //tooltip
               showTooltip(paths[id].name);
 
+              // Trigger state mouseover callback
+              if ($.isFunction(settings.onStateOver)) {
+                settings.onStateOver.call(this, paths[id]);
+              }
+
             }
 
           });
@@ -335,6 +342,11 @@
               }
 
               removeTooltip();
+
+              // Trigger state mouseout callback
+              if ($.isFunction(settings.onStateOut)) {
+                settings.onStateOut.call(this, paths[id]);
+              }
 
             }
 
@@ -449,6 +461,11 @@
             //tooltip
             showTooltip(pins[id].name);
 
+            // Trigger state click callback
+            if ($.isFunction(settings.onStateOver)) {
+              settings.onStateOver.call(this, pins[id]);
+            }
+
           });
 
           pin.mouseout(function(e) {
@@ -463,6 +480,11 @@
             }
 
             removeTooltip();
+
+            // Trigger state click callback
+            if ($.isFunction(settings.onStateOut)) {
+              settings.onStateOut.call(this, pins[id]);
+            }
 
           });
 
