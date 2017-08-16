@@ -2,7 +2,7 @@ window.LGMaps.maps.malaysia = {
 	"config": {
 		"mapWidth": 980.400,
 		"mapHeight": 397.500,
-		'useTextAtBottom': true,
+		"textPosition": "bottom",
 		"displayAbbreviations": false,
 		"defaultText": "<h1>Malaysia</h1><br /><p>Malaysia is a Southeast Asian country occupying parts of the Malay Peninsula and the island of Borneo. It's known for its beaches, rainforests and mix of Malay, Chinese, Indian and European cultural influences. The capital, Kuala Lumpur, is home to colonial buildings, busy shopping districts such as Bukit Bintang and skyscrapers such as the iconic, 451m-tall Petronas Twin Towers.</p>"
 	},

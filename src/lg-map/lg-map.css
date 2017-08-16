@@ -6,8 +6,8 @@
     margin: 0 auto;
 }
 .lg-map-wrapper .lg-map {
-    float: left;
-    clear: both;
+    left: 0;
+    top: 0;
 }
 .lg-map-wrapper .lg-map-text {
     float: left;

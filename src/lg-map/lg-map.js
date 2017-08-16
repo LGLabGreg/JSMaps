@@ -70,8 +70,8 @@
       'abbreviationFontSize': 12,
       'displayAbbreviations': true,
       'displayAbbreviationOnDisabledStates': false,
-      'useText': true,
-      'useTextAtBottom': false,
+      'stateClickAction': 'text',
+      'textPosition': 'right',
       'hrefTarget': '_blank',
       'textAreaWidth': 300,
       'textAreaHeight': 300,
@@ -101,7 +101,7 @@
     var mouseY = 0;
     var current = null;
     var isPin = false;
-    var useTextAtBottom;
+    var textPosition;
     var win = $(window);
     var winWidth = win.width();
     var tooltipOffsetY = 0;
@@ -185,9 +185,21 @@
       /////////////////////////////
 
       //Set initial default text
-      if (config.useText) {
+      if (config.stateClickAction === 'text') {
+        // Create text div
         textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
         textArea.html(config.defaultText);
+        // Handle text left
+        if (config.textPosition === 'left') {
+          map.css({
+            'left': 'auto',
+            'right': '0'
+          });
+          mapConsole.css({
+            'left': 'auto',
+            'right': '10px'
+          });
+        }
       }
 
       /////////////////////////////
@@ -359,7 +371,7 @@
             if (paths[id].enable) {
 
               //Reset scrollbar
-              if (config.useText) {
+              if (config.stateClickAction === 'text') {
                 var t = textArea[0];
                 t.scrollLeft = 0;
                 t.scrollTop = 0;
@@ -381,7 +393,7 @@
 
               current = shapeAr[id];
 
-              if (config.useText) {
+              if (config.stateClickAction === 'text') {
                 textArea.html(paths[id].text);
               } else {
                 window.open(paths[id].url, config.hrefTarget);
@@ -493,7 +505,7 @@
             var id = $(this.node).attr('id');
 
             //Reset scrollbar
-            if (config.useText) {
+            if (config.stateClickAction === 'text') {
               var t = textArea[0];
               t.scrollLeft = 0;
               t.scrollTop = 0;
@@ -515,7 +527,7 @@
 
             current = this;
 
-            if (config.useText) {
+            if (config.stateClickAction === 'text') {
               textArea.html(pins[id].text);
             } else {
               window.open(pins[id].url, config.hrefTarget);
@@ -540,12 +552,12 @@
         containerWidth = mapWrapper.parent().width();
         winWidth = win.width();
 
-        if (config.useText) {
+        if (config.stateClickAction === 'text') {
 
           //Force text to bottom on mobile
-          useTextAtBottom = winWidth >= 767 ? config.useTextAtBottom : true;
+          textPosition = winWidth >= 767 ? config.textPosition : 'bottom';
 
-          if (useTextAtBottom) {
+          if (textPosition === 'bottom') {
             mapWidth = containerWidth;
             mapHeight = mapWidth / ratio;
             mapWrapper.css({
@@ -568,7 +580,7 @@
               'width': winWidth >= 767 ? config.textAreaWidth + 'px' : mapWidth + 'px',
               'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
               'display': 'inline',
-              'float': winWidth >= 767 ? 'right' : 'none',
+              'float': winWidth >= 767 ? config.textPosition : 'none',
               'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
             });
           }

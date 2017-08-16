@@ -3,7 +3,7 @@ window.LGMaps.maps.indonesia = {
 		"mapWidth": 700.400,
 		"mapHeight": 233.900,
 		"displayAbbreviations": false,
-		"useTextAtBottom": true,
+		"textPosition": "bottom",
 		'pinSize': 7,
 		'strokeWidth': .7,
 		"defaultText": "<h1>Indonesia</h1><br /><p>Indonesia, a Southeast Asian nation made up of thousands of volcanic islands, is home to hundreds of ethnic groups speaking many different languages. It’s known for beaches, volcanoes, Komodo dragons and jungles sheltering elephants, orangutans and tigers. On the island of Java lies Indonesia's vibrant, sprawling capital, Jakarta, and the city of Yogyakarta, known for gamelan music and traditional puppetry.</p>"

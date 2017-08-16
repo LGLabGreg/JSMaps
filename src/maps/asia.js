@@ -2,7 +2,7 @@ window.LGMaps.maps.asia = {
 	"config": {
 		"mapWidth": 700.4,
 		"mapHeight": 540.6,
-		"useTextAtBottom": true,
+		"abbreviationFontSize": "8",
 		"defaultText": "<h1>Asia</h1><br /><p>Asia is the Earth's largest and most populous continent, located primarily in the eastern and northern hemispheres. Asia covers an area of 44,579,000 square kilometers, about 30% of Earth's total land area and 8.7% of the Earth's total surface area.</p>",
 		"enablePanZoom": true
 	},
