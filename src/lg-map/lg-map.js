@@ -1,7 +1,6 @@
 // Copyright 2010-2017 - http://jsmaps.io
 // License: http://jsmaps.io/support/license/
-// Version 3.1.0 - Refactored as jQuery plugin
-// Last updated on 11/06/2017
+// Version 3.1.0
 (function($) {
 
   /////////////////////////////
