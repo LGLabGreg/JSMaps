@@ -395,7 +395,7 @@
 
               if (config.stateClickAction === 'text') {
                 textArea.html(paths[id].text);
-              } else {
+              } else if (config.stateClickAction === 'url') {
                 window.open(paths[id].url, config.hrefTarget);
               }
             }
@@ -529,7 +529,7 @@
 
             if (config.stateClickAction === 'text') {
               textArea.html(pins[id].text);
-            } else {
+            } else if (config.stateClickAction === 'url') {
               window.open(pins[id].url, config.hrefTarget);
             }
 
