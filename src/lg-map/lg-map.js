@@ -184,29 +184,21 @@
       //Text area
       /////////////////////////////
 
-      function createTextarea() {
-        //Set initial default text
-        if (config.stateClickAction === 'text') {
-          // Create text div
-          textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
-          textArea.html(config.defaultText);
-          // Handle text left
-          if (config.textPosition === 'left') {
-            map.css({
-              'left': 'auto',
-              'right': '0'
-            });
-            mapConsole.css({
-              'left': 'auto',
-              'right': '10px'
-            });
-          }
-        }
-      }
-
-      function clearTextarea() {
-        if (textArea) {
-          textArea.remove();
+      //Set initial default text
+      if (config.stateClickAction === 'text') {
+        // Create text div
+        textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
+        textArea.html(config.defaultText);
+        // Handle text left
+        if (config.textPosition === 'left') {
+          map.css({
+            'left': 'auto',
+            'right': '0'
+          });
+          mapConsole.css({
+            'left': 'auto',
+            'right': '10px'
+          });
         }
       }
 
@@ -913,6 +905,15 @@
         
       }
 
+      createMap();
+      if (pins && pins.length) {
+        createPins();
+      }
+      if (config.enablePanZoom && !config.displayMousePosition) {
+        enablePanZoom();
+      }
+
+
       /////////////////////////////
       // External stateClick event listener
       /////////////////////////////
@@ -924,33 +925,6 @@
           }
         });
       });
-
-      mapWrapper.on('reload', function() {
-        clearMap();
-        initMap();
-      });
-
-
-      /////////////////////////////
-      // Main map init
-      /////////////////////////////
-      function initMap() {
-        createTextarea();
-        createMap();
-        if (pins && pins.length) {
-          createPins();
-        }
-        if (config.enablePanZoom && !config.displayMousePosition) {
-          enablePanZoom();
-        }
-      }
-
-      function clearMap() {
-        r.clear();
-        clearTextarea();
-      }
-
-      initMap();
 
       /////////////////////////////
       // Map is ready
