@@ -107,11 +107,13 @@
     var tooltipOffsetY = 0;
     var isTooltipBelowMouse = false;
     var statesHitAreas = [];
+    var statesTexts = [];
     var containerWidth = mapWrapper.parent().width();
     var map = $('<div class="lg-map"></div>').appendTo(mapWrapper);
     var mapId = 'lg-map-' + generateUUID();
     map.attr('id', mapId);
     var textArea;
+    
 
 
     /////////////////////////////
@@ -279,9 +281,10 @@
 
 
           obj.push(r.path(paths[state].path).attr(boxattrs));
+          //r.path(paths[state].path).attr(boxattrs)
           //Only display text on enabled states unless set in config 
           if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
-            obj.push(r.text(paths[state].textX, paths[state].textY, paths[state].abbreviation).attr({
+            statesTexts.push(r.text(paths[state].textX, paths[state].textY, paths[state].abbreviation).attr({
               "font-family": "Arial, sans-serif",
               "font-weight": "bold",
               "font-size": config.abbreviationFontSize,
@@ -289,7 +292,6 @@
               'z-index': 1000
             }));
           }
-
 
           if (!paths[i].enable) {
             obj.toFront();
@@ -420,6 +422,18 @@
           }
         }
 
+      }
+
+      /////////////////////////////
+      //Arrange order of elements
+      /////////////////////////////
+      function layerMap() {
+        statesTexts.forEach(function(element) {
+          element.toFront();
+        });
+        statesHitAreas.forEach(function(element) {
+          element.toFront();
+        });
       }
 
       /////////////////////////////
@@ -906,13 +920,14 @@
       }
 
       createMap();
+      layerMap();
+      
       if (pins && pins.length) {
         createPins();
       }
       if (config.enablePanZoom && !config.displayMousePosition) {
         enablePanZoom();
       }
-
 
       /////////////////////////////
       // External stateClick event listener
