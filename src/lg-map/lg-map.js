@@ -70,6 +70,7 @@
       'abbreviationFontSize': 12,
       'displayAbbreviations': true,
       'displayAbbreviationOnDisabledStates': false,
+      'autoPositionAbbreviations': false,
       'stateClickAction': 'text',
       'textPosition': 'right',
       'hrefTarget': '_blank',
@@ -249,13 +250,23 @@
       function createMap() {
 
 
-        r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight)
-        var arr = new Array();
+        r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight);
         var shapeAr = [];
         var regions = {};
-        var boxattrs = {
+        var path;
+        var pathBBox;
+        var textX;
+        var textY;
+        var pathProperties = {
           'stroke-width': config.strokeWidth || 1
         };
+        var textProperties = {
+          'font-family': 'Arial, sans-serif',
+          'font-weight': 'bold',
+          'font-size': config.abbreviationFontSize,
+          'fill': config.abbreviationColor,
+          'z-index': 1000
+        }
         var i = 0;
 
         for (var state in paths) {
@@ -267,30 +278,32 @@
           var obj = regions[shortName];
 
           if (!paths[i].enable) {
-            boxattrs = $.extend(boxattrs, {
+            pathProperties = $.extend(pathProperties, {
               'fill': config.offColor,
-              stroke: config.offStrokeColor
+              'stroke': config.offStrokeColor
             });
           } else {
-            boxattrs = $.extend(boxattrs, {
+            pathProperties = $.extend(pathProperties, {
               'fill': paths[i].color,
-              stroke: config.strokeColor,
+              'stroke': config.strokeColor,
               'id': i
             });
           }
 
-
-          obj.push(r.path(paths[state].path).attr(boxattrs));
-          //r.path(paths[state].path).attr(boxattrs)
+          path = r.path(paths[state].path).attr(pathProperties);
+          pathBBox = path.getBBox();
+          obj.push(path);
           //Only display text on enabled states unless set in config 
           if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
-            statesTexts.push(r.text(paths[state].textX, paths[state].textY, paths[state].abbreviation).attr({
-              "font-family": "Arial, sans-serif",
-              "font-weight": "bold",
-              "font-size": config.abbreviationFontSize,
-              "fill": config.abbreviationColor,
-              'z-index': 1000
-            }));
+            if (config.autoPositionAbbreviations) {
+              textX = pathBBox.x + (pathBBox.width / 2) + paths[state].textX;
+              textY = pathBBox.y + (pathBBox.height / 2) + paths[state].textY;
+            }
+            else {
+              textX = paths[state].textX;
+              textY = paths[state].textY;
+            }
+            statesTexts.push(r.text(textX, textY, paths[state].abbreviation).attr(textProperties));
           }
 
           if (!paths[i].enable) {
