@@ -251,7 +251,7 @@
 
 
         r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight);
-        var shapeAr = [];
+        var pathsAr = [];
         var regions = {};
         var path;
         var pathBBox;
@@ -266,17 +266,17 @@
           'font-size': config.abbreviationFontSize,
           'fill': config.abbreviationColor,
           'z-index': 1000
-        }
+        };
+        var hitAreaProperties = {
+          'fill': '#f00',
+          'stroke-width': 0,
+          'opacity': 0
+        };
         var i = 0;
 
         for (var state in paths) {
 
-          var shortName = paths[state].name.split('-').join('').toLowerCase();
-          regions[shortName] = r.set();
-
-          //Create obj
-          var obj = regions[shortName];
-
+          // Extend paths properties
           if (!paths[i].enable) {
             pathProperties = $.extend(pathProperties, {
               'fill': config.offColor,
@@ -289,11 +289,17 @@
               'id': i
             });
           }
+          hitAreaProperties = $.extend(hitAreaProperties, {
+            'cursor': paths[i].enable ? (config.displayMousePosition ? 'crosshair' : 'pointer') : 'default'
+          });
 
+          // Create path
           path = r.path(paths[state].path).attr(pathProperties);
+          path.node.id = i;
           pathBBox = path.getBBox();
-          obj.push(path);
-          //Only display text on enabled states unless set in config 
+          pathsAr.push(path);
+
+          // Create text on enabled states unless disabled in config 
           if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
             if (config.autoPositionAbbreviations) {
               textX = pathBBox.x + (pathBBox.width / 2) + paths[state].textX;
@@ -306,23 +312,8 @@
             statesTexts.push(r.text(textX, textY, paths[state].abbreviation).attr(textProperties));
           }
 
-          if (!paths[i].enable) {
-            obj.toFront();
-          }
-
-          obj[0].node.id = i;
-          if (obj[1]) {
-            obj[1].toFront();
-          }
-
-          shapeAr.push(obj[0]);
-
-          var hitArea = r.path(paths[state].path).attr({
-            fill: "#f00",
-            "stroke-width": 0,
-            "opacity": 0,
-            'cursor': paths[i].enable ? (config.displayMousePosition ? 'crosshair' : 'pointer') : 'default'
-          });
+          // Create hit area layer
+          var hitArea = r.path(paths[state].path).attr(hitAreaProperties);
           hitArea.node.id = i;
           hitArea.node.setAttribute('lg-map-name', paths[state].name);
           statesHitAreas.push(hitArea);
@@ -330,14 +321,13 @@
           hitArea.mouseover(function(e) {
 
             e.stopPropagation();
-
             var id = $(this.node).attr('id');
 
             if (paths[id].enable) {
 
               //Animate if not already the current state
-              if (shapeAr[id] != current) {
-                shapeAr[id].animate({
+              if (pathsAr[id] != current) {
+                pathsAr[id].animate({
                   fill: paths[id].hoverColor
                 }, 500);
               }
@@ -346,12 +336,12 @@
               showTooltip(paths[id].name);
 
               // Trigger state mouseover callback
+              //console.log($.isFunction(settings.onStateOver))
               if ($.isFunction(settings.onStateOver)) {
                 settings.onStateOver.call(this, paths[id]);
               }
 
             }
-
           });
 
 
@@ -362,8 +352,8 @@
             if (paths[id].enable) {
 
               //Animate if not already the current state
-              if (shapeAr[id] != current) {
-                shapeAr[id].animate({
+              if (pathsAr[id] != current) {
+                pathsAr[id].animate({
                   fill: paths[id].color
                 }, 500);
               }
@@ -376,7 +366,6 @@
               }
 
             }
-
           });
 
           hitArea.click(function(e) {
@@ -402,11 +391,11 @@
               isPin = false;
 
               //Animate next
-              shapeAr[id].animate({
+              pathsAr[id].animate({
                 fill: paths[id].selectedColor
               }, 500);
 
-              current = shapeAr[id];
+              current = pathsAr[id];
 
               if (config.stateClickAction === 'text') {
                 textArea.html(paths[id].text);
