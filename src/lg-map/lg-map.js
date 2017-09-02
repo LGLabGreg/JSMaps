@@ -83,6 +83,7 @@
       'initialZoom': 1,
       'initialMapX': 0,
       'initialMapY': 0,
+      'zoomSpeed': 1,
       onReady: function() {},
       onStateClick: function() {},
       onStateOver: function() {},
@@ -336,7 +337,6 @@
               showTooltip(paths[id].name);
 
               // Trigger state mouseover callback
-              //console.log($.isFunction(settings.onStateOver))
               if ($.isFunction(settings.onStateOver)) {
                 settings.onStateOver.call(this, paths[id]);
               }
@@ -789,7 +789,8 @@
           if (readyToAnimate) {
 
             readyToAnimate = false;
-            mapZoom += delta / 2;
+
+            mapZoom += delta * config.zoomSpeed * (1 + mapZoom / 100);
 
             if (mapZoom <= 1) mapZoom = 1;
             if (mapZoom == 1) resetMap(r);
@@ -854,7 +855,10 @@
               resetMap(r);
               return;
             }
-            mapZoom = zoomingOut ? mapZoom - .5 : mapZoom + .5;
+
+            var diff = .5 * config.zoomSpeed * (1 + mapZoom / 100);
+            mapZoom = zoomingOut ? mapZoom - diff : mapZoom + diff;
+
             if (mapZoom <= 1) mapZoom = 1;
             zoomMap();
             
