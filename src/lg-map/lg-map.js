@@ -1,6 +1,6 @@
 // Copyright 2010-2017 - http://jsmaps.io
 // License: http://jsmaps.io/support/license/
-// Version 3.1.1
+// Version 3.1.2
 (function($) {
 
   /////////////////////////////
