@@ -84,6 +84,8 @@
       'initialMapX': 0,
       'initialMapY': 0,
       'zoomSpeed': 1,
+      'displayPreloader': true,
+      'preloaderText': 'Loading map...',
       onReady: function() {},
       onStateClick: function() {},
       onStateOver: function() {},
@@ -97,6 +99,11 @@
 
     // Map element
     var mapWrapper = $(this);
+
+    // Preloader
+    if (settings.displayPreloader) {
+      var preloader = $('<div class="lg-map-preloader">' + settings.preloaderText + '</div>').appendTo(mapWrapper);
+    }
 
     var r;
     var mouseX = 0;
@@ -128,6 +135,7 @@
       var config = $.extend(settings, mapData.config);
       var paths = mapData.paths;
       var pins = mapData.pins;
+
 
       /////////////////////////////
       //Config
@@ -948,6 +956,9 @@
       /////////////////////////////
       // Map is ready
       /////////////////////////////
+      if (preloader && preloader.length) {
+        preloader.remove();
+      }
       settings.onReady.call(this);
 
     });// End getScript

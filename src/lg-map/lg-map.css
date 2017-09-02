@@ -1,9 +1,17 @@
 /* ------ map
 -----------------------------------------------*/
-
 .lg-map-wrapper {
     position: relative;
     margin: 0 auto;
+}
+.lg-map-wrapper .lg-map-preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 999;
 }
 .lg-map-wrapper .lg-map {
     left: 0;
