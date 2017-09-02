@@ -272,9 +272,9 @@
           'stroke-width': 0,
           'opacity': 0
         };
-        var i = 0;
 
-        for (var state in paths) {
+
+        for (var i = 0, len = paths.length; i < len; i++) {
 
           // Extend paths properties
           if (!paths[i].enable) {
@@ -294,28 +294,28 @@
           });
 
           // Create path
-          path = r.path(paths[state].path).attr(pathProperties);
+          path = r.path(paths[i].path).attr(pathProperties);
           path.node.id = i;
-          pathBBox = path.getBBox();
           pathsAr.push(path);
 
           // Create text on enabled states unless disabled in config 
           if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
             if (config.autoPositionAbbreviations) {
-              textX = pathBBox.x + (pathBBox.width / 2) + paths[state].textX;
-              textY = pathBBox.y + (pathBBox.height / 2) + paths[state].textY;
+              pathBBox = path.getBBox();
+              textX = pathBBox.x + (pathBBox.width / 2) + paths[i].textX;
+              textY = pathBBox.y + (pathBBox.height / 2) + paths[i].textY;
             }
             else {
-              textX = paths[state].textX;
-              textY = paths[state].textY;
+              textX = paths[i].textX;
+              textY = paths[i].textY;
             }
-            statesTexts.push(r.text(textX, textY, paths[state].abbreviation).attr(textProperties));
+            statesTexts.push(r.text(textX, textY, paths[i].abbreviation).attr(textProperties));
           }
 
           // Create hit area layer
-          var hitArea = r.path(paths[state].path).attr(hitAreaProperties);
+          var hitArea = r.path(paths[i].path).attr(hitAreaProperties);
           hitArea.node.id = i;
-          hitArea.node.setAttribute('lg-map-name', paths[state].name);
+          hitArea.node.setAttribute('lg-map-name', paths[i].name);
           statesHitAreas.push(hitArea);
 
           hitArea.mouseover(function(e) {
@@ -411,8 +411,6 @@
 
           });
 
-
-          i++;
         }
 
         if (!config.displayMousePosition) {
