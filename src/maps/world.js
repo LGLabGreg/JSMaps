@@ -3,6 +3,7 @@ window.LGMaps.maps.world = {
         "mapWidth": 1009.115,
         "mapHeight": 665.242,
         "displayAbbreviations": false,
+        "textPosition": "bottom",
         "strokeWidth": 0.7,
         "defaultText": "<h1>World</h1><br /><p>The world is the planet Earth and all life upon it, including human civilization. In a philosophical context, the world is the whole of the physical Universe, or an ontological world.</p>",
         "enablePanZoom": true
@@ -3338,15 +3339,6 @@ window.LGMaps.maps.world = {
         }
     ],
     "pins": [
-        {
-            "name": "Guangzhou",
-            "xPos": 594,
-            "yPos": 592,
-            "color": "#ffc90e",
-            "hoverColor": "#E32F02",
-            "selectedColor": "#feb41c",
-            "url": "http://jsmaps.io",
-            "text": "<h1>Guangzhou</h1><br /><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>"
-        }
+        
     ]
 }
