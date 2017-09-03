@@ -990,16 +990,15 @@
         if (data.config) {
           config = $.extend(config, data.config);
         }
-        if (data.pins && data.pins.length) {
-          pins = $.extend(pins, data.pins);
+        if (data.pins) {
+          pins = data.pins;
         }
-        if (data.paths && data.paths.length) {
-          paths = $.extend(paths, data.paths);
+        if (data.paths) {
+          paths = data.paths;
         }
         if (preloader && preloader.length) {
           preloader.fadeIn();
         }
-
         clearMap();
         renderMap();
       });
