@@ -136,251 +136,396 @@
       var paths = mapData.paths;
       var pins = mapData.pins;
 
+      function renderMap() {
 
-      /////////////////////////////
-      //Config
-      /////////////////////////////
-      var mapWidth = config.mapWidth;
-      var mapHeight = config.mapHeight;
-      var ratio = mapWidth / mapHeight;
-      var oMapWidth = mapWidth;
+        /////////////////////////////
+        //Config
+        /////////////////////////////
+        var mapWidth = config.mapWidth;
+        var mapHeight = config.mapHeight;
+        var ratio = mapWidth / mapHeight;
+        var oMapWidth = mapWidth;
 
-      // Pan/zoom
-      if (config.enablePanZoom) {
-        var mapConsole = $('<div class="lg-map-console"><ul><li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
-      }
-
-      // Check values are not outside of bounds
-      config.initialZoom = config.initialZoom >= 1 ? config.initialZoom : 1;
-      var minMapX = -(config.mapWidth/2);
-      var maxMapX = config.mapWidth/2;
-      var minMapY = -(config.mapHeight/2);
-      var maxMapY = config.mapHeight/2;
-      config.initialMapX = config.initialMapX >= minMapX && config.initialMapX <= maxMapX ? config.initialMapX : 0;
-      config.initialMapY = config.initialMapY >= minMapY && config.initialMapY <= maxMapY ? config.initialMapY : 0;
-      
-      var mapZoom = config.initialZoom;
-      var originW = mapWidth;
-      var originH = mapHeight;
-      var curMapX = config.initialMapX;
-      var curMapY = config.initialMapY;
-      var viewBoxCoords = [curMapX, curMapY, originW, originH];
-      var maxTransX, maxTransY, minTransX, maxTransY;
-
-      var maxX = 0;
-      var scale = 1;
-      var isOverState = false;
-      var draggable = false;
-      var _window = $(window);
-      var dragStartX = 0;
-      var dragStartY = 0;
-      var curMouseX = 0;
-      var curMouseY = 0;
-      var mapOffset = 0;
-      var backPan;
-
-      var pan = {};
-      var originViewBox = {};
-      var isPanning = false;
-      var readyToAnimate = true;
-
-      /////////////////////////////
-      //Mouse position
-      /////////////////////////////
-      if (config.displayMousePosition) {
-        $('<div class="mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div><div class="mapXPos">Map X: 0</div><div class="mapYPos">Map Y: 0</div></div>').appendTo(mapWrapper);
-        $('body').css('cursor', 'crosshair');
-      }
-
-      /////////////////////////////
-      //Text area
-      /////////////////////////////
-
-      //Set initial default text
-      if (config.stateClickAction === 'text') {
-        // Create text div
-        textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
-        textArea.html(config.defaultText);
-        // Handle text left
-        if (config.textPosition === 'left') {
-          map.css({
-            'left': 'auto',
-            'right': '0'
-          });
-          mapConsole.css({
-            'left': 'auto',
-            'right': '10px'
-          });
+        // Pan/zoom
+        if (config.enablePanZoom) {
+          var mapConsole = $('<div class="lg-map-console"><ul><li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
         }
-      }
 
-      /////////////////////////////
-      //Groups
-      /////////////////////////////
+        // Check values are not outside of bounds
+        config.initialZoom = config.initialZoom >= 1 ? config.initialZoom : 1;
+        var minMapX = -(config.mapWidth/2);
+        var maxMapX = config.mapWidth/2;
+        var minMapY = -(config.mapHeight/2);
+        var maxMapY = config.mapHeight/2;
+        config.initialMapX = config.initialMapX >= minMapX && config.initialMapX <= maxMapX ? config.initialMapX : 0;
+        config.initialMapY = config.initialMapY >= minMapY && config.initialMapY <= maxMapY ? config.initialMapY : 0;
+        
+        var mapZoom = config.initialZoom;
+        var originW = mapWidth;
+        var originH = mapHeight;
+        var curMapX = config.initialMapX;
+        var curMapY = config.initialMapY;
+        var viewBoxCoords = [curMapX, curMapY, originW, originH];
+        var maxTransX, maxTransY, minTransX, maxTransY;
 
-      if (config.groups && config.groups.length) {
+        var maxX = 0;
+        var scale = 1;
+        var isOverState = false;
+        var draggable = false;
+        var _window = $(window);
+        var dragStartX = 0;
+        var dragStartY = 0;
+        var curMouseX = 0;
+        var curMouseY = 0;
+        var mapOffset = 0;
+        var backPan;
 
-        function mergeGroupPaths(members) {
-          var merged = '';
-          var separator = ' ';
-          $.each(members, function(memberIndex, member) {
-            $.each(paths, function(stateIndex, state) {
-              if (state.name === member) {
-                merged += state.path + separator;
+        var pan = {};
+        var originViewBox = {};
+        var isPanning = false;
+        var readyToAnimate = true;
+
+        /////////////////////////////
+        //Mouse position
+        /////////////////////////////
+        if (config.displayMousePosition) {
+          $('<div class="mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div><div class="mapXPos">Map X: 0</div><div class="mapYPos">Map Y: 0</div></div>').appendTo(mapWrapper);
+          $('body').css('cursor', 'crosshair');
+        }
+
+        /////////////////////////////
+        //Text area
+        /////////////////////////////
+
+        //Set initial default text
+        if (config.stateClickAction === 'text') {
+          // Create text div
+          textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
+          textArea.html(config.defaultText);
+          // Handle text left
+          if (config.textPosition === 'left') {
+            map.css({
+              'left': 'auto',
+              'right': '0'
+            });
+            mapConsole.css({
+              'left': 'auto',
+              'right': '10px'
+            });
+          }
+        }
+
+        /////////////////////////////
+        //Groups
+        /////////////////////////////
+
+        if (config.groups && config.groups.length) {
+
+          function mergeGroupPaths(members) {
+            var merged = '';
+            var separator = ' ';
+            $.each(members, function(memberIndex, member) {
+              $.each(paths, function(stateIndex, state) {
+                if (state.name === member) {
+                  merged += state.path + separator;
+                }
+              });
+            });
+            return merged;
+          }
+          function removeGroupMembers(paths, members) {
+            var i;
+            $.each(members, function(memberIndex, member) {
+              i = paths.length;
+              while (i--) {
+                if (paths[i].name === member) {
+                  paths.splice(i, 1);
+                }
               }
             });
-          });
-          return merged;
-        }
-        function removeGroupMembers(paths, members) {
-          var i;
-          $.each(members, function(memberIndex, member) {
-            i = paths.length;
-            while (i--) {
-              if (paths[i].name === member) {
-                paths.splice(i, 1);
-              }
+            return paths;
+          }
+          $.each(config.groups, function(index, group) {
+            if (group.members && group.members.length) {
+              group.path = mergeGroupPaths(group.members);
+              paths.push(group);
+              paths = removeGroupMembers(paths, group.members);
             }
           });
-          return paths;
         }
-        $.each(config.groups, function(index, group) {
-          if (group.members && group.members.length) {
-            group.path = mergeGroupPaths(group.members);
-            paths.push(group);
-            paths = removeGroupMembers(paths, group.members);
-          }
-        });
-      }
 
-      /////////////////////////////
-      //Main map function
-      /////////////////////////////
-      function createMap() {
+        /////////////////////////////
+        //Main map function
+        /////////////////////////////
+        function createMap() {
 
 
-        r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight);
-        var pathsAr = [];
-        var regions = {};
-        var path;
-        var pathBBox;
-        var textX;
-        var textY;
-        var pathProperties = {
-          'stroke-width': config.strokeWidth || 1
-        };
-        var textProperties = {
-          'font-family': 'Arial, sans-serif',
-          'font-weight': 'bold',
-          'font-size': config.abbreviationFontSize,
-          'fill': config.abbreviationColor,
-          'z-index': 1000
-        };
-        var hitAreaProperties = {
-          'fill': '#f00',
-          'stroke-width': 0,
-          'opacity': 0
-        };
+          r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight);
+          var pathsAr = [];
+          var regions = {};
+          var path;
+          var pathBBox;
+          var textX;
+          var textY;
+          var pathProperties = {
+            'stroke-width': config.strokeWidth || 1
+          };
+          var textProperties = {
+            'font-family': 'Arial, sans-serif',
+            'font-weight': 'bold',
+            'font-size': config.abbreviationFontSize,
+            'fill': config.abbreviationColor,
+            'z-index': 1000
+          };
+          var hitAreaProperties = {
+            'fill': '#f00',
+            'stroke-width': 0,
+            'opacity': 0
+          };
 
 
-        for (var i = 0, len = paths.length; i < len; i++) {
+          for (var i = 0, len = paths.length; i < len; i++) {
 
-          // Extend paths properties
-          if (!paths[i].enable) {
-            pathProperties = $.extend(pathProperties, {
-              'fill': config.offColor,
-              'stroke': config.offStrokeColor
+            // Extend paths properties
+            if (!paths[i].enable) {
+              pathProperties = $.extend(pathProperties, {
+                'fill': config.offColor,
+                'stroke': config.offStrokeColor
+              });
+            } else {
+              pathProperties = $.extend(pathProperties, {
+                'fill': paths[i].color,
+                'stroke': config.strokeColor,
+                'id': i
+              });
+            }
+            hitAreaProperties = $.extend(hitAreaProperties, {
+              'cursor': paths[i].enable ? (config.displayMousePosition ? 'crosshair' : 'pointer') : 'default'
             });
-          } else {
-            pathProperties = $.extend(pathProperties, {
-              'fill': paths[i].color,
+
+            // Create path
+            path = r.path(paths[i].path).attr(pathProperties);
+            path.node.id = i;
+            pathsAr.push(path);
+
+            // Create text on enabled states unless disabled in config 
+            if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
+              if (config.autoPositionAbbreviations) {
+                pathBBox = path.getBBox();
+                textX = pathBBox.x + (pathBBox.width / 2) + paths[i].textX;
+                textY = pathBBox.y + (pathBBox.height / 2) + paths[i].textY;
+              }
+              else {
+                textX = paths[i].textX;
+                textY = paths[i].textY;
+              }
+              statesTexts.push(r.text(textX, textY, paths[i].abbreviation).attr(textProperties));
+            }
+
+            // Create hit area layer
+            var hitArea = r.path(paths[i].path).attr(hitAreaProperties);
+            hitArea.node.id = i;
+            hitArea.node.setAttribute('lg-map-name', paths[i].name);
+            statesHitAreas.push(hitArea);
+
+            hitArea.mouseover(function(e) {
+
+              e.stopPropagation();
+              var id = $(this.node).attr('id');
+
+              if (paths[id].enable) {
+
+                //Animate if not already the current state
+                if (pathsAr[id] != current) {
+                  pathsAr[id].animate({
+                    fill: paths[id].hoverColor
+                  }, 500);
+                }
+
+                //tooltip
+                showTooltip(paths[id].name);
+
+                // Trigger state mouseover callback
+                if ($.isFunction(settings.onStateOver)) {
+                  settings.onStateOver.call(this, paths[id]);
+                }
+
+              }
+            });
+
+
+            hitArea.mouseout(function(e) {
+
+              var id = $(this.node).attr('id');
+
+              if (paths[id].enable) {
+
+                //Animate if not already the current state
+                if (pathsAr[id] != current) {
+                  pathsAr[id].animate({
+                    fill: paths[id].color
+                  }, 500);
+                }
+
+                removeTooltip();
+
+                // Trigger state mouseout callback
+                if ($.isFunction(settings.onStateOut)) {
+                  settings.onStateOut.call(this, paths[id]);
+                }
+
+              }
+            });
+
+            hitArea.click(function(e) {
+
+              var id = $(this.node).attr('id');
+
+              if (paths[id].enable) {
+
+                //Reset scrollbar
+                if (config.stateClickAction === 'text') {
+                  var t = textArea[0];
+                  t.scrollLeft = 0;
+                  t.scrollTop = 0;
+                }
+
+                //Animate previous state out
+                if (current) {
+                  var curid = $(current.node).attr('id');
+                  current.animate({
+                    fill: isPin ? pins[curid].color : paths[curid].color
+                  }, 500);
+                }
+                isPin = false;
+
+                //Animate next
+                pathsAr[id].animate({
+                  fill: paths[id].selectedColor
+                }, 500);
+
+                current = pathsAr[id];
+
+                if (config.stateClickAction === 'text') {
+                  textArea.html(paths[id].text);
+                } else if (config.stateClickAction === 'url') {
+                  window.open(paths[id].url, config.hrefTarget);
+                }
+              }
+
+              // Trigger state click callback
+              if ($.isFunction(settings.onStateClick)) {
+                settings.onStateClick.call(this, paths[id]);
+              }
+
+            });
+
+          }
+
+          if (!config.displayMousePosition) {
+            resizeMap();
+            if (config.responsive) {
+              $(window).resize(function() {
+                resizeMap();
+              });
+            }
+          }
+
+        }
+
+        /////////////////////////////
+        //Arrange order of elements
+        /////////////////////////////
+        function layerMap() {
+          statesTexts.forEach(function(element) {
+            element.toFront();
+          });
+          statesHitAreas.forEach(function(element) {
+            element.toFront();
+          });
+        }
+
+        /////////////////////////////
+        //Main pins function
+        /////////////////////////////
+        function createPins() {
+
+          for (var i = 0; i < pins.length; i++) {
+
+            var pinattrs = {
+              'cursor': 'pointer',
+              'fill': pins[i].color,
               'stroke': config.strokeColor,
               'id': i
-            });
-          }
-          hitAreaProperties = $.extend(hitAreaProperties, {
-            'cursor': paths[i].enable ? (config.displayMousePosition ? 'crosshair' : 'pointer') : 'default'
-          });
+            };
 
-          // Create path
-          path = r.path(paths[i].path).attr(pathProperties);
-          path.node.id = i;
-          pathsAr.push(path);
+            var pin;
 
-          // Create text on enabled states unless disabled in config 
-          if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
-            if (config.autoPositionAbbreviations) {
-              pathBBox = path.getBBox();
-              textX = pathBBox.x + (pathBBox.width / 2) + paths[i].textX;
-              textY = pathBBox.y + (pathBBox.height / 2) + paths[i].textY;
+            // If image
+            if (pins[i].src && pins[i].src !== '') {
+              var transformRatio = pins[i].pinWidth / pins[i].srcWidth;
+              pin = r.image(pins[i].src, 0, 0, pins[i].srcWidth, pins[i].srcHeight).attr(pinattrs);
+              var transformX = -pins[i].srcWidth / 2 + pins[i].xPos;
+              var transformY = -pins[i].srcHeight / 2 + pins[i].yPos;
+              pin.animate({
+                transform: 'T' + transformX + ',' + transformY + ' S' + transformRatio
+              }, 0);
             }
+            // or circle
             else {
-              textX = paths[i].textX;
-              textY = paths[i].textY;
+              pin = r.circle(pins[i].xPos, pins[i].yPos, pins[i].pinWidth || config.pinSize).attr(pinattrs);
             }
-            statesTexts.push(r.text(textX, textY, paths[i].abbreviation).attr(textProperties));
-          }
 
-          // Create hit area layer
-          var hitArea = r.path(paths[i].path).attr(hitAreaProperties);
-          hitArea.node.id = i;
-          hitArea.node.setAttribute('lg-map-name', paths[i].name);
-          statesHitAreas.push(hitArea);
+            pin.node.id = i;
+            pin.node.setAttribute('lg-map-name', pins[i].name);
+            statesHitAreas.push(pin);
 
-          hitArea.mouseover(function(e) {
+            pin.mouseover(function(e) {
 
-            e.stopPropagation();
-            var id = $(this.node).attr('id');
+              e.stopPropagation();
 
-            if (paths[id].enable) {
+              var id = $(this.node).attr('id');
 
               //Animate if not already the current state
-              if (pathsAr[id] != current) {
-                pathsAr[id].animate({
-                  fill: paths[id].hoverColor
+              if (this != current) {
+                this.animate({
+                  fill: pins[id].hoverColor
                 }, 500);
               }
 
               //tooltip
-              showTooltip(paths[id].name);
+              showTooltip(pins[id].name);
 
-              // Trigger state mouseover callback
+              // Trigger state click callback
               if ($.isFunction(settings.onStateOver)) {
-                settings.onStateOver.call(this, paths[id]);
+                settings.onStateOver.call(this, pins[id]);
               }
 
-            }
-          });
+            });
 
+            pin.mouseout(function(e) {
 
-          hitArea.mouseout(function(e) {
-
-            var id = $(this.node).attr('id');
-
-            if (paths[id].enable) {
+              var id = $(this.node).attr('id');
 
               //Animate if not already the current state
-              if (pathsAr[id] != current) {
-                pathsAr[id].animate({
-                  fill: paths[id].color
+              if (this != current) {
+                this.animate({
+                  fill: pins[id].color
                 }, 500);
               }
 
               removeTooltip();
 
-              // Trigger state mouseout callback
+              // Trigger state click callback
               if ($.isFunction(settings.onStateOut)) {
-                settings.onStateOut.call(this, paths[id]);
+                settings.onStateOut.call(this, pins[id]);
               }
 
-            }
-          });
+            });
 
-          hitArea.click(function(e) {
+            pin.click(function(e) {
 
-            var id = $(this.node).attr('id');
-
-            if (paths[id].enable) {
+              var id = $(this.node).attr('id');
 
               //Reset scrollbar
               if (config.stateClickAction === 'text') {
@@ -396,553 +541,435 @@
                   fill: isPin ? pins[curid].color : paths[curid].color
                 }, 500);
               }
-              isPin = false;
+              isPin = true;
 
               //Animate next
-              pathsAr[id].animate({
-                fill: paths[id].selectedColor
+              this.animate({
+                fill: pins[id].selectedColor
               }, 500);
 
-              current = pathsAr[id];
+              current = this;
 
               if (config.stateClickAction === 'text') {
-                textArea.html(paths[id].text);
+                textArea.html(pins[id].text);
               } else if (config.stateClickAction === 'url') {
-                window.open(paths[id].url, config.hrefTarget);
+                window.open(pins[id].url, config.hrefTarget);
               }
-            }
 
-            // Trigger state click callback
-            if ($.isFunction(settings.onStateClick)) {
-              settings.onStateClick.call(this, paths[id]);
-            }
+              // Trigger state click callback
+              if ($.isFunction(settings.onStateClick)) {
+                settings.onStateClick.call(this, pins[id]);
+              }
 
-          });
-
-        }
-
-        if (!config.displayMousePosition) {
-          resizeMap();
-          if (config.responsive) {
-            $(window).resize(function() {
-              resizeMap();
             });
+
           }
         }
 
-      }
 
-      /////////////////////////////
-      //Arrange order of elements
-      /////////////////////////////
-      function layerMap() {
-        statesTexts.forEach(function(element) {
-          element.toFront();
-        });
-        statesHitAreas.forEach(function(element) {
-          element.toFront();
-        });
-      }
+        /////////////////////////////
+        //Resize map functions
+        /////////////////////////////
+        function resizeMap() {
 
-      /////////////////////////////
-      //Main pins function
-      /////////////////////////////
-      function createPins() {
+          containerWidth = mapWrapper.parent().width();
+          winWidth = win.width();
 
-        for (var i = 0; i < pins.length; i++) {
+          if (config.stateClickAction === 'text') {
 
-          var pinattrs = {
-            'cursor': 'pointer',
-            'fill': pins[i].color,
-            'stroke': config.strokeColor,
-            'id': i
-          };
+            //Force text to bottom on mobile
+            textPosition = winWidth >= 767 ? config.textPosition : 'bottom';
 
-          var pin;
-
-          // If image
-          if (pins[i].src && pins[i].src !== '') {
-            var transformRatio = pins[i].pinWidth / pins[i].srcWidth;
-            pin = r.image(pins[i].src, 0, 0, pins[i].srcWidth, pins[i].srcHeight).attr(pinattrs);
-            var transformX = -pins[i].srcWidth / 2 + pins[i].xPos;
-            var transformY = -pins[i].srcHeight / 2 + pins[i].yPos;
-            pin.animate({
-              transform: 'T' + transformX + ',' + transformY + ' S' + transformRatio
-            }, 0);
-          }
-          // or circle
-          else {
-            pin = r.circle(pins[i].xPos, pins[i].yPos, pins[i].pinWidth || config.pinSize).attr(pinattrs);
-          }
-
-          pin.node.id = i;
-          pin.node.setAttribute('lg-map-name', pins[i].name);
-          statesHitAreas.push(pin);
-
-          pin.mouseover(function(e) {
-
-            e.stopPropagation();
-
-            var id = $(this.node).attr('id');
-
-            //Animate if not already the current state
-            if (this != current) {
-              this.animate({
-                fill: pins[id].hoverColor
-              }, 500);
+            if (textPosition === 'bottom') {
+              mapWidth = containerWidth;
+              mapHeight = mapWidth / ratio;
+              mapWrapper.css({
+                'width': mapWidth + 'px',
+                'height': mapHeight + textArea.height() + 'px'
+              });
+              textArea.css({
+                'width': mapWidth + 'px',
+                'marginTop': mapHeight + 'px',
+                'height': 'auto'
+              });
+            } else {
+              mapWidth = containerWidth - config.textAreaWidth;
+              mapHeight = mapWidth / ratio;
+              mapWrapper.css({
+                'width': winWidth >= 767 ? mapWidth + config.textAreaWidth + 'px' : mapWidth + 'px',
+                'height': mapHeight + 'px'
+              });
+              textArea.css({
+                'width': winWidth >= 767 ? config.textAreaWidth + 'px' : mapWidth + 'px',
+                'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
+                'display': 'inline',
+                'float': winWidth >= 767 ? config.textPosition : 'none',
+                'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
+              });
             }
-
-            //tooltip
-            showTooltip(pins[id].name);
-
-            // Trigger state click callback
-            if ($.isFunction(settings.onStateOver)) {
-              settings.onStateOver.call(this, pins[id]);
-            }
-
-          });
-
-          pin.mouseout(function(e) {
-
-            var id = $(this.node).attr('id');
-
-            //Animate if not already the current state
-            if (this != current) {
-              this.animate({
-                fill: pins[id].color
-              }, 500);
-            }
-
-            removeTooltip();
-
-            // Trigger state click callback
-            if ($.isFunction(settings.onStateOut)) {
-              settings.onStateOut.call(this, pins[id]);
-            }
-
-          });
-
-          pin.click(function(e) {
-
-            var id = $(this.node).attr('id');
-
-            //Reset scrollbar
-            if (config.stateClickAction === 'text') {
-              var t = textArea[0];
-              t.scrollLeft = 0;
-              t.scrollTop = 0;
-            }
-
-            //Animate previous state out
-            if (current) {
-              var curid = $(current.node).attr('id');
-              current.animate({
-                fill: isPin ? pins[curid].color : paths[curid].color
-              }, 500);
-            }
-            isPin = true;
-
-            //Animate next
-            this.animate({
-              fill: pins[id].selectedColor
-            }, 500);
-
-            current = this;
-
-            if (config.stateClickAction === 'text') {
-              textArea.html(pins[id].text);
-            } else if (config.stateClickAction === 'url') {
-              window.open(pins[id].url, config.hrefTarget);
-            }
-
-            // Trigger state click callback
-            if ($.isFunction(settings.onStateClick)) {
-              settings.onStateClick.call(this, pins[id]);
-            }
-
-          });
-
-        }
-      }
-
-
-      /////////////////////////////
-      //Resize map functions
-      /////////////////////////////
-      function resizeMap() {
-
-        containerWidth = mapWrapper.parent().width();
-        winWidth = win.width();
-
-        if (config.stateClickAction === 'text') {
-
-          //Force text to bottom on mobile
-          textPosition = winWidth >= 767 ? config.textPosition : 'bottom';
-
-          if (textPosition === 'bottom') {
+          } else {
             mapWidth = containerWidth;
             mapHeight = mapWidth / ratio;
             mapWrapper.css({
               'width': mapWidth + 'px',
-              'height': mapHeight + textArea.height() + 'px'
-            });
-            textArea.css({
-              'width': mapWidth + 'px',
-              'marginTop': mapHeight + 'px',
-              'height': 'auto'
-            });
-          } else {
-            mapWidth = containerWidth - config.textAreaWidth;
-            mapHeight = mapWidth / ratio;
-            mapWrapper.css({
-              'width': winWidth >= 767 ? mapWidth + config.textAreaWidth + 'px' : mapWidth + 'px',
               'height': mapHeight + 'px'
             });
-            textArea.css({
-              'width': winWidth >= 767 ? config.textAreaWidth + 'px' : mapWidth + 'px',
-              'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
-              'display': 'inline',
-              'float': winWidth >= 767 ? config.textPosition : 'none',
-              'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
-            });
           }
-        } else {
-          mapWidth = containerWidth;
-          mapHeight = mapWidth / ratio;
-          mapWrapper.css({
-            'width': mapWidth + 'px',
-            'height': mapHeight + 'px'
+
+          r.changeSize(mapWidth, mapHeight, true, false);
+
+        }
+
+        /////////////////////////////
+        //Tooltip
+        /////////////////////////////
+        function showTooltip(text) {
+          if (isTouchDevice && isMobile) {
+            return;
+          }
+          removeTooltip();
+          map.after($('<div />').addClass('lg-map-tooltip'));
+          $('.lg-map-tooltip').html(text);
+
+          // Check tootip fits at the top
+          calculateTooltipOffset();
+
+          $('.lg-map-tooltip').fadeIn();
+        }
+
+        function calculateTooltipOffset() {
+          tooltipOffsetY = -40;
+          isTooltipBelowMouse = (mouseY - $('.lg-map-tooltip').height() + tooltipOffsetY) < 0;
+          tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.lg-map-tooltip').height();
+
+          $('.lg-map-tooltip').css({
+            left: mouseX - $('.lg-map-tooltip').width()/2,
+            top: mouseY + tooltipOffsetY
           });
         }
 
-        r.changeSize(mapWidth, mapHeight, true, false);
-
-      }
-
-      /////////////////////////////
-      //Tooltip
-      /////////////////////////////
-      function showTooltip(text) {
-        if (isTouchDevice && isMobile) {
-          return;
-        }
-        removeTooltip();
-        map.after($('<div />').addClass('lg-map-tooltip'));
-        $('.lg-map-tooltip').html(text);
-
-        // Check tootip fits at the top
-        calculateTooltipOffset();
-
-        $('.lg-map-tooltip').fadeIn();
-      }
-
-      function calculateTooltipOffset() {
-        tooltipOffsetY = -40;
-        isTooltipBelowMouse = (mouseY - $('.lg-map-tooltip').height() + tooltipOffsetY) < 0;
-        tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.lg-map-tooltip').height();
-
-        $('.lg-map-tooltip').css({
-          left: mouseX - $('.lg-map-tooltip').width()/2,
-          top: mouseY + tooltipOffsetY
-        });
-      }
-
-      function removeTooltip() {
-        map.next('.lg-map-tooltip').remove();
-      }
-
-
-      /////////////////////////////
-      //Mouse events
-      /////////////////////////////
-
-
-      // Main function to retrieve mouse x-y pos.s
-      function getMouseXY(e) {
-
-        var scrollTop = $(window).scrollTop();
-
-        if (e && e.pageX) {
-          mouseX = e.pageX;
-          mouseY = e.pageY - scrollTop;
-        } else {
-          mouseX = event.clientX + document.body.scrollLeft;
-          mouseY = event.clientY + document.body.scrollTop;
-        }
-        // catch possible negative values
-        if (mouseX < 0) {
-          mouseX = 0;
-        }
-        if (mouseY < 0) {
-          mouseY = 0;
+        function removeTooltip() {
+          map.next('.lg-map-tooltip').remove();
         }
 
-        calculateTooltipOffset();
 
-        if (config.displayMousePosition) {
-          var scrollTop = win.scrollTop();
-          var offset = mapWrapper.offset();
-          var relX = Math.round(mouseX - offset.left);
-          var relY = Math.round(mouseY - offset.top + scrollTop);
-          var mapXPos = Math.round(relX - config.mapWidth / 2);
-          var mapYPos = Math.round(relY - config.mapHeight / 2);
-          $('.mouse-position .xPos').text('X: ' + relX);
-          $('.mouse-position .yPos').text('Y: ' + relY);
-          $('.mouse-position .mapXPos').text('Map X: ' + mapXPos);
-          $('.mouse-position .mapYPos').text('Map Y: ' + mapYPos);
-        }
-      }
-
-      // Set-up to use getMouseXY function onMouseMove
-      //document.body.onmousemove = getMouseXY;
-      mapWrapper.mousemove(function(event) {
-        getMouseXY(event);
-      });
+        /////////////////////////////
+        //Mouse events
+        /////////////////////////////
 
 
-      /////////////////////////////
-      //Pan/Zoom
-      /////////////////////////////
-      function getViewBox() {
-        originViewBox.x = viewBoxCoords[0];
-        originViewBox.y = viewBoxCoords[1];
-        originViewBox.width = viewBoxCoords[2];
-        originViewBox.height = viewBoxCoords[3];
-      }
+        // Main function to retrieve mouse x-y pos.s
+        function getMouseXY(e) {
 
-      function animationFinished(x, y, w, h) {
-        originViewBox.x = x;
-        originViewBox.y = y;
-        originViewBox.width = w;
-        originViewBox.height = h;
-        readyToAnimate = true;
-      }
+          var scrollTop = $(window).scrollTop();
 
-      //Pan start handler
-      function panStart() {
-        pan.dx = viewBoxCoords[0];
-        pan.dy = viewBoxCoords[1];
-        isPanning = true;
-      };
-
-      //Pan move handler
-      function panMove(dx, dy) {
-        pan.dx = viewBoxCoords[0] - dx / scale;
-        pan.dy = viewBoxCoords[1] - dy / scale;
-        var limitY = originH - viewBoxCoords[3];
-        var limitX = originW - viewBoxCoords[2];
-        if (pan.dx >= limitX) pan.dx = limitX;
-        if (pan.dx <= 0) pan.dx = 0;
-        if (pan.dy >= limitY) pan.dy = limitY;
-        if (pan.dy <= 0) pan.dy = 0;
-        r.setViewBox(pan.dx, pan.dy, viewBoxCoords[2], viewBoxCoords[3], false);
-      };
-
-      //Pan end handler
-      function panEnd() {
-        isPanning = false;
-        viewBoxCoords[0] = pan.dx;
-        viewBoxCoords[1] = pan.dy;
-      };
-
-
-      //Reset zoom and pan
-      function resetMap(map) {
-
-        mapZoom = 1;
-
-        viewBoxCoords[0] = 0;
-        viewBoxCoords[1] = 0;
-        viewBoxCoords[2] = originW;
-        viewBoxCoords[3] = originH;
-
-        originViewBox.x = 0;
-        originViewBox.y = 0;
-        originViewBox.width = originW;
-        originViewBox.height = originH;
-
-        map.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-
-        readyToAnimate = true;
-
-      }
-
-      function enablePanZoom() {
-
-        //Create invisible raphael rectangle for panning
-        backPan = r.rect(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3]).attr({
-          fill: '#F00',
-          'fill-opacity': 0,
-          'stroke': 'none'
-        }).data({
-          disabled: false,
-          'name': '_backpan'
-        }).toBack();
-
-        //Add panning event handlers
-        backPan.drag(panMove, panStart, panEnd);
-
-        //Stop window scroll if scrolling inside the map
-        $('body').on({
-          'mousewheel': function(e) {
-            if (!$(e.target).parents('.lg-map').length) return;
-            e.preventDefault();
-            e.stopPropagation();
+          if (e && e.pageX) {
+            mouseX = e.pageX;
+            mouseY = e.pageY - scrollTop;
+          } else {
+            mouseX = event.clientX + document.body.scrollLeft;
+            mouseY = event.clientY + document.body.scrollTop;
           }
+          // catch possible negative values
+          if (mouseX < 0) {
+            mouseX = 0;
+          }
+          if (mouseY < 0) {
+            mouseY = 0;
+          }
+
+          calculateTooltipOffset();
+
+          if (config.displayMousePosition) {
+            var scrollTop = win.scrollTop();
+            var offset = mapWrapper.offset();
+            var relX = Math.round(mouseX - offset.left);
+            var relY = Math.round(mouseY - offset.top + scrollTop);
+            var mapXPos = Math.round(relX - config.mapWidth / 2);
+            var mapYPos = Math.round(relY - config.mapHeight / 2);
+            $('.mouse-position .xPos').text('X: ' + relX);
+            $('.mouse-position .yPos').text('Y: ' + relY);
+            $('.mouse-position .mapXPos').text('Map X: ' + mapXPos);
+            $('.mouse-position .mapYPos').text('Map Y: ' + mapYPos);
+          }
+        }
+
+        // Set-up to use getMouseXY function onMouseMove
+        //document.body.onmousemove = getMouseXY;
+        mapWrapper.mousemove(function(event) {
+          getMouseXY(event);
         });
 
-        //Add mouse wheel handler for zoom
-        map.bind('mousewheel.map', function(event, delta, deltaX, deltaY) {
 
-          if (readyToAnimate) {
+        /////////////////////////////
+        //Pan/Zoom
+        /////////////////////////////
+        function getViewBox() {
+          originViewBox.x = viewBoxCoords[0];
+          originViewBox.y = viewBoxCoords[1];
+          originViewBox.width = viewBoxCoords[2];
+          originViewBox.height = viewBoxCoords[3];
+        }
 
-            readyToAnimate = false;
+        function animationFinished(x, y, w, h) {
+          originViewBox.x = x;
+          originViewBox.y = y;
+          originViewBox.width = w;
+          originViewBox.height = h;
+          readyToAnimate = true;
+        }
 
-            mapZoom += delta * config.zoomSpeed * (1 + mapZoom / 100);
+        //Pan start handler
+        function panStart() {
+          pan.dx = viewBoxCoords[0];
+          pan.dy = viewBoxCoords[1];
+          isPanning = true;
+        };
 
-            if (mapZoom <= 1) mapZoom = 1;
-            if (mapZoom == 1) resetMap(r);
-            if (mapZoom == 1 && delta < 0) return;
+        //Pan move handler
+        function panMove(dx, dy) {
+          pan.dx = viewBoxCoords[0] - dx / scale;
+          pan.dy = viewBoxCoords[1] - dy / scale;
+          var limitY = originH - viewBoxCoords[3];
+          var limitX = originW - viewBoxCoords[2];
+          if (pan.dx >= limitX) pan.dx = limitX;
+          if (pan.dx <= 0) pan.dx = 0;
+          if (pan.dy >= limitY) pan.dy = limitY;
+          if (pan.dy <= 0) pan.dy = 0;
+          r.setViewBox(pan.dx, pan.dy, viewBoxCoords[2], viewBoxCoords[3], false);
+        };
 
+        //Pan end handler
+        function panEnd() {
+          isPanning = false;
+          viewBoxCoords[0] = pan.dx;
+          viewBoxCoords[1] = pan.dy;
+        };
+
+
+        //Reset zoom and pan
+        function resetMap(map) {
+
+          mapZoom = 1;
+
+          viewBoxCoords[0] = 0;
+          viewBoxCoords[1] = 0;
+          viewBoxCoords[2] = originW;
+          viewBoxCoords[3] = originH;
+
+          originViewBox.x = 0;
+          originViewBox.y = 0;
+          originViewBox.width = originW;
+          originViewBox.height = originH;
+
+          map.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
+
+          readyToAnimate = true;
+
+        }
+
+        function enablePanZoom() {
+
+          //Create invisible raphael rectangle for panning
+          backPan = r.rect(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3]).attr({
+            fill: '#F00',
+            'fill-opacity': 0,
+            'stroke': 'none'
+          }).data({
+            disabled: false,
+            'name': '_backpan'
+          }).toBack();
+
+          //Add panning event handlers
+          backPan.drag(panMove, panStart, panEnd);
+
+          //Stop window scroll if scrolling inside the map
+          $('body').on({
+            'mousewheel': function(e) {
+              if (!$(e.target).parents('.lg-map').length) return;
+              e.preventDefault();
+              e.stopPropagation();
+            }
+          });
+
+          //Add mouse wheel handler for zoom
+          map.bind('mousewheel.map', function(event, delta, deltaX, deltaY) {
+
+            if (readyToAnimate) {
+
+              readyToAnimate = false;
+
+              mapZoom += delta * config.zoomSpeed * (1 + mapZoom / 100);
+
+              if (mapZoom <= 1) mapZoom = 1;
+              if (mapZoom == 1) resetMap(r);
+              if (mapZoom == 1 && delta < 0) return;
+
+              getViewBox();
+              var vWidth = viewBoxCoords[2];
+              var vHeight = viewBoxCoords[3];
+              viewBoxCoords[2] = originW / mapZoom;
+              viewBoxCoords[3] = originH / mapZoom;
+              viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
+              viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
+              r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
+
+              scale = originW / viewBoxCoords[2];
+              scale = scale.toFixed(1);
+
+              return false;
+            }
+
+          });
+
+
+          //mouse move to change cursor for panning
+          map.mousemove(function(event) {
+
+            if (!isOverState && mapZoom != 1) {
+              $(this).css('cursor', 'move');
+            } else {
+              $(this).css('cursor', 'default');
+            }
+
+          });
+
+
+          //zoom in/out buttons
+          function zoomMap() {
             getViewBox();
+
             var vWidth = viewBoxCoords[2];
             var vHeight = viewBoxCoords[3];
             viewBoxCoords[2] = originW / mapZoom;
             viewBoxCoords[3] = originH / mapZoom;
             viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
             viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
+
             r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
 
             scale = originW / viewBoxCoords[2];
             scale = scale.toFixed(1);
-
-            return false;
           }
 
-        });
 
+          mapConsole.find('.lg-map-zoom-in').add(mapConsole.find('.lg-map-zoom-out')).click(function(e) {
 
-        //mouse move to change cursor for panning
-        map.mousemove(function(event) {
+            if (readyToAnimate) {
 
-          if (!isOverState && mapZoom != 1) {
-            $(this).css('cursor', 'move');
-          } else {
-            $(this).css('cursor', 'default');
-          }
+              var zoomingOut = $(this).hasClass('lg-map-zoom-out');
 
-        });
+              readyToAnimate = false;
+              if (zoomingOut && mapZoom === 1) {
+                resetMap(r);
+                return;
+              }
 
+              var diff = .5 * config.zoomSpeed * (1 + mapZoom / 100);
+              mapZoom = zoomingOut ? mapZoom - diff : mapZoom + diff;
 
-        //zoom in/out buttons
-        function zoomMap() {
-          getViewBox();
+              if (mapZoom <= 1) mapZoom = 1;
+              zoomMap();
+              
+              e.stopPropagation();
+              e.preventDefault();
 
-          var vWidth = viewBoxCoords[2];
-          var vHeight = viewBoxCoords[3];
-          viewBoxCoords[2] = originW / mapZoom;
-          viewBoxCoords[3] = originH / mapZoom;
-          viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
-          viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
-
-          r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-
-          scale = originW / viewBoxCoords[2];
-          scale = scale.toFixed(1);
-        }
-
-
-        mapConsole.find('.lg-map-zoom-in').add(mapConsole.find('.lg-map-zoom-out')).click(function(e) {
-
-          if (readyToAnimate) {
-
-            var zoomingOut = $(this).hasClass('lg-map-zoom-out');
-
-            readyToAnimate = false;
-            if (zoomingOut && mapZoom === 1) {
-              resetMap(r);
-              return;
             }
 
-            var diff = .5 * config.zoomSpeed * (1 + mapZoom / 100);
-            mapZoom = zoomingOut ? mapZoom - diff : mapZoom + diff;
+          });
 
-            if (mapZoom <= 1) mapZoom = 1;
-            zoomMap();
-            
+
+          //Reset zoom and pan
+          mapConsole.find('.lg-map-zoom-reset').click(function(e) {
+            resetMap(r);
             e.stopPropagation();
             e.preventDefault();
+          });
 
+          //Manual panning not needed anymore
+          mapConsole.find('.lg-map-move-up').click(function(e) {
+            viewBoxCoords[1] -= 20;
+            if (viewBoxCoords[1] <= 0) viewBoxCoords[1] = 0;
+            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
+            e.stopPropagation();
+            e.preventDefault();
+          });
+
+          //move down
+          mapConsole.find('.lg-map-move-down').click(function(e) {
+            viewBoxCoords[1] += 20;
+            var limitY = originH - viewBoxCoords[3];
+            if (viewBoxCoords[1] >= limitY) viewBoxCoords[1] = limitY;
+            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
+            e.stopPropagation();
+            e.preventDefault();
+          });
+
+          //move left
+          mapConsole.find('.lg-map-move-left').click(function(e) {
+            viewBoxCoords[0] -= 20;
+            if (viewBoxCoords[0] <= 0) viewBoxCoords[0] = 0;
+            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
+            e.stopPropagation();
+            e.preventDefault();
+          });
+
+          //move right
+          mapConsole.find('.lg-map-move-right').click(function(e) {
+            viewBoxCoords[0] += 20;
+            var limitX = originW - viewBoxCoords[2];
+            if (viewBoxCoords[0] >= limitX) viewBoxCoords[0] = limitX;
+            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
+            e.stopPropagation();
+            e.preventDefault();
+          });
+
+          // Display console
+          mapConsole.fadeIn();
+          if (config.initialZoom > 1) {
+            zoomMap();
           }
-
-        });
-
-
-        //Reset zoom and pan
-        mapConsole.find('.lg-map-zoom-reset').click(function(e) {
-          resetMap(r);
-          e.stopPropagation();
-          e.preventDefault();
-        });
-
-        //Manual panning not needed anymore
-        mapConsole.find('.lg-map-move-up').click(function(e) {
-          viewBoxCoords[1] -= 20;
-          if (viewBoxCoords[1] <= 0) viewBoxCoords[1] = 0;
-          r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-          e.stopPropagation();
-          e.preventDefault();
-        });
-
-        //move down
-        mapConsole.find('.lg-map-move-down').click(function(e) {
-          viewBoxCoords[1] += 20;
-          var limitY = originH - viewBoxCoords[3];
-          if (viewBoxCoords[1] >= limitY) viewBoxCoords[1] = limitY;
-          r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-          e.stopPropagation();
-          e.preventDefault();
-        });
-
-        //move left
-        mapConsole.find('.lg-map-move-left').click(function(e) {
-          viewBoxCoords[0] -= 20;
-          if (viewBoxCoords[0] <= 0) viewBoxCoords[0] = 0;
-          r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-          e.stopPropagation();
-          e.preventDefault();
-        });
-
-        //move right
-        mapConsole.find('.lg-map-move-right').click(function(e) {
-          viewBoxCoords[0] += 20;
-          var limitX = originW - viewBoxCoords[2];
-          if (viewBoxCoords[0] >= limitX) viewBoxCoords[0] = limitX;
-          r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-          e.stopPropagation();
-          e.preventDefault();
-        });
-
-        // Display console
-        mapConsole.fadeIn();
-        if (config.initialZoom > 1) {
-          zoomMap();
+          
         }
+
+        createMap();
+        layerMap();
         
+        if (pins && pins.length) {
+          createPins();
+        }
+        if (config.enablePanZoom && !config.displayMousePosition) {
+          enablePanZoom();
+        }
+
+        if (preloader && preloader.length) {
+          preloader.fadeOut();
+        }
+
       }
 
-      createMap();
-      layerMap();
-      
-      if (pins && pins.length) {
-        createPins();
+      function clearMap() {
+        // clear svg
+        r.clear();
+        // clear html
+        if (mapWrapper.find('.lg-map-console').length) {
+          mapWrapper.find('.lg-map-console').remove();
+        }
+        if (mapWrapper.find('.mouse-position').length) {
+          mapWrapper.find('.mouse-position').remove();
+        }
+        if (mapWrapper.find('.lg-map-text').length) {
+          mapWrapper.find('.lg-map-text').remove();
+        }
+        // Reset variables
+        statesHitAreas = [];
+        statesTexts = [];
       }
-      if (config.enablePanZoom && !config.displayMousePosition) {
-        enablePanZoom();
-      }
+
+      renderMap();
 
       /////////////////////////////
-      // External stateClick event listener
+      // stateClick event listener
       /////////////////////////////
       mapWrapper.on('stateClick', function(_, name) {
         $.each(statesHitAreas, function(index, elem) {
@@ -954,11 +981,32 @@
       });
 
       /////////////////////////////
+      // reDraw event listener
+      /////////////////////////////
+      mapWrapper.on('reDraw', function(_, data) {
+        if (!data) {
+          return;
+        }
+        if (data.config) {
+          config = $.extend(config, data.config);
+        }
+        if (data.pins && data.pins.length) {
+          pins = $.extend(pins, data.pins);
+        }
+        if (data.paths && data.paths.length) {
+          paths = $.extend(paths, data.paths);
+        }
+        if (preloader && preloader.length) {
+          preloader.fadeIn();
+        }
+
+        clearMap();
+        renderMap();
+      });
+
+      /////////////////////////////
       // Map is ready
       /////////////////////////////
-      if (preloader && preloader.length) {
-        preloader.remove();
-      }
       settings.onReady.call(this);
 
     });// End getScript
