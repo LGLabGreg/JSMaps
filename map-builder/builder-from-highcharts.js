@@ -9,11 +9,9 @@ $(function() {
   var totalColors = colors.length;
   var newPaths = [];
 
-  $.getJSON("maps/world.json", function(json) {
+  $.getJSON("maps/angola.json", function(json) {
 
     var states = json.svg.g.path;
-
-    console.log(states.length)
 
     for(state in states) {
 
