@@ -980,6 +980,19 @@
         });
       });
 
+      mapWrapper.on('stateUnClick', function() {
+        if (current) {
+          var curid = $(current.node).attr('id');
+          current.animate({
+            fill: isPin ? pins[curid].color : paths[curid].color
+          }, 500);
+          //reset initial default text
+          if (config.stateClickAction === 'text') {
+            textArea.html(config.defaultText);
+          }
+        }
+      });
+
       /////////////////////////////
       // reDraw event listener
       /////////////////////////////
