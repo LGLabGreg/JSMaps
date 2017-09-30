@@ -86,6 +86,7 @@
       'zoomSpeed': 1,
       'displayPreloader': true,
       'preloaderText': 'Loading map...',
+      'disableTooltip': false,
       onReady: function() {},
       onStateClick: function() {},
       onStateOver: function() {},
@@ -624,7 +625,7 @@
         //Tooltip
         /////////////////////////////
         function showTooltip(text) {
-          if (isTouchDevice && isMobile) {
+          if (isTouchDevice && isMobile || config.disableTooltip) {
             return;
           }
           removeTooltip();
