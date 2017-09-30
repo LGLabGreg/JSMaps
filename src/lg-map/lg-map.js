@@ -216,42 +216,29 @@
           }
         }
 
-        /////////////////////////////
-        //Groups
-        /////////////////////////////
-
-        if (config.groups && config.groups.length) {
-
-          function mergeGroupPaths(members) {
-            var merged = '';
-            var separator = ' ';
-            $.each(members, function(memberIndex, member) {
-              $.each(paths, function(stateIndex, state) {
-                if (state.name === member) {
-                  merged += state.path + separator;
+        function setPathsGroups(paths) {
+          var path;
+          for (var i = 0, len = paths.length; i < len; i++) {
+            path = paths[i];
+            $.each(config.groups, function(index, group) {
+              $.each(group.members, function(index, member) {
+                if (path.name === member) {
+                  path.group = group.name;
+                  path.color = group.color;
+                  path.hoverColor = group.hoverColor;
+                  path.selectedColor = group.selectedColor;
                 }
               });
             });
-            return merged;
           }
-          function removeGroupMembers(paths, members) {
-            var i;
-            $.each(members, function(memberIndex, member) {
-              i = paths.length;
-              while (i--) {
-                if (paths[i].name === member) {
-                  paths.splice(i, 1);
-                }
-              }
-            });
-            return paths;
-          }
-          $.each(config.groups, function(index, group) {
-            if (group.members && group.members.length) {
-              group.path = mergeGroupPaths(group.members);
-              paths.push(group);
-              paths = removeGroupMembers(paths, group.members);
-            }
+          return paths;
+        }
+
+        function animatePaths(paths, ids, color) {
+          $.each(ids, function(index, id) {
+            paths[id].animate({
+              fill: color
+            }, 500);
           });
         }
 
@@ -284,6 +271,17 @@
             'opacity': 0
           };
 
+          /////////////////////////////
+          //Groups
+          /////////////////////////////
+          if (config.groups && config.groups.length) {
+            $.each(config.groups, function(index, group) {
+              group.set = r.set();
+              group.groupIds = [];
+              group.index = index;
+            });
+            paths = setPathsGroups(paths);
+          }
 
           for (var i = 0, len = paths.length; i < len; i++) {
 
@@ -306,7 +304,6 @@
 
             // Create path
             path = r.path(paths[i].path).attr(pathProperties);
-            path.node.id = i;
             pathsAr.push(path);
 
             // Create text on enabled states unless disabled in config 
@@ -324,59 +321,53 @@
             }
 
             // Create hit area layer
-            var hitArea = r.path(paths[i].path).attr(hitAreaProperties);
-            hitArea.node.id = i;
-            hitArea.node.setAttribute('lg-map-name', paths[i].name);
+            var group;
+            var hitArea;
+            if (paths[i].group) {
+              group = config.groups.find(function(group, index) {
+                if (paths[i].group === group.name) {
+                  group.groupIds.push(i);
+                  return group;
+                }
+              });
+              hitArea = group.set.push(r.path(paths[i].path)).attr(hitAreaProperties);
+              hitArea.data('group', group);
+              hitArea.data('lg-map-name', group.name);
+            }
+            else {
+              hitArea = r.path(paths[i].path).attr(hitAreaProperties);
+              hitArea.data('id', i);
+              hitArea.data('lg-map-name', paths[i].name);
+            }
             statesHitAreas.push(hitArea);
 
-            hitArea.mouseover(function(e) {
+            
+            function hitAreaOverOut(e) {
+              var id = this.data('id');
+              var isGroup = !!this.data('group');
+              var target = isGroup ? this.data('group') : paths[id];
+              var enabled = target.enable;
+              var isOver = e.type === 'mouseover';
+              var color = isOver ? target.hoverColor : target.color;
+              var callback = isOver ? settings.onStateOver : settings.onStateOut;
 
-              e.stopPropagation();
-              var id = $(this.node).attr('id');
+              if (enabled && target != current) {
+                // Animate paths
+                var pathIds = isGroup ? this.data('group').groupIds : [id];
+                animatePaths(pathsAr, pathIds, color);
 
-              if (paths[id].enable) {
+                // Tooltip
+                isOver ? showTooltip(target.name) : removeTooltip();
 
-                //Animate if not already the current state
-                if (pathsAr[id] != current) {
-                  pathsAr[id].animate({
-                    fill: paths[id].hoverColor
-                  }, 500);
+                // Trigger callback
+                if ($.isFunction(callback)) {
+                  callback.call(this, target);
                 }
-
-                //tooltip
-                showTooltip(paths[id].name);
-
-                // Trigger state mouseover callback
-                if ($.isFunction(settings.onStateOver)) {
-                  settings.onStateOver.call(this, paths[id]);
-                }
-
               }
-            });
+            }
+            hitArea.mouseover(hitAreaOverOut);
+            hitArea.mouseout(hitAreaOverOut);
 
-
-            hitArea.mouseout(function(e) {
-
-              var id = $(this.node).attr('id');
-
-              if (paths[id].enable) {
-
-                //Animate if not already the current state
-                if (pathsAr[id] != current) {
-                  pathsAr[id].animate({
-                    fill: paths[id].color
-                  }, 500);
-                }
-
-                removeTooltip();
-
-                // Trigger state mouseout callback
-                if ($.isFunction(settings.onStateOut)) {
-                  settings.onStateOut.call(this, paths[id]);
-                }
-
-              }
-            });
 
             hitArea.click(function(e) {
 

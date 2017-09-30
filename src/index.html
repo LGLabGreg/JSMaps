@@ -94,7 +94,21 @@
     $(function() {
       
       $('#<%= map %>-map').LGMap({
-        map: '<%= map %>'
+        map: '<%= map %>',
+        "groups": [
+          {
+            "enable": true,
+            "name": "Test",
+            "members": ["United States", "Canada", "Mexico"],
+            "abbreviation": "",
+            "textX": 0,
+            "textY": 0,
+            "color": "#ff0000",
+            "hoverColor": "#00ff00",
+            "selectedColor": "#0000ff",
+            "url": "http://jsmaps.io",
+          }
+        ]
       });
 
     });
