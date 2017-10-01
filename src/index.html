@@ -86,7 +86,6 @@
     <!-- Map html - add the below to your page -->
     <div class="lg-map-wrapper" id="<%= map %>-map"></div>
     <!-- End Map html -->
-
   </div>
 
   <script type="text/javascript">
@@ -94,22 +93,7 @@
     $(function() {
       
       $('#<%= map %>-map').LGMap({
-        map: '<%= map %>',
-        "groups": [
-          {
-            "enable": true,
-            "name": "Test",
-            "members": ["United States", "Canada", "Mexico"],
-            "abbreviation": "",
-            "textX": 0,
-            "textY": 0,
-            "color": "#ff0000",
-            "hoverColor": "#00ff00",
-            "selectedColor": "#0000ff",
-            "url": "http://jsmaps.io",
-            "text": "<h1>North America</h1><br /><p>Lorem ipsum dolor sit amet.</p>"
-          }
-        ]
+        map: '<%= map %>'
       });
 
     });
