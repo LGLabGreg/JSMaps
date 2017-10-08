@@ -10,6 +10,35 @@
     "maps": {}
   }
 
+
+  /////////////////////////////
+  //Polyfills
+  /////////////////////////////
+  if (!Array.prototype.find) {
+    Object.defineProperty(Array.prototype, 'find', {
+      value: function(predicate) {
+        if (this == null) {
+          throw new TypeError('"this" is null or not defined');
+        }
+        var o = Object(this);
+        var len = o.length >>> 0;
+        if (typeof predicate !== 'function') {
+          throw new TypeError('predicate must be a function');
+        }
+        var thisArg = arguments[1];
+        var k = 0;
+        while (k < len) {
+          var kValue = o[k];
+          if (predicate.call(thisArg, kValue, k, o)) {
+            return kValue;
+          }
+          k++;
+        }
+        return undefined;
+      }
+    });
+  }
+
   /////////////////////////////
   //Mobile detection
   /////////////////////////////
@@ -123,7 +152,9 @@
     var mapId = 'lg-map-' + generateUUID();
     map.attr('id', mapId);
     var textArea;
-    
+    var pathsAr = [];
+    var pinsAr = [];
+
 
 
     /////////////////////////////
@@ -137,6 +168,48 @@
       var paths = mapData.paths;
       var pins = mapData.pins;
 
+
+      /////////////////////////////
+      //Helpers
+      /////////////////////////////
+      function animatePaths(paths, ids, color) {
+        $.each(ids, function(index, id) {
+          paths[id].animate({
+            fill: color
+          }, 500);
+        });
+      }
+
+      function setPathsGroups(paths) {
+        var path;
+        for (var i = 0, len = paths.length; i < len; i++) {
+          path = paths[i];
+          $.each(config.groups, function(index, group) {
+            $.each(group.members, function(index, member) {
+              if (path.name === member) {
+                path.group = group.name;
+                path.color = group.color;
+                path.hoverColor = group.hoverColor;
+                path.selectedColor = group.selectedColor;
+              }
+            });
+          });
+        }
+        return paths;
+      }
+
+      function resetScrollBar() {
+        if (config.stateClickAction === 'text') {
+          var t = textArea[0];
+          t.scrollLeft = 0;
+          t.scrollTop = 0;
+        }
+      }
+      
+
+      /////////////////////////////
+      //Render map
+      /////////////////////////////
       function renderMap() {
 
         /////////////////////////////
@@ -186,6 +259,7 @@
         var isPanning = false;
         var readyToAnimate = true;
 
+        
         /////////////////////////////
         //Mouse position
         /////////////////////////////
@@ -216,44 +290,6 @@
           }
         }
 
-        /////////////////////////////
-        //Groups
-        /////////////////////////////
-
-        if (config.groups && config.groups.length) {
-
-          function mergeGroupPaths(members) {
-            var merged = '';
-            var separator = ' ';
-            $.each(members, function(memberIndex, member) {
-              $.each(paths, function(stateIndex, state) {
-                if (state.name === member) {
-                  merged += state.path + separator;
-                }
-              });
-            });
-            return merged;
-          }
-          function removeGroupMembers(paths, members) {
-            var i;
-            $.each(members, function(memberIndex, member) {
-              i = paths.length;
-              while (i--) {
-                if (paths[i].name === member) {
-                  paths.splice(i, 1);
-                }
-              }
-            });
-            return paths;
-          }
-          $.each(config.groups, function(index, group) {
-            if (group.members && group.members.length) {
-              group.path = mergeGroupPaths(group.members);
-              paths.push(group);
-              paths = removeGroupMembers(paths, group.members);
-            }
-          });
-        }
 
         /////////////////////////////
         //Main map function
@@ -262,8 +298,6 @@
 
 
           r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight);
-          var pathsAr = [];
-          var regions = {};
           var path;
           var pathBBox;
           var textX;
@@ -284,8 +318,24 @@
             'opacity': 0
           };
 
+          /////////////////////////////
+          //Groups
+          /////////////////////////////
+          if (config.groups && config.groups.length) {
+            $.each(config.groups, function(index, group) {
+              group.set = r.set();
+              group.groupIds = [];
+            });
+            paths = setPathsGroups(paths);
+          }
 
+
+          /////////////////////////////
+          //Paths
+          /////////////////////////////
           for (var i = 0, len = paths.length; i < len; i++) {
+
+            paths[i].id = i;
 
             // Extend paths properties
             if (!paths[i].enable) {
@@ -306,7 +356,6 @@
 
             // Create path
             path = r.path(paths[i].path).attr(pathProperties);
-            path.node.id = i;
             pathsAr.push(path);
 
             // Create text on enabled states unless disabled in config 
@@ -324,99 +373,97 @@
             }
 
             // Create hit area layer
-            var hitArea = r.path(paths[i].path).attr(hitAreaProperties);
-            hitArea.node.id = i;
-            hitArea.node.setAttribute('lg-map-name', paths[i].name);
+            var group;
+            var hitArea;
+            var groupIndex;
+            if (paths[i].group) {
+              group = config.groups.find(function(group, index) {
+                if (paths[i].group === group.name) {
+                  groupIndex = index;
+                  group.groupIds.push(i);
+                  return group;
+                }
+              });
+              hitArea = group.set.push(r.path(paths[i].path)).attr(hitAreaProperties);
+              hitArea.data('group', group);
+              hitArea.data('id', groupIndex);
+              hitArea.name = group.name;
+            }
+            else {
+              hitArea = r.path(paths[i].path).attr(hitAreaProperties);
+              hitArea.data('id', i);
+              hitArea.name = paths[i].name;
+            }
+
             statesHitAreas.push(hitArea);
 
-            hitArea.mouseover(function(e) {
 
-              e.stopPropagation();
-              var id = $(this.node).attr('id');
+            function hitAreaOverOut(e) {
+              
+              var id = this.data('id');
+              var isGroup = !!this.data('group');
+              var target = isGroup ? this.data('group') : paths[id];
+              var enabled = target.enable;
+              var isMouseover = e.type === 'mouseover';
+              var color = isMouseover ? target.hoverColor : target.color;
+              var callback = isMouseover ? settings.onStateOver : settings.onStateOut;
 
-              if (paths[id].enable) {
+              if (enabled && target != current) {
+                // Animate paths
+                var pathIds = isGroup ? this.data('group').groupIds : [id];
+                animatePaths(pathsAr, pathIds, color);
 
-                //Animate if not already the current state
-                if (pathsAr[id] != current) {
-                  pathsAr[id].animate({
-                    fill: paths[id].hoverColor
-                  }, 500);
+                // Tooltip
+                isMouseover ? showTooltip(target.name) : removeTooltip();
+
+                // Trigger callback
+                if ($.isFunction(callback)) {
+                  callback.call(this, target);
                 }
-
-                //tooltip
-                showTooltip(paths[id].name);
-
-                // Trigger state mouseover callback
-                if ($.isFunction(settings.onStateOver)) {
-                  settings.onStateOver.call(this, paths[id]);
-                }
-
               }
-            });
+            }
+            hitArea.mouseover(hitAreaOverOut);
+            hitArea.mouseout(hitAreaOverOut);
 
-
-            hitArea.mouseout(function(e) {
-
-              var id = $(this.node).attr('id');
-
-              if (paths[id].enable) {
-
-                //Animate if not already the current state
-                if (pathsAr[id] != current) {
-                  pathsAr[id].animate({
-                    fill: paths[id].color
-                  }, 500);
-                }
-
-                removeTooltip();
-
-                // Trigger state mouseout callback
-                if ($.isFunction(settings.onStateOut)) {
-                  settings.onStateOut.call(this, paths[id]);
-                }
-
-              }
-            });
 
             hitArea.click(function(e) {
 
-              var id = $(this.node).attr('id');
+              var id = this.data('id');
+              var isGroup = !!this.data('group');
+              var target = isGroup ? this.data('group') : paths[id];
+              var enabled = target.enable;
+              var pathIds;
+              var color;
 
-              if (paths[id].enable) {
+              if (enabled && target != current) {
 
                 //Reset scrollbar
-                if (config.stateClickAction === 'text') {
-                  var t = textArea[0];
-                  t.scrollLeft = 0;
-                  t.scrollTop = 0;
-                }
-
+                resetScrollBar();
+                
                 //Animate previous state out
                 if (current) {
-                  var curid = $(current.node).attr('id');
-                  current.animate({
-                    fill: isPin ? pins[curid].color : paths[curid].color
-                  }, 500);
+                  pathIds = current.groupIds || [current.id];
+                  color = current.color;
+                  animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
                 }
                 isPin = false;
 
                 //Animate next
-                pathsAr[id].animate({
-                  fill: paths[id].selectedColor
-                }, 500);
+                pathIds = isGroup ? this.data('group').groupIds : [id];
+                animatePaths(pathsAr, pathIds, target.selectedColor);
 
-                current = pathsAr[id];
+                current = target;
 
                 if (config.stateClickAction === 'text') {
-                  textArea.html(paths[id].text);
+                  textArea.html(target.text);
                 } else if (config.stateClickAction === 'url') {
-                  window.open(paths[id].url, config.hrefTarget);
+                  window.open(target.url, config.hrefTarget);
                 }
               }
 
               // Trigger state click callback
               if ($.isFunction(settings.onStateClick)) {
-                settings.onStateClick.call(this, paths[id]);
+                settings.onStateClick.call(this, target);
               }
 
             });
@@ -453,6 +500,8 @@
 
           for (var i = 0; i < pins.length; i++) {
 
+            pins[i].id = i;
+
             var pinattrs = {
               'cursor': 'pointer',
               'fill': pins[i].color,
@@ -477,89 +526,62 @@
               pin = r.circle(pins[i].xPos, pins[i].yPos, pins[i].pinWidth || config.pinSize).attr(pinattrs);
             }
 
-            pin.node.id = i;
-            pin.node.setAttribute('lg-map-name', pins[i].name);
+            pin.data('id', i);
+            pin.name =  pins[i].name;
+            pinsAr.push(pin);
             statesHitAreas.push(pin);
 
-            pin.mouseover(function(e) {
+            function pinOverOut(e) {
 
-              e.stopPropagation();
-
-              var id = $(this.node).attr('id');
-
-              //Animate if not already the current state
-              if (this != current) {
-                this.animate({
-                  fill: pins[id].hoverColor
-                }, 500);
-              }
-
-              //tooltip
-              showTooltip(pins[id].name);
-
-              // Trigger state click callback
-              if ($.isFunction(settings.onStateOver)) {
-                settings.onStateOver.call(this, pins[id]);
-              }
-
-            });
-
-            pin.mouseout(function(e) {
-
-              var id = $(this.node).attr('id');
+              var id = this.data('id');
+              var target = pins[id];
+              var isMouseover = e.type === 'mouseover';
+              var color = isMouseover ? target.hoverColor : target.color;
+              var callback = isMouseover ? settings.onStateOver : settings.onStateOut;
 
               //Animate if not already the current state
-              if (this != current) {
-                this.animate({
-                  fill: pins[id].color
-                }, 500);
+              if (target != current) {
+                animatePaths(pinsAr, [id], color);
               }
 
-              removeTooltip();
+              // Tooltip
+              isMouseover ? showTooltip(target.name) : removeTooltip();
 
-              // Trigger state click callback
-              if ($.isFunction(settings.onStateOut)) {
-                settings.onStateOut.call(this, pins[id]);
+              // Trigger callback
+              if ($.isFunction(callback)) {
+                callback.call(this, target);
               }
-
-            });
+            }
+            pin.mouseover(pinOverOut);
+            pin.mouseout(pinOverOut);
 
             pin.click(function(e) {
 
-              var id = $(this.node).attr('id');
+              var id = this.data('id');
+              var target = pins[id];
 
               //Reset scrollbar
-              if (config.stateClickAction === 'text') {
-                var t = textArea[0];
-                t.scrollLeft = 0;
-                t.scrollTop = 0;
-              }
+              resetScrollBar();
 
-              //Animate previous state out
               if (current) {
-                var curid = $(current.node).attr('id');
-                current.animate({
-                  fill: isPin ? pins[curid].color : paths[curid].color
-                }, 500);
+                pathIds = current.groupIds || [current.id];
+                animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
               }
               isPin = true;
 
               //Animate next
-              this.animate({
-                fill: pins[id].selectedColor
-              }, 500);
-
-              current = this;
+              animatePaths(pinsAr, [id], target.selectedColor);
+              current = target;
 
               if (config.stateClickAction === 'text') {
-                textArea.html(pins[id].text);
+                textArea.html(target.text);
               } else if (config.stateClickAction === 'url') {
-                window.open(pins[id].url, config.hrefTarget);
+                window.open(target.url, config.hrefTarget);
               }
 
               // Trigger state click callback
               if ($.isFunction(settings.onStateClick)) {
-                settings.onStateClick.call(this, pins[id]);
+                settings.onStateClick.call(this, target);
               }
 
             });
@@ -974,23 +996,23 @@
       /////////////////////////////
       mapWrapper.on('stateClick', function(_, name) {
         $.each(statesHitAreas, function(index, elem) {
-          pathName = elem.node.getAttribute('lg-map-name');
+          pathName = elem.name;
           if (name === pathName) {
-            statesHitAreas[index].trigger('click');
+            var target = statesHitAreas[index].type === 'set' ? statesHitAreas[index][0] : statesHitAreas[index];
+            target.trigger('click');
           }
         });
       });
 
       mapWrapper.on('stateUnClick', function() {
         if (current) {
-          var curid = $(current.node).attr('id');
-          current.animate({
-            fill: isPin ? pins[curid].color : paths[curid].color
-          }, 500);
+          var pathIds = current.groupIds || [current.id];
+          animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
           //reset initial default text
           if (config.stateClickAction === 'text') {
             textArea.html(config.defaultText);
           }
+          current = null;
         }
       });
 
