@@ -1,4 +1,4 @@
-# JSMaps - v3.1.2
+# JSMaps - v3.1.3
 
 jQuery plugin to build deployable and zipped svg maps - available maps are located in src maps.
 
