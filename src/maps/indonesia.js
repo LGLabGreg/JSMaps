@@ -1,4 +1,4 @@
-window.LGMaps.maps.indonesia = {
+window.JSMaps.maps.indonesia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 233.900,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.nigeria = {
+window.JSMaps.maps.nigeria = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 565.500,

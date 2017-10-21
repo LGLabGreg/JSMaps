@@ -1,4 +1,4 @@
-window.LGMaps.maps.iraq = {
+window.JSMaps.maps.iraq = {
 	"config": {
 		"mapWidth": 799.52,
 		"mapHeight": 813.2,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.usaTerritories = {
+window.JSMaps.maps.usaTerritories = {
 	"config": {
 		"mapWidth": 930,
 		"mapHeight": 590,

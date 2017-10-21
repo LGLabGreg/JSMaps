@@ -1,4 +1,4 @@
-window.LGMaps.maps.northCarolina = {
+window.JSMaps.maps.northCarolina = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 266.400,

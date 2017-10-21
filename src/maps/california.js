@@ -1,4 +1,4 @@
-window.LGMaps.maps.california = {
+window.JSMaps.maps.california = {
 	"config": {
 		"mapWidth": 611.700,
 		"mapHeight": 700.400,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.caribbean = {
+window.JSMaps.maps.caribbean = {
 	"config": {
 		"mapWidth": 895.92969,
 		"mapHeight": 632.93359,

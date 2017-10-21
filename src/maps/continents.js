@@ -1,4 +1,4 @@
-window.LGMaps.maps.continents = {
+window.JSMaps.maps.continents = {
 	"config": {
 		"mapWidth": 1009.255,
 		"mapHeight": 651.915,

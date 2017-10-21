@@ -1,4 +1,4 @@
-window.LGMaps.maps.thailand = {
+window.JSMaps.maps.thailand = {
 	"config": {
 		"mapWidth": 378.890,
 		"mapHeight": 700.435,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.pakistan = {
+window.JSMaps.maps.pakistan = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 687.400,

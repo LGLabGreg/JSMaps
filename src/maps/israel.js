@@ -1,4 +1,4 @@
-window.LGMaps.maps.israel = {
+window.JSMaps.maps.israel = {
 	"config": {
 		"mapWidth": 250.200,
 		"mapHeight": 700.400,

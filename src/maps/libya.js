@@ -1,4 +1,4 @@
-window.LGMaps.maps.libya = {
+window.JSMaps.maps.libya = {
 	"config": {
 		"mapWidth": 799.46,
 		"mapHeight": 772.03,

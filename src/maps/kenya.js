@@ -1,4 +1,4 @@
-window.LGMaps.maps.kenya = {
+window.JSMaps.maps.kenya = {
 	"config": {
 		"mapWidth": 576.200,
 		"mapHeight": 700.400,

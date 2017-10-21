@@ -1,4 +1,4 @@
-window.LGMaps.maps.florida = {
+window.JSMaps.maps.florida = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 692.700,

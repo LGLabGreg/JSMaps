@@ -1,4 +1,4 @@
-window.LGMaps.maps.slovenia = {
+window.JSMaps.maps.slovenia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 464.500,

@@ -4,9 +4,9 @@
 (function($) {
 
   /////////////////////////////
-  //Create global LGMaps object
+  //Create global JSMaps object
   /////////////////////////////
-  window.LGMaps = window.LGMaps || {
+  window.JSMaps = window.JSMaps || {
     "maps": {}
   }
 
@@ -83,7 +83,7 @@
   /////////////////////////////
   //Plugin definition
   /////////////////////////////
-  $.fn.LGMap = function(options) {
+  $.fn.JSMaps = function(options) {
 
 
     /////////////////////////////
@@ -124,7 +124,7 @@
 
     // Catch missing map data
     if (!settings.map) {
-      throw new Error('LGMap plugin was called without a map property');
+      throw new Error('JSMaps plugin was called without a map property');
     }
 
     // Map element
@@ -132,7 +132,7 @@
 
     // Preloader
     if (settings.displayPreloader) {
-      var preloader = $('<div class="lg-map-preloader">' + settings.preloaderText + '</div>').appendTo(mapWrapper);
+      var preloader = $('<div class="jsmaps-preloader">' + settings.preloaderText + '</div>').appendTo(mapWrapper);
     }
 
     var r;
@@ -148,8 +148,8 @@
     var statesHitAreas = [];
     var statesTexts = [];
     var containerWidth = mapWrapper.parent().width();
-    var map = $('<div class="lg-map"></div>').appendTo(mapWrapper);
-    var mapId = 'lg-map-' + generateUUID();
+    var map = $('<div class="jsmaps"></div>').appendTo(mapWrapper);
+    var mapId = 'jsmaps-' + generateUUID();
     map.attr('id', mapId);
     var textArea;
     var pathsAr = [];
@@ -163,7 +163,7 @@
     var mapFile = settings.mapFolder + settings.map + '.js';
     $.getScript(mapFile, function(data) {
 
-      var mapData = window.LGMaps.maps[settings.map];
+      var mapData = window.JSMaps.maps[settings.map];
       var config = $.extend(settings, mapData.config);
       var paths = mapData.paths;
       var pins = mapData.pins;
@@ -222,7 +222,7 @@
 
         // Pan/zoom
         if (config.enablePanZoom) {
-          var mapConsole = $('<div class="lg-map-console"><ul><li class="lg-map-zoom-in"></li><li class="lg-map-zoom-out"></li><li class="lg-map-move-up"></li><li class="lg-map-move-down"></li><li class="lg-map-move-left"></li><li class="lg-map-move-right"></li><li class="lg-map-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
+          var mapConsole = $('<div class="jsmaps-console"><ul><li class="jsmaps-zoom-in"></li><li class="jsmaps-zoom-out"></li><li class="jsmaps-move-up"></li><li class="jsmaps-move-down"></li><li class="jsmaps-move-left"></li><li class="jsmaps-move-right"></li><li class="jsmaps-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
         }
 
         // Check values are not outside of bounds
@@ -275,7 +275,7 @@
         //Set initial default text
         if (config.stateClickAction === 'text') {
           // Create text div
-          textArea = $('<div class="lg-map-text"></div>').appendTo(mapWrapper);
+          textArea = $('<div class="jsmaps-text"></div>').appendTo(mapWrapper);
           textArea.html(config.defaultText);
           // Handle text left
           if (config.textPosition === 'left') {
@@ -408,11 +408,14 @@
               var color = isMouseover ? target.hoverColor : target.color;
               var callback = isMouseover ? settings.onStateOver : settings.onStateOut;
 
-              if (enabled && target != current) {
-                // Animate paths
-                var pathIds = isGroup ? this.data('group').groupIds : [id];
-                animatePaths(pathsAr, pathIds, color);
+              if (enabled) {
 
+                // Animate paths
+                if (target != current) {
+                  var pathIds = isGroup ? this.data('group').groupIds : [id];
+                  animatePaths(pathsAr, pathIds, color);
+                }
+                
                 // Tooltip
                 isMouseover ? showTooltip(target.name) : removeTooltip();
 
@@ -435,13 +438,13 @@
               var pathIds;
               var color;
 
-              if (enabled && target != current) {
+              if (enabled) {
 
                 //Reset scrollbar
                 resetScrollBar();
                 
                 //Animate previous state out
-                if (current) {
+                if (current && current != target) {
                   pathIds = current.groupIds || [current.id];
                   color = current.color;
                   animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
@@ -449,11 +452,13 @@
                 isPin = false;
 
                 //Animate next
-                pathIds = isGroup ? this.data('group').groupIds : [id];
-                animatePaths(pathsAr, pathIds, target.selectedColor);
+                if (target != current) {
+                  pathIds = isGroup ? this.data('group').groupIds : [id];
+                  animatePaths(pathsAr, pathIds, target.selectedColor);
+                }
 
                 current = target;
-
+                
                 if (config.stateClickAction === 'text') {
                   textArea.html(target.text);
                 } else if (config.stateClickAction === 'url') {
@@ -651,28 +656,28 @@
             return;
           }
           removeTooltip();
-          map.after($('<div />').addClass('lg-map-tooltip'));
-          $('.lg-map-tooltip').html(text);
+          map.after($('<div />').addClass('jsmaps-tooltip'));
+          $('.jsmaps-tooltip').html(text);
 
           // Check tootip fits at the top
           calculateTooltipOffset();
 
-          $('.lg-map-tooltip').fadeIn();
+          $('.jsmaps-tooltip').fadeIn();
         }
 
         function calculateTooltipOffset() {
           tooltipOffsetY = -40;
-          isTooltipBelowMouse = (mouseY - $('.lg-map-tooltip').height() + tooltipOffsetY) < 0;
-          tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.lg-map-tooltip').height();
+          isTooltipBelowMouse = (mouseY - $('.jsmaps-tooltip').height() + tooltipOffsetY) < 0;
+          tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.jsmaps-tooltip').height();
 
-          $('.lg-map-tooltip').css({
-            left: mouseX - $('.lg-map-tooltip').width()/2,
+          $('.jsmaps-tooltip').css({
+            left: mouseX - $('.jsmaps-tooltip').width()/2,
             top: mouseY + tooltipOffsetY
           });
         }
 
         function removeTooltip() {
-          map.next('.lg-map-tooltip').remove();
+          map.next('.jsmaps-tooltip').remove();
         }
 
 
@@ -809,7 +814,7 @@
           //Stop window scroll if scrolling inside the map
           $('body').on({
             'mousewheel': function(e) {
-              if (!$(e.target).parents('.lg-map').length) return;
+              if (!$(e.target).parents('.jsmaps').length) return;
               e.preventDefault();
               e.stopPropagation();
             }
@@ -876,11 +881,11 @@
           }
 
 
-          mapConsole.find('.lg-map-zoom-in').add(mapConsole.find('.lg-map-zoom-out')).click(function(e) {
+          mapConsole.find('.jsmaps-zoom-in').add(mapConsole.find('.jsmaps-zoom-out')).click(function(e) {
 
             if (readyToAnimate) {
 
-              var zoomingOut = $(this).hasClass('lg-map-zoom-out');
+              var zoomingOut = $(this).hasClass('jsmaps-zoom-out');
 
               readyToAnimate = false;
               if (zoomingOut && mapZoom === 1) {
@@ -903,14 +908,14 @@
 
 
           //Reset zoom and pan
-          mapConsole.find('.lg-map-zoom-reset').click(function(e) {
+          mapConsole.find('.jsmaps-zoom-reset').click(function(e) {
             resetMap(r);
             e.stopPropagation();
             e.preventDefault();
           });
 
           //Manual panning not needed anymore
-          mapConsole.find('.lg-map-move-up').click(function(e) {
+          mapConsole.find('.jsmaps-move-up').click(function(e) {
             viewBoxCoords[1] -= 20;
             if (viewBoxCoords[1] <= 0) viewBoxCoords[1] = 0;
             r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
@@ -919,7 +924,7 @@
           });
 
           //move down
-          mapConsole.find('.lg-map-move-down').click(function(e) {
+          mapConsole.find('.jsmaps-move-down').click(function(e) {
             viewBoxCoords[1] += 20;
             var limitY = originH - viewBoxCoords[3];
             if (viewBoxCoords[1] >= limitY) viewBoxCoords[1] = limitY;
@@ -929,7 +934,7 @@
           });
 
           //move left
-          mapConsole.find('.lg-map-move-left').click(function(e) {
+          mapConsole.find('.jsmaps-move-left').click(function(e) {
             viewBoxCoords[0] -= 20;
             if (viewBoxCoords[0] <= 0) viewBoxCoords[0] = 0;
             r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
@@ -938,7 +943,7 @@
           });
 
           //move right
-          mapConsole.find('.lg-map-move-right').click(function(e) {
+          mapConsole.find('.jsmaps-move-right').click(function(e) {
             viewBoxCoords[0] += 20;
             var limitX = originW - viewBoxCoords[2];
             if (viewBoxCoords[0] >= limitX) viewBoxCoords[0] = limitX;
@@ -975,14 +980,14 @@
         // clear svg
         r.clear();
         // clear html
-        if (mapWrapper.find('.lg-map-console').length) {
-          mapWrapper.find('.lg-map-console').remove();
+        if (mapWrapper.find('.jsmaps-console').length) {
+          mapWrapper.find('.jsmaps-console').remove();
         }
         if (mapWrapper.find('.mouse-position').length) {
           mapWrapper.find('.mouse-position').remove();
         }
-        if (mapWrapper.find('.lg-map-text').length) {
-          mapWrapper.find('.lg-map-text').remove();
+        if (mapWrapper.find('.jsmaps-text').length) {
+          mapWrapper.find('.jsmaps-text').remove();
         }
         // Reset variables
         statesHitAreas = [];

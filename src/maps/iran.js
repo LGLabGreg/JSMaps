@@ -1,4 +1,4 @@
-window.LGMaps.maps.iran = {
+window.JSMaps.maps.iran = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 633.900,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.sweden = {
+window.JSMaps.maps.sweden = {
 	"config": {
 		"mapWidth": 292.600,
 		"mapHeight": 700.400,

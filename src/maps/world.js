@@ -1,4 +1,4 @@
-window.LGMaps.maps.world = {
+window.JSMaps.maps.world = {
     "config": {
         "mapWidth": 1009.115,
         "mapHeight": 665.242,

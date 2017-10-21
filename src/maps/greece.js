@@ -1,4 +1,4 @@
-window.LGMaps.maps.greece = {
+window.JSMaps.maps.greece = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 697.200,

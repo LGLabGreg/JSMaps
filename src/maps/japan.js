@@ -1,4 +1,4 @@
-window.LGMaps.maps.japan = {
+window.JSMaps.maps.japan = {
 	"config": {
 		"mapWidth": 645.800,
 		"mapHeight": 700.400,

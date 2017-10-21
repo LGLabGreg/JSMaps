@@ -1,4 +1,4 @@
-window.LGMaps.maps.dominicanRepublic = {
+window.JSMaps.maps.dominicanRepublic = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 476.800,

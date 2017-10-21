@@ -1,4 +1,4 @@
-window.LGMaps.maps.sriLanka = {
+window.JSMaps.maps.sriLanka = {
 	"config": {
 		"mapWidth": 399.200,
 		"mapHeight": 700.400,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.morocco = {
+window.JSMaps.maps.morocco = {
 	"config": {
 		"mapWidth": 693.100,
 		"mapHeight": 700.400,

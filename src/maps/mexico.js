@@ -1,4 +1,4 @@
-window.LGMaps.maps.mexico = {
+window.JSMaps.maps.mexico = {
 	"config": {
 		"mapWidth": 792.41846,
 		"mapHeight": 497.54324,

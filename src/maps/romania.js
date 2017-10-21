@@ -1,4 +1,4 @@
-﻿window.LGMaps.maps.romania = {
+﻿window.JSMaps.maps.romania = {
     "config": {
         "mapWidth": 612,
         "mapHeight": 431.53,

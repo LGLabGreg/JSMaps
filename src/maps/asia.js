@@ -1,4 +1,4 @@
-window.LGMaps.maps.asia = {
+window.JSMaps.maps.asia = {
 	"config": {
 		"mapWidth": 700.4,
 		"mapHeight": 540.6,

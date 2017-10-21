@@ -1,4 +1,4 @@
-﻿window.LGMaps.maps.turkey = {
+﻿window.JSMaps.maps.turkey = {
     "config": {
         "mapWidth": 792.5,
         "mapHeight": 334.4,

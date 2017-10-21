@@ -1,4 +1,4 @@
-window.LGMaps.maps.guatemala = {
+window.JSMaps.maps.guatemala = {
 	"config": {
 		"mapWidth": 669.800,
 		"mapHeight": 700.400,

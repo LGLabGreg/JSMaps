@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 		    tasks: ['clean:map', 'copy:map']
 		  },
 		  js: {
-		    files: ['Gruntfile.js','src/lg-map/*.js','!src/maps/' + map +'.js'],
+		    files: ['Gruntfile.js','src/jsmaps/*.js','!src/maps/' + map +'.js'],
 		    tasks: ['clean:js', 'copy', 'concat', 'uglify']
 		  },
 		  css: {
@@ -101,8 +101,8 @@ module.exports = function(grunt) {
     concat: {
       js: {
         files: {
-          'build/lg-map/lg-map-libs.js': ['src/lg-map/raphael.js', 'src/lg-map/scale.raphael.js'],
-          'build/lg-map/lg-map-panzoom.js': ['src/lg-map/RequestAnimationFrame.js', 'src/lg-map/jquery.mousewheel.js', 'src/lg-map/raphaelAnimateViewBox.js']
+          'build/jsmaps/jsmaps-libs.js': ['src/jsmaps/raphael.js', 'src/jsmaps/scale.raphael.js'],
+          'build/jsmaps/jsmaps-panzoom.js': ['src/jsmaps/RequestAnimationFrame.js', 'src/jsmaps/jquery.mousewheel.js', 'src/jsmaps/raphaelAnimateViewBox.js']
         },
       },
     },
@@ -112,16 +112,16 @@ module.exports = function(grunt) {
         mangle: true
       },
       build: {
-        src: 'src/lg-map/lg-map.js',
-        dest: 'build/lg-map/lg-map.min.js'
+        src: 'src/jsmaps/jsmaps.js',
+        dest: 'build/jsmaps/jsmaps.min.js'
       },
       libs: {
-        src: 'build/lg-map/lg-map-libs.js',
-        dest: 'build/lg-map/lg-map-libs.js'
+        src: 'build/jsmaps/jsmaps-libs.js',
+        dest: 'build/jsmaps/jsmaps-libs.js'
       },
       panzoom: {
-        src: 'build/lg-map/lg-map-panzoom.js',
-        dest: 'build/lg-map/lg-map-panzoom.js'
+        src: 'build/jsmaps/jsmaps-panzoom.js',
+        dest: 'build/jsmaps/jsmaps-panzoom.js'
       }
     },
     obfuscator: {
@@ -135,7 +135,7 @@ module.exports = function(grunt) {
               // options for each sub task
           },
           files: {
-              'build/lg-map/lg-map.min.js': ['build/lg-map/lg-map.min.js']
+              'build/jsmaps/jsmaps.min.js': ['build/jsmaps/jsmaps.min.js']
           }
       }
     },
@@ -165,7 +165,7 @@ module.exports = function(grunt) {
       },
       all: {
         options: {
-          archive: 'zip/lg-map.zip'
+          archive: 'zip/jsmaps.zip'
         },
         files: [
           {expand: true, cwd: 'docs/', src: ['**'], dest: ''},

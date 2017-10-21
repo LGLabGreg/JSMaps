@@ -1,4 +1,4 @@
-window.LGMaps.maps.peru = {
+window.JSMaps.maps.peru = {
 	"config": {
 		"mapWidth": 478.900,
 		"mapHeight": 700.400,

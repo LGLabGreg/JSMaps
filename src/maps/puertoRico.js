@@ -1,4 +1,4 @@
-window.LGMaps.maps.puertoRico = {
+window.JSMaps.maps.puertoRico = {
 	"config": {
 		"mapWidth": 575.800,
 		"mapHeight": 163.800,

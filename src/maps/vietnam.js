@@ -1,4 +1,4 @@
-window.LGMaps.maps.vietnam = {
+window.JSMaps.maps.vietnam = {
 	"config": {
 		"mapWidth": 335.100,
 		"mapHeight": 700.400,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.michigan = {
+window.JSMaps.maps.michigan = {
 	"config": {
 		"mapWidth": 610.500,
 		"mapHeight": 700.400,

@@ -1,4 +1,4 @@
-﻿window.LGMaps.maps.uzbekistan = {
+﻿window.JSMaps.maps.uzbekistan = {
     "config": {
         "mapWidth": 700.400,
         "mapHeight": 451.500,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.angola = {
+window.JSMaps.maps.angola = {
 	"config": {
 		"mapWidth": 622.100,
 		"mapHeight": 700.400,

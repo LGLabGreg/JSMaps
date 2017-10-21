@@ -1,4 +1,4 @@
-window.LGMaps.maps.ohio = {
+window.JSMaps.maps.ohio = {
 	"config": {
 		"mapWidth": 645.912,
 		"mapHeight": 700.493,

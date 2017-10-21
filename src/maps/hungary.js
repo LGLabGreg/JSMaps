@@ -1,4 +1,4 @@
-window.LGMaps.maps.hungary = {
+window.JSMaps.maps.hungary = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 423.600,

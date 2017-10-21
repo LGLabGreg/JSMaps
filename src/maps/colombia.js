@@ -1,4 +1,4 @@
-window.LGMaps.maps.colombia = {
+window.JSMaps.maps.colombia = {
 	"config": {
 		"mapWidth": 506.300,
 		"mapHeight": 700.400,

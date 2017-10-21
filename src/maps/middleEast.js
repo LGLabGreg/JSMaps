@@ -1,4 +1,4 @@
-window.LGMaps.maps.middleEast = {
+window.JSMaps.maps.middleEast = {
 	"config": {
 		"mapWidth": 998.673,
 		"mapHeight": 833.581,

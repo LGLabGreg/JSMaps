@@ -1,4 +1,4 @@
-window.LGMaps.maps.monaco = {
+window.JSMaps.maps.monaco = {
 	"config": {
 		"mapWidth": 510,
 		"mapHeight": 600,

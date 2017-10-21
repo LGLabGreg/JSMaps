@@ -1,4 +1,4 @@
-window.LGMaps.maps.china = {
+window.JSMaps.maps.china = {
 	"config": {
 		"mapWidth": 860,
 		"mapHeight": 700,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.kuwait = {
+window.JSMaps.maps.kuwait = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 650.500,
