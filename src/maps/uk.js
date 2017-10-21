@@ -1,4 +1,4 @@
-window.LGMaps.maps.uk = {
+window.JSMaps.maps.uk = {
 	"config": {
 		"mapWidth": 627.98,
 		"mapHeight": 844.91,

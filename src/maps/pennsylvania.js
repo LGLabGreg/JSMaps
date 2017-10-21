@@ -1,4 +1,4 @@
-window.LGMaps.maps.pennsylvania = {
+window.JSMaps.maps.pennsylvania = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 403.100,

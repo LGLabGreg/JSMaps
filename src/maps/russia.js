@@ -1,4 +1,4 @@
-window.LGMaps.maps.russia = {
+window.JSMaps.maps.russia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 416.100,

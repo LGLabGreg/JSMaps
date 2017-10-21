@@ -1,4 +1,4 @@
-window.LGMaps.maps.cuba = {
+window.JSMaps.maps.cuba = {
 	"config": {
 		"mapWidth": 700.409,
 		"mapHeight": 234.611,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.slovekia = {
+window.JSMaps.maps.slovekia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 338.400,

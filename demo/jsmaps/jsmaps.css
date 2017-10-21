@@ -1,10 +1,10 @@
 /* ------ map
 -----------------------------------------------*/
-.lg-map-wrapper {
+.jsmaps-wrapper {
     position: relative;
     margin: 0 auto;
 }
-.lg-map-wrapper .lg-map-preloader {
+.jsmaps-wrapper .jsmaps-preloader {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -13,11 +13,11 @@
     transform: translate(-50%, -50%);
     z-index: 999;
 }
-.lg-map-wrapper .lg-map {
+.jsmaps-wrapper .jsmaps {
     left: 0;
     top: 0;
 }
-.lg-map-wrapper .lg-map-text {
+.jsmaps-wrapper .jsmaps-text {
     float: left;
     width: 500px;
     height: 380px;
@@ -25,15 +25,15 @@
     padding: 10px 20px;
     clear: both;
 }
-.lg-map-wrapper .lg-map-text img {
+.jsmaps-wrapper .jsmaps-text img {
     float: left;
     padding-right: 5px;
     padding-top: 2px;
 }
-.lg-map-wrapper .lg-map-text ul {
+.jsmaps-wrapper .jsmaps-text ul {
     margin-left: 30px;
 }
-.lg-map-tooltip {
+.jsmaps-tooltip {
     position: fixed;
     display: none;
     padding: 10px 15px;
@@ -66,7 +66,7 @@
 }
 /* console */
 
-.lg-map-console {
+.jsmaps-console {
     float: left;
     clear: both;
     display: none;
@@ -75,48 +75,48 @@
     left: 10px;
 }
 
-.lg-map-console ul {
+.jsmaps-console ul {
     padding: 0;
     margin: 0;
 }
 
-.lg-map-console li {
+.jsmaps-console li {
     list-style-type: none;
     float: left;
     cursor: pointer;
 }
 
-.lg-map-console li.lg-map-zoom-in {
+.jsmaps-console li.jsmaps-zoom-in {
     width: 28px;
     height: 29px;
     background: url('../images/in.png');
 }
-.lg-map-console li.lg-map-zoom-out {
+.jsmaps-console li.jsmaps-zoom-out {
     width: 28px;
     height: 29px;
     background: url('../images/out.png');
 }
-.lg-map-console li.lg-map-move-up {
+.jsmaps-console li.jsmaps-move-up {
     width: 25px;
     height: 29px;
     background: url('../images/up.png');
 }
-.lg-map-console li.lg-map-move-down {
+.jsmaps-console li.jsmaps-move-down {
     width: 20px;
     height: 29px;
     background: url('../images/down.png');
 }
-.lg-map-console li.lg-map-move-left {
+.jsmaps-console li.jsmaps-move-left {
     width: 18px;
     height: 29px;
     background: url('../images/left.png');
 }
-.lg-map-console li.lg-map-move-right {
+.jsmaps-console li.jsmaps-move-right {
     width: 21px;
     height: 29px;
     background: url('../images/right.png');
 }
-.lg-map-console li.lg-map-zoom-reset {
+.jsmaps-console li.jsmaps-zoom-reset {
     width: 62px;
     height: 29px;
     background: url('../images/reset.png');

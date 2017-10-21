@@ -1,4 +1,4 @@
-window.LGMaps.maps.saudiArabia = {
+window.JSMaps.maps.saudiArabia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 578.400,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.LondonBoroughs = {
+window.JSMaps.maps.LondonBoroughs = {
 	"config": {
 		"mapWidth": 740.706,
 		"mapHeight": 574.000,

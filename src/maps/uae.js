@@ -1,4 +1,4 @@
-window.LGMaps.maps.uae = {
+window.JSMaps.maps.uae = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 545.500,

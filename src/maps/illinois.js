@@ -1,4 +1,4 @@
-window.LGMaps.maps.illinois = {
+window.JSMaps.maps.illinois = {
 	"config": {
 		"mapWidth": 390.800,
 		"mapHeight": 700.400,

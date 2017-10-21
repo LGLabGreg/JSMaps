@@ -1,4 +1,4 @@
-window.LGMaps.maps.italy = {
+window.JSMaps.maps.italy = {
 	"config": {
 		"mapWidth": 610.30981,
 		"mapHeight": 792.58575,

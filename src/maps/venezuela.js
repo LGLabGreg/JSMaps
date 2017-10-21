@@ -1,4 +1,4 @@
-window.LGMaps.maps.venezuela = {
+window.JSMaps.maps.venezuela = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 597.100,

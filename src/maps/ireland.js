@@ -1,4 +1,4 @@
-window.LGMaps.maps.ireland = {
+window.JSMaps.maps.ireland = {
 	"config": {
 		"mapWidth": 479.700,
 		"mapHeight": 700.400,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.centralAmerica = {
+window.JSMaps.maps.centralAmerica = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 526.100,

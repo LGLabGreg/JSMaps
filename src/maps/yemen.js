@@ -1,4 +1,4 @@
-window.LGMaps.maps.yemen = {
+window.JSMaps.maps.yemen = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 403.900,

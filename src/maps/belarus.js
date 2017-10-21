@@ -1,4 +1,4 @@
-window.LGMaps.maps.belarus = {
+window.JSMaps.maps.belarus = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 591.500,

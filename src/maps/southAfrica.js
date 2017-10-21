@@ -1,4 +1,4 @@
-window.LGMaps.maps.southAfrica = {
+window.JSMaps.maps.southAfrica = {
 	"config": {
 		"mapWidth": 625.46,
 		"mapHeight": 483.099,

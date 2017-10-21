@@ -1,4 +1,4 @@
-window.LGMaps.maps.ethiopia = {
+window.JSMaps.maps.ethiopia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 536.400,

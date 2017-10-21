@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>LGMap - Responsive Javascript Map</title>
-  <meta name="description" content="LGMap - Responsive Javascript Map - http://jsmaps.io">
+  <title>JSMaps - Responsive Javascript Maps</title>
+  <meta name="description" content="JSMaps - Responsive Javascript Maps - http://jsmaps.io">
   <meta name="author" content="LGLab">
 
   <!-- Demo scripts -->
@@ -70,11 +70,11 @@
   <!-- End Jquery -->
 
   <!-- Map scripts - add the below to your page -->
-  <!-- lg-map-panzoom.js is optional if you are using enablePanZoom -->
-  <link href="lg-map/lg-map.css" rel="stylesheet" type="text/css" />
-  <script src="lg-map/lg-map-libs.js" type="text/javascript"></script>
-  <script src="lg-map/lg-map-panzoom.js"></script>
-  <script src="lg-map/lg-map.min.js" type="text/javascript"></script>
+  <!-- jsmaps-panzoom.js is optional if you are using enablePanZoom -->
+  <link href="jsmaps/jsmaps.css" rel="stylesheet" type="text/css" />
+  <script src="jsmaps/jsmaps-libs.js" type="text/javascript"></script>
+  <script src="jsmaps/jsmaps-panzoom.js"></script>
+  <script src="jsmaps/jsmaps.min.js" type="text/javascript"></script>
   <!-- End Map scripts -->
 
 </head>
@@ -84,7 +84,7 @@
   <div class="container">
 
     <!-- Map html - add the below to your page -->
-    <div class="lg-map-wrapper" id="<%= map %>-map"></div>
+    <div class="jsmaps-wrapper" id="<%= map %>-map"></div>
     <!-- End Map html -->
   </div>
 
@@ -92,7 +92,7 @@
 
     $(function() {
       
-      $('#<%= map %>-map').LGMap({
+      $('#<%= map %>-map').JSMaps({
         map: '<%= map %>'
       });
 

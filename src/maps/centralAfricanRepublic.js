@@ -1,4 +1,4 @@
-window.LGMaps.maps.centralAfricanRepublic = {
+window.JSMaps.maps.centralAfricanRepublic = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 468.600,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.sudan = {
+window.JSMaps.maps.sudan = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 585.900,

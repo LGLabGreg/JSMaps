@@ -1,4 +1,4 @@
-window.LGMaps.maps.portugal = {
+window.JSMaps.maps.portugal = {
 	"config": {
 		"mapWidth": 469.900,
 		"mapHeight": 700.400,

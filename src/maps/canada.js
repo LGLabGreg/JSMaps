@@ -1,4 +1,4 @@
-window.LGMaps.maps.canada = {
+window.JSMaps.maps.canada = {
 	"config": {
 		"mapWidth": 1282.943,
 		"mapHeight": 1243.581,

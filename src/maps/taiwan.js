@@ -1,4 +1,4 @@
-window.LGMaps.maps.taiwan = {
+window.JSMaps.maps.taiwan = {
 	"config": {
 		"mapWidth": 373.888,
 		"mapHeight": 587.022,

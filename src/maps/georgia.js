@@ -1,4 +1,4 @@
-window.LGMaps.maps.georgia = {
+window.JSMaps.maps.georgia = {
 	"config": {
 		"mapWidth": 608.683,
 		"mapHeight": 700.424,

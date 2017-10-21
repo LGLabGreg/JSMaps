@@ -1,4 +1,4 @@
-window.LGMaps.maps.franceDepartements = {
+window.JSMaps.maps.franceDepartements = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 680.400,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.brazil = {
+window.JSMaps.maps.brazil = {
 	"config": {
 		"mapWidth": 612.5,
 		"mapHeight": 639.03,

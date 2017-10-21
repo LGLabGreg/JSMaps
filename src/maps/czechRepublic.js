@@ -1,4 +1,4 @@
-window.LGMaps.maps.czechRepublic = {
+window.JSMaps.maps.czechRepublic = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 398.100,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.southKorea = {
+window.JSMaps.maps.southKorea = {
 	"config": {
 		"mapWidth": 649.700,
 		"mapHeight": 700.400,

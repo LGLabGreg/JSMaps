@@ -1,4 +1,4 @@
-window.LGMaps.maps.finland = {
+window.JSMaps.maps.finland = {
 	"config": {
 		"mapWidth": 338.900,
 		"mapHeight": 700.400,

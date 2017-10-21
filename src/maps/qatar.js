@@ -1,4 +1,4 @@
-window.LGMaps.maps.qatar = {
+window.JSMaps.maps.qatar = {
 	"config": {
 		"mapWidth": 344.900,
 		"mapHeight": 700.400,

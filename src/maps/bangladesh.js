@@ -1,4 +1,4 @@
-window.LGMaps.maps.bangladesh = {
+window.JSMaps.maps.bangladesh = {
 	"config": {
 		"mapWidth": 511.200,
 		"mapHeight": 700.400,

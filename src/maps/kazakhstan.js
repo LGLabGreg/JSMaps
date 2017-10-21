@@ -1,4 +1,4 @@
-window.LGMaps.maps.kazakhstan = {
+window.JSMaps.maps.kazakhstan = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 326.100,

@@ -1,4 +1,4 @@
-window.LGMaps.maps.singapore = {
+window.JSMaps.maps.singapore = {
 	"config": {
 		"mapWidth": 800.08,
 		"mapHeight": 496.62,

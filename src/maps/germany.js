@@ -1,4 +1,4 @@
-window.LGMaps.maps.germany = {
+window.JSMaps.maps.germany = {
 	"config": {
 		"mapWidth": 585.5141,
 		"mapHeight": 792.66785,

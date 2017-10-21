@@ -1,4 +1,4 @@
-window.LGMaps.maps.ecuador = {
+window.JSMaps.maps.ecuador = {
 	"config": {
 		"mapWidth": 808.600,
 		"mapHeight": 700.400,

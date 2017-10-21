@@ -1,4 +1,4 @@
-window.LGMaps.maps.argentina = {
+window.JSMaps.maps.argentina = {
 	"config": {
 		"mapWidth": 339.200,
 		"mapHeight": 700.400,

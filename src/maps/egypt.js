@@ -1,4 +1,4 @@
-window.LGMaps.maps.egypt = {
+window.JSMaps.maps.egypt = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 617.300,

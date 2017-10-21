@@ -1,4 +1,4 @@
-﻿window.LGMaps.maps.belgium = {
+﻿window.JSMaps.maps.belgium = {
     "config": {
         "mapWidth": 752.12,
         "mapHeight": 611.19,

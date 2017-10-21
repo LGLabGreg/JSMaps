@@ -1,4 +1,4 @@
-window.LGMaps.maps.croatia = {
+window.JSMaps.maps.croatia = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 692.000,

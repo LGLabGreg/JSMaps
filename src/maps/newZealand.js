@@ -1,4 +1,4 @@
-window.LGMaps.maps.newZealand = {
+window.JSMaps.maps.newZealand = {
 	"config": {
 		"mapWidth": 447.400,
 		"mapHeight": 700.400,

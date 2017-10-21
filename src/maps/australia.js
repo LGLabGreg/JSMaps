@@ -1,4 +1,4 @@
-window.LGMaps.maps.australia = {
+window.JSMaps.maps.australia = {
 	"config": {
 		"mapWidth": 442.48,
 		"mapHeight": 415.45,

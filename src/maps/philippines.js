@@ -1,4 +1,4 @@
-window.LGMaps.maps.philippines = {
+window.JSMaps.maps.philippines = {
 	"config": {
 		"mapWidth": 418.000,
 		"mapHeight": 700.400,

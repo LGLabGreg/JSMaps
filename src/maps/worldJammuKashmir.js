@@ -1,4 +1,4 @@
-window.LGMaps.maps.worldJammuKashmir = {
+window.JSMaps.maps.worldJammuKashmir = {
     "config": {
         "mapWidth": 1009.115,
         "mapHeight": 665.242,

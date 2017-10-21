@@ -1,4 +1,4 @@
-window.LGMaps.maps.algeria = {
+window.JSMaps.maps.algeria = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 678.200,

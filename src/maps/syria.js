@@ -1,4 +1,4 @@
-window.LGMaps.maps.syria = {
+window.JSMaps.maps.syria = {
 	"config": {
 		"mapWidth": 658.93,
 		"mapHeight": 600.5,

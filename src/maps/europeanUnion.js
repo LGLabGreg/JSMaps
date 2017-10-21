@@ -1,4 +1,4 @@
-window.LGMaps.maps.europeanUnion = {
+window.JSMaps.maps.europeanUnion = {
 	"config": {
 		"mapWidth": 666.000,
 		"mapHeight": 658.700,

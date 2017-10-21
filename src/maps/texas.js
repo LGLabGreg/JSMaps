@@ -1,4 +1,4 @@
-window.LGMaps.maps.texas = {
+window.JSMaps.maps.texas = {
 	"config": {
 		"mapWidth": 700.400,
 		"mapHeight": 669.100,
