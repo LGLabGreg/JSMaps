@@ -57,7 +57,7 @@ module.exports = function(grunt) {
           nonull: true,
           cwd: 'src/maps/',
           expand: true,
-          src: map + '.js',
+          src: (map || '*') + '.js',
           dest: 'build/maps/',
           filter: 'isFile',
           flatten: true
@@ -178,6 +178,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('development', ['clean', 'copy', 'clean:map', 'concat', 'uglify', 'connect:server', 'watch']);
 	grunt.registerTask('build', ['clean', 'copy', 'clean:map', 'concat', 'uglify']);
   grunt.registerTask('zip', ['clean', 'copy', 'clean:map', 'concat', 'uglify', 'compress']);
-  grunt.registerTask('zipall', ['clean', 'copy', 'concat', 'uglify', 'compress:all']);
+  grunt.registerTask('zipall', ['clean', 'copy','copy' 'concat', 'uglify', 'compress:all']);
 
 };
