@@ -212,6 +212,9 @@
       /////////////////////////////
       function renderMap() {
 
+        // Reset variables on every redraw
+        pathsAr = [];
+
         /////////////////////////////
         //Config
         /////////////////////////////
@@ -219,7 +222,7 @@
         var mapHeight = config.mapHeight;
         var ratio = mapWidth / mapHeight;
         var oMapWidth = mapWidth;
-
+        
         // Pan/zoom
         if (config.enablePanZoom) {
           var mapConsole = $('<div class="jsmaps-console"><ul><li class="jsmaps-zoom-in"></li><li class="jsmaps-zoom-out"></li><li class="jsmaps-move-up"></li><li class="jsmaps-move-down"></li><li class="jsmaps-move-left"></li><li class="jsmaps-move-right"></li><li class="jsmaps-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
