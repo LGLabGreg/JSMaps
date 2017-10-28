@@ -119,3 +119,140 @@
     height: 29px;
     background: url('../images/reset.png');
 }
+
+
+/* select */
+.jsmaps-select {
+    position: relative;
+    display: none;
+}
+.jsmaps-select.all-devices {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .jsmaps-select.mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 991px) {
+    .jsmaps-select.tablet {
+        display: block;
+    }
+}
+
+@media (min-width: 992px) {
+    .jsmaps-select.desktop {
+        display: block;
+    }
+}
+
+.jsmaps-select select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    padding: 10px 40px 10px 13px !important;
+    border: 1px solid #999;
+    border-radius: 3px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: inherit;
+}
+
+.jsmaps-select select option {
+    padding: 4px;
+}
+
+/* for IE and Edge */
+.jsmaps-select select::-ms-expand {
+    display: none;
+}
+
+.jsmaps-select .jsmaps-select-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    border-left: 1px solid #999;
+    pointer-events: none;
+}
+
+.jsmaps-select .jsmaps-select-icon > div {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+/* icons */
+.jsmaps-icon-chevron {
+    width: 26px;
+    height: 24px;
+    text-align: center;
+}
+
+.jsmaps-icon-chevron:before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-style: solid;
+    border-width: 3px 3px 0 0;
+    transform: rotate(-45deg);
+    color: #999;
+}
+
+.jsmaps-icon-chevron.jsmaps-icon-chevron--right:before {
+    transform: rotate(45deg);
+    left: -3px;
+}
+.jsmaps-icon-chevron.jsmaps-icon-chevron--right.jsmaps-icon-chevron--medium:before,
+.jsmaps-icon-chevron.jsmaps-icon-chevron--right.jsmaps-icon-chevron--small:before {
+    left: -2px;
+}
+
+.jsmaps-icon-chevron.jsmaps-icon-chevron--down:before {
+    transform: rotate(135deg);
+    top: -3px;
+}
+.jsmaps-icon-chevron.jsmaps-icon-chevron--down.jsmaps-icon-chevron--medium:before,
+.jsmaps-icon-chevron.jsmaps-icon-chevron--down.jsmaps-icon-chevron--small:before {
+    top: -2px;
+}
+
+.jsmaps-icon-chevron.jsmaps-icon-chevron--left:before {
+    transform: rotate(-135deg);
+}
+
+.jsmaps-icon-chevron.jsmaps-icon-chevron--medium {
+    width: 18px;
+    height: 16px;
+}
+.jsmaps-icon-chevron.jsmaps-icon-chevron--medium:before {
+    width: 14px;
+    height: 14px;
+    left: 2px;
+    top: 2px;
+    border-width: 2px 2px 0 0;
+}
+
+.jsmaps-icon-chevron.jsmaps-icon-chevron--small {
+    width: 14px;
+    height: 12px;
+}
+.jsmaps-icon-chevron.jsmaps-icon-chevron--small:before {
+    width: 10px;
+    height: 10px;
+    left: 2px;
+    top: 2px;
+    border-width: 2px 2px 0 0;
+}
+

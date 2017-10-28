@@ -116,6 +116,9 @@
       'displayPreloader': true,
       'preloaderText': 'Loading map...',
       'disableTooltip': false,
+      'displaySelect': true,
+      'displaySelectOn': ['mobile'],
+      'selectDefaultText': 'Please select',
       onReady: function() {},
       onStateClick: function() {},
       onStateOver: function() {},
@@ -154,6 +157,7 @@
     var textArea;
     var pathsAr = [];
     var pinsAr = [];
+    var mapSelect = null;
 
 
 
@@ -206,7 +210,6 @@
         }
       }
       
-
       /////////////////////////////
       //Render map
       /////////////////////////////
@@ -298,7 +301,6 @@
         //Main map function
         /////////////////////////////
         function createMap() {
-
 
           r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight);
           var path;
@@ -458,6 +460,9 @@
                 if (target != current) {
                   pathIds = isGroup ? this.data('group').groupIds : [id];
                   animatePaths(pathsAr, pathIds, target.selectedColor);
+                  if (mapSelect) {
+                    mapSelect.val(target.name);
+                  }
                 }
 
                 current = target;
@@ -683,6 +688,46 @@
           map.next('.jsmaps-tooltip').remove();
         }
 
+        /////////////////////////////
+        //Select
+        /////////////////////////////
+        function createSelect() {
+          // Create element
+          var markup = $('<div class="jsmaps-select"><select><option value="default"></option></select><div class="jsmaps-select-icon"><div class="jsmaps-icon-chevron jsmaps-icon-chevron--down jsmaps-icon-chevron--small"></div></div></div>')
+            .insertBefore(mapWrapper);
+          // Add classes
+          if (config.displaySelectOn && config.displaySelectOn.length) {
+            markup.addClass(config.displaySelectOn.join(' '));
+          }
+          else {
+            markup.addClass('all-devices');
+          }
+          // Build select
+          mapSelect = markup.find('select');
+          mapSelect.find('option[value="default"]').text(config.selectDefaultText);
+          // Sort alphabetically
+          var sorted = statesHitAreas.sort(function(a, b) {
+            if(a.name < b.name) return -1;
+            if(a.name > b.name) return 1;
+            return 0;
+          });
+          // Add options
+          sorted.forEach(function(element) {
+            $('<option>')
+              .val(element.name)
+              .text(element.name)
+              .appendTo(mapSelect);
+          });
+          // Event listeners
+          mapSelect.on('change', function() {
+            if (this.value !== 'default') {
+              mapWrapper.trigger('stateClick', this.value);
+            }
+            else {
+              mapWrapper.trigger('stateUnClick');
+            }
+          });
+        }
 
         /////////////////////////////
         //Mouse events
@@ -972,10 +1017,14 @@
         if (config.enablePanZoom && !config.displayMousePosition) {
           enablePanZoom();
         }
-
+        if (config.displaySelect) {
+          createSelect();
+        }
         if (preloader && preloader.length) {
           preloader.fadeOut();
         }
+
+        
 
       }
 
