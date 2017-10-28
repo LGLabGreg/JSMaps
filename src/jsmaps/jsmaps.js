@@ -270,7 +270,7 @@
         //Mouse position
         /////////////////////////////
         if (config.displayMousePosition) {
-          $('<div class="mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div><div class="mapXPos">Map X: 0</div><div class="mapYPos">Map Y: 0</div></div>').appendTo(mapWrapper);
+          $('<div class="jsmaps-mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div><div class="mapXPos">Map X: 0</div><div class="mapYPos">Map Y: 0</div></div>').appendTo(mapWrapper);
           $('body').css('cursor', 'crosshair');
         }
 

@@ -13,6 +13,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-obfuscator');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
 	var map = grunt.option('map');
   var task = grunt.cli.tasks[0];
@@ -42,6 +43,10 @@ module.exports = function(grunt) {
 		    files: ['Gruntfile.js','src/jsmaps/*.js','!src/maps/' + map +'.js'],
 		    tasks: ['clean:js', 'copy', 'concat', 'uglify']
 		  },
+      sass: {
+        files: 'src/**/*.scss',
+        tasks: ['sass']
+      },
 		  css: {
 		    files: 'src/**/*.css',
 			  tasks: ['clean:css', 'copy:css']
@@ -95,6 +100,17 @@ module.exports = function(grunt) {
           cwd: 'src',
           src: ['images/*'],
           dest: 'build'
+        }]
+      }
+    },
+    sass: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'src/jsmaps',
+          src: ['jsmaps.scss'],
+          dest: 'src/jsmaps',
+          ext: '.css'
         }]
       }
     },
@@ -175,9 +191,9 @@ module.exports = function(grunt) {
     }
 	});
 
-	grunt.registerTask('development', ['clean', 'copy', 'clean:map', 'concat', 'uglify', 'connect:server', 'watch']);
-	grunt.registerTask('build', ['clean', 'copy', 'clean:map', 'concat', 'uglify']);
-  grunt.registerTask('zip', ['clean', 'copy', 'clean:map', 'concat', 'uglify', 'compress']);
-  grunt.registerTask('zipall', ['clean', 'copy', 'concat', 'uglify', 'compress:all']);
+	grunt.registerTask('development', ['clean', 'sass', 'copy', 'clean:map', 'concat', 'uglify', 'connect:server', 'watch']);
+	grunt.registerTask('build', ['clean', 'sass', 'copy', 'clean:map', 'concat', 'uglify']);
+  grunt.registerTask('zip', ['clean', 'sass', 'copy', 'clean:map', 'concat', 'uglify', 'compress']);
+  grunt.registerTask('zipall', ['clean', 'sass', 'copy', 'concat', 'uglify', 'compress:all']);
 
 };
