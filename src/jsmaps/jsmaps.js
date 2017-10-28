@@ -116,9 +116,9 @@
       'displayPreloader': true,
       'preloaderText': 'Loading map...',
       'disableTooltip': false,
-      'displaySelect': true,
-      'displaySelectOn': ['mobile'],
-      'selectDefaultText': 'Please select',
+      'selectElement': true,
+      'selectElementDevices': ['mobile'],
+      'selectElementDefaultText': 'Please select',
       onReady: function() {},
       onStateClick: function() {},
       onStateOver: function() {},
@@ -696,15 +696,15 @@
           var markup = $('<div class="jsmaps-select"><select><option value="default"></option></select><div class="jsmaps-select-icon"><div class="jsmaps-icon-chevron jsmaps-icon-chevron--down jsmaps-icon-chevron--small"></div></div></div>')
             .insertBefore(mapWrapper);
           // Add classes
-          if (config.displaySelectOn && config.displaySelectOn.length) {
-            markup.addClass(config.displaySelectOn.join(' '));
+          if (config.selectElementDevices && config.selectElementDevices.length) {
+            markup.addClass(config.selectElementDevices.join(' '));
           }
           else {
             markup.addClass('all-devices');
           }
           // Build select
           mapSelect = markup.find('select');
-          mapSelect.find('option[value="default"]').text(config.selectDefaultText);
+          mapSelect.find('option[value="default"]').text(config.selectElementDefaultText);
           // Sort alphabetically
           var sorted = statesHitAreas.sort(function(a, b) {
             if(a.name < b.name) return -1;
@@ -1017,7 +1017,7 @@
         if (config.enablePanZoom && !config.displayMousePosition) {
           enablePanZoom();
         }
-        if (config.displaySelect) {
+        if (config.selectElement) {
           createSelect();
         }
         if (preloader && preloader.length) {
