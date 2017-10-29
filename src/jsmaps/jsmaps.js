@@ -228,7 +228,7 @@
         
         // Pan/zoom
         if (config.enablePanZoom) {
-          var mapConsole = $('<div class="jsmaps-console"><ul><li class="jsmaps-zoom-in"></li><li class="jsmaps-zoom-out"></li><li class="jsmaps-move-up"></li><li class="jsmaps-move-down"></li><li class="jsmaps-move-left"></li><li class="jsmaps-move-right"></li><li class="jsmaps-zoom-reset"></li></ul></div>').appendTo(mapWrapper);
+          var mapConsole = $('<div class=jsmaps-console><ul><li class=jsmaps-zoom-in><button type=button><div class="jsmaps-icon jsmaps-icon-plus"></div></button><li class=jsmaps-zoom-out><button type=button><div class="jsmaps-icon jsmaps-icon-minus"></div></button><li class=jsmaps-move-up><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-up"></div></button><li class=jsmaps-move-down><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-down"></div></button><li class=jsmaps-move-left><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-left"></div></button><li class=jsmaps-move-right><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-right"></div></button><li class=jsmaps-zoom-reset><button type=button><div class="jsmaps-icon jsmaps-icon-reset"></div></button></ul></div>').appendTo(mapWrapper);
         }
 
         // Check values are not outside of bounds
@@ -693,7 +693,7 @@
         /////////////////////////////
         function createSelect() {
           // Create element
-          var markup = $('<div class="jsmaps-select"><select><option value="default"></option></select><div class="jsmaps-select-icon"><div class="jsmaps-icon-chevron jsmaps-icon-chevron--down jsmaps-icon-chevron--small"></div></div></div>')
+          var markup = $('<div class="jsmaps-select"><select><option value="default"></option></select><div class="jsmaps-select-icon"><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-down jsmaps-theme-light"></div></div></div>')
             .insertBefore(mapWrapper);
           // Add classes
           if (config.selectElementDevices && config.selectElementDevices.length) {

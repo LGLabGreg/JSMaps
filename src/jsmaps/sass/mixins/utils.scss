@@ -1,0 +1,27 @@
+@mixin button-reset() {
+  background: none;
+  border: 0;
+}
+
+@mixin centerHV() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+@mixin pseudo() {
+  &:before,
+  &:after {
+    content: '';
+    display: inline-block;
+  }
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

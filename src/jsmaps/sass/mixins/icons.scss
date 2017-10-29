@@ -1,0 +1,71 @@
+@mixin icon-chevron($size: 14px, $thickness: 2px) {
+  &:before {
+    width: $size;
+    height: $size;
+    border-top: $thickness solid $white;
+    border-right: $thickness solid $white;
+    @include transform(translate(25%, 0) rotate(-135deg));
+  }
+  &.jsmaps-icon-chevron-right:before {
+    @include transform(translate(-25%, 0) rotate(45deg));
+  }
+  &.jsmaps-icon-chevron-up:before {
+    @include transform(translate(0, calc(25%)) rotate(-45deg));
+  }
+  &.jsmaps-icon-chevron-down:before {
+    @include transform(translate(0, calc(-25%)) rotate(135deg));
+  }
+  &.jsmaps-theme-light:before {
+    border-color: $light-grey;
+  }
+}
+
+@mixin icon-plus-minus($size: 14px, $thickness: 2px, $isPlus: false) {
+  height: $size;
+  @-moz-document url-prefix() { 
+    & {
+      margin-top: -1px;
+    }
+  }
+  &:before,
+  &:after {
+    background: $white;
+  }
+  &:before {
+    width: $size;
+    height: $thickness;
+    @include transform(translate(0, -($size/2 - $thickness/2)));
+  }
+  &:after {
+    width: $thickness;
+    height: $size;
+    @include transform(translate(-($size/2 + $thickness/2), 0));
+  }
+  @if $isPlus == false {
+    &:after {
+      background: transparent;
+    }
+  }
+}
+
+@mixin icon-reset($size: 14px, $thickness: 2px) {
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    border: $thickness solid $white;
+    border-left-color: transparent;
+    &:before{
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: -$thickness*3.25;
+        bottom: 0;
+        border-width: $thickness*2.5;
+        border-style: solid;
+        border-top-color: $white;
+        border-right-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        @include transform(rotate(135deg));
+    }
+}

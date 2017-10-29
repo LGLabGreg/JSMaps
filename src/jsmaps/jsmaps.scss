@@ -1,11 +1,11 @@
 // Copyright 2010-2017 - http://jsmaps.io
 // License: http://jsmaps.io/support/license/
 // Version 3.1.3
-
-@import "sass/mixins/breakpoint.scss";
-@import "sass/mixins/transforms.scss";
 @import "sass/variables.scss";
-
+@import "sass/mixins/transforms.scss";
+@import "sass/mixins/breakpoint.scss";
+@import "sass/mixins/utils.scss";
+@import "sass/mixins/icons.scss";
 /*
 // Main map styles
 */
@@ -13,7 +13,6 @@
 .jsmaps-wrapper {
     position: relative;
     margin: 0 auto;
-
     .jsmaps-preloader {
         position: absolute;
         top: 50%;
@@ -21,19 +20,16 @@
         z-index: 999;
         @include transform(translate(-50%, -50%));
     }
-
     .jsmaps {
         left: 0;
         top: 0;
     }
-
     .jsmaps-text {
         float: left;
         overflow: auto;
         padding: 10px 20px;
         clear: both;
     }
-
     .jsmaps-tooltip {
         position: fixed;
         display: none;
@@ -45,11 +41,11 @@
         border-radius: 4px;
         /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
         /* useful if you don't want a bg color from leaking outside the border: */
+        
         -moz-background-clip: padding;
         -webkit-background-clip: padding-box;
         background-clip: padding-box;
     }
-
     .jsmaps-mouse-position {
         position: fixed;
         top: 0;
@@ -59,66 +55,42 @@
         font-size: 14px;
         padding: 10px;
     }
-
     /* console */
+    
     .jsmaps-console {
         float: left;
         clear: both;
         display: none;
         position: absolute;
-        top: 10px;
-        left: 10px;
-
+        top: 5px;
+        left: 5px;
+        z-index: 2;
         ul {
             padding: 0;
             margin: 0;
-
             li {
                 list-style-type: none;
                 float: left;
                 cursor: pointer;
-
-                &.jsmaps-zoom-in {
-                    width: 28px;
-                    height: 29px;
-                    background: url('../images/in.png');
-                }
-                &.jsmaps-zoom-out {
-                    width: 28px;
-                    height: 29px;
-                    background: url('../images/out.png');
-                }
-                &.jsmaps-move-up {
-                    width: 25px;
-                    height: 29px;
-                    background: url('../images/up.png');
-                }
-                &.jsmaps-move-down {
-                    width: 20px;
-                    height: 29px;
-                    background: url('../images/down.png');
-                }
-                &.jsmaps-move-left {
-                    width: 18px;
-                    height: 29px;
-                    background: url('../images/left.png');
-                }
-                &.jsmaps-move-right {
-                    width: 21px;
-                    height: 29px;
-                    background: url('../images/right.png');
-                }
-                &.jsmaps-zoom-reset {
-                    width: 62px;
-                    height: 29px;
-                    background: url('../images/reset.png');
+                button {
+                    @include button-reset();
+                    position: relative;
+                    width: $console-button-size;
+                    height: $console-button-size;
+                    background: rgba(0, 0, 0, 0.5);
+                    border-radius: 4px;
+                    margin-right: 1px;
+                    cursor: pointer;
+                    opacity: 0.9;
+                    @include transition(opacity .3s ease-in-out);
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
             }
         }
     }
-
 }
-
 
 /*
 // Select
@@ -126,17 +98,14 @@
 .jsmaps-select {
     position: relative;
     display: none;
-
     &.all-devices {
         display: block;
     }
-
     &.mobile {
         @include breakpoint(mobile) {
             display: block;
         }
     }
-
     &.tablet {
         @include breakpoint(tablet) {
             display: block;
@@ -145,13 +114,11 @@
             display: none;
         }
     }
-
     &.desktop {
         @include breakpoint(desktop) {
             display: block;
         }
     }
-
     select {
         display: block;
         width: 100%;
@@ -164,18 +131,15 @@
         -webkit-appearance: none;
         -moz-appearance: none;
         background: inherit;
-
         /* for IE and Edge */
+        
         &::-ms-expand {
             display: none;
         }
-
         option {
             padding: 4px;
         }
-
     }
-
     .jsmaps-select-icon {
         position: absolute;
         top: 0;
@@ -184,88 +148,26 @@
         height: 100%;
         border-left: 1px solid #999;
         pointer-events: none;
-
-        > div {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%,-50%);
-        }
     }
-    
 }
 
 /*
 // Icons
 */
-.jsmaps-icon-chevron {
-    width: 26px;
-    height: 24px;
-    text-align: center;
-    &:before {
-        content: '';
-        position: absolute;
-        left: 3px;
-        top: 3px;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border-style: solid;
-        border-width: 3px 3px 0 0;
-        color: $light-grey;
-        @include transform(rotate(-45deg));
-    }
-    &.jsmaps-icon-chevron--right {
-        &:before {
-            @include transform(rotate(45deg));
-            left: -3px;
-        }
-        &.jsmaps-icon-chevron--medium:before {
-            left: -2px;
-        }
-        &.jsmaps-icon-chevron--small:before {
-            left: -2px;
-        }
-    }
-    &.jsmaps-icon-chevron--down {
-        &:before {
-            @include transform(rotate(135deg));
-            top: -3px;
-        }
-        &.jsmaps-icon-chevron--medium:before {
-            top: -2px;
-        }
-        &.jsmaps-icon-chevron--small:before {
-            top: -2px;
-        }
-    }
-    &.jsmaps-icon-chevron--left {
-        &:before {
-            @include transform(rotate(-135deg));
-        }
-    }
-    &.jsmaps-icon-chevron--medium {
-        width: 18px;
-        height: 16px;
-        &:before {
-            width: 14px;
-            height: 14px;
-            left: 2px;
-            top: 2px;
-            border-width: 2px 2px 0 0;
-        }
-    }
-    &.jsmaps-icon-chevron--small {
-        width: 14px;
-        height: 12px;
-        &:before {
-            width: 10px;
-            height: 10px;
-            left: 2px;
-            top: 2px;
-            border-width: 2px 2px 0 0;
-        }
-    }
-    
-}
+[class*="jsmaps-icon"] {
+    @include centerHV();
+    @include pseudo();
 
+    &.jsmaps-icon-chevron {
+        @include icon-chevron($console-chevron-size, $console-icon-thickness);
+    }
+    &.jsmaps-icon-plus {
+        @include icon-plus-minus($console-plus-minus-size, $console-icon-thickness, true);
+    }
+    &.jsmaps-icon-minus {
+        @include icon-plus-minus($console-plus-minus-size, $console-icon-thickness);
+    }
+     &.jsmaps-icon-reset {
+        @include icon-reset($console-reset-size, $console-icon-thickness);
+    }
+}
