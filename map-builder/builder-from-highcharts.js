@@ -9,7 +9,7 @@ $(function() {
   var totalColors = colors.length;
   var newPaths = [];
 
-  $.getJSON("maps/virginia.json", function(json) {
+  $.getJSON("maps/tennessee.json", function(json) {
 
     var states = json.svg.g.path;
 
