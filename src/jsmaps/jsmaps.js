@@ -763,10 +763,10 @@
             var relY = Math.round(mouseY - offset.top + scrollTop);
             var mapXPos = Math.round(relX - config.mapWidth / 2);
             var mapYPos = Math.round(relY - config.mapHeight / 2);
-            $('.mouse-position .xPos').text('X: ' + relX);
-            $('.mouse-position .yPos').text('Y: ' + relY);
-            $('.mouse-position .mapXPos').text('Map X: ' + mapXPos);
-            $('.mouse-position .mapYPos').text('Map Y: ' + mapYPos);
+            $('.jsmaps-mouse-position .xPos').text('X: ' + relX);
+            $('.jsmaps-mouse-position .yPos').text('Y: ' + relY);
+            $('.jsmaps-mouse-position .mapXPos').text('Map X: ' + mapXPos);
+            $('.jsmaps-mouse-position .mapYPos').text('Map Y: ' + mapYPos);
           }
         }
 
@@ -1035,8 +1035,8 @@
         if (mapWrapper.find('.jsmaps-console').length) {
           mapWrapper.find('.jsmaps-console').remove();
         }
-        if (mapWrapper.find('.mouse-position').length) {
-          mapWrapper.find('.mouse-position').remove();
+        if (mapWrapper.find('.jsmaps-mouse-position').length) {
+          mapWrapper.find('.jsmaps-mouse-position').remove();
         }
         if (mapWrapper.find('.jsmaps-text').length) {
           mapWrapper.find('.jsmaps-text').remove();
