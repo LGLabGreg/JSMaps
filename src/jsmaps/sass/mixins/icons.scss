@@ -23,9 +23,7 @@
 @mixin icon-plus-minus($size: 14px, $thickness: 2px, $isPlus: false) {
   height: $size;
   @-moz-document url-prefix() { 
-    & {
-      margin-top: -1px;
-    }
+    margin-top: -1px;
   }
   &:before,
   &:after {
