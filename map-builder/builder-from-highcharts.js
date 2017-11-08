@@ -9,7 +9,7 @@ $(function() {
   var totalColors = colors.length;
   var newPaths = [];
 
-  $.getJSON("maps/maine.json", function(json) {
+  $.getJSON("maps/southDakota.json", function(json) {
 
     var states = json.svg.g.path;
 
@@ -39,7 +39,7 @@ $(function() {
 
     }
 
-    $('textarea').val(JSON.stringify(newPaths));
+    $('textarea').val(JSON.stringify(newPaths, null, 2));
 
   });
 
