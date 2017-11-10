@@ -1,3 +1,6 @@
+/*
+// Main map styles
+*/
 .jsmaps-wrapper {
   position: relative;
   margin: 0 auto;
@@ -75,6 +78,9 @@
           .jsmaps-wrapper .jsmaps-console ul li button:hover {
             opacity: 1; }
 
+/*
+// Select
+*/
 .jsmaps-select {
   position: relative;
   display: none; }
@@ -119,6 +125,9 @@
     border-left: 1px solid #999;
     pointer-events: none; }
 
+/*
+// Icons
+*/
 [class*="jsmaps-icon"] {
   position: absolute;
   top: 50%;
@@ -133,8 +142,8 @@
   [class*="jsmaps-icon"].jsmaps-icon-chevron:before {
     width: 10px;
     height: 10px;
-    border-top: 2px solid white;
-    border-right: 2px solid white;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
     -webkit-transform: translate(25%, 0) rotate(-135deg);
     -moz-transform: translate(25%, 0) rotate(-135deg);
     -ms-transform: translate(25%, 0) rotate(-135deg);
@@ -155,14 +164,14 @@
     -ms-transform: translate(0, calc(-25%)) rotate(135deg);
     transform: translate(0, calc(-25%)) rotate(135deg); }
   [class*="jsmaps-icon"].jsmaps-icon-chevron.jsmaps-theme-light:before {
-    border-color: #999999; }
+    border-color: #999; }
   [class*="jsmaps-icon"].jsmaps-icon-plus {
-    height: 12px;
-    @-moz-document url-prefix() {
-      margin-top: -1px; }
- }
+    height: 12px; }
+@-moz-document url-prefix() {
+  [class*="jsmaps-icon"].jsmaps-icon-plus {
+    margin-top: -1px; } }
     [class*="jsmaps-icon"].jsmaps-icon-plus:before, [class*="jsmaps-icon"].jsmaps-icon-plus:after {
-      background: white; }
+      background: #fff; }
     [class*="jsmaps-icon"].jsmaps-icon-plus:before {
       width: 12px;
       height: 2px;
@@ -178,12 +187,12 @@
       -ms-transform: translate(-7px, 0);
       transform: translate(-7px, 0); }
   [class*="jsmaps-icon"].jsmaps-icon-minus {
-    height: 12px;
-    @-moz-document url-prefix() {
-      margin-top: -1px; }
- }
+    height: 12px; }
+@-moz-document url-prefix() {
+  [class*="jsmaps-icon"].jsmaps-icon-minus {
+    margin-top: -1px; } }
     [class*="jsmaps-icon"].jsmaps-icon-minus:before, [class*="jsmaps-icon"].jsmaps-icon-minus:after {
-      background: white; }
+      background: #fff; }
     [class*="jsmaps-icon"].jsmaps-icon-minus:before {
       width: 12px;
       height: 2px;
@@ -204,7 +213,7 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 2px solid #fff;
     border-left-color: transparent; }
     [class*="jsmaps-icon"].jsmaps-icon-reset:before {
       position: absolute;
@@ -214,7 +223,7 @@
       bottom: 0;
       border-width: 5px;
       border-style: solid;
-      border-top-color: white;
+      border-top-color: #fff;
       border-right-color: transparent;
       border-left-color: transparent;
       border-bottom-color: transparent;
@@ -222,3 +231,5 @@
       -moz-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
       transform: rotate(135deg); }
+
+/*# sourceMappingURL=jsmaps.css.map */
