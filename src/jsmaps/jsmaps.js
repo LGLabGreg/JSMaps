@@ -109,7 +109,7 @@
       'displayMousePosition': false,
       'enablePanZoom': false,
       'mapFolder': 'maps/',
-      'initialZoom': 1,
+      'initialZoom': 0,
       'initialMapX': 0,
       'initialMapY': 0,
       'zoomSpeed': 1,
@@ -158,6 +158,7 @@
     var pathsAr = [];
     var pinsAr = [];
     var mapSelect = null;
+    var panZoom;
 
 
 
@@ -224,46 +225,11 @@
         var mapWidth = config.mapWidth;
         var mapHeight = config.mapHeight;
         var ratio = mapWidth / mapHeight;
-        var oMapWidth = mapWidth;
         
         // Pan/zoom
         if (config.enablePanZoom) {
           var mapConsole = $('<div class=jsmaps-console><ul><li class=jsmaps-zoom-in><button type=button><div class="jsmaps-icon jsmaps-icon-plus"></div></button><li class=jsmaps-zoom-out><button type=button><div class="jsmaps-icon jsmaps-icon-minus"></div></button><li class=jsmaps-move-up><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-up"></div></button><li class=jsmaps-move-down><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-down"></div></button><li class=jsmaps-move-left><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-left"></div></button><li class=jsmaps-move-right><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-right"></div></button><li class=jsmaps-zoom-reset><button type=button><div class="jsmaps-icon jsmaps-icon-reset"></div></button></ul></div>').appendTo(mapWrapper);
         }
-
-        // Check values are not outside of bounds
-        config.initialZoom = config.initialZoom >= 1 ? config.initialZoom : 1;
-        var minMapX = -(config.mapWidth/2);
-        var maxMapX = config.mapWidth/2;
-        var minMapY = -(config.mapHeight/2);
-        var maxMapY = config.mapHeight/2;
-        config.initialMapX = config.initialMapX >= minMapX && config.initialMapX <= maxMapX ? config.initialMapX : 0;
-        config.initialMapY = config.initialMapY >= minMapY && config.initialMapY <= maxMapY ? config.initialMapY : 0;
-        
-        var mapZoom = config.initialZoom;
-        var originW = mapWidth;
-        var originH = mapHeight;
-        var curMapX = config.initialMapX;
-        var curMapY = config.initialMapY;
-        var viewBoxCoords = [curMapX, curMapY, originW, originH];
-        var maxTransX, maxTransY, minTransX, maxTransY;
-
-        var maxX = 0;
-        var scale = 1;
-        var isOverState = false;
-        var draggable = false;
-        var _window = $(window);
-        var dragStartX = 0;
-        var dragStartY = 0;
-        var curMouseX = 0;
-        var curMouseY = 0;
-        var mapOffset = 0;
-        var backPan;
-
-        var pan = {};
-        var originViewBox = {};
-        var isPanning = false;
-        var readyToAnimate = true;
 
         
         /////////////////////////////
@@ -436,6 +402,8 @@
 
             hitArea.click(function(e) {
 
+              if (panZoom && panZoom.isDragging()) return;
+
               var id = this.data('id');
               var isGroup = !!this.data('group');
               var target = isGroup ? this.data('group') : paths[id];
@@ -485,7 +453,8 @@
 
           if (!config.displayMousePosition) {
             resizeMap();
-            resetMap(r);
+            r.setViewBox(0, 0, config.mapWidth, config.mapHeight);
+            //resetMap(r);
             if (config.responsive) {
               $(window).on('resize', function() {
                 resizeMap();
@@ -571,6 +540,8 @@
 
             pin.click(function(e) {
 
+              if (panZoom && panZoom.isDragging()) return;
+
               var id = this.data('id');
               var target = pins[id];
 
@@ -652,9 +623,6 @@
               'height': mapHeight + 'px'
             });
           }
-
-          console.log('mapWidth', mapWidth);
-          console.log('mapHeight', mapHeight);
 
           r.setSize(mapWidth, mapHeight);
         }
@@ -779,235 +747,50 @@
           getMouseXY(event);
         });
 
-
-        /////////////////////////////
-        //Pan/Zoom
-        /////////////////////////////
-        function getViewBox() {
-          originViewBox.x = viewBoxCoords[0];
-          originViewBox.y = viewBoxCoords[1];
-          originViewBox.width = viewBoxCoords[2];
-          originViewBox.height = viewBoxCoords[3];
-        }
-
-        function animationFinished(x, y, w, h) {
-          originViewBox.x = x;
-          originViewBox.y = y;
-          originViewBox.width = w;
-          originViewBox.height = h;
-          readyToAnimate = true;
-        }
-
-        //Pan start handler
-        function panStart() {
-          pan.dx = viewBoxCoords[0];
-          pan.dy = viewBoxCoords[1];
-          isPanning = true;
-        };
-
-        //Pan move handler
-        function panMove(dx, dy) {
-          pan.dx = viewBoxCoords[0] - dx / scale;
-          pan.dy = viewBoxCoords[1] - dy / scale;
-          var limitY = originH - viewBoxCoords[3];
-          var limitX = originW - viewBoxCoords[2];
-          if (pan.dx >= limitX) pan.dx = limitX;
-          if (pan.dx <= 0) pan.dx = 0;
-          if (pan.dy >= limitY) pan.dy = limitY;
-          if (pan.dy <= 0) pan.dy = 0;
-          r.setViewBox(pan.dx, pan.dy, viewBoxCoords[2], viewBoxCoords[3], false);
-        };
-
-        //Pan end handler
-        function panEnd() {
-          isPanning = false;
-          viewBoxCoords[0] = pan.dx;
-          viewBoxCoords[1] = pan.dy;
-        };
-
-
-        //Reset zoom and pan
-        function resetMap(map) {
-
-          mapZoom = 1;
-
-          viewBoxCoords[0] = 0;
-          viewBoxCoords[1] = 0;
-          viewBoxCoords[2] = originW;
-          viewBoxCoords[3] = originH;
-
-          originViewBox.x = 0;
-          originViewBox.y = 0;
-          originViewBox.width = originW;
-          originViewBox.height = originH;
-
-          map.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-
-          readyToAnimate = true;
-
-        }
-
         function enablePanZoom() {
 
-          //Create invisible raphael rectangle for panning
-          backPan = r.rect(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3]).attr({
-            fill: '#F00',
-            'fill-opacity': 0,
-            'stroke': 'none'
-          }).data({
-            disabled: false,
-            'name': '_backpan'
-          }).toBack();
-
-          //Add panning event handlers
-          backPan.drag(panMove, panStart, panEnd);
-
-          //Stop window scroll if scrolling inside the map
-          $('body').on({
-            'mousewheel': function(e) {
-              if (!$(e.target).parents('.jsmaps').length) return;
-              e.preventDefault();
-              e.stopPropagation();
+          panZoom = r.panzoom({
+            initialZoom: config.initialZoom,
+            initialPosition: {
+              x: config.initialMapX,
+              y: config.initialMapY
+            },
+            originSize: {
+              width: config.mapWidth,
+              height: config.mapHeight
             }
           });
+          panZoom.enable();
 
-          //Add mouse wheel handler for zoom
-          map.bind('mousewheel.map', function(event, delta, deltaX, deltaY) {
-
-            if (readyToAnimate) {
-
-              readyToAnimate = false;
-
-              mapZoom += delta * config.zoomSpeed * (1 + mapZoom / 100);
-
-              if (mapZoom <= 1) mapZoom = 1;
-              if (mapZoom == 1) resetMap(r);
-              if (mapZoom == 1 && delta < 0) return;
-
-              getViewBox();
-              var vWidth = viewBoxCoords[2];
-              var vHeight = viewBoxCoords[3];
-              viewBoxCoords[2] = originW / mapZoom;
-              viewBoxCoords[3] = originH / mapZoom;
-              viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
-              viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
-              r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-
-              scale = originW / viewBoxCoords[2];
-              scale = scale.toFixed(1);
-
-              return false;
+          mapConsole.on('click', function(e) {
+            console.log($(e.target).parent().prop('class'));
+            switch($(e.target).parent().prop('class')) {
+              case 'jsmaps-zoom-in':
+                panZoom.zoomIn(1);
+                break;
+              case 'jsmaps-zoom-out':
+                panZoom.zoomOut(1);
+                break;
+              case 'jsmaps-zoom-reset':
+                panZoom.zoomReset();
+                break;
+              case 'jsmaps-move-up':
+                panZoom.pan(0, 20);
+                break;
+              case 'jsmaps-move-down':
+                panZoom.pan(0, -20);
+                break;
+              case 'jsmaps-move-left':
+                panZoom.pan(20, 0);
+                break;
+              case 'jsmaps-move-right':
+                panZoom.pan(-20, 0);
+                break;
             }
-
-          });
-
-
-          //mouse move to change cursor for panning
-          map.mousemove(function(event) {
-
-            if (!isOverState && mapZoom != 1) {
-              $(this).css('cursor', 'move');
-            } else {
-              $(this).css('cursor', 'default');
-            }
-
-          });
-
-
-          //zoom in/out buttons
-          function zoomMap() {
-            getViewBox();
-
-            var vWidth = viewBoxCoords[2];
-            var vHeight = viewBoxCoords[3];
-            viewBoxCoords[2] = originW / mapZoom;
-            viewBoxCoords[3] = originH / mapZoom;
-            viewBoxCoords[0] += (vWidth - viewBoxCoords[2]) / 2;
-            viewBoxCoords[1] += (vHeight - viewBoxCoords[3]) / 2;
-
-            r.animateViewBox(originViewBox, viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], 250, animationFinished);
-
-            scale = originW / viewBoxCoords[2];
-            scale = scale.toFixed(1);
-          }
-
-
-          mapConsole.find('.jsmaps-zoom-in').add(mapConsole.find('.jsmaps-zoom-out')).click(function(e) {
-
-            if (readyToAnimate) {
-
-              var zoomingOut = $(this).hasClass('jsmaps-zoom-out');
-
-              readyToAnimate = false;
-              if (zoomingOut && mapZoom === 1) {
-                resetMap(r);
-                return;
-              }
-
-              var diff = .5 * config.zoomSpeed * (1 + mapZoom / 100);
-              mapZoom = zoomingOut ? mapZoom - diff : mapZoom + diff;
-
-              if (mapZoom <= 1) mapZoom = 1;
-              zoomMap();
-              
-              e.stopPropagation();
-              e.preventDefault();
-
-            }
-
-          });
-
-
-          //Reset zoom and pan
-          mapConsole.find('.jsmaps-zoom-reset').click(function(e) {
-            resetMap(r);
-            e.stopPropagation();
-            e.preventDefault();
-          });
-
-          //Manual panning not needed anymore
-          mapConsole.find('.jsmaps-move-up').click(function(e) {
-            viewBoxCoords[1] -= 20;
-            if (viewBoxCoords[1] <= 0) viewBoxCoords[1] = 0;
-            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-            e.stopPropagation();
-            e.preventDefault();
-          });
-
-          //move down
-          mapConsole.find('.jsmaps-move-down').click(function(e) {
-            viewBoxCoords[1] += 20;
-            var limitY = originH - viewBoxCoords[3];
-            if (viewBoxCoords[1] >= limitY) viewBoxCoords[1] = limitY;
-            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-            e.stopPropagation();
-            e.preventDefault();
-          });
-
-          //move left
-          mapConsole.find('.jsmaps-move-left').click(function(e) {
-            viewBoxCoords[0] -= 20;
-            if (viewBoxCoords[0] <= 0) viewBoxCoords[0] = 0;
-            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-            e.stopPropagation();
-            e.preventDefault();
-          });
-
-          //move right
-          mapConsole.find('.jsmaps-move-right').click(function(e) {
-            viewBoxCoords[0] += 20;
-            var limitX = originW - viewBoxCoords[2];
-            if (viewBoxCoords[0] >= limitX) viewBoxCoords[0] = limitX;
-            r.setViewBox(viewBoxCoords[0], viewBoxCoords[1], viewBoxCoords[2], viewBoxCoords[3], false);
-            e.stopPropagation();
-            e.preventDefault();
-          });
+          })
 
           // Display console
           mapConsole.fadeIn();
-          if (config.initialZoom > 1) {
-            zoomMap();
-          }
           
         }
 

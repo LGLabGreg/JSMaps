@@ -17,6 +17,8 @@
   .jsmaps-wrapper .jsmaps {
     left: 0;
     top: 0; }
+    .jsmaps-wrapper .jsmaps.grabbing {
+      cursor: crosshair !important; }
   .jsmaps-wrapper .jsmaps-text {
     float: left;
     overflow: auto;

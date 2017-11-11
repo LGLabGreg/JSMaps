@@ -118,7 +118,7 @@ module.exports = function(grunt) {
       js: {
         files: {
           'build/jsmaps/jsmaps-libs.js': ['src/jsmaps/raphael.js'],
-          'build/jsmaps/jsmaps-panzoom.js': ['src/jsmaps/RequestAnimationFrame.js', 'src/jsmaps/jquery.mousewheel.js', 'src/jsmaps/raphaelAnimateViewBox.js']
+          'build/jsmaps/jsmaps-panzoom.js': ['src/jsmaps/raphael.pan-zoom.js']
         },
       },
     },

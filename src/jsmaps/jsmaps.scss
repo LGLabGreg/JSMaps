@@ -23,6 +23,9 @@
     .jsmaps {
         left: 0;
         top: 0;
+        &.grabbing {
+            cursor: crosshair !important;
+        }
     }
     .jsmaps-text {
         float: left;
