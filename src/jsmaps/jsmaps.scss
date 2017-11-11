@@ -23,9 +23,6 @@
     .jsmaps {
         left: 0;
         top: 0;
-        &.grabbing {
-            cursor: crosshair !important;
-        }
     }
     .jsmaps-text {
         float: left;
@@ -49,14 +46,19 @@
         -webkit-background-clip: padding-box;
         background-clip: padding-box;
     }
-    .jsmaps-mouse-position {
-        position: fixed;
+    .jsmaps-mouse-position,
+    .jsmaps-viewbox-data {
+        position: absolute;
         top: 0;
         left: 0;
         background: #000;
         color: #fff;
         font-size: 14px;
         padding: 10px;
+    }
+    .jsmaps-viewbox-data {
+        left: auto;
+        right: 0;
     }
     /* console */
     

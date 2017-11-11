@@ -107,12 +107,12 @@
       'textAreaHeight': 300,
       'pinSize': 10,
       'displayMousePosition': false,
+      'displayViewBox': false,
       'enablePanZoom': false,
       'mapFolder': 'maps/',
       'initialZoom': 0,
       'initialMapX': 0,
       'initialMapY': 0,
-      'zoomSpeed': 1,
       'displayPreloader': true,
       'preloaderText': 'Loading map...',
       'disableTooltip': false,
@@ -165,8 +165,8 @@
     /////////////////////////////
     //Init map
     /////////////////////////////
-    var mapFile = settings.mapFolder + settings.map + '.js';
-    $.getScript(mapFile, function(data) {
+    //var mapFile = settings.mapFolder + settings.map + '.js';
+    //$.getScript(mapFile, function(data) {
 
       var mapData = window.JSMaps.maps[settings.map];
       var config = $.extend(settings, mapData.config);
@@ -236,8 +236,15 @@
         //Mouse position
         /////////////////////////////
         if (config.displayMousePosition) {
-          $('<div class="jsmaps-mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div><div class="mapXPos">Map X: 0</div><div class="mapYPos">Map Y: 0</div></div>').appendTo(mapWrapper);
+          $('<div class="jsmaps-mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div></div>').appendTo(mapWrapper);
           $('body').css('cursor', 'crosshair');
+        }
+
+        /////////////////////////////
+        //Mouse position
+        /////////////////////////////
+        if (config.displayViewBox) {
+          $('<div class="jsmaps-viewbox-data"><div class="xPos">X: {0}</div><div class="yPos">Y: {0}</div><div class="zoom">Zoom: {0}</div></div>').appendTo(mapWrapper);
         }
 
         /////////////////////////////
@@ -750,6 +757,7 @@
         function enablePanZoom() {
 
           panZoom = r.panzoom({
+            displayViewBox: config.displayViewBox,
             initialZoom: config.initialZoom,
             initialPosition: {
               x: config.initialMapX,
@@ -763,7 +771,6 @@
           panZoom.enable();
 
           mapConsole.on('click', function(e) {
-            console.log($(e.target).parent().prop('class'));
             switch($(e.target).parent().prop('class')) {
               case 'jsmaps-zoom-in':
                 panZoom.zoomIn(1);
@@ -887,7 +894,7 @@
       /////////////////////////////
       settings.onReady.call(this);
 
-    });// End getScript
+    //});// End getScript
 
   };// End plugin
 

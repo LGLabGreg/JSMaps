@@ -17,8 +17,6 @@
   .jsmaps-wrapper .jsmaps {
     left: 0;
     top: 0; }
-    .jsmaps-wrapper .jsmaps.grabbing {
-      cursor: crosshair !important; }
   .jsmaps-wrapper .jsmaps-text {
     float: left;
     overflow: auto;
@@ -38,14 +36,18 @@
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box; }
-  .jsmaps-wrapper .jsmaps-mouse-position {
-    position: fixed;
+  .jsmaps-wrapper .jsmaps-mouse-position,
+  .jsmaps-wrapper .jsmaps-viewbox-data {
+    position: absolute;
     top: 0;
     left: 0;
     background: #000;
     color: #fff;
     font-size: 14px;
     padding: 10px; }
+  .jsmaps-wrapper .jsmaps-viewbox-data {
+    left: auto;
+    right: 0; }
   .jsmaps-wrapper .jsmaps-console {
     float: left;
     clear: both;

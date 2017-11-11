@@ -65,7 +65,6 @@
         },
 
         pan: function (deltaX, deltaY) {
-            console.log('pan', deltaX)
             this.applyPan(deltaX * -1, deltaY * -1);
         },
 
@@ -97,7 +96,8 @@
             this.dragTime = 0;
     
             options = options || {};
-    
+            
+            settings.displayViewBox = options.displayViewBox || false;
             settings.maxZoom = options.maxZoom || 9;
             settings.minZoom = options.minZoom || 0;
             settings.zoomStep = options.zoomStep || 0.1;
@@ -128,6 +128,11 @@
                     me.currPos.y = (paper.height * me.currZoom * settings.zoomStep);
                 }
                 paper.setViewBox(me.currPos.x, me.currPos.y, newWidth, newHeight);
+                if (settings.displayViewBox) {
+                    container.parentNode.querySelector('.jsmaps-viewbox-data .xPos').innerHTML = 'X: ' + Math.round(me.currPos.x);
+                    container.parentNode.querySelector('.jsmaps-viewbox-data .yPos').innerHTML = 'Y: ' + Math.round(me.currPos.y);
+                    container.parentNode.querySelector('.jsmaps-viewbox-data .zoom').innerHTML = 'Zoom: ' + me.currZoom;
+                }
             }
             
             function dragging(e) {
@@ -244,7 +249,6 @@
             function applyPan(dX, dY) {
                 deltaX = dX;
                 deltaY = dY;
-                console.log('deltaX', deltaX)
                 repaint();
             }
             
