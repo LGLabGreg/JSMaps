@@ -21,6 +21,7 @@
         @include transform(translate(-50%, -50%));
     }
     .jsmaps {
+        position: absolute;
         left: 0;
         top: 0;
     }

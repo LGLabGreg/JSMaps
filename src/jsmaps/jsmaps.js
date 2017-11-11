@@ -85,7 +85,6 @@
   /////////////////////////////
   $.fn.JSMaps = function(options) {
 
-
     /////////////////////////////
     //Settings
     /////////////////////////////
@@ -113,6 +112,7 @@
       'initialZoom': 0,
       'initialMapX': 0,
       'initialMapY': 0,
+      'retainPanZoomOnRedraw': false,
       'displayPreloader': true,
       'preloaderText': 'Loading map...',
       'disableTooltip': false,
@@ -128,6 +128,9 @@
     // Catch missing map data
     if (!settings.map) {
       throw new Error('JSMaps plugin was called without a map property');
+    }
+    if (!window.JSMaps.maps[settings.map]) {
+      throw new Error('The data for ' + settings.map + ' is missing');
     }
 
     // Map element
@@ -159,7 +162,6 @@
     var pinsAr = [];
     var mapSelect = null;
     var panZoom;
-
 
 
     /////////////////////////////
@@ -212,9 +214,6 @@
     //Render map
     /////////////////////////////
     function renderMap() {
-
-      // Reset variables on every redraw
-      pathsAr = [];
 
       /////////////////////////////
       //Config
@@ -272,7 +271,7 @@
       /////////////////////////////
       function createMap() {
 
-        r = new Raphael(mapId, config.mapWidth, config.mapHeight);
+        r = Raphael(mapId, config.mapWidth, config.mapHeight);
         var path;
         var pathBBox;
         var textX;
@@ -589,8 +588,6 @@
 
         if (config.stateClickAction === 'text') {
 
-          console.log('mapWidth', mapWidth)
-
           //Force text to bottom on mobile
           textPosition = winWidth >= 767 ? config.textPosition : 'bottom';
 
@@ -603,7 +600,7 @@
             });
             textArea.css({
               'width': mapWidth + 'px',
-              //'marginTop': mapHeight + 'px',
+              'marginTop': mapHeight + 'px',
               'height': 'auto'
             });
           } else {
@@ -618,7 +615,7 @@
               'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
               'display': 'inline',
               'float': winWidth >= 767 ? config.textPosition : 'none',
-              //'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
+              'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
             });
           }
         } else {
@@ -770,7 +767,7 @@
         panZoom.enable();
 
         mapConsole.on('click', function(e) {
-          switch($(e.target).parent().prop('class')) {
+          switch($(e.target).parents('li').prop('class')) {
             case 'jsmaps-zoom-in':
               panZoom.zoomIn(1);
               break;
@@ -816,26 +813,34 @@
         preloader.fadeOut();
       }
 
-      
+      mapWrapper.fadeIn();
 
+    
     }
 
     function clearMap() {
-      // clear svg
-      r.clear();
-      // clear html
-      if (mapWrapper.find('.jsmaps-console').length) {
-        mapWrapper.find('.jsmaps-console').remove();
-      }
-      if (mapWrapper.find('.jsmaps-mouse-position').length) {
-        mapWrapper.find('.jsmaps-mouse-position').remove();
-      }
-      if (mapWrapper.find('.jsmaps-text').length) {
-        mapWrapper.find('.jsmaps-text').remove();
-      }
-      // Reset variables
-      statesHitAreas = [];
-      statesTexts = [];
+      mapWrapper.fadeOut('fast', function() {
+        // clear svg
+        r.remove();
+        // clear html
+        if (mapWrapper.find('.jsmaps-console').length) {
+          mapWrapper.find('.jsmaps-console').remove();
+        }
+        if (mapWrapper.find('.jsmaps-mouse-position').length) {
+          mapWrapper.find('.jsmaps-mouse-position').remove();
+        }
+        if (mapWrapper.find('.jsmaps-text').length) {
+          mapWrapper.find('.jsmaps-text').remove();
+        }
+        // Reset variables
+        if (panZoom) {
+          panZoom = null;
+        }
+        pathsAr = [];
+        statesHitAreas = [];
+        statesTexts = [];
+        renderMap();
+      })
     }
 
     renderMap();
@@ -875,6 +880,11 @@
       if (data.config) {
         config = $.extend(config, data.config);
       }
+      if (config.retainPanZoomOnRedraw) {
+        config.initialZoom = panZoom.getCurrentZoom();
+        config.initialMapX = panZoom.getCurrentPosition().x;
+        config.initialMapY = panZoom.getCurrentPosition().y;
+      }
       if (data.pins) {
         pins = data.pins;
       }
@@ -882,10 +892,10 @@
         paths = data.paths;
       }
       if (preloader && preloader.length) {
-        preloader.fadeIn();
+        preloader.fadeIn('fast');
       }
       clearMap();
-      renderMap();
+      //renderMap();
     });
 
     /////////////////////////////
