@@ -165,375 +165,232 @@
     /////////////////////////////
     //Init map
     /////////////////////////////
-    //var mapFile = settings.mapFolder + settings.map + '.js';
-    //$.getScript(mapFile, function(data) {
-
-      var mapData = window.JSMaps.maps[settings.map];
-      var config = $.extend(settings, mapData.config);
-      var paths = mapData.paths;
-      var pins = mapData.pins;
+    var mapData = window.JSMaps.maps[settings.map];
+    var config = $.extend(settings, mapData.config);
+    var paths = mapData.paths;
+    var pins = mapData.pins;
 
 
-      /////////////////////////////
-      //Helpers
-      /////////////////////////////
-      function animatePaths(paths, ids, color) {
-        $.each(ids, function(index, id) {
-          paths[id].animate({
-            fill: color
-          }, 500);
+    /////////////////////////////
+    //Helpers
+    /////////////////////////////
+    function animatePaths(paths, ids, color) {
+      $.each(ids, function(index, id) {
+        paths[id].animate({
+          fill: color
+        }, 500);
+      });
+    }
+
+    function setPathsGroups(paths) {
+      var path;
+      for (var i = 0, len = paths.length; i < len; i++) {
+        path = paths[i];
+        $.each(config.groups, function(index, group) {
+          $.each(group.members, function(index, member) {
+            if (path.name === member) {
+              path.group = group.name;
+              path.color = group.color;
+              path.hoverColor = group.hoverColor;
+              path.selectedColor = group.selectedColor;
+            }
+          });
         });
       }
+      return paths;
+    }
 
-      function setPathsGroups(paths) {
-        var path;
-        for (var i = 0, len = paths.length; i < len; i++) {
-          path = paths[i];
-          $.each(config.groups, function(index, group) {
-            $.each(group.members, function(index, member) {
-              if (path.name === member) {
-                path.group = group.name;
-                path.color = group.color;
-                path.hoverColor = group.hoverColor;
-                path.selectedColor = group.selectedColor;
-              }
-            });
-          });
-        }
-        return paths;
+    function resetScrollBar() {
+      if (config.stateClickAction === 'text') {
+        var t = textArea[0];
+        t.scrollLeft = 0;
+        t.scrollTop = 0;
+      }
+    }
+    
+    /////////////////////////////
+    //Render map
+    /////////////////////////////
+    function renderMap() {
+
+      // Reset variables on every redraw
+      pathsAr = [];
+
+      /////////////////////////////
+      //Config
+      /////////////////////////////
+      var mapWidth = config.mapWidth;
+      var mapHeight = config.mapHeight;
+      var ratio = mapWidth / mapHeight;
+      
+      // Pan/zoom
+      if (config.enablePanZoom) {
+        var mapConsole = $('<div class=jsmaps-console><ul><li class=jsmaps-zoom-in><button type=button><div class="jsmaps-icon jsmaps-icon-plus"></div></button><li class=jsmaps-zoom-out><button type=button><div class="jsmaps-icon jsmaps-icon-minus"></div></button><li class=jsmaps-move-up><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-up"></div></button><li class=jsmaps-move-down><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-down"></div></button><li class=jsmaps-move-left><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-left"></div></button><li class=jsmaps-move-right><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-right"></div></button><li class=jsmaps-zoom-reset><button type=button><div class="jsmaps-icon jsmaps-icon-reset"></div></button></ul></div>').appendTo(mapWrapper);
       }
 
-      function resetScrollBar() {
-        if (config.stateClickAction === 'text') {
-          var t = textArea[0];
-          t.scrollLeft = 0;
-          t.scrollTop = 0;
-        }
-      }
       
       /////////////////////////////
-      //Render map
+      //Mouse position
       /////////////////////////////
-      function renderMap() {
+      if (config.displayMousePosition) {
+        $('<div class="jsmaps-mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div></div>').appendTo(mapWrapper);
+        $('body').css('cursor', 'crosshair');
+      }
 
-        // Reset variables on every redraw
-        pathsAr = [];
+      /////////////////////////////
+      //Mouse position
+      /////////////////////////////
+      if (config.displayViewBox) {
+        $('<div class="jsmaps-viewbox-data"><div class="xPos">X: {0}</div><div class="yPos">Y: {0}</div><div class="zoom">Zoom: {0}</div></div>').appendTo(mapWrapper);
+      }
 
-        /////////////////////////////
-        //Config
-        /////////////////////////////
-        var mapWidth = config.mapWidth;
-        var mapHeight = config.mapHeight;
-        var ratio = mapWidth / mapHeight;
-        
-        // Pan/zoom
-        if (config.enablePanZoom) {
-          var mapConsole = $('<div class=jsmaps-console><ul><li class=jsmaps-zoom-in><button type=button><div class="jsmaps-icon jsmaps-icon-plus"></div></button><li class=jsmaps-zoom-out><button type=button><div class="jsmaps-icon jsmaps-icon-minus"></div></button><li class=jsmaps-move-up><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-up"></div></button><li class=jsmaps-move-down><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-down"></div></button><li class=jsmaps-move-left><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-left"></div></button><li class=jsmaps-move-right><button type=button><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-right"></div></button><li class=jsmaps-zoom-reset><button type=button><div class="jsmaps-icon jsmaps-icon-reset"></div></button></ul></div>').appendTo(mapWrapper);
-        }
+      /////////////////////////////
+      //Text area
+      /////////////////////////////
 
-        
-        /////////////////////////////
-        //Mouse position
-        /////////////////////////////
-        if (config.displayMousePosition) {
-          $('<div class="jsmaps-mouse-position"><div class="xPos">X: 0</div><div class="yPos">Y: 0</div></div>').appendTo(mapWrapper);
-          $('body').css('cursor', 'crosshair');
-        }
-
-        /////////////////////////////
-        //Mouse position
-        /////////////////////////////
-        if (config.displayViewBox) {
-          $('<div class="jsmaps-viewbox-data"><div class="xPos">X: {0}</div><div class="yPos">Y: {0}</div><div class="zoom">Zoom: {0}</div></div>').appendTo(mapWrapper);
-        }
-
-        /////////////////////////////
-        //Text area
-        /////////////////////////////
-
-        //Set initial default text
-        if (config.stateClickAction === 'text') {
-          // Create text div
-          textArea = $('<div class="jsmaps-text"></div>').appendTo(mapWrapper);
-          textArea.html(config.defaultText);
-          // Handle text left
-          if (config.textPosition === 'left') {
-            map.css({
-              'left': 'auto',
-              'right': '0'
-            });
-            mapConsole.css({
-              'left': 'auto',
-              'right': '10px'
-            });
-          }
-        }
-
-
-        /////////////////////////////
-        //Main map function
-        /////////////////////////////
-        function createMap() {
-
-          r = new Raphael(mapId, config.mapWidth, config.mapHeight);
-          var path;
-          var pathBBox;
-          var textX;
-          var textY;
-          var pathProperties = {
-            'stroke-width': config.strokeWidth || 1
-          };
-          var textProperties = {
-            'font-family': 'Arial, sans-serif',
-            'font-weight': 'bold',
-            'font-size': config.abbreviationFontSize,
-            'fill': config.abbreviationColor,
-            'z-index': 1000
-          };
-          var hitAreaProperties = {
-            'fill': '#f00',
-            'stroke-width': 0,
-            'opacity': 0
-          };
-
-          /////////////////////////////
-          //Groups
-          /////////////////////////////
-          if (config.groups && config.groups.length) {
-            $.each(config.groups, function(index, group) {
-              group.set = r.set();
-              group.groupIds = [];
-            });
-            paths = setPathsGroups(paths);
-          }
-
-
-          /////////////////////////////
-          //Paths
-          /////////////////////////////
-          for (var i = 0, len = paths.length; i < len; i++) {
-
-            paths[i].id = i;
-
-            // Extend paths properties
-            if (!paths[i].enable) {
-              pathProperties = $.extend(pathProperties, {
-                'fill': config.offColor,
-                'stroke': config.offStrokeColor
-              });
-            } else {
-              pathProperties = $.extend(pathProperties, {
-                'fill': paths[i].color,
-                'stroke': config.strokeColor,
-                'id': i
-              });
-            }
-            hitAreaProperties = $.extend(hitAreaProperties, {
-              'cursor': paths[i].enable ? (config.displayMousePosition ? 'crosshair' : 'pointer') : 'default'
-            });
-
-            // Create path
-            path = r.path(paths[i].path).attr(pathProperties);
-            pathsAr.push(path);
-
-            // Create text on enabled states unless disabled in config 
-            if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
-              if (config.autoPositionAbbreviations) {
-                pathBBox = path.getBBox();
-                textX = pathBBox.x + (pathBBox.width / 2) + paths[i].textX;
-                textY = pathBBox.y + (pathBBox.height / 2) + paths[i].textY;
-              }
-              else {
-                textX = paths[i].textX;
-                textY = paths[i].textY;
-              }
-              statesTexts.push(r.text(textX, textY, paths[i].abbreviation).attr(textProperties));
-            }
-
-            // Create hit area layer
-            var group;
-            var hitArea;
-            var groupIndex;
-            if (paths[i].group) {
-              group = config.groups.find(function(group, index) {
-                if (paths[i].group === group.name) {
-                  groupIndex = index;
-                  group.groupIds.push(i);
-                  return group;
-                }
-              });
-              hitArea = group.set.push(r.path(paths[i].path)).attr(hitAreaProperties);
-              hitArea.data('group', group);
-              hitArea.data('id', groupIndex);
-              hitArea.name = group.name;
-            }
-            else {
-              hitArea = r.path(paths[i].path).attr(hitAreaProperties);
-              hitArea.data('id', i);
-              hitArea.name = paths[i].name;
-            }
-
-            statesHitAreas.push(hitArea);
-
-
-            function hitAreaOverOut(e) {
-              
-              var id = this.data('id');
-              var isGroup = !!this.data('group');
-              var target = isGroup ? this.data('group') : paths[id];
-              var enabled = target.enable;
-              var isMouseover = e.type === 'mouseover';
-              var color = isMouseover ? target.hoverColor : target.color;
-              var callback = isMouseover ? settings.onStateOver : settings.onStateOut;
-
-              if (enabled) {
-
-                // Animate paths
-                if (target != current) {
-                  var pathIds = isGroup ? this.data('group').groupIds : [id];
-                  animatePaths(pathsAr, pathIds, color);
-                }
-                
-                // Tooltip
-                isMouseover ? showTooltip(target.name) : removeTooltip();
-
-                // Trigger callback
-                if ($.isFunction(callback)) {
-                  callback.call(this, target);
-                }
-              }
-            }
-            hitArea.mouseover(hitAreaOverOut);
-            hitArea.mouseout(hitAreaOverOut);
-
-
-            hitArea.click(function(e) {
-
-              if (panZoom && panZoom.isDragging()) return;
-
-              var id = this.data('id');
-              var isGroup = !!this.data('group');
-              var target = isGroup ? this.data('group') : paths[id];
-              var enabled = target.enable;
-              var pathIds;
-              var color;
-
-              if (enabled) {
-
-                //Reset scrollbar
-                resetScrollBar();
-                
-                //Animate previous state out
-                if (current && current != target) {
-                  pathIds = current.groupIds || [current.id];
-                  color = current.color;
-                  animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
-                }
-                isPin = false;
-
-                //Animate next
-                if (target != current) {
-                  pathIds = isGroup ? this.data('group').groupIds : [id];
-                  animatePaths(pathsAr, pathIds, target.selectedColor);
-                  if (mapSelect) {
-                    mapSelect.val(target.name);
-                  }
-                }
-
-                current = target;
-                
-                if (config.stateClickAction === 'text') {
-                  textArea.html(target.text);
-                } else if (config.stateClickAction === 'url') {
-                  window.open(target.url, config.hrefTarget);
-                }
-              }
-
-              // Trigger state click callback
-              if ($.isFunction(settings.onStateClick)) {
-                settings.onStateClick.call(this, target);
-              }
-
-            });
-
-          }
-
-          if (!config.displayMousePosition) {
-            resizeMap();
-            r.setViewBox(0, 0, config.mapWidth, config.mapHeight);
-            //resetMap(r);
-            if (config.responsive) {
-              $(window).on('resize', function() {
-                resizeMap();
-              });
-            }
-          }
-
-        }
-
-        /////////////////////////////
-        //Arrange order of elements
-        /////////////////////////////
-        function layerMap() {
-          statesTexts.forEach(function(element) {
-            element.toFront();
+      //Set initial default text
+      if (config.stateClickAction === 'text') {
+        // Create text div
+        textArea = $('<div class="jsmaps-text"></div>').appendTo(mapWrapper);
+        textArea.html(config.defaultText);
+        // Handle text left
+        if (config.textPosition === 'left') {
+          map.css({
+            'left': 'auto',
+            'right': '0'
           });
-          statesHitAreas.forEach(function(element) {
-            element.toFront();
+          mapConsole.css({
+            'left': 'auto',
+            'right': '10px'
           });
         }
+      }
+
+
+      /////////////////////////////
+      //Main map function
+      /////////////////////////////
+      function createMap() {
+
+        r = new Raphael(mapId, config.mapWidth, config.mapHeight);
+        var path;
+        var pathBBox;
+        var textX;
+        var textY;
+        var pathProperties = {
+          'stroke-width': config.strokeWidth || 1
+        };
+        var textProperties = {
+          'font-family': 'Arial, sans-serif',
+          'font-weight': 'bold',
+          'font-size': config.abbreviationFontSize,
+          'fill': config.abbreviationColor,
+          'z-index': 1000
+        };
+        var hitAreaProperties = {
+          'fill': '#f00',
+          'stroke-width': 0,
+          'opacity': 0
+        };
 
         /////////////////////////////
-        //Main pins function
+        //Groups
         /////////////////////////////
-        function createPins() {
+        if (config.groups && config.groups.length) {
+          $.each(config.groups, function(index, group) {
+            group.set = r.set();
+            group.groupIds = [];
+          });
+          paths = setPathsGroups(paths);
+        }
 
-          for (var i = 0; i < pins.length; i++) {
 
-            pins[i].id = i;
+        /////////////////////////////
+        //Paths
+        /////////////////////////////
+        for (var i = 0, len = paths.length; i < len; i++) {
 
-            var pinattrs = {
-              'cursor': 'pointer',
-              'fill': pins[i].color,
+          paths[i].id = i;
+
+          // Extend paths properties
+          if (!paths[i].enable) {
+            pathProperties = $.extend(pathProperties, {
+              'fill': config.offColor,
+              'stroke': config.offStrokeColor
+            });
+          } else {
+            pathProperties = $.extend(pathProperties, {
+              'fill': paths[i].color,
               'stroke': config.strokeColor,
               'id': i
-            };
+            });
+          }
+          hitAreaProperties = $.extend(hitAreaProperties, {
+            'cursor': paths[i].enable ? (config.displayMousePosition ? 'crosshair' : 'pointer') : 'default'
+          });
 
-            var pin;
+          // Create path
+          path = r.path(paths[i].path).attr(pathProperties);
+          pathsAr.push(path);
 
-            // If image
-            if (pins[i].src && pins[i].src !== '') {
-              var transformRatio = pins[i].pinWidth / pins[i].srcWidth;
-              pin = r.image(pins[i].src, 0, 0, pins[i].srcWidth, pins[i].srcHeight).attr(pinattrs);
-              var transformX = -pins[i].srcWidth / 2 + pins[i].xPos;
-              var transformY = -pins[i].srcHeight / 2 + pins[i].yPos;
-              pin.animate({
-                transform: 'T' + transformX + ',' + transformY + ' S' + transformRatio
-              }, 0);
+          // Create text on enabled states unless disabled in config 
+          if (paths[i].enable && config.displayAbbreviations || !paths[i].enable && config.displayAbbreviationOnDisabledStates) {
+            if (config.autoPositionAbbreviations) {
+              pathBBox = path.getBBox();
+              textX = pathBBox.x + (pathBBox.width / 2) + paths[i].textX;
+              textY = pathBBox.y + (pathBBox.height / 2) + paths[i].textY;
             }
-            // or circle
             else {
-              pin = r.circle(pins[i].xPos, pins[i].yPos, pins[i].pinWidth || config.pinSize).attr(pinattrs);
+              textX = paths[i].textX;
+              textY = paths[i].textY;
             }
+            statesTexts.push(r.text(textX, textY, paths[i].abbreviation).attr(textProperties));
+          }
 
-            pin.data('id', i);
-            pin.name =  pins[i].name;
-            pinsAr.push(pin);
-            statesHitAreas.push(pin);
-
-            function pinOverOut(e) {
-
-              var id = this.data('id');
-              var target = pins[id];
-              var isMouseover = e.type === 'mouseover';
-              var color = isMouseover ? target.hoverColor : target.color;
-              var callback = isMouseover ? settings.onStateOver : settings.onStateOut;
-
-              //Animate if not already the current state
-              if (target != current) {
-                animatePaths(pinsAr, [id], color);
+          // Create hit area layer
+          var group;
+          var hitArea;
+          var groupIndex;
+          if (paths[i].group) {
+            group = config.groups.find(function(group, index) {
+              if (paths[i].group === group.name) {
+                groupIndex = index;
+                group.groupIds.push(i);
+                return group;
               }
+            });
+            hitArea = group.set.push(r.path(paths[i].path)).attr(hitAreaProperties);
+            hitArea.data('group', group);
+            hitArea.data('id', groupIndex);
+            hitArea.name = group.name;
+          }
+          else {
+            hitArea = r.path(paths[i].path).attr(hitAreaProperties);
+            hitArea.data('id', i);
+            hitArea.name = paths[i].name;
+          }
 
+          statesHitAreas.push(hitArea);
+
+
+          function hitAreaOverOut(e) {
+            
+            var id = this.data('id');
+            var isGroup = !!this.data('group');
+            var target = isGroup ? this.data('group') : paths[id];
+            var enabled = target.enable;
+            var isMouseover = e.type === 'mouseover';
+            var color = isMouseover ? target.hoverColor : target.color;
+            var callback = isMouseover ? settings.onStateOver : settings.onStateOut;
+
+            if (enabled) {
+
+              // Animate paths
+              if (target != current) {
+                var pathIds = isGroup ? this.data('group').groupIds : [id];
+                animatePaths(pathsAr, pathIds, color);
+              }
+              
               // Tooltip
               isMouseover ? showTooltip(target.name) : removeTooltip();
 
@@ -542,359 +399,499 @@
                 callback.call(this, target);
               }
             }
-            pin.mouseover(pinOverOut);
-            pin.mouseout(pinOverOut);
+          }
+          hitArea.mouseover(hitAreaOverOut);
+          hitArea.mouseout(hitAreaOverOut);
 
-            pin.click(function(e) {
 
-              if (panZoom && panZoom.isDragging()) return;
+          hitArea.click(function(e) {
 
-              var id = this.data('id');
-              var target = pins[id];
+            if (panZoom && panZoom.isDragging()) return;
+
+            var id = this.data('id');
+            var isGroup = !!this.data('group');
+            var target = isGroup ? this.data('group') : paths[id];
+            var enabled = target.enable;
+            var pathIds;
+            var color;
+
+            if (enabled) {
 
               //Reset scrollbar
               resetScrollBar();
-
-              if (current) {
+              
+              //Animate previous state out
+              if (current && current != target) {
                 pathIds = current.groupIds || [current.id];
+                color = current.color;
                 animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
               }
-              isPin = true;
+              isPin = false;
 
               //Animate next
-              animatePaths(pinsAr, [id], target.selectedColor);
-              current = target;
+              if (target != current) {
+                pathIds = isGroup ? this.data('group').groupIds : [id];
+                animatePaths(pathsAr, pathIds, target.selectedColor);
+                if (mapSelect) {
+                  mapSelect.val(target.name);
+                }
+              }
 
+              current = target;
+              
               if (config.stateClickAction === 'text') {
                 textArea.html(target.text);
               } else if (config.stateClickAction === 'url') {
                 window.open(target.url, config.hrefTarget);
               }
+            }
 
-              // Trigger state click callback
-              if ($.isFunction(settings.onStateClick)) {
-                settings.onStateClick.call(this, target);
-              }
+            // Trigger state click callback
+            if ($.isFunction(settings.onStateClick)) {
+              settings.onStateClick.call(this, target);
+            }
 
+          });
+
+        }
+
+        if (!config.displayMousePosition) {
+          resizeMap();
+          r.setViewBox(0, 0, config.mapWidth, config.mapHeight);
+          //resetMap(r);
+          if (config.responsive) {
+            $(window).on('resize', function() {
+              resizeMap();
             });
-
           }
         }
 
+      }
 
-        /////////////////////////////
-        //Resize map functions
-        /////////////////////////////
-        function resizeMap() {
+      /////////////////////////////
+      //Arrange order of elements
+      /////////////////////////////
+      function layerMap() {
+        statesTexts.forEach(function(element) {
+          element.toFront();
+        });
+        statesHitAreas.forEach(function(element) {
+          element.toFront();
+        });
+      }
 
-          containerWidth = mapWrapper.parent().width();
-          winWidth = win.width();
+      /////////////////////////////
+      //Main pins function
+      /////////////////////////////
+      function createPins() {
 
-          if (config.stateClickAction === 'text') {
+        for (var i = 0; i < pins.length; i++) {
 
-            //Force text to bottom on mobile
-            textPosition = winWidth >= 767 ? config.textPosition : 'bottom';
+          pins[i].id = i;
 
-            if (textPosition === 'bottom') {
-              mapWidth = containerWidth;
-              mapHeight = mapWidth / ratio;
-              mapWrapper.css({
-                'width': mapWidth + 'px',
-                'height': mapHeight + textArea.height() + 'px'
-              });
-              textArea.css({
-                'width': mapWidth + 'px',
-                //'marginTop': mapHeight + 'px',
-                'height': 'auto'
-              });
-            } else {
-              mapWidth = containerWidth - config.textAreaWidth;
-              mapHeight = mapWidth / ratio;
-              mapWrapper.css({
-                'width': winWidth >= 767 ? mapWidth + config.textAreaWidth + 'px' : mapWidth + 'px',
-                'height': mapHeight + 'px'
-              });
-              textArea.css({
-                'width': winWidth >= 767 ? config.textAreaWidth + 'px' : mapWidth + 'px',
-                'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
-                'display': 'inline',
-                'float': winWidth >= 767 ? config.textPosition : 'none',
-                //'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
-              });
+          var pinattrs = {
+            'cursor': 'pointer',
+            'fill': pins[i].color,
+            'stroke': config.strokeColor,
+            'id': i
+          };
+
+          var pin;
+
+          // If image
+          if (pins[i].src && pins[i].src !== '') {
+            var transformRatio = pins[i].pinWidth / pins[i].srcWidth;
+            pin = r.image(pins[i].src, 0, 0, pins[i].srcWidth, pins[i].srcHeight).attr(pinattrs);
+            var transformX = -pins[i].srcWidth / 2 + pins[i].xPos;
+            var transformY = -pins[i].srcHeight / 2 + pins[i].yPos;
+            pin.animate({
+              transform: 'T' + transformX + ',' + transformY + ' S' + transformRatio
+            }, 0);
+          }
+          // or circle
+          else {
+            pin = r.circle(pins[i].xPos, pins[i].yPos, pins[i].pinWidth || config.pinSize).attr(pinattrs);
+          }
+
+          pin.data('id', i);
+          pin.name =  pins[i].name;
+          pinsAr.push(pin);
+          statesHitAreas.push(pin);
+
+          function pinOverOut(e) {
+
+            var id = this.data('id');
+            var target = pins[id];
+            var isMouseover = e.type === 'mouseover';
+            var color = isMouseover ? target.hoverColor : target.color;
+            var callback = isMouseover ? settings.onStateOver : settings.onStateOut;
+
+            //Animate if not already the current state
+            if (target != current) {
+              animatePaths(pinsAr, [id], color);
             }
-          } else {
+
+            // Tooltip
+            isMouseover ? showTooltip(target.name) : removeTooltip();
+
+            // Trigger callback
+            if ($.isFunction(callback)) {
+              callback.call(this, target);
+            }
+          }
+          pin.mouseover(pinOverOut);
+          pin.mouseout(pinOverOut);
+
+          pin.click(function(e) {
+
+            if (panZoom && panZoom.isDragging()) return;
+
+            var id = this.data('id');
+            var target = pins[id];
+
+            //Reset scrollbar
+            resetScrollBar();
+
+            if (current) {
+              pathIds = current.groupIds || [current.id];
+              animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
+            }
+            isPin = true;
+
+            //Animate next
+            animatePaths(pinsAr, [id], target.selectedColor);
+            current = target;
+
+            if (config.stateClickAction === 'text') {
+              textArea.html(target.text);
+            } else if (config.stateClickAction === 'url') {
+              window.open(target.url, config.hrefTarget);
+            }
+
+            // Trigger state click callback
+            if ($.isFunction(settings.onStateClick)) {
+              settings.onStateClick.call(this, target);
+            }
+
+          });
+
+        }
+      }
+
+
+      /////////////////////////////
+      //Resize map functions
+      /////////////////////////////
+      function resizeMap() {
+
+        containerWidth = mapWrapper.parent().width();
+        winWidth = win.width();
+
+        if (config.stateClickAction === 'text') {
+
+          console.log('mapWidth', mapWidth)
+
+          //Force text to bottom on mobile
+          textPosition = winWidth >= 767 ? config.textPosition : 'bottom';
+
+          if (textPosition === 'bottom') {
             mapWidth = containerWidth;
             mapHeight = mapWidth / ratio;
             mapWrapper.css({
               'width': mapWidth + 'px',
+              'height': mapHeight + textArea.height() + 'px'
+            });
+            textArea.css({
+              'width': mapWidth + 'px',
+              //'marginTop': mapHeight + 'px',
+              'height': 'auto'
+            });
+          } else {
+            mapWidth = containerWidth - config.textAreaWidth;
+            mapHeight = mapWidth / ratio;
+            mapWrapper.css({
+              'width': winWidth >= 767 ? mapWidth + config.textAreaWidth + 'px' : mapWidth + 'px',
               'height': mapHeight + 'px'
             });
+            textArea.css({
+              'width': winWidth >= 767 ? config.textAreaWidth + 'px' : mapWidth + 'px',
+              'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
+              'display': 'inline',
+              'float': winWidth >= 767 ? config.textPosition : 'none',
+              //'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
+            });
           }
-
-          r.setSize(mapWidth, mapHeight);
-        }
-
-        /////////////////////////////
-        //Tooltip
-        /////////////////////////////
-        function showTooltip(text) {
-          if (isTouchDevice && isMobile || config.disableTooltip) {
-            return;
-          }
-          removeTooltip();
-          map.after($('<div />').addClass('jsmaps-tooltip'));
-          $('.jsmaps-tooltip').html(text);
-
-          // Check tootip fits at the top
-          calculateTooltipOffset();
-
-          $('.jsmaps-tooltip').fadeIn();
-        }
-
-        function calculateTooltipOffset() {
-          tooltipOffsetY = -40;
-          isTooltipBelowMouse = (mouseY - $('.jsmaps-tooltip').height() + tooltipOffsetY) < 0;
-          tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.jsmaps-tooltip').height();
-
-          $('.jsmaps-tooltip').css({
-            left: mouseX - $('.jsmaps-tooltip').width()/2,
-            top: mouseY + tooltipOffsetY
+        } else {
+          mapWidth = containerWidth;
+          mapHeight = mapWidth / ratio;
+          mapWrapper.css({
+            'width': mapWidth + 'px',
+            'height': mapHeight + 'px'
           });
         }
 
-        function removeTooltip() {
-          map.next('.jsmaps-tooltip').remove();
-        }
-
-        /////////////////////////////
-        //Select
-        /////////////////////////////
-        function createSelect() {
-          // Create element
-          var markup = $('<div class="jsmaps-select"><select><option value="default"></option></select><div class="jsmaps-select-icon"><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-down jsmaps-theme-light"></div></div></div>')
-            .insertBefore(mapWrapper);
-          // Add classes
-          if (config.selectElementDevices && config.selectElementDevices.length) {
-            markup.addClass(config.selectElementDevices.join(' '));
-          }
-          else {
-            markup.addClass('all-devices');
-          }
-          // Build select
-          mapSelect = markup.find('select');
-          mapSelect.find('option[value="default"]').text(config.selectElementDefaultText);
-          // Sort alphabetically
-          var sorted = statesHitAreas.sort(function(a, b) {
-            if(a.name < b.name) return -1;
-            if(a.name > b.name) return 1;
-            return 0;
-          });
-          // Add options
-          sorted.forEach(function(element) {
-            $('<option>')
-              .val(element.name)
-              .text(element.name)
-              .appendTo(mapSelect);
-          });
-          // Event listeners
-          mapSelect.on('change', function() {
-            if (this.value !== 'default') {
-              mapWrapper.trigger('stateClick', this.value);
-            }
-            else {
-              mapWrapper.trigger('stateUnClick');
-            }
-          });
-        }
-
-        /////////////////////////////
-        //Mouse events
-        /////////////////////////////
-
-
-        // Main function to retrieve mouse x-y pos.s
-        function getMouseXY(e) {
-
-          var scrollTop = $(window).scrollTop();
-
-          if (e && e.pageX) {
-            mouseX = e.pageX;
-            mouseY = e.pageY - scrollTop;
-          } else {
-            mouseX = event.clientX + document.body.scrollLeft;
-            mouseY = event.clientY + document.body.scrollTop;
-          }
-          // catch possible negative values
-          if (mouseX < 0) {
-            mouseX = 0;
-          }
-          if (mouseY < 0) {
-            mouseY = 0;
-          }
-
-          calculateTooltipOffset();
-
-          if (config.displayMousePosition) {
-            var scrollTop = win.scrollTop();
-            var offset = mapWrapper.offset();
-            var relX = Math.round(mouseX - offset.left);
-            var relY = Math.round(mouseY - offset.top + scrollTop);
-            var mapXPos = Math.round(relX - config.mapWidth / 2);
-            var mapYPos = Math.round(relY - config.mapHeight / 2);
-            $('.jsmaps-mouse-position .xPos').text('X: ' + relX);
-            $('.jsmaps-mouse-position .yPos').text('Y: ' + relY);
-            $('.jsmaps-mouse-position .mapXPos').text('Map X: ' + mapXPos);
-            $('.jsmaps-mouse-position .mapYPos').text('Map Y: ' + mapYPos);
-          }
-        }
-
-        // Set-up to use getMouseXY function onMouseMove
-        //document.body.onmousemove = getMouseXY;
-        mapWrapper.mousemove(function(event) {
-          getMouseXY(event);
-        });
-
-        function enablePanZoom() {
-
-          panZoom = r.panzoom({
-            displayViewBox: config.displayViewBox,
-            initialZoom: config.initialZoom,
-            initialPosition: {
-              x: config.initialMapX,
-              y: config.initialMapY
-            },
-            originSize: {
-              width: config.mapWidth,
-              height: config.mapHeight
-            }
-          });
-          panZoom.enable();
-
-          mapConsole.on('click', function(e) {
-            switch($(e.target).parent().prop('class')) {
-              case 'jsmaps-zoom-in':
-                panZoom.zoomIn(1);
-                break;
-              case 'jsmaps-zoom-out':
-                panZoom.zoomOut(1);
-                break;
-              case 'jsmaps-zoom-reset':
-                panZoom.zoomReset();
-                break;
-              case 'jsmaps-move-up':
-                panZoom.pan(0, 20);
-                break;
-              case 'jsmaps-move-down':
-                panZoom.pan(0, -20);
-                break;
-              case 'jsmaps-move-left':
-                panZoom.pan(20, 0);
-                break;
-              case 'jsmaps-move-right':
-                panZoom.pan(-20, 0);
-                break;
-            }
-          })
-
-          // Display console
-          mapConsole.fadeIn();
-          
-        }
-
-        createMap();
-        layerMap();
-        
-        if (pins && pins.length) {
-          createPins();
-        }
-        if (config.enablePanZoom && !config.displayMousePosition) {
-          enablePanZoom();
-        }
-        if (config.selectElement) {
-          createSelect();
-        }
-        if (preloader && preloader.length) {
-          preloader.fadeOut();
-        }
-
-        
-
+        r.setSize(mapWidth, mapHeight);
       }
 
-      function clearMap() {
-        // clear svg
-        r.clear();
-        // clear html
-        if (mapWrapper.find('.jsmaps-console').length) {
-          mapWrapper.find('.jsmaps-console').remove();
-        }
-        if (mapWrapper.find('.jsmaps-mouse-position').length) {
-          mapWrapper.find('.jsmaps-mouse-position').remove();
-        }
-        if (mapWrapper.find('.jsmaps-text').length) {
-          mapWrapper.find('.jsmaps-text').remove();
-        }
-        // Reset variables
-        statesHitAreas = [];
-        statesTexts = [];
-      }
-
-      renderMap();
-
       /////////////////////////////
-      // stateClick event listener
+      //Tooltip
       /////////////////////////////
-      mapWrapper.on('stateClick', function(_, name) {
-        $.each(statesHitAreas, function(index, elem) {
-          pathName = elem.name;
-          if (name === pathName) {
-            var target = statesHitAreas[index].type === 'set' ? statesHitAreas[index][0] : statesHitAreas[index];
-            target.trigger('click');
-          }
-        });
-      });
-
-      mapWrapper.on('stateUnClick', function() {
-        if (current) {
-          var pathIds = current.groupIds || [current.id];
-          animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
-          //reset initial default text
-          if (config.stateClickAction === 'text') {
-            textArea.html(config.defaultText);
-          }
-          current = null;
-        }
-      });
-
-      /////////////////////////////
-      // reDraw event listener
-      /////////////////////////////
-      mapWrapper.on('reDraw', function(_, data) {
-        if (!data) {
+      function showTooltip(text) {
+        if (isTouchDevice && isMobile || config.disableTooltip) {
           return;
         }
-        if (data.config) {
-          config = $.extend(config, data.config);
+        removeTooltip();
+        map.after($('<div />').addClass('jsmaps-tooltip'));
+        $('.jsmaps-tooltip').html(text);
+
+        // Check tootip fits at the top
+        calculateTooltipOffset();
+
+        $('.jsmaps-tooltip').fadeIn();
+      }
+
+      function calculateTooltipOffset() {
+        tooltipOffsetY = -40;
+        isTooltipBelowMouse = (mouseY - $('.jsmaps-tooltip').height() + tooltipOffsetY) < 0;
+        tooltipOffsetY = isTooltipBelowMouse ? 40 : tooltipOffsetY - $('.jsmaps-tooltip').height();
+
+        $('.jsmaps-tooltip').css({
+          left: mouseX - $('.jsmaps-tooltip').width()/2,
+          top: mouseY + tooltipOffsetY
+        });
+      }
+
+      function removeTooltip() {
+        map.next('.jsmaps-tooltip').remove();
+      }
+
+      /////////////////////////////
+      //Select
+      /////////////////////////////
+      function createSelect() {
+        // Create element
+        var markup = $('<div class="jsmaps-select"><select><option value="default"></option></select><div class="jsmaps-select-icon"><div class="jsmaps-icon jsmaps-icon-chevron jsmaps-icon-chevron-down jsmaps-theme-light"></div></div></div>')
+          .insertBefore(mapWrapper);
+        // Add classes
+        if (config.selectElementDevices && config.selectElementDevices.length) {
+          markup.addClass(config.selectElementDevices.join(' '));
         }
-        if (data.pins) {
-          pins = data.pins;
+        else {
+          markup.addClass('all-devices');
         }
-        if (data.paths) {
-          paths = data.paths;
+        // Build select
+        mapSelect = markup.find('select');
+        mapSelect.find('option[value="default"]').text(config.selectElementDefaultText);
+        // Sort alphabetically
+        var sorted = statesHitAreas.sort(function(a, b) {
+          if(a.name < b.name) return -1;
+          if(a.name > b.name) return 1;
+          return 0;
+        });
+        // Add options
+        sorted.forEach(function(element) {
+          $('<option>')
+            .val(element.name)
+            .text(element.name)
+            .appendTo(mapSelect);
+        });
+        // Event listeners
+        mapSelect.on('change', function() {
+          if (this.value !== 'default') {
+            mapWrapper.trigger('stateClick', this.value);
+          }
+          else {
+            mapWrapper.trigger('stateUnClick');
+          }
+        });
+      }
+
+      /////////////////////////////
+      //Mouse events
+      /////////////////////////////
+
+
+      // Main function to retrieve mouse x-y pos.s
+      function getMouseXY(e) {
+
+        var scrollTop = $(window).scrollTop();
+
+        if (e && e.pageX) {
+          mouseX = e.pageX;
+          mouseY = e.pageY - scrollTop;
+        } else {
+          mouseX = event.clientX + document.body.scrollLeft;
+          mouseY = event.clientY + document.body.scrollTop;
         }
-        if (preloader && preloader.length) {
-          preloader.fadeIn();
+        // catch possible negative values
+        if (mouseX < 0) {
+          mouseX = 0;
         }
-        clearMap();
-        renderMap();
+        if (mouseY < 0) {
+          mouseY = 0;
+        }
+
+        calculateTooltipOffset();
+
+        if (config.displayMousePosition) {
+          var scrollTop = win.scrollTop();
+          var offset = mapWrapper.offset();
+          var relX = Math.round(mouseX - offset.left);
+          var relY = Math.round(mouseY - offset.top + scrollTop);
+          var mapXPos = Math.round(relX - config.mapWidth / 2);
+          var mapYPos = Math.round(relY - config.mapHeight / 2);
+          $('.jsmaps-mouse-position .xPos').text('X: ' + relX);
+          $('.jsmaps-mouse-position .yPos').text('Y: ' + relY);
+          $('.jsmaps-mouse-position .mapXPos').text('Map X: ' + mapXPos);
+          $('.jsmaps-mouse-position .mapYPos').text('Map Y: ' + mapYPos);
+        }
+      }
+
+      // Set-up to use getMouseXY function onMouseMove
+      //document.body.onmousemove = getMouseXY;
+      mapWrapper.mousemove(function(event) {
+        getMouseXY(event);
       });
 
-      /////////////////////////////
-      // Map is ready
-      /////////////////////////////
-      settings.onReady.call(this);
+      function enablePanZoom() {
 
-    //});// End getScript
+        panZoom = r.panzoom({
+          displayViewBox: config.displayViewBox,
+          initialZoom: config.initialZoom,
+          initialPosition: {
+            x: config.initialMapX,
+            y: config.initialMapY
+          },
+          originSize: {
+            width: config.mapWidth,
+            height: config.mapHeight
+          }
+        });
+        panZoom.enable();
+
+        mapConsole.on('click', function(e) {
+          switch($(e.target).parent().prop('class')) {
+            case 'jsmaps-zoom-in':
+              panZoom.zoomIn(1);
+              break;
+            case 'jsmaps-zoom-out':
+              panZoom.zoomOut(1);
+              break;
+            case 'jsmaps-zoom-reset':
+              panZoom.zoomReset();
+              break;
+            case 'jsmaps-move-up':
+              panZoom.pan(0, 20);
+              break;
+            case 'jsmaps-move-down':
+              panZoom.pan(0, -20);
+              break;
+            case 'jsmaps-move-left':
+              panZoom.pan(20, 0);
+              break;
+            case 'jsmaps-move-right':
+              panZoom.pan(-20, 0);
+              break;
+          }
+        })
+
+        // Display console
+        mapConsole.fadeIn();
+        
+      }
+
+      createMap();
+      layerMap();
+      
+      if (pins && pins.length) {
+        createPins();
+      }
+      if (config.enablePanZoom && !config.displayMousePosition) {
+        enablePanZoom();
+      }
+      if (config.selectElement) {
+        createSelect();
+      }
+      if (preloader && preloader.length) {
+        preloader.fadeOut();
+      }
+
+      
+
+    }
+
+    function clearMap() {
+      // clear svg
+      r.clear();
+      // clear html
+      if (mapWrapper.find('.jsmaps-console').length) {
+        mapWrapper.find('.jsmaps-console').remove();
+      }
+      if (mapWrapper.find('.jsmaps-mouse-position').length) {
+        mapWrapper.find('.jsmaps-mouse-position').remove();
+      }
+      if (mapWrapper.find('.jsmaps-text').length) {
+        mapWrapper.find('.jsmaps-text').remove();
+      }
+      // Reset variables
+      statesHitAreas = [];
+      statesTexts = [];
+    }
+
+    renderMap();
+
+    /////////////////////////////
+    // stateClick event listener
+    /////////////////////////////
+    mapWrapper.on('stateClick', function(_, name) {
+      $.each(statesHitAreas, function(index, elem) {
+        pathName = elem.name;
+        if (name === pathName) {
+          var target = statesHitAreas[index].type === 'set' ? statesHitAreas[index][0] : statesHitAreas[index];
+          target.trigger('click');
+        }
+      });
+    });
+
+    mapWrapper.on('stateUnClick', function() {
+      if (current) {
+        var pathIds = current.groupIds || [current.id];
+        animatePaths(isPin ? pinsAr : pathsAr, pathIds, current.color);
+        //reset initial default text
+        if (config.stateClickAction === 'text') {
+          textArea.html(config.defaultText);
+        }
+        current = null;
+      }
+    });
+
+    /////////////////////////////
+    // reDraw event listener
+    /////////////////////////////
+    mapWrapper.on('reDraw', function(_, data) {
+      if (!data) {
+        return;
+      }
+      if (data.config) {
+        config = $.extend(config, data.config);
+      }
+      if (data.pins) {
+        pins = data.pins;
+      }
+      if (data.paths) {
+        paths = data.paths;
+      }
+      if (preloader && preloader.length) {
+        preloader.fadeIn();
+      }
+      clearMap();
+      renderMap();
+    });
+
+    /////////////////////////////
+    // Map is ready
+    /////////////////////////////
+    settings.onReady.call(this);
 
   };// End plugin
 
