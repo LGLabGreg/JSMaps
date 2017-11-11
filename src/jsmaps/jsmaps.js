@@ -302,7 +302,7 @@
         /////////////////////////////
         function createMap() {
 
-          r = new ScaleRaphael(mapId, config.mapWidth, config.mapHeight);
+          r = new Raphael(mapId, config.mapWidth, config.mapHeight);
           var path;
           var pathBBox;
           var textX;
@@ -485,8 +485,9 @@
 
           if (!config.displayMousePosition) {
             resizeMap();
+            resetMap(r);
             if (config.responsive) {
-              $(window).resize(function() {
+              $(window).on('resize', function() {
                 resizeMap();
               });
             }
@@ -625,7 +626,7 @@
               });
               textArea.css({
                 'width': mapWidth + 'px',
-                'marginTop': mapHeight + 'px',
+                //'marginTop': mapHeight + 'px',
                 'height': 'auto'
               });
             } else {
@@ -640,7 +641,7 @@
                 'height': winWidth >= 767 ? mapHeight + 'px' : config.textAreaHeight,
                 'display': 'inline',
                 'float': winWidth >= 767 ? config.textPosition : 'none',
-                'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
+                //'marginTop': winWidth >= 767 ? 0 : mapHeight + 'px'
               });
             }
           } else {
@@ -652,8 +653,10 @@
             });
           }
 
-          r.changeSize(mapWidth, mapHeight, true, false);
+          console.log('mapWidth', mapWidth);
+          console.log('mapHeight', mapHeight);
 
+          r.setSize(mapWidth, mapHeight);
         }
 
         /////////////////////////////
