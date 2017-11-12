@@ -2,6 +2,10 @@ window.JSMaps.maps.usa = {
 	"config": {
 		"mapWidth": 930,
 		"mapHeight": 590,
+		"westLong": -125.661621,
+		"eastLong": -66.883392,
+		"northLat": 49.365205,
+		"southLat": 24.343093,
 		"defaultText": "<h1>United States of America</h1><br /><p>The U.S. is a country of 50 states covering a vast swath of North America, with Alaska in the extreme Northwest and Hawaii extending the nation’s presence into the Pacific Ocean. Major cities include New York, a global finance and culture center, and Washington, DC, the capital, both on the Atlantic Coast; Los Angeles, famed for filmmaking, on the Pacific Coast; and the Midwestern metropolis Chicago.</p>"
 	},
 	"paths": [

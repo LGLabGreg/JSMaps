@@ -79,6 +79,63 @@
     });
   }
 
+  /////////////////////////////
+  /*Convert lat/long to x/y
+  * @params latLongData object with lat/long data
+  * @params mapData object with required map data
+  */
+  /////////////////////////////
+  function convertLatLongToXY(latLongData, mapData) {
+    // X and Y boundaries
+    var westLong = mapData.westLong;
+    var eastLong = mapData.eastLong;
+    var northLat = mapData.northLat;
+    var southLat = mapData.southLat;
+    var PI = Math.PI;
+    var mapLatBottomDegree = southLat * PI / 180;
+    var mapLonDelta = eastLong - westLong;
+
+    latLongData.latitude = latLongData.latitude * PI / 180;
+
+    var mapWidth = ((mapData.mapWidth / mapLonDelta) * 360) / (2 * PI);
+    var mapOffsetY = (mapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree))));
+
+    var lat = mapData.mapWidth - ((mapWidth / 2 * Math.log((1 + Math.sin(latLongData.latitude)) / (1 - Math.sin(latLongData.latitude)))) - mapOffsetY);
+    var long = (latLongData.longitude - westLong) * (mapData.mapHeight / mapLonDelta);
+    return {
+      x: long,
+      y: lat
+    }
+  }
+
+  function secondconvert(latitude, longitude) {
+    // Size of the map
+    var width = 930;
+    var height = 590;
+    // X and Y boundaries
+    var westLong = -125.661621;
+    var eastLong = -66.883392;
+    var northLat = 49.365205;
+    var southLat = 24.343093;
+
+    var pi = 3.1415926535898;
+    var mapLatBottomDegree = southLat * pi / 180;
+    //var longitude = -6.266327;//-9.0503;
+    //var latitude = 53.2734;
+    var mapLonDelta = eastLong - westLong;
+
+    var lontest = (longitude - (-125.661621)) * (590 / mapLonDelta);
+
+    latitude = latitude * pi / 180;
+    var worldMapWidth = ((width / mapLonDelta) * 360) / (2 * pi);
+    var mapOffsetY = (worldMapWidth / 2 * Math.log((1 + Math.sin(mapLatBottomDegree)) / (1 - Math.sin(mapLatBottomDegree))));
+    var lattest = height - ((worldMapWidth / 2 * Math.log((1 + Math.sin(latitude)) / (1 - Math.sin(latitude)))) - mapOffsetY);
+    return {
+      xlong: lontest,
+      ylat: lattest
+    }
+  }
+
 
   /////////////////////////////
   //Plugin definition
@@ -171,6 +228,8 @@
     var config = $.extend(settings, mapData.config);
     var paths = mapData.paths;
     var pins = mapData.pins;
+
+
 
 
     /////////////////////////////
@@ -820,6 +879,10 @@
       }
 
       mapWrapper.fadeIn();
+
+      var latLongToXY = convertLatLongToXY({latitude: 40.7128, longitude: 74.0060}, mapData.config);
+      console.log(secondconvert(40.7128, 74.0060))
+      r.circle(latLongToXY.x, latLongToXY.y, 3).attr('title', 'test').attr('fill', 'green').toFront();
 
     
     }
