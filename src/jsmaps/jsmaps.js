@@ -752,6 +752,12 @@
 
       function enablePanZoom() {
 
+        $('body').on('mousewheel DOMMouseScroll', function(e){
+          if (!$(e.target).parents('.jsmaps').length) return;
+          e.preventDefault();
+          e.stopPropagation();
+        });
+
         panZoom = r.panzoom({
           displayViewBox: config.displayViewBox,
           initialZoom: config.initialZoom,
