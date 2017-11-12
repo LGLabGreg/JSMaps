@@ -19,8 +19,12 @@
         left: 50%;
         z-index: 999;
         @include transform(translate(-50%, -50%));
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 16px 14px;
     }
     .jsmaps {
+        position: absolute;
         left: 0;
         top: 0;
     }
@@ -39,6 +43,7 @@
         font-weight: bold;
         border: 1px solid #262626;
         border-radius: 4px;
+        pointer-events: none;
         /* Opera 10.5, IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
         /* useful if you don't want a bg color from leaking outside the border: */
         
@@ -46,14 +51,19 @@
         -webkit-background-clip: padding-box;
         background-clip: padding-box;
     }
-    .jsmaps-mouse-position {
-        position: fixed;
+    .jsmaps-mouse-position,
+    .jsmaps-viewbox-data {
+        position: absolute;
         top: 0;
         left: 0;
         background: #000;
         color: #fff;
         font-size: 14px;
         padding: 10px;
+    }
+    .jsmaps-viewbox-data {
+        left: auto;
+        right: 0;
     }
     /* console */
     
