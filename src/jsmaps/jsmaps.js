@@ -819,28 +819,29 @@
     }
 
     function clearMap() {
-      mapWrapper.fadeOut('fast', function() {
-        // clear svg
-        r.remove();
-        // clear html
-        if (mapWrapper.find('.jsmaps-console').length) {
-          mapWrapper.find('.jsmaps-console').remove();
-        }
-        if (mapWrapper.find('.jsmaps-mouse-position').length) {
-          mapWrapper.find('.jsmaps-mouse-position').remove();
-        }
-        if (mapWrapper.find('.jsmaps-text').length) {
-          mapWrapper.find('.jsmaps-text').remove();
-        }
-        // Reset variables
-        if (panZoom) {
-          panZoom = null;
-        }
-        pathsAr = [];
-        statesHitAreas = [];
-        statesTexts = [];
-        renderMap();
-      })
+      // clear svg
+      r.remove();
+      // clear html
+      if (mapWrapper.find('.jsmaps-console').length) {
+        mapWrapper.find('.jsmaps-console').remove();
+      }
+      if (mapWrapper.find('.jsmaps-mouse-position').length) {
+        mapWrapper.find('.jsmaps-mouse-position').remove();
+      }
+      if (mapWrapper.find('.jsmaps-text').length) {
+        mapWrapper.find('.jsmaps-text').remove();
+      }
+      if (mapWrapper.siblings('.jsmaps-select').length) {
+        mapWrapper.siblings('.jsmaps-select').remove();
+      }
+      // Reset variables
+      if (panZoom) {
+        panZoom = null;
+      }
+      pathsAr = [];
+      statesHitAreas = [];
+      statesTexts = [];
+      renderMap();
     }
 
     renderMap();
@@ -880,7 +881,7 @@
       if (data.config) {
         config = $.extend(config, data.config);
       }
-      if (config.retainPanZoomOnRedraw) {
+      if (panZoom && config.retainPanZoomOnRedraw) {
         config.initialZoom = panZoom.getCurrentZoom();
         config.initialMapX = panZoom.getCurrentPosition().x;
         config.initialMapY = panZoom.getCurrentPosition().y;
@@ -892,10 +893,11 @@
         paths = data.paths;
       }
       if (preloader && preloader.length) {
-        preloader.fadeIn('fast');
+        preloader.fadeIn('fast', clearMap);
       }
-      clearMap();
-      //renderMap();
+      else {
+        clearMap();
+      }
     });
 
     /////////////////////////////

@@ -19,6 +19,9 @@
         left: 50%;
         z-index: 999;
         @include transform(translate(-50%, -50%));
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 16px 14px;
     }
     .jsmaps {
         position: absolute;
