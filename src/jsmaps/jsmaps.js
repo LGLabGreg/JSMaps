@@ -38,7 +38,7 @@
       }
     });
   }
-
+    
   /////////////////////////////
   //Mobile detection
   /////////////////////////////
@@ -362,11 +362,13 @@
             hitArea.data('group', group);
             hitArea.data('id', groupIndex);
             hitArea.name = group.name;
+            hitArea.enable = group.enable;
           }
           else {
             hitArea = r.path(paths[i].path).attr(hitAreaProperties);
             hitArea.data('id', i);
             hitArea.name = paths[i].name;
+            hitArea.enable = paths[i].enable;
           }
 
           statesHitAreas.push(hitArea);
@@ -514,6 +516,7 @@
 
           pin.data('id', i);
           pin.name =  pins[i].name;
+          pin.enable =  pins[i].enable;
           pinsAr.push(pin);
           statesHitAreas.push(pin);
 
@@ -684,6 +687,10 @@
           if(a.name < b.name) return -1;
           if(a.name > b.name) return 1;
           return 0;
+        });
+        // Remove disabled
+        sorted = sorted.filter(function(item){
+          return item.enable;
         });
         // Add options
         sorted.forEach(function(element) {
