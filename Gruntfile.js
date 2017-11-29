@@ -81,7 +81,7 @@ module.exports = function(grunt) {
           process: function (content) {
             return grunt.template.process(content, {
               data: grunt.util._.extend({
-                map: map || ''
+                map: map || 'world'
               }, {})
             });
           }
@@ -100,6 +100,14 @@ module.exports = function(grunt) {
           cwd: 'src',
           src: ['images/*'],
           dest: 'build'
+        }]
+      },
+      source: {
+        files: [{
+          cwd: 'src',
+          src: 'jsmaps/jsmaps.js',
+          dest: 'build/',
+          expand: true
         }]
       }
     },
