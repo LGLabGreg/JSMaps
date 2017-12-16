@@ -9,9 +9,9 @@ $(function() {
   var totalColors = colors.length;
   var newPaths = [];
 
-  $.getJSON("maps/trinidadAndTobago.json", function(json) {
+  $.getJSON("maps/usaCanada.json", function(json) {
 
-    var states = json.svg.g.path;
+    var states = json.svg.g[0].path;
 
     for(state in states) {
 
