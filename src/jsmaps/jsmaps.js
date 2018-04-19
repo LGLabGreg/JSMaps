@@ -258,10 +258,13 @@
             'left': 'auto',
             'right': '0'
           });
-          mapConsole.css({
-            'left': 'auto',
-            'right': '10px'
-          });
+          if (mapConsole) {
+            mapConsole.css({
+              'left': 'auto',
+              'right': '10px'
+            });
+          }
+          
         }
       }
 
